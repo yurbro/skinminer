@@ -1,0 +1,18 @@
+{
+  "benchmark_name": "skinminer_fixture_set_v1",
+  "description": "Template manifest for a frozen evaluation fixture set.",
+  "fixtures": [
+    {
+      "fixture_id": "fixture_0001",
+      "paper_id": "paper_xxxxx",
+      "doi": "10.xxxx/example",
+      "title": "Example paper title",
+      "fixture_bucket": "text_only",
+      "expected_route": "text",
+      "source_paths": [
+        "evaluation/fixtures/text_only/example_source.xml"
+      ],
+      "notes": "Replace with a real OA fixture and stable source pointer."
+    }
+  ]
+}

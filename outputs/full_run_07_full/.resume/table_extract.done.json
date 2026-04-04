@@ -1,0 +1,13 @@
+{
+  "stage": "table_extract",
+  "completed": 37,
+  "total": 37,
+  "detail": "records=77",
+  "input_count": 37,
+  "output_count": 77,
+  "output_paths": [
+    "outputs\\full_run_07_full\\table_records.jsonl",
+    "outputs\\full_run_07_full\\table_raw.jsonl"
+  ],
+  "resume_signature_digest": "30fbe5472db8d7f1e11de59ed40c2b8599f0f7e2"
+}

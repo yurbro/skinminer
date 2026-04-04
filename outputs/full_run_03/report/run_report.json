@@ -1,0 +1,364 @@
+{
+  "run_id": "run_b3f7e753ce61",
+  "model_name": "gpt-4o-mini",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-03-28T15:25:43.252855+00:00",
+  "query_profile": "",
+  "query_profile_version": "",
+  "query_source": "",
+  "prompt_assets": {},
+  "module_counts": {
+    "text": 21,
+    "table": 22,
+    "figure": 0
+  },
+  "route_distribution": {
+    "unresolved": 513,
+    "mixed": 3,
+    "text": 4,
+    "table": 5,
+    "figure": 6
+  },
+  "extractor_output_counts": {
+    "text": 21,
+    "table": 22,
+    "figure": 0
+  },
+  "verification_outcome_counts": {
+    "rejected": 15,
+    "unresolved": 14,
+    "verified": 13
+  },
+  "failure_taxonomy_counts": {
+    "not_target_device": 14,
+    "missing_endpoint": 5,
+    "percent_only": 4,
+    "missing_area": 3,
+    "not_target_api": 2,
+    "missing_api_concentration": 10,
+    "not_target_study_type": 2,
+    "insufficient_evidence": 2
+  },
+  "failure_taxonomy_counts_by_route": {
+    "figure": {
+      "missing_endpoint": 2,
+      "percent_only": 4,
+      "missing_area": 3,
+      "not_target_device": 2
+    },
+    "mixed": {
+      "not_target_device": 4,
+      "not_target_api": 2,
+      "missing_endpoint": 3,
+      "missing_api_concentration": 5
+    },
+    "table": {
+      "not_target_device": 6,
+      "missing_api_concentration": 1,
+      "not_target_study_type": 2
+    },
+    "text": {
+      "missing_api_concentration": 4,
+      "not_target_device": 2,
+      "insufficient_evidence": 2
+    }
+  },
+  "figure_verification_failure_taxonomy_counts": {
+    "missing_endpoint": 2,
+    "percent_only": 4,
+    "missing_area": 3,
+    "not_target_device": 2
+  },
+  "figure_stage_counts": {
+    "triage_artifacts": 8,
+    "triage_digitize_candidates": 6,
+    "digitized_curves": 0,
+    "digitized_endpoints_ok": 0,
+    "digitized_endpoints_failed": 5,
+    "mapped_curves": 0,
+    "unmapped_curves": 0
+  },
+  "figure_failure_counts": {
+    "triage_signals": {
+      "recommended_route:skip": 2,
+      "endpoint_curve_present:no": 2,
+      "digitizable:no": 2,
+      "why_not_digitizable:figures_do_not_display_endpoint_curves_relevant_to_ibuprofen": 1,
+      "why_not_digitizable:n_a": 1,
+      "ticks_readable:uncertain": 1,
+      "why_not_digitizable:no_endpoint_curves_identified_for_digitization_related_to_ibuprofen": 1
+    },
+    "digitization_failure_counts": {
+      "fail_few_edges": 4,
+      "fail_missing_plot_context": 1
+    },
+    "mapping_failure_counts": {}
+  },
+  "figure_route_counts": {
+    "skip": 2,
+    "digitize": 6
+  },
+  "figure_digitization_status_counts": {
+    "fail_few_edges": 4,
+    "fail_missing_plot_context": 1
+  },
+  "figure_mapping_status_counts": {},
+  "llm_reliability": {},
+  "blockage_summary": {
+    "access_status_counts": {
+      "unresolved": 222,
+      "downloaded": 40,
+      "error": 185,
+      "resolved": 84
+    },
+    "access_reason_counts": {
+      "resolve_error_connectionerror": 185
+    },
+    "route_unresolved_reason_counts": {
+      "missing_structured_and_pdf_router_source": 418,
+      "the_source_link_is_inaccessible_limiting_the_extraction_of_evidence": 1,
+      "the_document_did_not_load_no_extractable_evidence_could_be_found": 1,
+      "the_document_is_inaccessible_due_to_javascript_requirements": 3,
+      "no_extractable_evidence_from_the_provided_document": 1,
+      "no_extractable_information_available_due_to_webpage_access_issues": 1,
+      "no_extractable_evidence_found_due_to_website_access_issues": 1,
+      "unable_to_extract_evidence_due_to_javascript_requirement_for_the_webpage": 1,
+      "no_extractable_evidence_available_due_to_restricted_access_on_europe_pmc": 1,
+      "the_document_contains_no_useful_content_due_to_javascript_restrictions": 1,
+      "no_extractable_evidence_due_to_lack_of_accessible_content": 1,
+      "content_unavailable_due_to_javascript_requirement": 1,
+      "access_to_the_document_requires_javascript_content_not_available_for_extraction": 1,
+      "unable_to_extract_meaningful_information_due_to_html_content_limitations": 1,
+      "the_document_is_inaccessible_due_to_javascript_issues": 1,
+      "the_document_could_not_be_accessed_due_to_a_javascript_requirement": 1,
+      "unable_to_extract_information_from_the_paper_due_to_javascript_requirement": 1,
+      "unable_to_extract_content_due_to_javascript_requirement_on_the_source_page": 1,
+      "access_to_content_not_available_due_to_website_restrictions": 1,
+      "missing_structured_and_pdf_router_source_html_remote_httperror": 2,
+      "content_not_accessible_due_to_javascript_issue": 1,
+      "unable_to_extract_relevant_evidence_due_to_javascript_restrictions_on_the_webpag": 1,
+      "no_extractable_evidence_found_due_to_inaccessible_content": 4,
+      "content_is_not_accessible_due_to_javascript_requirement": 2,
+      "the_webpage_content_is_not_accessible_requires_javascript": 1,
+      "access_to_the_document_is_restricted_due_to_javascript_requirements": 1,
+      "unable_to_extract_relevant_content_due_to_blockage_from_javascript_support": 1,
+      "the_document_is_not_accessible_without_javascript": 1,
+      "access_to_content_is_restricted_no_extractable_evidence_available": 1,
+      "the_source_content_does_not_provide_any_usable_information_for_extraction": 1,
+      "the_document_does_not_provide_any_accessible_content_due_to_javascript_restricti": 1,
+      "the_source_document_could_not_be_accessed_due_to_javascript_restrictions": 1,
+      "unable_to_extract_evidence_due_to_website_restrictions_and_lack_of_accessible_co": 1,
+      "no_extractable_evidence_found_in_the_provided_document": 1,
+      "the_document_content_is_inaccessible_due_to_javascript_requirements": 2,
+      "the_document_is_inaccessible_no_extractable_information_available": 1,
+      "no_extractable_evidence_available_due_to_inaccessible_document_content": 1,
+      "access_to_content_is_blocked_unable_to_extract_details": 1,
+      "content_is_inaccessible_due_to_javascript_requirement": 1,
+      "content_not_accessible_due_to_website_restrictions": 2,
+      "cannot_access_content_due_to_javascript_requirements": 1,
+      "access_to_document_requires_javascript_which_is_currently_unsupported_unable_to_": 1,
+      "html_page_requires_javascript_and_cannot_be_accessed": 1,
+      "access_to_the_document_is_currently_restricted_due_to_javascript_issues": 1,
+      "no_extractable_evidence_found_due_to_webpage_restrictions": 1,
+      "access_to_full_document_requires_javascript_support_so_content_not_fully_extract": 1,
+      "the_document_does_not_provide_extractable_content_regarding_ibuprofen_or_diffusi": 1,
+      "no_accessible_content_javascript_required_to_view": 1,
+      "document_content_not_accessible_requires_javascript_support": 1,
+      "document_content_is_inaccessible_due_to_javascript_requirements": 1,
+      "content_inaccessible_no_relevant_information_available": 1,
+      "javascript_required_to_view_content": 1,
+      "no_extractable_evidence_available_due_to_website_access_limitations": 1,
+      "no_extractable_evidence_available_due_to_inability_to_access_document_content": 1,
+      "the_document_is_inaccessible_as_it_requires_javascript": 1,
+      "no_relevant_content_available_from_the_document": 1,
+      "unable_to_access_content_due_to_javascript_requirement": 1,
+      "unable_to_extract_specific_information_due_to_document_access_restrictions": 1,
+      "access_to_the_full_text_is_necessary_to_provide_relevant_extraction_details": 1,
+      "unable_to_extract_evidence_due_to_access_limitations": 1,
+      "the_document_cannot_be_accessed_contains_only_messages_about_javascript_support": 1,
+      "the_extraction_route_cannot_be_determined_due_to_lack_of_accessible_content": 1,
+      "document_is_inaccessible_requires_javascript": 1,
+      "no_extractable_evidence_available_document_content_cannot_be_accessed": 1,
+      "the_document_is_inaccessible_due_to_javascript_restrictions": 1,
+      "the_document_is_inaccessible_no_extractable_evidence_can_be_determined": 1,
+      "no_accessible_content_available_for_extraction": 1,
+      "the_document_content_is_inaccessible_it_may_require_javascript_to_view_properly": 1,
+      "the_content_could_not_be_accessed_due_to_the_requirement_of_javascript": 1,
+      "the_document_does_not_provide_extractable_evidence": 1,
+      "content_not_accessible_due_to_javascript_requirement": 1,
+      "access_to_the_document_is_restricted_evidence_extraction_not_possible": 1,
+      "the_document_requires_javascript_no_extractable_data_available": 1,
+      "the_document_content_is_not_accessible_unable_to_extract_relevant_information": 1,
+      "no_accessible_content_due_to_javascript_requirements": 1,
+      "content_is_not_accessible_due_to_javascript_restrictions": 1,
+      "content_not_available_for_extraction": 1,
+      "document_not_accessible_due_to_javascript_requirement": 1,
+      "the_document_is_not_accessible_due_to_issues_with_javascript": 1,
+      "insufficient_information_available_in_the_document": 1,
+      "access_issues_no_extractable_evidence_available": 1,
+      "no_detailed_evidence_available_due_to_website_access_issues": 1,
+      "the_document_is_inaccessible_due_to_javascript_requirements_thus_no_relevant_inf": 1,
+      "no_extractable_evidence_available_due_to_page_content_restrictions": 1,
+      "no_relevant_extraction_data_available_from_provided_document": 1,
+      "insufficient_evidence_extractable_from_the_provided_text": 1,
+      "no_relevant_extractable_evidence_found_in_the_provided_text": 1
+    },
+    "route_note_counts": {
+      "missing_structured_and_pdf_router_source": 418,
+      "includes_various_analyses_comparing_ibuprofen_dressings_with_alternatives_to_der": 1,
+      "the_source_link_is_inaccessible_limiting_the_extraction_of_evidence": 1,
+      "the_document_did_not_load_no_extractable_evidence_could_be_found": 1,
+      "the_study_examines_the_effects_of_skin_region_and_lipophilicity_on_absorption_bu": 1,
+      "the_document_is_inaccessible_due_to_javascript_requirements": 3,
+      "no_extractable_evidence_from_the_provided_document": 1,
+      "focus_on_the_ibuprofen_concentration_profiles_and_their_clearance_rates_followin": 1,
+      "no_extractable_information_available_due_to_webpage_access_issues": 1,
+      "no_extractable_evidence_found_due_to_website_access_issues": 1,
+      "unable_to_extract_evidence_due_to_javascript_requirement_for_the_webpage": 1,
+      "no_extractable_evidence_available_due_to_restricted_access_on_europe_pmc": 1,
+      "study_focuses_on_the_development_of_a_new_diffusion_cell_that_utilizes_uv_imagin": 1,
+      "the_study_confirms_that_pampa_provides_similar_or_better_permeability_results_fo": 1,
+      "the_paper_discusses_the_use_of_sebs_block_copolymers_in_transdermal_delivery_sys": 1,
+      "focus_on_the_adsorption_of_pharmaceuticals_like_ibuprofen_on_carbon_based_nanoma": 1,
+      "the_study_assesses_the_modification_of_skin_barrier_lipids_and_its_implications_": 1,
+      "the_document_contains_no_useful_content_due_to_javascript_restrictions": 1,
+      "the_study_explores_the_light_responsive_characteristics_of_ibuprofen_ion_pairs_i": 1,
+      "no_extractable_evidence_due_to_lack_of_accessible_content": 1,
+      "content_unavailable_due_to_javascript_requirement": 1,
+      "access_to_the_document_requires_javascript_content_not_available_for_extraction": 1,
+      "unable_to_extract_meaningful_information_due_to_html_content_limitations": 1,
+      "the_document_is_inaccessible_due_to_javascript_issues": 1,
+      "the_document_could_not_be_accessed_due_to_a_javascript_requirement": 1,
+      "unable_to_extract_information_from_the_paper_due_to_javascript_requirement": 1,
+      "unable_to_extract_content_due_to_javascript_requirement_on_the_source_page": 1,
+      "access_to_content_not_available_due_to_website_restrictions": 1,
+      "missing_structured_and_pdf_router_source_html_remote_httperror": 2,
+      "content_not_accessible_due_to_javascript_issue": 1,
+      "unable_to_extract_relevant_evidence_due_to_javascript_restrictions_on_the_webpag": 1,
+      "no_extractable_evidence_found_due_to_inaccessible_content": 4,
+      "content_is_not_accessible_due_to_javascript_requirement": 2,
+      "the_webpage_content_is_not_accessible_requires_javascript": 1,
+      "access_to_the_document_is_restricted_due_to_javascript_requirements": 1,
+      "unable_to_extract_relevant_content_due_to_blockage_from_javascript_support": 1,
+      "the_document_is_not_accessible_without_javascript": 1,
+      "access_to_content_is_restricted_no_extractable_evidence_available": 1,
+      "the_study_involved_in_vitro_permeation_experiments_using_a_diffusion_cell_to_ass": 1,
+      "the_study_investigates_the_effects_of_temperature_and_humidity_on_skin_permeatio": 1,
+      "microemulsion_formulation_improves_transdermal_delivery_efficacy_and_decreases_c": 1,
+      "the_source_content_does_not_provide_any_usable_information_for_extraction": 1,
+      "study_investigates_the_permeability_of_various_compounds_including_ibuprofen_usi": 1,
+      "the_study_focuses_on_the_permeation_properties_of_ionic_liquids_containing_ibupr": 1,
+      "the_document_does_not_provide_any_accessible_content_due_to_javascript_restricti": 1,
+      "the_source_document_could_not_be_accessed_due_to_javascript_restrictions": 1,
+      "unable_to_extract_evidence_due_to_website_restrictions_and_lack_of_accessible_co": 1,
+      "explores_the_relationship_between_trpv3_channels_in_keratinocytes_and_pain_modul": 1,
+      "no_extractable_evidence_found_in_the_provided_document": 1,
+      "the_study_emphasizes_the_role_of_a_novel_hydrogel_in_enhancing_drug_release": 1,
+      "investigates_the_release_profile_of_ibuprofen_and_its_therapeutic_effects_in_mod": 1,
+      "the_document_content_is_inaccessible_due_to_javascript_requirements": 2,
+      "the_document_is_inaccessible_no_extractable_information_available": 1,
+      "no_extractable_evidence_available_due_to_inaccessible_document_content": 1,
+      "access_to_content_is_blocked_unable_to_extract_details": 1,
+      "content_is_inaccessible_due_to_javascript_requirement": 1,
+      "content_not_accessible_due_to_website_restrictions": 2,
+      "cannot_access_content_due_to_javascript_requirements": 1,
+      "access_to_document_requires_javascript_which_is_currently_unsupported_unable_to_": 1,
+      "html_page_requires_javascript_and_cannot_be_accessed": 1,
+      "access_to_the_document_is_currently_restricted_due_to_javascript_issues": 1,
+      "no_extractable_evidence_found_due_to_webpage_restrictions": 1,
+      "access_to_full_document_requires_javascript_support_so_content_not_fully_extract": 1,
+      "the_document_does_not_provide_extractable_content_regarding_ibuprofen_or_diffusi": 1,
+      "no_accessible_content_javascript_required_to_view": 1,
+      "document_content_not_accessible_requires_javascript_support": 1,
+      "document_content_is_inaccessible_due_to_javascript_requirements": 1,
+      "content_inaccessible_no_relevant_information_available": 1,
+      "javascript_required_to_view_content": 1,
+      "no_extractable_evidence_available_due_to_website_access_limitations": 1,
+      "no_extractable_evidence_available_due_to_inability_to_access_document_content": 1,
+      "the_document_is_inaccessible_as_it_requires_javascript": 1,
+      "no_relevant_content_available_from_the_document": 1,
+      "unable_to_access_content_due_to_javascript_requirement": 1,
+      "unable_to_extract_specific_information_due_to_document_access_restrictions": 1,
+      "access_to_the_full_text_is_necessary_to_provide_relevant_extraction_details": 1,
+      "unable_to_extract_evidence_due_to_access_limitations": 1,
+      "the_document_cannot_be_accessed_contains_only_messages_about_javascript_support": 1,
+      "the_extraction_route_cannot_be_determined_due_to_lack_of_accessible_content": 1,
+      "document_is_inaccessible_requires_javascript": 1,
+      "no_extractable_evidence_available_document_content_cannot_be_accessed": 1,
+      "the_document_is_inaccessible_due_to_javascript_restrictions": 1,
+      "the_document_is_inaccessible_no_extractable_evidence_can_be_determined": 1,
+      "no_accessible_content_available_for_extraction": 1,
+      "the_document_content_is_inaccessible_it_may_require_javascript_to_view_properly": 1,
+      "the_content_could_not_be_accessed_due_to_the_requirement_of_javascript": 1,
+      "the_document_does_not_provide_extractable_evidence": 1,
+      "content_not_accessible_due_to_javascript_requirement": 1,
+      "access_to_the_document_is_restricted_evidence_extraction_not_possible": 1,
+      "the_document_requires_javascript_no_extractable_data_available": 1,
+      "the_document_content_is_not_accessible_unable_to_extract_relevant_information": 1,
+      "no_accessible_content_due_to_javascript_requirements": 1,
+      "content_is_not_accessible_due_to_javascript_restrictions": 1,
+      "content_not_available_for_extraction": 1,
+      "document_not_accessible_due_to_javascript_requirement": 1,
+      "the_document_is_not_accessible_due_to_issues_with_javascript": 1,
+      "insufficient_information_available_in_the_document": 1,
+      "access_issues_no_extractable_evidence_available": 1,
+      "no_detailed_evidence_available_due_to_website_access_issues": 1,
+      "the_document_is_inaccessible_due_to_javascript_requirements_thus_no_relevant_inf": 1,
+      "no_extractable_evidence_available_due_to_page_content_restrictions": 1,
+      "no_relevant_extraction_data_available_from_provided_document": 1,
+      "insufficient_evidence_extractable_from_the_provided_text": 1,
+      "no_relevant_extractable_evidence_found_in_the_provided_text": 1
+    },
+    "extractor_blockages": {
+      "text": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      },
+      "table": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      }
+    },
+    "patch_status_counts": {
+      "patch_api_concentration": {
+        "skipped": 10,
+        "applied": 6
+      },
+      "patch_area": {
+        "skipped": 16
+      },
+      "patch_endpoint_time": {
+        "applied": 7
+      },
+      "patch_endpoint_value": {
+        "skipped": 5,
+        "applied": 1
+      }
+    },
+    "patch_reason_counts": {
+      "patch_api_concentration": {
+        "no_recoverable_concentration_fragment": 10
+      },
+      "patch_area": {
+        "no_recoverable_area_fragment": 16
+      },
+      "patch_endpoint_value": {
+        "no_recoverable_endpoint_fragment": 5
+      }
+    }
+  },
+  "patch_success_counts": {
+    "patch_endpoint_time": 7,
+    "patch_endpoint_value": 1,
+    "patch_api_concentration": 6
+  },
+  "output_record_counts": {
+    "assembled": 42,
+    "final_records_evaluated": 42,
+    "actually_verified": 13,
+    "unresolved": 14,
+    "rejected": 15
+  }
+}

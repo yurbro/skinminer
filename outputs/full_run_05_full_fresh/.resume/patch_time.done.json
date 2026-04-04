@@ -1,0 +1,12 @@
+{
+  "stage": "patch_time",
+  "completed": 90,
+  "total": 90,
+  "detail": "applied=27",
+  "input_count": 90,
+  "output_count": 90,
+  "output_paths": [
+    "outputs\\full_run_05_full_fresh\\patched_endpoint_time.jsonl"
+  ],
+  "resume_signature_digest": "30fbe5472db8d7f1e11de59ed40c2b8599f0f7e2"
+}

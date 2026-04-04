@@ -1,0 +1,7 @@
+{
+  "url": "http://intl-ajpcell.physiology.org/cgi/content/full/281/1/C147",
+  "namespace": "router_structured_sources",
+  "last_error_type": "ConnectionError",
+  "last_error": "HTTPConnectionPool(host='intl-ajpcell.physiology.org', port=80): Max retries exceeded with url: /cgi/content/full/281/1/C147 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E683480490>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))",
+  "failed_at_utc": "2026-04-04T16:55:52.856589+00:00"
+}

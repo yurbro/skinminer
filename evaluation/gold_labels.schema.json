@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://skinminer.local/evaluation/gold_labels.schema.json",
+  "title": "SkinMiner Gold Label Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "fixture_id",
+    "paper_id",
+    "route_gold",
+    "records_gold"
+  ],
+  "properties": {
+    "fixture_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "paper_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "doi": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "fixture_bucket": {
+      "type": "string",
+      "enum": ["text_only", "table_only", "figure_only", "mixed", "other"]
+    },
+    "route_gold": {
+      "type": "string",
+      "enum": ["text", "table", "figure", "mixed", "unresolved"]
+    },
+    "verification_gold": {
+      "type": "string",
+      "enum": ["verified", "unresolved", "rejected", "uncertain"]
+    },
+    "records_gold": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "record_label": { "type": "string" },
+          "study_type": { "type": "string" },
+          "device": { "type": "string" },
+          "barrier": { "type": "string" },
+          "api_name": { "type": "string" },
+          "api_concentration_value": { "type": ["number", "null"] },
+          "api_concentration_unit": { "type": "string" },
+          "api_basis": { "type": "string" },
+          "endpoint_kind": { "type": "string" },
+          "endpoint_value": { "type": ["number", "null"] },
+          "endpoint_unit": { "type": "string" },
+          "endpoint_time_value": { "type": ["number", "null"] },
+          "endpoint_time_unit": { "type": "string" },
+          "area_cm2": { "type": ["number", "null"] },
+          "support_locators": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "review_notes": { "type": "string" }
+        }
+      }
+    },
+    "annotation_notes": {
+      "type": "string"
+    }
+  }
+}

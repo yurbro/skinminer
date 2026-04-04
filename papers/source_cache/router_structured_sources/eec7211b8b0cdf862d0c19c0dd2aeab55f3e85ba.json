@@ -1,0 +1,7 @@
+{
+  "url": "http://intl-jpet.aspetjournals.org/cgi/content/full/328/3/882",
+  "namespace": "router_structured_sources",
+  "last_error_type": "HTTPError",
+  "last_error": "403 Client Error: Forbidden for url: https://jpet.aspetjournals.org/cgi/content/full/328/3/882",
+  "failed_at_utc": "2026-04-04T16:55:30.506994+00:00"
+}

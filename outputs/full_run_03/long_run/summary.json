@@ -1,0 +1,214 @@
+{
+  "run_id": "run_b3f7e753ce61",
+  "status": "completed",
+  "started_at_utc": "2026-03-28T15:25:43.259957+00:00",
+  "finished_at_utc": "2026-03-28T15:34:45.069323+00:00",
+  "elapsed_seconds": 541.782,
+  "active_stage": "",
+  "last_error": null,
+  "llm_usage": {
+    "extractors.table": {
+      "model_name": "gpt-4o-mini",
+      "requests": 14,
+      "estimated_requests": 0,
+      "input_tokens": 127672,
+      "output_tokens": 5915,
+      "total_tokens": 133587
+    },
+    "extractors.text": {
+      "model_name": "gpt-4o-mini",
+      "requests": 6,
+      "estimated_requests": 0,
+      "input_tokens": 41226,
+      "output_tokens": 4474,
+      "total_tokens": 45700
+    },
+    "extractors.figure.triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 8,
+      "estimated_requests": 0,
+      "input_tokens": 731526,
+      "output_tokens": 1635,
+      "total_tokens": 733161
+    }
+  },
+  "stages": {
+    "corpus": {
+      "label": "Corpus",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-03-28T15:25:43.353178+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:loaded rows=1819"
+    },
+    "rule_filter": {
+      "label": "Rule Triage",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-03-28T15:25:43.453878+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:pass=745 fail=1074"
+    },
+    "llm_triage": {
+      "label": "LLM Triage",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-03-28T15:25:43.510389+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:kept=531"
+    },
+    "access": {
+      "label": "Content Access",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-03-28T15:25:43.544390+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:resolved=84 downloaded=40 unresolved=222 error=185"
+    },
+    "routing": {
+      "label": "Evidence Routing",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-03-28T15:25:44.628753+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:figure=6 mixed=3 table=5 text=4 unresolved=513"
+    },
+    "table_extract": {
+      "label": "Table Extract",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:25:44.641510+00:00",
+      "finished_at_utc": "2026-03-28T15:29:01.612140+00:00",
+      "elapsed_seconds": 196.961,
+      "completed": 14,
+      "total": 14,
+      "current_item": "",
+      "detail": "records=22"
+    },
+    "text_extract": {
+      "label": "Text Extract",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:29:01.624683+00:00",
+      "finished_at_utc": "2026-03-28T15:31:25.677972+00:00",
+      "elapsed_seconds": 144.046,
+      "completed": 7,
+      "total": 7,
+      "current_item": "",
+      "detail": "records=21"
+    },
+    "figure_extract": {
+      "label": "Figure Extract",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:31:25.685401+00:00",
+      "finished_at_utc": "2026-03-28T15:33:55.862536+00:00",
+      "elapsed_seconds": 150.169,
+      "completed": 8,
+      "total": 8,
+      "current_item": "",
+      "detail": "records=0"
+    },
+    "assembly": {
+      "label": "Assembly",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:33:55.868714+00:00",
+      "finished_at_utc": "2026-03-28T15:33:55.933529+00:00",
+      "elapsed_seconds": 0.065,
+      "completed": 43,
+      "total": 43,
+      "current_item": "",
+      "detail": "assembled=42"
+    },
+    "verify_initial": {
+      "label": "Verify Initial",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:33:55.941446+00:00",
+      "finished_at_utc": "2026-03-28T15:34:08.086220+00:00",
+      "elapsed_seconds": 12.144,
+      "completed": 42,
+      "total": 42,
+      "current_item": "",
+      "detail": "rejected=15 unresolved=21 verified=6"
+    },
+    "patch_api": {
+      "label": "Patch API Conc",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:34:08.092991+00:00",
+      "finished_at_utc": "2026-03-28T15:34:18.785657+00:00",
+      "elapsed_seconds": 10.692,
+      "completed": 42,
+      "total": 42,
+      "current_item": "",
+      "detail": "applied=6"
+    },
+    "patch_endpoint": {
+      "label": "Patch Endpoint",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:34:18.792174+00:00",
+      "finished_at_utc": "2026-03-28T15:34:20.924800+00:00",
+      "elapsed_seconds": 2.132,
+      "completed": 42,
+      "total": 42,
+      "current_item": "",
+      "detail": "applied=1"
+    },
+    "patch_time": {
+      "label": "Patch End Time",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:34:20.932802+00:00",
+      "finished_at_utc": "2026-03-28T15:34:23.098807+00:00",
+      "elapsed_seconds": 2.166,
+      "completed": 42,
+      "total": 42,
+      "current_item": "",
+      "detail": "applied=7"
+    },
+    "patch_area": {
+      "label": "Patch Area",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:34:23.105716+00:00",
+      "finished_at_utc": "2026-03-28T15:34:33.532721+00:00",
+      "elapsed_seconds": 10.426,
+      "completed": 42,
+      "total": 42,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "verify_final": {
+      "label": "Verify Final",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:34:33.538774+00:00",
+      "finished_at_utc": "2026-03-28T15:34:44.934477+00:00",
+      "elapsed_seconds": 11.395,
+      "completed": 42,
+      "total": 42,
+      "current_item": "",
+      "detail": "rejected=15 unresolved=14 verified=13"
+    },
+    "report": {
+      "label": "Run Report",
+      "state": "done",
+      "started_at_utc": "2026-03-28T15:34:44.943154+00:00",
+      "finished_at_utc": "2026-03-28T15:34:45.061673+00:00",
+      "elapsed_seconds": 0.118,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "path=outputs\\full_run_03\\report\\run_report.md"
+    }
+  },
+  "command": "run_pipeline.py --build-corpus --max-results 50000 --with-llm-triage --enable-figure --export-csv --long-run-mode --resume --progress-every 10 --access-checkpoint-every 10 --long-run-log-every 10 --output-dir outputs/full_run_03"
+}

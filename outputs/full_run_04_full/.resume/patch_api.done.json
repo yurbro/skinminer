@@ -1,0 +1,12 @@
+{
+  "stage": "patch_api",
+  "completed": 42,
+  "total": 42,
+  "detail": "applied=0",
+  "input_count": 42,
+  "output_count": 42,
+  "output_paths": [
+    "outputs\\full_run_04_full\\patched_api_concentration.jsonl"
+  ],
+  "resume_signature_digest": "2bfd091bb4c56d366898beb4d12fb5d13c098392"
+}

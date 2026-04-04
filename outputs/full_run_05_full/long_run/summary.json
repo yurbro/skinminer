@@ -1,0 +1,323 @@
+{
+  "run_id": "run_49ca81f31677",
+  "status": "failed",
+  "started_at_utc": "2026-03-31T16:02:52.824838+00:00",
+  "finished_at_utc": "2026-03-31T17:19:11.032551+00:00",
+  "elapsed_seconds": 4578.208,
+  "active_stage": "figure_extract",
+  "last_error": {
+    "stage": "figure_extract",
+    "error_type": "error",
+    "detail": "OpenCV(4.12.0) D:\\a\\opencv-python\\opencv-python\\opencv\\modules\\imgproc\\src\\resize.cpp:4208: error: (-215:Assertion failed) !ssize.empty() in function 'cv::resize'\n",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\run_pipeline.py\", line 954, in main\n    figure_records = extract_figure_batch(\n        figure_route_pairs,\n    ...<9 lines>...\n        checkpoint_every=args.progress_every,\n    )\n  File \"C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\extractors\\figure\\build_records.py\", line 268, in extract_batch\n    mappings = map_curves_to_formulations([triage_artifact], digitized[\"endpoints\"], table_records, run_context)\n  File \"C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\extractors\\figure\\map_curves.py\", line 173, in map_curves_to_formulations\n    crop = _crop_zoom(triage_artifact.selected_image_path, triage_artifact.plot_bbox)\n  File \"C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\extractors\\figure\\map_curves.py\", line 65, in _crop_zoom\n    return cv2.resize(crop, None, fx=2.0, fy=2.0, interpolation=cv2.INTER_CUBIC)\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ncv2.error: OpenCV(4.12.0) D:\\a\\opencv-python\\opencv-python\\opencv\\modules\\imgproc\\src\\resize.cpp:4208: error: (-215:Assertion failed) !ssize.empty() in function 'cv::resize'\n\n",
+    "timestamp_utc": "2026-03-31T17:19:11.029213+00:00"
+  },
+  "llm_usage": {
+    "triage.llm_triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 749,
+      "estimated_requests": 0,
+      "input_tokens": 532681,
+      "output_tokens": 103974,
+      "total_tokens": 636655
+    },
+    "detection.router": {
+      "model_name": "gpt-4o-mini",
+      "requests": 48,
+      "estimated_requests": 0,
+      "input_tokens": 261714,
+      "output_tokens": 10197,
+      "total_tokens": 271911
+    },
+    "extractors.table": {
+      "model_name": "gpt-4o-mini",
+      "requests": 34,
+      "estimated_requests": 0,
+      "input_tokens": 191469,
+      "output_tokens": 14127,
+      "total_tokens": 205596
+    },
+    "extractors.text": {
+      "model_name": "gpt-4o-mini",
+      "requests": 16,
+      "estimated_requests": 0,
+      "input_tokens": 52903,
+      "output_tokens": 4430,
+      "total_tokens": 57333
+    },
+    "extractors.figure.triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 2,
+      "estimated_requests": 0,
+      "input_tokens": 188557,
+      "output_tokens": 368,
+      "total_tokens": 188925
+    }
+  },
+  "llm_reliability": {
+    "triage.llm_triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 749,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "detection.router": {
+      "model_name": "gpt-4o-mini",
+      "requests": 48,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "extractors.table": {
+      "model_name": "gpt-4o-mini",
+      "requests": 34,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "extractors.text": {
+      "model_name": "gpt-4o-mini",
+      "requests": 16,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "extractors.figure.triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 2,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    }
+  },
+  "stages": {
+    "corpus": {
+      "label": "Corpus",
+      "state": "done",
+      "started_at_utc": "2026-03-31T16:02:52.848302+00:00",
+      "finished_at_utc": "2026-03-31T16:03:06.602055+00:00",
+      "elapsed_seconds": 13.754,
+      "completed": 1828,
+      "total": 1828,
+      "current_item": "",
+      "detail": "rows=1828"
+    },
+    "rule_filter": {
+      "label": "Rule Triage",
+      "state": "done",
+      "started_at_utc": "2026-03-31T16:03:06.609646+00:00",
+      "finished_at_utc": "2026-03-31T16:03:07.798105+00:00",
+      "elapsed_seconds": 1.188,
+      "completed": 1828,
+      "total": 1828,
+      "current_item": "",
+      "detail": "pass=749 fail=1079"
+    },
+    "llm_triage": {
+      "label": "LLM Triage",
+      "state": "done",
+      "started_at_utc": "2026-03-31T16:03:07.812272+00:00",
+      "finished_at_utc": "2026-03-31T16:51:42.989812+00:00",
+      "elapsed_seconds": 2915.177,
+      "completed": 749,
+      "total": 749,
+      "current_item": "",
+      "detail": "kept=529"
+    },
+    "access": {
+      "label": "Content Access",
+      "state": "done",
+      "started_at_utc": "2026-03-31T16:51:42.997116+00:00",
+      "finished_at_utc": "2026-03-31T16:59:12.708786+00:00",
+      "elapsed_seconds": 449.712,
+      "completed": 529,
+      "total": 529,
+      "current_item": "",
+      "detail": "resolved=271 downloaded=40 unresolved=217 error=1"
+    },
+    "routing": {
+      "label": "Evidence Routing",
+      "state": "done",
+      "started_at_utc": "2026-03-31T16:59:14.392513+00:00",
+      "finished_at_utc": "2026-03-31T17:08:58.191898+00:00",
+      "elapsed_seconds": 583.799,
+      "completed": 529,
+      "total": 529,
+      "current_item": "",
+      "detail": "figure=18 mixed=8 table=9 text=9 unresolved=485"
+    },
+    "table_extract": {
+      "label": "Table Extract",
+      "state": "done",
+      "started_at_utc": "2026-03-31T17:08:58.208280+00:00",
+      "finished_at_utc": "2026-03-31T17:15:59.367822+00:00",
+      "elapsed_seconds": 421.16,
+      "completed": 35,
+      "total": 35,
+      "current_item": "",
+      "detail": "records=56"
+    },
+    "text_extract": {
+      "label": "Text Extract",
+      "state": "done",
+      "started_at_utc": "2026-03-31T17:15:59.374383+00:00",
+      "finished_at_utc": "2026-03-31T17:18:42.321908+00:00",
+      "elapsed_seconds": 162.947,
+      "completed": 17,
+      "total": 17,
+      "current_item": "",
+      "detail": "records=18"
+    },
+    "figure_extract": {
+      "label": "Figure Extract",
+      "state": "error",
+      "started_at_utc": "2026-03-31T17:18:42.330457+00:00",
+      "finished_at_utc": "2026-03-31T17:19:10.957264+00:00",
+      "elapsed_seconds": 28.627,
+      "completed": 1,
+      "total": 17,
+      "current_item": "paper_b451e1b601ac",
+      "detail": "error: OpenCV(4.12.0) D:\\a\\opencv-python\\opencv-python\\opencv\\modules\\imgproc\\src\\resize.cpp:4208: error: (-215:Assertion failed) !ssize.empty() in function 'cv::resize'\n"
+    },
+    "assembly": {
+      "label": "Assembly",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "verify_initial": {
+      "label": "Verify Initial",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "patch_api": {
+      "label": "Patch API Conc",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "patch_endpoint": {
+      "label": "Patch Endpoint",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "patch_time": {
+      "label": "Patch End Time",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "patch_area": {
+      "label": "Patch Area",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "verify_final": {
+      "label": "Verify Final",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "report": {
+      "label": "Run Report",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    }
+  },
+  "command": "run_pipeline.py --run-profile balanced_full --build-corpus --query-profile ibuprofen_dermal_oa_v1 --max-results 50000 --long-run-mode --resume --export-csv --output-dir outputs/full_run_05_full"
+}

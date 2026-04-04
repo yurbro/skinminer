@@ -1,0 +1,41 @@
+{
+  "run_id": "run_ced2e53df2ce",
+  "model_name": "gpt-4o-mini",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-03-27T12:31:28.921353+00:00",
+  "module_counts": {
+    "table": 15,
+    "text": 30,
+    "figure": 0
+  },
+  "route_distribution": {
+    "unresolved": 214,
+    "text": 5,
+    "table": 3,
+    "figure": 4,
+    "mixed": 2
+  },
+  "extractor_output_counts": {
+    "table": 15,
+    "text": 30,
+    "figure": 0
+  },
+  "verification_outcome_counts": {
+    "rejected": 9,
+    "unresolved": 35
+  },
+  "failure_taxonomy_counts": {
+    "not_target_device": 9,
+    "percent_only": 4,
+    "insufficient_evidence": 44,
+    "missing_area": 6,
+    "missing_api_concentration": 21,
+    "not_target_api": 1,
+    "missing_endpoint": 1
+  },
+  "patch_success_counts": {},
+  "output_record_counts": {
+    "assembled": 44,
+    "verified": 44
+  }
+}

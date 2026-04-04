@@ -1,0 +1,122 @@
+{
+  "run_id": "run_b025942c352d",
+  "model_name": "gpt-4o-mini",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-03-27T18:17:05.147091+00:00",
+  "module_counts": {
+    "table": 23,
+    "text": 13,
+    "figure": 7
+  },
+  "route_distribution": {
+    "unresolved": 511,
+    "text": 2,
+    "figure": 8,
+    "mixed": 4,
+    "table": 4
+  },
+  "extractor_output_counts": {
+    "table": 23,
+    "text": 13,
+    "figure": 7
+  },
+  "verification_outcome_counts": {
+    "rejected": 22,
+    "unresolved": 20
+  },
+  "failure_taxonomy_counts": {
+    "not_target_device": 21,
+    "missing_area": 15,
+    "insufficient_evidence": 42,
+    "missing_endpoint": 15,
+    "not_target_api": 2,
+    "missing_endpoint_time": 12,
+    "missing_api_concentration": 16,
+    "unit_normalization_failed": 1,
+    "not_target_study_type": 2,
+    "percent_only": 2
+  },
+  "failure_taxonomy_counts_by_route": {
+    "figure": {
+      "missing_area": 11,
+      "insufficient_evidence": 21,
+      "missing_endpoint": 10,
+      "not_target_api": 1,
+      "missing_api_concentration": 3,
+      "missing_endpoint_time": 7,
+      "unit_normalization_failed": 1,
+      "not_target_device": 12,
+      "not_target_study_type": 1
+    },
+    "mixed": {
+      "not_target_device": 4,
+      "missing_area": 1,
+      "insufficient_evidence": 12,
+      "missing_endpoint": 4,
+      "missing_endpoint_time": 5,
+      "not_target_study_type": 1,
+      "missing_api_concentration": 10,
+      "percent_only": 1
+    },
+    "table": {
+      "not_target_device": 5,
+      "missing_area": 3,
+      "insufficient_evidence": 5,
+      "not_target_api": 1,
+      "missing_api_concentration": 1
+    },
+    "text": {
+      "missing_api_concentration": 2,
+      "missing_endpoint": 1,
+      "percent_only": 1,
+      "insufficient_evidence": 4
+    }
+  },
+  "figure_verification_failure_taxonomy_counts": {
+    "missing_area": 11,
+    "insufficient_evidence": 21,
+    "missing_endpoint": 10,
+    "not_target_api": 1,
+    "missing_api_concentration": 3,
+    "missing_endpoint_time": 7,
+    "unit_normalization_failed": 1,
+    "not_target_device": 12,
+    "not_target_study_type": 1
+  },
+  "figure_stage_counts": {
+    "triage_artifacts": 9,
+    "triage_digitize_candidates": 9,
+    "digitized_curves": 7,
+    "digitized_endpoints_ok": 7,
+    "digitized_endpoints_failed": 6,
+    "mapped_curves": 7,
+    "unmapped_curves": 0
+  },
+  "figure_failure_counts": {
+    "triage_signals": {},
+    "digitization_failure_counts": {
+      "fail_few_edges": 4,
+      "fail_missing_plot_context": 2
+    },
+    "mapping_failure_counts": {}
+  },
+  "figure_route_counts": {
+    "digitize": 9
+  },
+  "figure_digitization_status_counts": {
+    "ok": 7,
+    "fail_few_edges": 4,
+    "fail_missing_plot_context": 2
+  },
+  "figure_mapping_status_counts": {
+    "vision_mapped": 7
+  },
+  "patch_success_counts": {},
+  "output_record_counts": {
+    "assembled": 42,
+    "final_records_evaluated": 42,
+    "actually_verified": 0,
+    "unresolved": 20,
+    "rejected": 22
+  }
+}

@@ -1,0 +1,17 @@
+﻿stage,bucket,count
+figure_stage,digitized_curves,0
+figure_stage,digitized_endpoints_failed,0
+figure_stage,digitized_endpoints_ok,0
+figure_stage,mapped_curves,0
+figure_stage,triage_artifacts,0
+figure_stage,triage_digitize_candidates,0
+figure_stage,unmapped_curves,0
+verification_route:figure,missing_area,5
+verification_route:figure,missing_endpoint,2
+verification_route:figure,not_target_api,1
+verification_route:figure,not_target_device,3
+verification_route:figure,not_target_study_type,2
+verification_route:figure,percent_only,1
+verification_route:table,not_target_device,4
+verification_route:text,insufficient_evidence,5
+verification_route:text,missing_api_concentration,5

@@ -1,0 +1,228 @@
+{
+  "run_id": "run_41666c88a344",
+  "status": "completed",
+  "started_at_utc": "2026-04-04T20:12:28.003806+00:00",
+  "finished_at_utc": "2026-04-04T20:21:24.124981+00:00",
+  "elapsed_seconds": 536.121,
+  "active_stage": "",
+  "last_error": null,
+  "llm_usage": {
+    "verification.llm_adjudicate": {
+      "model_name": "gpt-4o-mini",
+      "requests": 76,
+      "estimated_requests": 0,
+      "input_tokens": 715728,
+      "output_tokens": 11796,
+      "total_tokens": 727524
+    }
+  },
+  "llm_reliability": {
+    "verification.llm_adjudicate": {
+      "model_name": "gpt-4o-mini",
+      "requests": 76,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    }
+  },
+  "stages": {
+    "corpus": {
+      "label": "Corpus",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:28.202007+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:loaded rows=1828"
+    },
+    "rule_filter": {
+      "label": "Rule Triage",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:28.332437+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:pass=749 fail=1079"
+    },
+    "llm_triage": {
+      "label": "LLM Triage",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:28.391115+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:kept=543"
+    },
+    "access": {
+      "label": "Content Access",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:28.444763+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:resolved=92 downloaded=219 unresolved=231 error=1"
+    },
+    "routing": {
+      "label": "Evidence Routing",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.129296+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:figure=15 mixed=4 table=14 text=18 unresolved=492"
+    },
+    "table_extract": {
+      "label": "Table Extract",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.181567+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:records=52"
+    },
+    "text_extract": {
+      "label": "Text Extract",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.221945+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:records=15"
+    },
+    "figure_extract": {
+      "label": "Figure Extract",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.269413+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:records=27"
+    },
+    "assembly": {
+      "label": "Assembly",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.378378+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:assembled=88"
+    },
+    "verify_initial": {
+      "label": "Verify Initial",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.440513+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:rejected=26 unresolved=62"
+    },
+    "patch_api": {
+      "label": "Patch API Conc",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.505004+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:applied=5"
+    },
+    "patch_endpoint": {
+      "label": "Patch Endpoint",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.559718+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:applied=37"
+    },
+    "patch_time": {
+      "label": "Patch End Time",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.612896+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:applied=24"
+    },
+    "patch_area": {
+      "label": "Patch Area",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.683758+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:applied=12"
+    },
+    "verify_final": {
+      "label": "Verify Final",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-04T20:12:29.739500+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:rejected=26 unresolved=60 verified=2"
+    },
+    "llm_adjudicate": {
+      "label": "LLM Adjudicate",
+      "state": "done",
+      "started_at_utc": "2026-04-04T20:12:29.747310+00:00",
+      "finished_at_utc": "2026-04-04T20:21:23.758800+00:00",
+      "elapsed_seconds": 534.011,
+      "completed": 88,
+      "total": 88,
+      "current_item": "",
+      "detail": "rows=76"
+    },
+    "report": {
+      "label": "Run Report",
+      "state": "done",
+      "started_at_utc": "2026-04-04T20:21:23.769993+00:00",
+      "finished_at_utc": "2026-04-04T20:21:24.104083+00:00",
+      "elapsed_seconds": 0.334,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "path=outputs\\full_run_08_full\\report\\run_report.md"
+    }
+  },
+  "command": "run_pipeline.py --run-profile balanced_full --build-corpus --query-profile ibuprofen_dermal_oa_v1 --max-results 50000 --long-run-mode --resume --export-csv --with-llm-adjudication --output-dir outputs/full_run_08_full"
+}

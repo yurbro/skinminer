@@ -1,0 +1,6 @@
+{
+  "stage": "verify_final",
+  "completed": 42,
+  "total": 42,
+  "detail": "rejected=15 unresolved=14 verified=13"
+}

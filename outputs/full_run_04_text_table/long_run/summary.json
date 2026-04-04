@@ -1,0 +1,292 @@
+{
+  "run_id": "run_7732b12587cb",
+  "status": "completed",
+  "started_at_utc": "2026-03-30T16:44:36.841870+00:00",
+  "finished_at_utc": "2026-03-30T17:53:01.979722+00:00",
+  "elapsed_seconds": 4105.134,
+  "active_stage": "",
+  "last_error": null,
+  "llm_usage": {
+    "triage.llm_triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 748,
+      "estimated_requests": 0,
+      "input_tokens": 532023,
+      "output_tokens": 104725,
+      "total_tokens": 636748
+    },
+    "detection.router": {
+      "model_name": "gpt-4o-mini",
+      "requests": 110,
+      "estimated_requests": 0,
+      "input_tokens": 164319,
+      "output_tokens": 15954,
+      "total_tokens": 180273
+    },
+    "extractors.table": {
+      "model_name": "gpt-4o-mini",
+      "requests": 13,
+      "estimated_requests": 0,
+      "input_tokens": 162214,
+      "output_tokens": 4923,
+      "total_tokens": 167137
+    },
+    "extractors.text": {
+      "model_name": "gpt-4o-mini",
+      "requests": 1,
+      "estimated_requests": 0,
+      "input_tokens": 9223,
+      "output_tokens": 1128,
+      "total_tokens": 10351
+    }
+  },
+  "llm_reliability": {
+    "triage.llm_triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 748,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "detection.router": {
+      "model_name": "gpt-4o-mini",
+      "requests": 110,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "extractors.table": {
+      "model_name": "gpt-4o-mini",
+      "requests": 13,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "extractors.text": {
+      "model_name": "gpt-4o-mini",
+      "requests": 1,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    }
+  },
+  "stages": {
+    "corpus": {
+      "label": "Corpus",
+      "state": "done",
+      "started_at_utc": "2026-03-30T16:44:36.875170+00:00",
+      "finished_at_utc": "2026-03-30T16:44:49.775484+00:00",
+      "elapsed_seconds": 12.9,
+      "completed": 1825,
+      "total": 1825,
+      "current_item": "",
+      "detail": "rows=1825"
+    },
+    "rule_filter": {
+      "label": "Rule Triage",
+      "state": "done",
+      "started_at_utc": "2026-03-30T16:44:49.781756+00:00",
+      "finished_at_utc": "2026-03-30T16:44:51.607232+00:00",
+      "elapsed_seconds": 1.825,
+      "completed": 1825,
+      "total": 1825,
+      "current_item": "",
+      "detail": "pass=748 fail=1077"
+    },
+    "llm_triage": {
+      "label": "LLM Triage",
+      "state": "done",
+      "started_at_utc": "2026-03-30T16:44:51.615261+00:00",
+      "finished_at_utc": "2026-03-30T17:35:12.749369+00:00",
+      "elapsed_seconds": 3021.134,
+      "completed": 748,
+      "total": 748,
+      "current_item": "",
+      "detail": "kept=530"
+    },
+    "access": {
+      "label": "Content Access",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:35:12.756080+00:00",
+      "finished_at_utc": "2026-03-30T17:40:02.918566+00:00",
+      "elapsed_seconds": 290.162,
+      "completed": 530,
+      "total": 530,
+      "current_item": "",
+      "detail": "resolved=80 downloaded=44 unresolved=223 error=183"
+    },
+    "routing": {
+      "label": "Evidence Routing",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:40:03.631524+00:00",
+      "finished_at_utc": "2026-03-30T17:49:50.192138+00:00",
+      "elapsed_seconds": 586.561,
+      "completed": 530,
+      "total": 530,
+      "current_item": "",
+      "detail": "figure=8 table=5 text=2 unresolved=515"
+    },
+    "table_extract": {
+      "label": "Table Extract",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:49:50.204023+00:00",
+      "finished_at_utc": "2026-03-30T17:52:34.817681+00:00",
+      "elapsed_seconds": 164.613,
+      "completed": 13,
+      "total": 13,
+      "current_item": "",
+      "detail": "records=21"
+    },
+    "text_extract": {
+      "label": "Text Extract",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:52:34.823888+00:00",
+      "finished_at_utc": "2026-03-30T17:52:58.219268+00:00",
+      "elapsed_seconds": 23.392,
+      "completed": 2,
+      "total": 2,
+      "current_item": "",
+      "detail": "records=5"
+    },
+    "figure_extract": {
+      "label": "Figure Extract",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-03-30T17:52:58.227097+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "disabled"
+    },
+    "assembly": {
+      "label": "Assembly",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:52:58.234233+00:00",
+      "finished_at_utc": "2026-03-30T17:52:58.265790+00:00",
+      "elapsed_seconds": 0.031,
+      "completed": 26,
+      "total": 26,
+      "current_item": "",
+      "detail": "assembled=24"
+    },
+    "verify_initial": {
+      "label": "Verify Initial",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:52:58.272318+00:00",
+      "finished_at_utc": "2026-03-30T17:52:59.334166+00:00",
+      "elapsed_seconds": 1.062,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "rejected=8 unresolved=10 verified=6"
+    },
+    "patch_api": {
+      "label": "Patch API Conc",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:52:59.341048+00:00",
+      "finished_at_utc": "2026-03-30T17:52:59.600303+00:00",
+      "elapsed_seconds": 0.259,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "patch_endpoint": {
+      "label": "Patch Endpoint",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:52:59.609470+00:00",
+      "finished_at_utc": "2026-03-30T17:52:59.921746+00:00",
+      "elapsed_seconds": 0.312,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=3"
+    },
+    "patch_time": {
+      "label": "Patch End Time",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:52:59.932522+00:00",
+      "finished_at_utc": "2026-03-30T17:53:00.213681+00:00",
+      "elapsed_seconds": 0.281,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=5"
+    },
+    "patch_area": {
+      "label": "Patch Area",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:53:00.221181+00:00",
+      "finished_at_utc": "2026-03-30T17:53:00.739526+00:00",
+      "elapsed_seconds": 0.518,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "verify_final": {
+      "label": "Verify Final",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:53:00.747728+00:00",
+      "finished_at_utc": "2026-03-30T17:53:01.849825+00:00",
+      "elapsed_seconds": 1.102,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "rejected=8 unresolved=9 verified=7"
+    },
+    "report": {
+      "label": "Run Report",
+      "state": "done",
+      "started_at_utc": "2026-03-30T17:53:01.859231+00:00",
+      "finished_at_utc": "2026-03-30T17:53:01.973291+00:00",
+      "elapsed_seconds": 0.114,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "path=outputs\\full_run_04_text_table\\report\\run_report.md"
+    }
+  },
+  "command": "run_pipeline.py --run-profile text_table_baseline --build-corpus --query-profile ibuprofen_dermal_oa_v1 --max-results 50000 --long-run-mode --resume --export-csv --output-dir outputs/full_run_04_text_table"
+}

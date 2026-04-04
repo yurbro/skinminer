@@ -1,0 +1,7 @@
+{
+  "url": "http://hdl.handle.net/10261/201207",
+  "namespace": "text_structured_sources",
+  "last_error_type": "SSLError",
+  "last_error": "HTTPSConnectionPool(host='digital.csic.es', port=443): Max retries exceeded with url: /handle/10261/201207 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1028)')))",
+  "failed_at_utc": "2026-04-04T17:13:32.375703+00:00"
+}

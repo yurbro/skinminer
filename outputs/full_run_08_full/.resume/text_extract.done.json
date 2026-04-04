@@ -1,0 +1,13 @@
+{
+  "stage": "text_extract",
+  "completed": 22,
+  "total": 22,
+  "detail": "records=15",
+  "input_count": 22,
+  "output_count": 15,
+  "output_paths": [
+    "outputs\\full_run_08_full\\text_records.jsonl",
+    "outputs\\full_run_08_full\\text_raw.jsonl"
+  ],
+  "resume_signature_digest": "51a60cc72c2934ce751894a9de04acbd6be23f92"
+}

@@ -1,0 +1,217 @@
+{
+  "run_id": "run_4879d6ef651b",
+  "status": "failed",
+  "started_at_utc": "2026-03-27T16:34:29.977436+00:00",
+  "finished_at_utc": "2026-03-27T17:39:47.826547+00:00",
+  "elapsed_seconds": 3917.817,
+  "active_stage": "text_extract",
+  "last_error": {
+    "stage": "text_extract",
+    "error_type": "FileNotFoundError",
+    "detail": "No local PDF is available for paper_id=paper_02968484f14a",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\run_pipeline.py\", line 516, in main\n    text_records = extract_text_batch(\n        text_route_pairs,\n    ...<5 lines>...\n        progress_callback=stage_callback(\"text_extract\"),\n    )\n  File \"C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\extractors\\text\\extractor.py\", line 57, in extract_batch\n    window = select_text_evidence_window(content_handle, route_decision)\n  File \"C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\extractors\\text\\page_selection.py\", line 397, in select_text_evidence_window\n    return _select_pdf_evidence_window(\n        content_handle,\n    ...<4 lines>...\n        max_chars_total=max_chars_total,\n    )\n  File \"C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\extractors\\text\\page_selection.py\", line 314, in _select_pdf_evidence_window\n    pdf_path = require_pdf_path(content_handle)\n  File \"C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\extractors\\common.py\", line 55, in require_pdf_path\n    raise FileNotFoundError(f\"No local PDF is available for paper_id={content_handle.paper_id}\")\nFileNotFoundError: No local PDF is available for paper_id=paper_02968484f14a\n",
+    "timestamp_utc": "2026-03-27T17:39:47.821757+00:00"
+  },
+  "llm_usage": {
+    "triage.llm_triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 745,
+      "estimated_requests": 0,
+      "input_tokens": 529538,
+      "output_tokens": 103571,
+      "total_tokens": 633109
+    },
+    "detection.router": {
+      "model_name": "gpt-4o-mini",
+      "requests": 110,
+      "estimated_requests": 0,
+      "input_tokens": 168131,
+      "output_tokens": 15872,
+      "total_tokens": 184003
+    },
+    "extractors.table": {
+      "model_name": "gpt-4o-mini",
+      "requests": 13,
+      "estimated_requests": 0,
+      "input_tokens": 96581,
+      "output_tokens": 4842,
+      "total_tokens": 101423
+    },
+    "extractors.text": {
+      "model_name": "gpt-4o-mini",
+      "requests": 3,
+      "estimated_requests": 0,
+      "input_tokens": 19820,
+      "output_tokens": 1169,
+      "total_tokens": 20989
+    }
+  },
+  "stages": {
+    "corpus": {
+      "label": "Corpus",
+      "state": "done",
+      "started_at_utc": "2026-03-27T16:34:30.006242+00:00",
+      "finished_at_utc": "2026-03-27T16:34:44.546134+00:00",
+      "elapsed_seconds": 14.54,
+      "completed": 1819,
+      "total": 1819,
+      "current_item": "",
+      "detail": "rows=1819"
+    },
+    "rule_filter": {
+      "label": "Rule Triage",
+      "state": "done",
+      "started_at_utc": "2026-03-27T16:34:44.550953+00:00",
+      "finished_at_utc": "2026-03-27T16:34:46.301277+00:00",
+      "elapsed_seconds": 1.75,
+      "completed": 1819,
+      "total": 1819,
+      "current_item": "",
+      "detail": "pass=745 fail=1074"
+    },
+    "llm_triage": {
+      "label": "LLM Triage",
+      "state": "done",
+      "started_at_utc": "2026-03-27T16:34:46.307283+00:00",
+      "finished_at_utc": "2026-03-27T17:20:31.547613+00:00",
+      "elapsed_seconds": 2745.218,
+      "completed": 745,
+      "total": 745,
+      "current_item": "",
+      "detail": "kept=509"
+    },
+    "access": {
+      "label": "Content Access",
+      "state": "done",
+      "started_at_utc": "2026-03-27T17:20:31.555346+00:00",
+      "finished_at_utc": "2026-03-27T17:28:42.662623+00:00",
+      "elapsed_seconds": 491.103,
+      "completed": 509,
+      "total": 509,
+      "current_item": "",
+      "detail": "resolved=82 downloaded=42 unresolved=216 error=169"
+    },
+    "routing": {
+      "label": "Evidence Routing",
+      "state": "done",
+      "started_at_utc": "2026-03-27T17:28:44.149485+00:00",
+      "finished_at_utc": "2026-03-27T17:37:08.668471+00:00",
+      "elapsed_seconds": 504.515,
+      "completed": 509,
+      "total": 509,
+      "current_item": "",
+      "detail": "figure=5 mixed=4 table=4 text=4 unresolved=492"
+    },
+    "table_extract": {
+      "label": "Table Extract",
+      "state": "done",
+      "started_at_utc": "2026-03-27T17:37:08.676947+00:00",
+      "finished_at_utc": "2026-03-27T17:39:20.343983+00:00",
+      "elapsed_seconds": 131.666,
+      "completed": 13,
+      "total": 13,
+      "current_item": "",
+      "detail": "records=18"
+    },
+    "text_extract": {
+      "label": "Text Extract",
+      "state": "error",
+      "started_at_utc": "2026-03-27T17:39:20.350147+00:00",
+      "finished_at_utc": "2026-03-27T17:39:47.688617+00:00",
+      "elapsed_seconds": 27.338,
+      "completed": 3,
+      "total": 8,
+      "current_item": "paper_02968484f14a",
+      "detail": "FileNotFoundError: No local PDF is available for paper_id=paper_02968484f14a"
+    },
+    "figure_extract": {
+      "label": "Figure Extract",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "assembly": {
+      "label": "Assembly",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "verify_initial": {
+      "label": "Verify Initial",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "patch_api": {
+      "label": "Patch API Conc",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "patch_time": {
+      "label": "Patch End Time",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "patch_area": {
+      "label": "Patch Area",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "verify_final": {
+      "label": "Verify Final",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    },
+    "report": {
+      "label": "Run Report",
+      "state": "pending",
+      "started_at_utc": null,
+      "finished_at_utc": null,
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": ""
+    }
+  },
+  "command": "run_pipeline.py --build-corpus --max-results 50000 --with-llm-triage --enable-figure --export-csv --long-run-mode --progress-every 10 --access-checkpoint-every 10 --long-run-log-every 10 --output-dir outputs/full_run_01"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "llm_triage",
+  "completed": 748,
+  "total": 748,
+  "detail": "kept=530",
+  "input_count": 748,
+  "output_count": 748,
+  "output_paths": [
+    "outputs\\full_run_04_text_table\\llm_triage.jsonl"
+  ],
+  "resume_signature_digest": "d3fbeab529348c70328f42bd23424b234a02dac6"
+}

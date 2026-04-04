@@ -1,0 +1,17 @@
+﻿stage,bucket,count
+llm_adjudication_candidate_reason,high_risk_verified,2
+llm_adjudication_candidate_reason,multimodal_high_risk,27
+llm_adjudication_candidate_reason,other,17
+llm_adjudication_candidate_reason,recoverable_unresolved,30
+llm_adjudication_recommended_status,rejected,15
+llm_adjudication_recommended_status,unresolved,58
+llm_adjudication_recommended_status,verified,3
+llm_adjudication_should_keep,no,66
+llm_adjudication_should_keep,yes,10
+llm_adjudication_disagreement,scope_bucket_disagreement,30
+llm_adjudication_disagreement,status_disagreement,2
+llm_adjudication_transition,rejected->rejected,14
+llm_adjudication_transition,unresolved->rejected,1
+llm_adjudication_transition,unresolved->unresolved,58
+llm_adjudication_transition,unresolved->verified,1
+llm_adjudication_transition,verified->verified,2
