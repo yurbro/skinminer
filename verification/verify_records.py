@@ -14,6 +14,7 @@ from utils.status_panel import ProgressCallback
 from utils.units import (
     api_concentration_quality,
     amount_total_or_receiver_concentration_to_ug_per_cm2,
+    coerce_endpoint_kind_from_unit,
     infer_api_concentration_from_fragments,
     is_strict_api_concentration_hint,
     normalize_amount_per_area,
@@ -25,6 +26,19 @@ from utils.units import (
 from verification.failure_taxonomy import FailureCode, classify_outcome
 
 STRICT_SHARED_API_HINT_MIN_QUALITY = 12
+RECOVERABLE_SCOPE_TAGS = {
+    FailureCode.AMBIGUOUS_API_CONCENTRATION.value: "recoverable_api_basis",
+    FailureCode.MISSING_API_CONCENTRATION.value: "recoverable_api_basis",
+    FailureCode.MISSING_AREA.value: "recoverable_area",
+    FailureCode.MISSING_ENDPOINT.value: "recoverable_endpoint",
+    FailureCode.MISSING_ENDPOINT_TIME.value: "recoverable_endpoint_time",
+    FailureCode.UNIT_NORMALIZATION_FAILED.value: "recoverable_unit_normalization",
+    FailureCode.INSUFFICIENT_EVIDENCE.value: "recoverable_support_gap",
+    FailureCode.AMBIGUOUS_MAPPING.value: "recoverable_mapping",
+    FailureCode.FIGURE_DIGITIZATION_FAILED.value: "recoverable_figure_digitization",
+    FailureCode.FIGURE_PLOT_CONTEXT_MISSING.value: "recoverable_figure_plot_context",
+    FailureCode.UNRESOLVED_ROUTE.value: "recoverable_routing",
+}
 
 
 def _field_supported(record: Record, field_name: str) -> bool:
@@ -66,10 +80,98 @@ def _record_fragments(record: Record) -> list[str]:
     return [
         record.device,
         record.provenance.route_notes,
+        *(
+            str(value)
+            for key, value in record.provenance.metadata.get("route_raw_labels", {}).items()
+            if key
+            in {
+                "where_franz",
+                "where_diffusion_cell",
+                "where_endpoint",
+                "endpoint_carrier_snippet",
+                "formulation_carrier_snippet",
+                "notes",
+                "barrier_name_raw",
+                "study_type",
+            }
+            and value
+        ),
         *record.source_notes,
+        *(
+            str(item.get("snippet", "") or "")
+            for item in record.provenance.metadata.get("route_anchor_evidence", [])
+            if isinstance(item, dict)
+        ),
+        *(
+            str(item.get("locator", "") or "")
+            for item in record.provenance.metadata.get("route_anchor_evidence", [])
+            if isinstance(item, dict)
+        ),
         *(item.snippet for item in record.evidence_items),
         *(item.locator for item in record.evidence_items),
     ]
+
+
+def _route_raw_labels(record: Record) -> dict[str, str]:
+    payload = record.provenance.metadata.get("route_raw_labels", {})
+    if not isinstance(payload, dict):
+        return {}
+    return {str(key): str(value) for key, value in payload.items() if value is not None}
+
+
+def _route_raw_label_fragments(record: Record) -> list[str]:
+    raw_labels = _route_raw_labels(record)
+    fragments: list[str] = []
+    for key in (
+        "where_franz",
+        "where_diffusion_cell",
+        "where_endpoint",
+        "endpoint_carrier_snippet",
+        "formulation_carrier_snippet",
+        "notes",
+        "barrier_name_raw",
+        "study_type",
+    ):
+        value = " ".join((raw_labels.get(key, "") or "").split()).strip()
+        if value and value.lower() not in {"unknown", "uncertain"}:
+            fragments.append(value)
+    return fragments
+
+
+def _route_label_device_hint(record: Record) -> tuple[str, str]:
+    raw_labels = _route_raw_labels(record)
+    franz_confirmed = (raw_labels.get("franz_confirmed", "") or "").strip().lower()
+    where_franz = (raw_labels.get("where_franz", "") or "").strip()
+    where_diffusion = (raw_labels.get("where_diffusion_cell", "") or "").strip()
+    mentions_diffusion = (raw_labels.get("mentions_diffusion_cell", "") or "").strip().lower()
+
+    if franz_confirmed == "yes" or ("franz" in where_franz.lower() and where_franz.lower() not in {"unknown", "uncertain"}):
+        return "Franz diffusion cell", where_franz or where_diffusion or record.provenance.route_notes
+    if mentions_diffusion == "yes" or (where_diffusion and where_diffusion.lower() not in {"unknown", "uncertain"}):
+        return "diffusion cell", where_diffusion or record.provenance.route_notes
+    return "", ""
+
+
+def _route_anchor_items(record: Record) -> list[EvidenceItem]:
+    items: list[EvidenceItem] = []
+    for payload in record.provenance.metadata.get("route_anchor_evidence", []):
+        if not isinstance(payload, dict):
+            continue
+        try:
+            items.append(EvidenceItem.model_validate(payload))
+        except Exception:
+            continue
+    return items
+
+
+def _append_route_anchor_support(record: Record, field_name: str) -> None:
+    if _field_supported(record, field_name):
+        return
+    for item in _route_anchor_items(record):
+        if item.field_name != field_name:
+            continue
+        record.evidence_items.append(item)
+        return
 
 
 def _has_figure_endpoint_evidence(record: Record) -> bool:
@@ -87,6 +189,22 @@ def _has_table_formulation_support(record: Record) -> bool:
 def _looks_non_target_study(*fragments: str) -> bool:
     lowered = " ".join(" ".join((fragment or "").split()).lower() for fragment in fragments if fragment).strip()
     if not lowered:
+        return False
+    if (
+        any(token in lowered for token in ("pampa", "skin pampa", "parallel artificial membrane permeability assay"))
+        and any(
+            token in lowered
+            for token in (
+                "franz diffusion cell",
+                "franz cell",
+                "vertical diffusion",
+                "receptor compartment",
+                "receiver compartment",
+                "cumulative amount permeated",
+                "skin permeation",
+            )
+        )
+    ):
         return False
     return any(
         token in lowered
@@ -161,6 +279,80 @@ def _api_search_fragments(record: Record, source_fragments: list[str] | None = N
         *(source_fragments or []),
         *(item.snippet for item in record.evidence_items),
     ]
+
+
+def _normalized_fragment_text(text: str) -> str:
+    return " ".join((text or "").lower().replace("µ", "u").replace("μ", "u").split())
+
+
+def _value_tokens(value: float | None) -> list[str]:
+    if value is None:
+        return []
+    return sorted(
+        {
+            f"{float(value):g}".lower(),
+            f"{float(value):.1f}".rstrip("0").rstrip(".").lower(),
+            f"{float(value):.2f}".rstrip("0").rstrip(".").lower(),
+            str(int(round(float(value)))).lower(),
+        },
+        key=len,
+        reverse=True,
+    )
+
+
+def _best_support_fragment(
+    fragments: list[str],
+    *,
+    required_terms: list[str] | None = None,
+    preferred_terms: list[str] | None = None,
+    value: float | None = None,
+    unit: str = "",
+) -> str:
+    best_fragment = ""
+    best_score = 0
+    value_tokens = _value_tokens(value)
+    unit_token = _normalized_fragment_text(unit)
+    for fragment in fragments:
+        cleaned = " ".join((fragment or "").split()).strip()
+        lowered = _normalized_fragment_text(cleaned)
+        if not lowered:
+            continue
+        score = 0
+        if required_terms and not all(term in lowered for term in required_terms):
+            continue
+        if value_tokens and any(token and token in lowered for token in value_tokens):
+            score += 4
+        if unit_token and unit_token in lowered:
+            score += 2
+        for term in preferred_terms or []:
+            if term and term in lowered:
+                score += 2
+        if score > best_score:
+            best_score = score
+            best_fragment = cleaned
+    return best_fragment
+
+
+def _endpoint_support_fragment(record: Record, support_fragments: list[str]) -> str:
+    preferred_terms = ["endpoint", "amount", "permeat", "release", "cumulative", "after"]
+    if record.endpoint.kind == "flux":
+        preferred_terms = ["flux", "steady state", "jss"]
+    elif record.endpoint.kind == "percent":
+        preferred_terms = ["%", "percent", "release"]
+    return _best_support_fragment(
+        support_fragments,
+        preferred_terms=preferred_terms,
+        value=record.endpoint.value,
+        unit=record.endpoint.unit,
+    )
+
+
+def _formulation_support_fragment(record: Record, support_fragments: list[str]) -> str:
+    label_key = _normalize_label_key(record.formulation.label)
+    preferred_terms = [record.formulation.api_name.lower() if record.formulation.api_name else "ibuprofen", "formulation", "table"]
+    if label_key:
+        preferred_terms.extend(part for part in label_key.split() if part)
+    return _best_support_fragment(support_fragments, preferred_terms=preferred_terms)
 
 
 def _collect_paper_device_hints(records: list[Record]) -> dict[str, tuple[str, str]]:
@@ -260,6 +452,9 @@ def _normalize_record_fields(
     label_api_hint: tuple[float, str, str, str] | None = None,
     paper_api_hint: tuple[float, str, str, str] | None = None,
 ) -> None:
+    route_anchor_items = _route_anchor_items(candidate)
+    route_label_fragments = _route_raw_label_fragments(candidate)
+    candidate.endpoint.kind = coerce_endpoint_kind_from_unit(candidate.endpoint.kind, candidate.endpoint.unit)
     source_fragments = collect_source_fragments(
         candidate,
         keywords=[
@@ -279,11 +474,25 @@ def _normalize_record_fields(
         ],
         max_fragments=10,
     )
+    support_fragments = [
+        candidate.provenance.route_notes,
+        *route_label_fragments,
+        *candidate.source_notes,
+        *source_fragments,
+        *(item.snippet for item in route_anchor_items),
+        *(item.locator for item in route_anchor_items),
+        *(item.snippet for item in candidate.evidence_items),
+    ]
+    _append_route_anchor_support(candidate, "device")
+    _append_route_anchor_support(candidate, "endpoint")
+    _append_route_anchor_support(candidate, "formulation")
     study_type_hint = infer_study_type_label(
         candidate.study_type,
         candidate.provenance.route_notes,
+        *route_label_fragments,
         *candidate.source_notes,
         *source_fragments,
+        *(item.snippet for item in route_anchor_items),
         *(item.snippet for item in candidate.evidence_items),
     )
     current_study_type = candidate.study_type or "uncertain"
@@ -300,19 +509,29 @@ def _normalize_record_fields(
     normalized_device = infer_device_label(
         candidate.device,
         candidate.provenance.route_notes,
+        *route_label_fragments,
         *candidate.source_notes,
         *source_fragments,
+        *(item.snippet for item in route_anchor_items),
         *(item.snippet for item in candidate.evidence_items),
         *(item.locator for item in candidate.evidence_items),
     )
+    existing_device = (candidate.device or "").strip()
+    route_device_hint, route_device_support = _route_label_device_hint(candidate)
     non_target_device_context = _looks_non_target_study(
         candidate.device,
         candidate.provenance.route_notes,
+        *route_label_fragments,
         *candidate.source_notes,
         *source_fragments,
+        *(item.snippet for item in route_anchor_items),
         *(item.snippet for item in candidate.evidence_items),
     )
-    if normalized_device == "" and non_target_device_context:
+    if normalized_device == "" and existing_device and device_label_strength(existing_device) >= 4:
+        normalized_device = existing_device
+    if route_device_hint and device_label_strength(route_device_hint) > device_label_strength(normalized_device):
+        normalized_device = route_device_hint
+    if normalized_device == "" and non_target_device_context and device_label_strength(existing_device) == 0:
         candidate.device = ""
     if not non_target_device_context and paper_device_hint and device_label_strength(paper_device_hint[0]) > device_label_strength(normalized_device):
         normalized_device = paper_device_hint[0]
@@ -321,14 +540,32 @@ def _normalize_record_fields(
         support_fragment = find_device_support_fragment(
             normalized_device,
             candidate.provenance.route_notes,
+            *route_label_fragments,
             *candidate.source_notes,
             *source_fragments,
+            *(item.snippet for item in route_anchor_items),
             *(item.snippet for item in candidate.evidence_items),
         )
         if not support_fragment and paper_device_hint and paper_device_hint[0] == normalized_device:
             support_fragment = paper_device_hint[1]
+        if not support_fragment and route_device_hint == normalized_device:
+            support_fragment = route_device_support
+        if not support_fragment:
+            support_fragment = next(
+                (
+                    item.snippet
+                    for item in route_anchor_items
+                    if item.field_name == "device" and item.snippet
+                ),
+                "",
+            )
         if support_fragment:
             _append_support_evidence(candidate, "device", support_fragment)
+
+    if candidate.formulation.label and not _field_supported(candidate, "formulation"):
+        formulation_fragment = _formulation_support_fragment(candidate, support_fragments)
+        if formulation_fragment:
+            _append_support_evidence(candidate, "formulation", formulation_fragment, confidence=0.56)
 
     normalized_endpoint_time_h = None
     if candidate.endpoint.time_value is not None:
@@ -342,6 +579,7 @@ def _normalize_record_fields(
     if candidate.conditions.diffusion_area_cm2 is None:
         for fragment in [
             candidate.provenance.route_notes,
+            *route_label_fragments,
             *candidate.source_notes,
             *source_fragments,
             *(item.snippet for item in candidate.evidence_items),
@@ -359,6 +597,7 @@ def _normalize_record_fields(
     if candidate.conditions.receptor_volume_ml is None:
         for fragment in [
             candidate.provenance.route_notes,
+            *route_label_fragments,
             *candidate.source_notes,
             *source_fragments,
             *(item.snippet for item in candidate.evidence_items),
@@ -441,13 +680,28 @@ def _normalize_record_fields(
             candidate.formulation.api_basis = shared_basis or candidate.formulation.api_basis
             _append_support_evidence(candidate, "api_concentration", shared_fragment, confidence=0.58)
 
+    if candidate.formulation.api_concentration_value is not None and not _field_supported(candidate, "api_concentration"):
+        api_fragment = _best_support_fragment(
+            support_fragments,
+            preferred_terms=["ibuprofen", "formulation", "table"],
+            value=candidate.formulation.api_concentration_value,
+            unit=candidate.formulation.api_concentration_unit,
+        )
+        if api_fragment:
+            _append_support_evidence(candidate, "api_concentration", api_fragment, confidence=0.56)
+
     if candidate.endpoint.time_value is not None and not _field_supported(candidate, "endpoint_time"):
-        for fragment in [*candidate.source_notes, *source_fragments, *(item.snippet for item in candidate.evidence_items)]:
+        for fragment in [*route_label_fragments, *candidate.source_notes, *source_fragments, *(item.snippet for item in candidate.evidence_items)]:
             if normalize_time_to_hours(candidate.endpoint.time_value, candidate.endpoint.time_unit) is not None and any(
                 token in fragment.lower() for token in ("hour", "hr", "min", "day", "after", " at ")
             ):
                 _append_support_evidence(candidate, "endpoint_time", fragment)
                 break
+
+    if candidate.endpoint.value is not None and not _field_supported(candidate, "endpoint"):
+        endpoint_fragment = _endpoint_support_fragment(candidate, support_fragments)
+        if endpoint_fragment:
+            _append_support_evidence(candidate, "endpoint", endpoint_fragment, confidence=0.56)
 
     if candidate.endpoint.kind == "amount_per_area" and candidate.endpoint.normalized_value is None:
         value, unit = normalize_amount_per_area(candidate.endpoint.value, candidate.endpoint.unit)
@@ -532,10 +786,23 @@ def _derive_scope_bucket(record: Record, failure_codes: list[str], policy: V1Str
         FailureCode.NOT_TARGET_STUDY_TYPE.value,
     }:
         tags.append("useful_but_out_of_scope")
+        if FailureCode.NOT_TARGET_API_CONCENTRATION.value in code_set:
+            tags.append("useful_api_concentration_out_of_scope")
+        if FailureCode.NOT_TARGET_ENDPOINT.value in code_set or FailureCode.PERCENT_ONLY.value in code_set:
+            tags.append("useful_endpoint_out_of_scope")
+        if FailureCode.NOT_TARGET_DEVICE.value in code_set:
+            tags.append("useful_device_out_of_scope")
+        if FailureCode.NOT_TARGET_STUDY_TYPE.value in code_set:
+            tags.append("useful_study_type_out_of_scope")
         return "useful_but_out_of_scope", tags
 
     if classify_outcome(code_set) == "unresolved":
         tags.append("recoverable_unresolved")
+        for code, tag in RECOVERABLE_SCOPE_TAGS.items():
+            if code in code_set and tag not in tags:
+                tags.append(tag)
+        if len(tags) == 1:
+            tags.append("recoverable_other")
         return "recoverable_unresolved", tags
 
     return "out_of_scope", tags

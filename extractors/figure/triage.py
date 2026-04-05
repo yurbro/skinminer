@@ -14,7 +14,7 @@ import fitz
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
-from extractors.common import artifact_path, require_pdf_path
+from extractors.common import artifact_path, require_pdf_path, resolve_stage_model
 from extractors.figure.models import FigureTriageArtifact, LegendEntry
 from schemas.models import ContentAccess, ExtractorRunContext, RouteDecision
 from utils.io import sanitize_filename, write_jsonl, write_optional_csv
@@ -246,6 +246,7 @@ def triage_figure_content(
         page_map.append((page_number, data_url))
 
     client = OpenAI(timeout=90)
+    model_name = resolve_stage_model(run_context, "figure_triage")
     attempt = 0
     while True:
         try:
@@ -264,7 +265,7 @@ def triage_figure_content(
                 content.append({"type": "input_image", "image_url": image_url})
 
             response = client.responses.parse(
-                model=run_context.model_name,
+                model=model_name,
                 input=[
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": content},
@@ -274,7 +275,7 @@ def triage_figure_content(
             record_openai_usage(
                 run_context.shared_state.get("long_run_monitor"),
                 module_name="extractors.figure.triage",
-                model_name=run_context.model_name,
+                model_name=model_name,
                 response=response,
                 prompt_payload=[SYSTEM_PROMPT, content],
                 output_payload=response.output_parsed.model_dump(mode="json"),
@@ -308,7 +309,7 @@ def triage_figure_content(
             record_openai_attempt_failure(
                 run_context.shared_state.get("long_run_monitor"),
                 module_name="extractors.figure.triage",
-                model_name=run_context.model_name,
+                model_name=model_name,
                 exc=exc,
                 attempt=attempt,
                 max_retries=max_retries,

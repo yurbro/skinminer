@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from extractors.common import build_provenance, infer_device_label
+from extractors.common import build_provenance, infer_device_label, route_device_hint
 from extractors.text.extract_fields import LegacyEndpoint, LegacyExtractedRecord
 from extractors.text.page_selection import TextEvidenceWindow, parse_anchor_pages
 from schemas.models import (
@@ -117,7 +117,7 @@ def normalize_text_record(
         route_confidence=route_decision.route_confidence,
         extractor_confidence=legacy.confidence,
         study_type=legacy.study_type,
-        device=inferred_device or _device_from_cell_type(legacy.cell_type),
+        device=inferred_device or route_device_hint(route_decision) or _device_from_cell_type(legacy.cell_type),
         barrier=legacy.barrier_name or legacy.barrier_category,
         formulation=FormulationSpec(
             label=f"text_{record_index}",

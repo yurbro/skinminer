@@ -14,7 +14,7 @@ import pandas as pd
 from access.content_strategy import build_default_content_strategy
 from access.resolve_content import resolve_content_batch
 from assembly.assemble_records import assemble_records
-from configs.run_profiles import DEFAULT_RUN_PROFILE, RUN_PROFILE_REGISTRY_VERSION, get_run_profile, list_run_profiles
+from configs.run_profiles import DEFAULT_RUN_PROFILE, RUN_PROFILE_REGISTRY_VERSION, STAGE_MODEL_KEYS, get_run_profile, list_run_profiles
 from corpus.build_epmc import build_corpus
 from corpus.query_profiles import DEFAULT_QUERY_PROFILE, QUERY_PROFILE_REGISTRY_VERSION, get_query_profile, list_query_profiles
 from detection.router import ROUTER_PROMPT_ASSET_ID, ROUTER_PROMPT_VERSION, route_papers
@@ -231,6 +231,29 @@ def _resolve_corpus_mode(input_csv: Path, explicit_build_corpus: bool) -> tuple[
     return False, False
 
 
+def _format_stage_model_overrides(default_model: str, stage_models: dict[str, str]) -> str:
+    overrides = [f"{key}={value}" for key, value in sorted(stage_models.items()) if value and value != default_model]
+    return ", ".join(overrides) if overrides else "none"
+
+
+def _resolve_stage_models(args: argparse.Namespace, run_profile) -> dict[str, str]:
+    stage_models = {key: args.model for key in STAGE_MODEL_KEYS}
+    stage_models.update(run_profile.stage_models or {})
+    cli_overrides = {
+        "llm_triage": args.llm_triage_model,
+        "routing": args.routing_model,
+        "text_extract": args.text_model,
+        "table_extract": args.table_model,
+        "figure_triage": args.figure_triage_model,
+        "figure_map": args.figure_map_model,
+        "llm_adjudicate": args.llm_adjudication_model,
+    }
+    for key, value in cli_overrides.items():
+        if value:
+            stage_models[key] = value
+    return stage_models
+
+
 def _suggest_fresh_output_dir(output_dir: Path) -> Path:
     """Suggest a sibling output directory when resume markers are incompatible."""
 
@@ -304,6 +327,7 @@ def _manifest_soft_resume_compatible(
     manifest_row: dict,
     *,
     model_name: str,
+    stage_models: dict[str, str],
     policy_name: str,
     run_profile_name: str,
     query_profile_name: str,
@@ -313,8 +337,12 @@ def _manifest_soft_resume_compatible(
     with_llm_adjudication: bool,
 ) -> bool:
     stage_metrics = manifest_row.get("stage_metrics", {}) or {}
+    manifest_stage_models = dict(stage_metrics.get("stage_models", {}) or {})
+    if not manifest_stage_models:
+        manifest_stage_models = {key: manifest_row.get("model_name", "") for key in STAGE_MODEL_KEYS}
     checks = [
         manifest_row.get("model_name", "") == model_name,
+        manifest_stage_models == stage_models,
         manifest_row.get("policy_name", "") == policy_name,
         stage_metrics.get("run_profile", "") == run_profile_name,
         stage_metrics.get("query_profile", "") == query_profile_name,
@@ -338,6 +366,12 @@ def main() -> None:
     parser.add_argument("--max-results", type=int, default=50000)
     parser.add_argument("--output-dir", type=Path, default=Path("outputs/round2_run"))
     parser.add_argument("--model", type=str, default=None)
+    parser.add_argument("--llm-triage-model", type=str, default=None)
+    parser.add_argument("--routing-model", type=str, default=None)
+    parser.add_argument("--text-model", type=str, default=None)
+    parser.add_argument("--table-model", type=str, default=None)
+    parser.add_argument("--figure-triage-model", type=str, default=None)
+    parser.add_argument("--figure-map-model", type=str, default=None)
     parser.add_argument("--with-llm-triage", dest="with_llm_triage", action="store_true")
     parser.add_argument("--no-llm-triage", dest="with_llm_triage", action="store_false")
     parser.add_argument("--download-content", dest="download_content", action="store_true")
@@ -373,11 +407,14 @@ def main() -> None:
         return
     if args.list_run_profiles:
         for profile in list_run_profiles():
+            profile_stage_models = {key: profile.stage_models.get(key, profile.model) for key in STAGE_MODEL_KEYS}
             print(
                 f"{profile.name}\t{profile.model}\tllm_triage={profile.with_llm_triage}\t"
                 f"figure={profile.enable_figure}\tdownload={profile.download_content}\t"
                 f"auto_pdf={profile.auto_pdf_download}\tfigure_gate={profile.figure_gate_mode}\t"
-                f"figure_min_conf={profile.figure_min_route_confidence:.2f}\t{profile.description}"
+                f"figure_min_conf={profile.figure_min_route_confidence:.2f}\t"
+                f"stage_overrides={_format_stage_model_overrides(profile.model, profile_stage_models)}\t"
+                f"{profile.description}"
             )
         return
 
@@ -388,8 +425,6 @@ def main() -> None:
     run_profile = get_run_profile(args.run_profile)
     if args.model is None:
         args.model = run_profile.model
-    if args.llm_adjudication_model is None:
-        args.llm_adjudication_model = args.model
     if args.with_llm_triage is None:
         args.with_llm_triage = run_profile.with_llm_triage
     if args.enable_figure is None:
@@ -398,6 +433,8 @@ def main() -> None:
         args.download_content = run_profile.download_content
     if args.auto_pdf_download is None:
         args.auto_pdf_download = run_profile.auto_pdf_download
+    stage_models = _resolve_stage_models(args, run_profile)
+    args.llm_adjudication_model = stage_models["llm_adjudicate"]
     query_profile = get_query_profile(args.query_profile)
     effective_query = args.query or query_profile.query
     query_source_label = f"custom_override:{query_profile.name}" if args.query else f"profile:{query_profile.name}"
@@ -450,6 +487,10 @@ def main() -> None:
         f"mode={run_profile.figure_gate_mode}, min_route_confidence={run_profile.figure_min_route_confidence:.2f}, "
         f"require_explicit_signal={'yes' if run_profile.figure_require_explicit_signal else 'no'}."
     )
+    manifest_notes.append(
+        "Stage-level model configuration: "
+        f"default={args.model}; overrides={_format_stage_model_overrides(args.model, stage_models)}."
+    )
     resume_signature = build_resume_signature(
         {
             "pipeline_version": "round2_resume_v4",
@@ -468,11 +509,11 @@ def main() -> None:
             "max_results": args.max_results,
             "limit": args.limit,
             "model": args.model,
+            "stage_models": stage_models,
             "policy_name": policy.name,
             "with_llm_triage": args.with_llm_triage,
             "download_content": args.download_content,
             "with_llm_adjudication": args.with_llm_adjudication,
-            "llm_adjudication_model": args.llm_adjudication_model,
             "llm_adjudication_limit": args.llm_adjudication_limit,
             "auto_pdf_download": args.auto_pdf_download,
             "enable_figure": args.enable_figure,
@@ -494,6 +535,7 @@ def main() -> None:
             and _manifest_soft_resume_compatible(
                 existing_manifest_row,
                 model_name=args.model,
+                stage_models=stage_models,
                 policy_name=policy.name,
                 run_profile_name=run_profile.name,
                 query_profile_name=query_profile.name,
@@ -557,6 +599,7 @@ def main() -> None:
             "query_override": bool(args.query),
             "corpus_query": effective_query,
             "prompt_assets": PROMPT_ASSETS,
+            "stage_models": stage_models,
         }
     )
     manifest.module_notes.update({f"prompt_asset:{asset_id}": version for asset_id, version in sorted(PROMPT_ASSETS.items())})
@@ -596,7 +639,7 @@ def main() -> None:
             f"Content Strategy: {content_strategy.summary}",
             f"Long Run: {long_run_monitor.summary_label if args.long_run_mode else 'off'}",
             f"Resume: {'on' if args.resume else 'off'}",
-            f"Model: {args.model} | Policy: {policy.name} | Output: {output_dir}",
+            f"Model: {args.model} | Stage Overrides: {_format_stage_model_overrides(args.model, stage_models)} | Policy: {policy.name} | Output: {output_dir}",
         ],
     ) as status_panel:
         for key, label in stage_labels.items():
@@ -780,7 +823,7 @@ def main() -> None:
                 try:
                     triage_rows = triage_records_with_llm(
                         passed,
-                        model=args.model,
+                        model=stage_models["llm_triage"],
                         output_jsonl=output_dir / "llm_triage.jsonl",
                         output_csv=(output_dir / "llm_triage.csv") if args.export_csv else None,
                         progress_every=args.progress_every,
@@ -882,7 +925,7 @@ def main() -> None:
             try:
                 route_decisions = route_papers(
                     routed_inputs,
-                    model=args.model,
+                    model=stage_models["routing"],
                     output_jsonl=output_dir / "route_decisions.jsonl",
                     output_csv=(output_dir / "route_decisions.csv") if args.export_csv else None,
                     progress_every=args.progress_every,
@@ -945,6 +988,7 @@ def main() -> None:
         run_context = ExtractorRunContext(
             run_id=manifest.run_id,
             model_name=args.model,
+            stage_models=stage_models,
             output_dir=str(output_dir),
             prompt_paths=PROMPT_PATHS,
             config_paths=CONFIG_PATHS,
@@ -1332,7 +1376,7 @@ def main() -> None:
                 try:
                     adjudication_rows = adjudicate_records(
                         verified,
-                        model=args.llm_adjudication_model,
+                        model=stage_models["llm_adjudicate"],
                         output_jsonl=adjudication_output_path,
                         output_csv=adjudication_csv_path if args.export_csv else None,
                         progress_callback=stage_callback("llm_adjudicate"),

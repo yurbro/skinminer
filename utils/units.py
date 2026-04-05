@@ -168,6 +168,16 @@ def normalize_amount_per_area(value: float | None, unit: str) -> tuple[float | N
     return None, ""
 
 
+def coerce_endpoint_kind_from_unit(kind: str, unit: str) -> str:
+    """Coerce endpoint kind when the unit encodes a stronger semantic signal."""
+
+    lowered = _clean_text(unit).lower().replace(" ", "")
+    if any(token in lowered for token in ("mg/cm2", "mg/cm^2", "ug/cm2", "ug/cm^2", "ng/cm2", "ng/cm^2")):
+        if kind in {"amount_total", "unknown"}:
+            return "amount_per_area"
+    return kind
+
+
 def amount_total_to_ug_per_cm2(value: float | None, unit: str, area_cm2: float | None) -> tuple[float | None, str]:
     """Normalize total amount values to `ug/cm^2` when diffusion area is available."""
 

@@ -10,6 +10,7 @@ from typing import Any
 
 import pandas as pd
 
+from configs.run_profiles import STAGE_MODEL_KEYS
 from schemas.models import Record, RouteDecision, RunManifest
 from utils.io import ensure_parent, flatten_record, load_jsonl, write_records_csv
 from verification.failure_taxonomy import count_failure_codes, count_failure_codes_by_route
@@ -264,6 +265,8 @@ def build_run_report(
     route_distribution = Counter(decision.route for decision in route_decisions)
     verification_outcomes = Counter(record.verification_status for record in verified_records)
     scope_buckets = Counter(record.scope_bucket or "unknown" for record in verified_records)
+    scope_tags = Counter(tag for record in verified_records for tag in (record.scope_tags or []) if tag)
+    stage_models = manifest.stage_metrics.get("stage_models", {}) or {key: manifest.model_name for key in STAGE_MODEL_KEYS}
     actual_verified_count = verification_outcomes.get("verified", 0)
     unresolved_count = verification_outcomes.get("unresolved", 0)
     rejected_count = verification_outcomes.get("rejected", 0)
@@ -292,12 +295,14 @@ def build_run_report(
         "query_profile": manifest.stage_metrics.get("query_profile", ""),
         "query_profile_version": manifest.stage_metrics.get("query_profile_version", ""),
         "query_source": manifest.stage_metrics.get("query_source", ""),
+        "stage_models": stage_models,
         "prompt_assets": manifest.stage_metrics.get("prompt_assets", {}),
         "module_counts": extractor_counts,
         "route_distribution": dict(route_distribution),
         "extractor_output_counts": extractor_counts,
         "verification_outcome_counts": dict(verification_outcomes),
         "scope_bucket_counts": dict(scope_buckets),
+        "scope_tag_counts": dict(scope_tags),
         "failure_taxonomy_counts": failure_counts,
         "failure_taxonomy_counts_by_route": failure_counts_by_route,
         "figure_verification_failure_taxonomy_counts": figure_verification_failures,
@@ -332,6 +337,7 @@ def build_run_report(
         + _mapping_to_rows(extractor_counts, "module")
         + _counter_to_rows(verification_outcomes, "verification_status")
         + _counter_to_rows(scope_buckets, "scope_bucket")
+        + _counter_to_rows(scope_tags, "scope_tag")
         + _mapping_to_rows(failure_counts, "failure_code")
         + _counter_to_rows(patch_success_counts, "patcher")
     )
@@ -423,6 +429,7 @@ def build_run_report(
         f"- Query profile: `{manifest.stage_metrics.get('query_profile', '')}`",
         f"- Query profile version: `{manifest.stage_metrics.get('query_profile_version', '')}`",
         f"- Query source: `{manifest.stage_metrics.get('query_source', '')}`",
+        f"- Stage models: `{stage_models}`",
         f"- Assembled records: `{len(assembled_records)}`",
         f"- Final records evaluated: `{len(verified_records)}`",
         f"- Actually verified: `{actual_verified_count}`",
@@ -441,6 +448,9 @@ def build_run_report(
     markdown.append("")
     markdown.append("## Scope Buckets")
     markdown.extend([f"- {key}: {value}" for key, value in sorted(scope_buckets.items())] or ["- none"])
+    markdown.append("")
+    markdown.append("## Scope Tags")
+    markdown.extend([f"- {key}: {value}" for key, value in sorted(scope_tags.items())] or ["- none"])
     markdown.append("")
     markdown.append("## Failure Taxonomy")
     markdown.extend([f"- {key}: {value}" for key, value in sorted(failure_counts.items())])

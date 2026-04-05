@@ -12,7 +12,7 @@ import cv2
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
-from extractors.common import artifact_path
+from extractors.common import artifact_path, resolve_stage_model
 from extractors.figure.models import DigitizedEndpointArtifact, FigureMappingArtifact, FigureTriageArtifact
 from schemas.models import ExtractorRunContext, Record
 from utils.io import write_jsonl, write_optional_csv
@@ -147,6 +147,7 @@ def map_curves_to_formulations(
     """Map digitized curves to formulation labels for figure-route assembly."""
 
     client = OpenAI(timeout=90)
+    model_name = resolve_stage_model(run_context, "figure_map")
     triage_by_paper = {artifact.paper_id: artifact for artifact in triage_artifacts}
     tables_by_paper: dict[str, list[Record]] = {}
     for record in table_records:
@@ -235,7 +236,7 @@ def map_curves_to_formulations(
                     {"type": "input_image", "image_url": plot_data_url},
                 ]
                 response = client.responses.parse(
-                    model=run_context.model_name,
+                    model=model_name,
                     input=[
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": user_content},
@@ -245,7 +246,7 @@ def map_curves_to_formulations(
                 record_openai_usage(
                     run_context.shared_state.get("long_run_monitor"),
                     module_name="extractors.figure.map_curves",
-                    model_name=run_context.model_name,
+                    model_name=model_name,
                     response=response,
                     prompt_payload=[SYSTEM_PROMPT, user_content],
                     output_payload=response.output_parsed.model_dump(mode="json"),
@@ -282,7 +283,7 @@ def map_curves_to_formulations(
                 record_openai_attempt_failure(
                     run_context.shared_state.get("long_run_monitor"),
                     module_name="extractors.figure.map_curves",
-                    model_name=run_context.model_name,
+                    model_name=model_name,
                     exc=exc,
                     attempt=attempt,
                     max_retries=6,

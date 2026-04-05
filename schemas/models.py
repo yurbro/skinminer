@@ -179,6 +179,7 @@ class ExtractorRunContext(BaseModel):
 
     run_id: str
     model_name: str = ""
+    stage_models: dict[str, str] = Field(default_factory=dict)
     output_dir: str = ""
     prompt_paths: list[str] = Field(default_factory=list)
     config_paths: list[str] = Field(default_factory=list)

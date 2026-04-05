@@ -5,8 +5,18 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
-RUN_PROFILE_REGISTRY_VERSION = "2026-03-31.v1"
+RUN_PROFILE_REGISTRY_VERSION = "2026-04-05.v1"
 DEFAULT_RUN_PROFILE = "balanced_full"
+
+STAGE_MODEL_KEYS = (
+    "llm_triage",
+    "routing",
+    "text_extract",
+    "table_extract",
+    "figure_triage",
+    "figure_map",
+    "llm_adjudicate",
+)
 
 
 @dataclass(frozen=True)
@@ -16,6 +26,7 @@ class RunProfile:
     name: str
     description: str
     model: str
+    stage_models: dict[str, str]
     with_llm_triage: bool
     enable_figure: bool
     download_content: bool
@@ -30,6 +41,7 @@ RUN_PROFILES: dict[str, RunProfile] = {
         name="balanced_full",
         description="Default full pipeline mode with LLM triage and figure branch enabled.",
         model="gpt-4o-mini",
+        stage_models={},
         with_llm_triage=True,
         enable_figure=True,
         download_content=False,
@@ -42,6 +54,7 @@ RUN_PROFILES: dict[str, RunProfile] = {
         name="text_table_baseline",
         description="Lower-cost baseline focused on structured text/table extraction without figure processing.",
         model="gpt-4o-mini",
+        stage_models={},
         with_llm_triage=True,
         enable_figure=False,
         download_content=False,
@@ -54,6 +67,7 @@ RUN_PROFILES: dict[str, RunProfile] = {
         name="budget_lean",
         description="Leanest mode that relies on structured OA text first and avoids figure work and automatic PDF downloads.",
         model="gpt-4o-mini",
+        stage_models={},
         with_llm_triage=True,
         enable_figure=False,
         download_content=False,
@@ -66,6 +80,7 @@ RUN_PROFILES: dict[str, RunProfile] = {
         name="figure_deep",
         description="Heavier figure-oriented mode that keeps figure enabled and eagerly downloads primary OA content.",
         model="gpt-4o-mini",
+        stage_models={},
         with_llm_triage=True,
         enable_figure=True,
         download_content=True,

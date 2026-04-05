@@ -105,6 +105,7 @@ Current verification also performs controlled source-backed normalization and su
 - applying stricter hard gates for strict-scope acceptance so `flux / Jss / percent-only / non-5%-w/w concentration` records are less likely to slip into `verified`
 - using route-aware acceptance, so `table` remains the most permissive branch while `text / mixed / figure` require stronger evidence corroboration before becoming `verified`
 - assigning a `scope_bucket` per record, including `strict_in_scope`, `recoverable_unresolved`, and `useful_but_out_of_scope`
+- assigning finer recoverable `scope_tags`, such as `recoverable_api_basis`, `recoverable_area`, `recoverable_endpoint`, `recoverable_endpoint_time`, and `recoverable_support_gap`
 - keeping that strengthening inside structured schema fields and `EvidenceItem`s rather than mixing acceptance logic back into assembly
 - the current verifier is also intentionally `precision-first`: it is allowed to push borderline records into `recoverable_unresolved` rather than letting high-risk records pass into `verified`
 - accordingly, `verified` currently means “strict automatic pass” rather than “the final truth a human reviewer would necessarily confirm”
@@ -130,6 +131,7 @@ Patchers are intended to:
 - area and API-concentration patchers can now also reuse shared paper-level or formulation-label-level hints when a single record does not carry enough local evidence by itself
 - endpoint and API-concentration patchers may now also revise populated but suspicious values when strict verification marks them as ambiguous or likely out-of-scope
 - API concentration fields are now normalized more consistently across assembly and verification, so `% w/w`, `% w/v`, `mg/g`, `mg/ml`, and `mM` are less likely to carry unstable basis strings
+- assembly now also performs proactive table-support promotion, so stronger table-side formulation, API, area, and support evidence can be merged into related `text / mixed / figure` records before final verification
 
 ### 1.7 Stronger figure traceability
 
@@ -336,6 +338,7 @@ This round also added six more practical improvements aimed at large-run usabili
     - `text_table_baseline`
     - `budget_lean`
     - `figure_deep`
+  - `run_pipeline.py` now also supports stage-level model overrides such as `--routing-model`, `--table-model`, `--figure-triage-model`, `--figure-map-model`, and `--llm-adjudication-model`
 - remote structured-source caching
   - `utils/source_cache.py`
   - `detection/router.py`
@@ -878,4 +881,33 @@ The latest engineering round tightened three practical areas that were directly 
   - area parsing now supports spaced unit forms such as `cm 2 / mm 2`, making donor or diffusion area recovery from source fragments more reliable
   - verification now also parses `receptor / receiver volume` and can normalize `µg/mL` receptor-concentration endpoints back to `ug/cm^2` when both volume and area are available
   - the endpoint patcher now performs a second shared-hint replay pass, so a corrected endpoint from one record can promote sibling records from the same paper and formulation label
-  - the API-concentration patcher now compares candidate quality before overriding, preventing weaker `mg/mL / mM` hints from replacing stronger existing `5%` evidence
+- the API-concentration patcher now compares candidate quality before overriding, preventing weaker `mg/mL / mM` hints from replacing stronger existing `5%` evidence
+
+## 14. Latest Additions: support promotion and stage-level models
+
+- `assembly/assemble_records.py` now promotes stronger `table` support into related `text / mixed / figure` records when formulation-label or paper-level table context matches, so formulation, API concentration, diffusion area, and support evidence are less likely to remain stranded in table-only partials.
+- `verification/verify_records.py` now assigns finer recoverable `scope_tags`, such as `recoverable_api_basis`, `recoverable_area`, `recoverable_endpoint`, `recoverable_endpoint_time`, and `recoverable_support_gap`.
+- `reports/build_run_report.py` now reports `scope_tag_counts`, not only coarse `scope_bucket` counts.
+- `run_pipeline.py` now supports stage-level model overrides in addition to the global `--model`. The current stage override flags are:
+  - `--llm-triage-model`
+  - `--routing-model`
+  - `--text-model`
+  - `--table-model`
+  - `--figure-triage-model`
+  - `--figure-map-model`
+  - `--llm-adjudication-model`
+- These stage-level model settings now flow into the run manifest, run report, and resume-signature consistency checks.
+
+## 15. Latest support-gap fixes
+
+- `extractors/common.py` now preserves strong `Franz diffusion cell` evidence in comparative papers that also mention `PAMPA`, instead of dropping the device label too early.
+- `extractors/common.py` now stores `route_anchor_evidence` in record provenance metadata so downstream verification can reuse router-level evidence.
+- `verification/verify_records.py` now promotes router anchor evidence into real support for `device`, `endpoint`, and `formulation`, which reduces false `recoverable_support_gap` cases.
+- `utils/units.py`, `assembly/assemble_records.py`, and `verification/verify_records.py` now coerce endpoints with explicit per-area units such as `ug/cm^2` from `amount_total` to `amount_per_area`, so these records are no longer blocked by unnecessary `missing_area` failures.
+
+## 16. Latest router-to-verifier signal propagation
+
+- `extractors/common.py` now stores `route_raw_labels` in provenance metadata in addition to `route_anchor_evidence`.
+- `extractors/table/extractor.py` and `extractors/text/normalize_fields.py` no longer fall back to a generic `diffusion cell` label unless routing metadata explicitly supports it.
+- `verification/verify_records.py` now consumes `route_raw_labels` such as `franz_confirmed`, `where_franz`, `where_diffusion_cell`, and `endpoint_carrier_snippet` when normalizing `device`, `study_type`, `endpoint_time`, and support evidence.
+- `extractors/figure/build_records.py` now preserves upstream routing metadata when figure-derived records are built from table-backed source records, so figure verification sees the same routing context as earlier modalities.

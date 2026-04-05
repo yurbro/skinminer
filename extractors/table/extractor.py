@@ -17,7 +17,7 @@ import fitz
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
-from extractors.common import build_provenance, infer_device_label, require_pdf_path
+from extractors.common import build_provenance, infer_device_label, require_pdf_path, resolve_stage_model, route_device_hint
 from schemas.models import ConditionSpec, ContentAccess, EndpointSpec, EvidenceItem, ExtractorRunContext, FormulationComponent, FormulationSpec, Record, RouteDecision
 from utils.io import make_record_id, write_jsonl, write_records_csv, write_records_jsonl
 from utils.long_run import record_openai_attempt_failure, record_openai_usage
@@ -513,6 +513,7 @@ def _run_table_prompt(
     window: TableEvidenceWindow,
 ) -> TableExtractionResult:
     client = OpenAI(timeout=90)
+    model_name = resolve_stage_model(run_context, "table_extract")
     prompt = _build_prompt(
         content_handle=content_handle,
         route_decision=route_decision,
@@ -528,7 +529,7 @@ def _run_table_prompt(
                 for page_index in window.image_page_indices[:2]:
                     user_content.append({"type": "input_image", "image_url": _render_page_jpg_dataurl(window.source_ref, page_index)})
             response = client.responses.parse(
-                model=run_context.model_name,
+                model=model_name,
                 input=[
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": user_content},
@@ -538,7 +539,7 @@ def _run_table_prompt(
             record_openai_usage(
                 run_context.shared_state.get("long_run_monitor"),
                 module_name="extractors.table",
-                model_name=run_context.model_name,
+                model_name=model_name,
                 response=response,
                 prompt_payload=[SYSTEM_PROMPT, user_content],
                 output_payload=response.output_parsed.model_dump(mode="json"),
@@ -551,7 +552,7 @@ def _run_table_prompt(
             record_openai_attempt_failure(
                 run_context.shared_state.get("long_run_monitor"),
                 module_name="extractors.table",
-                model_name=run_context.model_name,
+                model_name=model_name,
                 exc=exc,
                 attempt=attempt,
                 max_retries=6,
@@ -725,7 +726,7 @@ def _map_formulation_to_record(
                 row.notes,
                 row.evidence_snippet,
             )
-            or ("Franz diffusion cell" if route_decision.raw_labels.get("franz_confirmed") == "yes" else "diffusion cell")
+            or route_device_hint(route_decision)
         ),
         barrier=str(route_decision.raw_labels.get("barrier_name_raw", route_decision.raw_labels.get("barrier_category", "")) or ""),
         formulation=FormulationSpec(

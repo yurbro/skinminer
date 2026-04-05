@@ -883,4 +883,33 @@ python run_pipeline.py --build-corpus --max-results 50000 --with-llm-triage --en
 
 - strict scope 需要稳定、可重复、可审计的硬边界
 - 如果 extraction 和 verification 都完全交给 LLM，更容易出现 correlated error / self-confirmation
+
+## 14. 最新补充：support promotion 与阶段级模型
+
+- `assembly/assemble_records.py` 现在会更主动地把高质量 `table` 支撑记录 merge 到相关 `text / mixed / figure` records 里，尤其是 formulation label、API concentration、diffusion area 和对应 support evidence。
+- `verification/verify_records.py` 现在会给 `recoverable_unresolved` 增加更细的 `scope_tags`，例如 `recoverable_api_basis`、`recoverable_area`、`recoverable_endpoint`、`recoverable_endpoint_time`、`recoverable_support_gap`，便于后续 recovery 和报告分析。
+- `reports/build_run_report.py` 现在会统计 `scope_tag_counts`，所以 run report 不再只看粗粒度 `scope_bucket`。
+- `run_pipeline.py` 现在支持阶段级模型覆盖。除全局 `--model` 外，还可以单独设置：
+  - `--llm-triage-model`
+  - `--routing-model`
+  - `--text-model`
+  - `--table-model`
+  - `--figure-triage-model`
+  - `--figure-map-model`
+  - `--llm-adjudication-model`
+- 这些阶段级模型配置会写入 run manifest 和 run report，也会参与 resume signature 校验。
 - 当前 manual review 的定位是离线校准，不是生产 pipeline 的必需环节
+
+## 15. Latest support-gap fixes
+
+- `extractors/common.py` now keeps strong `Franz diffusion cell` evidence in comparative papers that also mention `PAMPA`, instead of dropping the device label too early.
+- `extractors/common.py` now stores `route_anchor_evidence` in record provenance metadata so later verification can reuse router-level evidence.
+- `verification/verify_records.py` now consumes router anchor evidence as real support for `device`, `endpoint`, and `formulation`, which reduces false `recoverable_support_gap` cases.
+- `utils/units.py`, `assembly/assemble_records.py`, and `verification/verify_records.py` now coerce endpoints with explicit per-area units such as `ug/cm^2` from `amount_total` to `amount_per_area`, so these records are no longer blocked by unnecessary `missing_area` failures.
+
+## 16. Latest router-to-verifier signal propagation
+
+- `extractors/common.py` now also stores `route_raw_labels` in provenance metadata, not only `route_anchor_evidence`.
+- `extractors/table/extractor.py` and `extractors/text/normalize_fields.py` no longer fall back to a generic `diffusion cell` label unless routing metadata explicitly supports it.
+- `verification/verify_records.py` now consumes `route_raw_labels` such as `franz_confirmed`, `where_franz`, `where_diffusion_cell`, and `endpoint_carrier_snippet` when normalizing `device`, `study_type`, `endpoint_time`, and support evidence.
+- `extractors/figure/build_records.py` now preserves upstream routing metadata when figure-derived records are built from table-backed source records, so figure verification can see the same routing context as the earlier modalities.

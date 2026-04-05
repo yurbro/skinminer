@@ -9,6 +9,7 @@ from typing import Literal
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
+from extractors.common import resolve_stage_model
 from extractors.text.page_selection import TextEvidenceWindow
 from schemas.models import ExtractorRunContext, RouteDecision
 from utils.long_run import record_openai_attempt_failure, record_openai_usage
@@ -91,6 +92,7 @@ def extract_text_fields(
     """Run the text extraction prompt over a selected evidence window."""
 
     client = OpenAI(timeout=90)
+    model_name = resolve_stage_model(run_context, "text_extract")
     doi = route_decision.doi
     title = route_decision.title or str(route_decision.raw_labels.get("title", "") or "")
     prompt = (
@@ -112,7 +114,7 @@ def extract_text_fields(
     while True:
         try:
             response = client.responses.parse(
-                model=run_context.model_name,
+                model=model_name,
                 input=[
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
@@ -122,7 +124,7 @@ def extract_text_fields(
             record_openai_usage(
                 run_context.shared_state.get("long_run_monitor"),
                 module_name="extractors.text",
-                model_name=run_context.model_name,
+                model_name=model_name,
                 response=response,
                 prompt_payload=[SYSTEM_PROMPT, prompt],
                 output_payload=response.output_parsed.model_dump(mode="json"),
@@ -135,7 +137,7 @@ def extract_text_fields(
             record_openai_attempt_failure(
                 run_context.shared_state.get("long_run_monitor"),
                 module_name="extractors.text",
-                model_name=run_context.model_name,
+                model_name=model_name,
                 exc=exc,
                 attempt=attempt,
                 max_retries=max_retries,

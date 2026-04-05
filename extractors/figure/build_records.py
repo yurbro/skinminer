@@ -140,6 +140,8 @@ def _build_record_from_mapping(
                 title=triage_artifact.title,
                 route="figure",
                 route_confidence=source_record.route_confidence,
+                anchor_evidence=list(source_record.provenance.metadata.get("route_anchor_evidence", [])),
+                raw_labels=dict(source_record.provenance.metadata.get("route_raw_labels", {})),
             ),
             source_format="pdf",
             source_path=triage_artifact.pdf_path,

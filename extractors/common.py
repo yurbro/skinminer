@@ -17,6 +17,12 @@ def artifact_path(run_context: ExtractorRunContext, *parts: str) -> Path:
     return path
 
 
+def resolve_stage_model(run_context: ExtractorRunContext, stage_key: str) -> str:
+    """Resolve the active model for an extractor sub-stage."""
+
+    return str(run_context.stage_models.get(stage_key) or run_context.model_name or "")
+
+
 def build_provenance(
     extractor_name: str,
     content_handle: ContentAccess,
@@ -35,6 +41,11 @@ def build_provenance(
         resolved_source_path = next(iter(content_handle.local_paths.values()))
     if not resolved_source_path:
         resolved_source_path = content_handle.access_urls.get(resolved_source_format, "")
+    resolved_metadata = dict(metadata or {})
+    if route_decision.anchor_evidence and "route_anchor_evidence" not in resolved_metadata:
+        resolved_metadata["route_anchor_evidence"] = [item.model_dump(mode="json") for item in route_decision.anchor_evidence]
+    if route_decision.raw_labels and "route_raw_labels" not in resolved_metadata:
+        resolved_metadata["route_raw_labels"] = dict(route_decision.raw_labels)
     return RecordProvenance(
         extractor_name=extractor_name,
         source_format=resolved_source_format,
@@ -43,8 +54,24 @@ def build_provenance(
         route_label=route_decision.route,
         route_notes=route_decision.notes,
         artifact_paths=list(artifact_paths or []),
-        metadata=dict(metadata or {}),
+        metadata=resolved_metadata,
     )
+
+
+def route_device_hint(route_decision: RouteDecision) -> str:
+    """Return a device hint implied by routing metadata."""
+
+    raw_labels = route_decision.raw_labels or {}
+    franz_confirmed = str(raw_labels.get("franz_confirmed", "") or "").strip().lower()
+    where_franz = str(raw_labels.get("where_franz", "") or "").strip().lower()
+    where_diffusion = str(raw_labels.get("where_diffusion_cell", "") or "").strip().lower()
+    mentions_diffusion_cell = str(raw_labels.get("mentions_diffusion_cell", "") or "").strip().lower()
+
+    if franz_confirmed == "yes" or ("franz" in where_franz and where_franz not in {"unknown", "uncertain"}):
+        return "Franz diffusion cell"
+    if mentions_diffusion_cell == "yes" or (where_diffusion and where_diffusion not in {"unknown", "uncertain"}):
+        return "diffusion cell"
+    return ""
 
 
 def require_pdf_path(content_handle: ContentAccess) -> str:
@@ -83,6 +110,14 @@ def infer_device_label(*fragments: str) -> str:
     lowered = " ".join(_clean_fragment(fragment) for fragment in fragments if fragment).strip()
     if not lowered:
         return ""
+    has_pampa = _contains_any(
+        lowered,
+        (
+            "pampa",
+            "skin pampa",
+            "parallel artificial membrane permeability assay",
+        ),
+    )
     permeation_like = _contains_any(
         lowered,
         (
@@ -119,13 +154,8 @@ def infer_device_label(*fragments: str) -> str:
             "exercise",
             "antibacterial",
             "minimum inhibitory concentration",
-            "pampa",
-            "skin pampa",
-            "parallel artificial membrane permeability assay",
         ),
     )
-    if "pampa" in lowered or "parallel artificial membrane permeability assay" in lowered:
-        return ""
     if any(token in lowered for token in ("side-by-side diffusion", "side by side diffusion", "side-by-side cell", "side by side cell")):
         return "side-by-side diffusion cell"
     if any(token in lowered for token in ("flow-through diffusion", "flow through diffusion", "hanson diffusion", "enhancer cell")):
@@ -213,6 +243,8 @@ def infer_device_label(*fragments: str) -> str:
         franz_signals += 1
     if franz_signals >= 3 and (explicit_cell_cue or donor_like or receptor_like):
         return "Franz diffusion cell"
+    if has_pampa and franz_signals < 3 and not explicit_cell_cue and not (donor_like and receptor_like):
+        return ""
     if explicit_cell_cue and (permeation_like or donor_like or receptor_like) and not obvious_non_device_context:
         return "diffusion cell"
     return ""
@@ -224,6 +256,28 @@ def infer_study_type_label(*fragments: str) -> str:
     lowered = " ".join(_clean_fragment(fragment) for fragment in fragments if fragment).strip()
     if not lowered:
         return ""
+    has_pampa = _contains_any(
+        lowered,
+        (
+            "pampa",
+            "skin pampa",
+            "parallel artificial membrane permeability assay",
+        ),
+    )
+    strong_ivpt_context = _contains_any(
+        lowered,
+        (
+            "franz diffusion cell",
+            "franz cell",
+            "vertical diffusion",
+            "receiver compartment",
+            "receptor compartment",
+            "cumulative amount permeated",
+            "skin permeation",
+            "percutaneous absorption",
+            "transdermal permeation",
+        ),
+    )
 
     clinical_or_non_target = _contains_any(
         lowered,
@@ -242,12 +296,9 @@ def infer_study_type_label(*fragments: str) -> str:
             "analgesic effect",
             "pain relief",
             "risk ratio",
-            "pampa",
-            "skin pampa",
-            "parallel artificial membrane permeability assay",
         ),
     )
-    if clinical_or_non_target:
+    if clinical_or_non_target or (has_pampa and not strong_ivpt_context):
         return "uncertain"
 
     ivpt_like = _contains_any(
