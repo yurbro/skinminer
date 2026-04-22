@@ -8,12 +8,12 @@ import time
 from pathlib import Path
 from typing import Iterable, Literal
 
-from openai import OpenAI
 from pydantic import BaseModel, Field
 
 from patchers.common import collect_source_fragments
 from schemas.models import Record
 from utils.io import load_records_jsonl, write_jsonl, write_optional_csv
+from utils.llm_client import LLMProvider, parse_structured
 from utils.long_run import LongRunMonitor, record_openai_attempt_failure, record_openai_usage
 from utils.status_panel import ProgressCallback
 
@@ -218,6 +218,7 @@ def adjudicate_records(
     records: Iterable[Record],
     *,
     model: str = "gpt-4o-mini",
+    llm_provider: str | LLMProvider = LLMProvider.OPENAI,
     output_jsonl: str | Path | None = None,
     output_csv: str | Path | None = None,
     progress_callback: ProgressCallback | None = None,
@@ -227,7 +228,7 @@ def adjudicate_records(
 ) -> list[dict]:
     """Run an audit-only LLM ranking pass over recoverable unresolved records."""
 
-    client = OpenAI(timeout=90)
+    provider = LLMProvider.parse(llm_provider)
     candidates = select_adjudication_candidates(records, limit=limit)
 
     rows: list[dict] = []
@@ -249,13 +250,15 @@ def adjudicate_records(
         attempt = 0
         while True:
             try:
-                response = client.responses.parse(
+                response = parse_structured(
+                    provider=provider,
                     model=model,
                     input=[
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": prompt},
                     ],
                     text_format=AdjudicationVerdict,
+                    timeout=90,
                 )
                 verdict = response.output_parsed
                 row = AdjudicationRow(

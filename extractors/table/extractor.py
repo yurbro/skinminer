@@ -8,18 +8,19 @@ import json
 import logging
 import random
 import re
+import time
 import xml.etree.ElementTree as ET
 from html import unescape
 from pathlib import Path
 from typing import Literal
 
 import fitz
-from openai import OpenAI
 from pydantic import BaseModel, Field
 
 from extractors.common import build_provenance, infer_device_label, require_pdf_path, resolve_stage_model, route_device_hint
 from schemas.models import ConditionSpec, ContentAccess, EndpointSpec, EvidenceItem, ExtractorRunContext, FormulationComponent, FormulationSpec, Record, RouteDecision
 from utils.io import make_record_id, write_jsonl, write_records_csv, write_records_jsonl
+from utils.llm_client import parse_structured, resolve_provider_from_context
 from utils.long_run import record_openai_attempt_failure, record_openai_usage
 from utils.resume import load_jsonl_if_exists, load_record_jsonl_if_exists
 from utils.source_cache import fetch_cached_text
@@ -38,7 +39,7 @@ from utils.units import (
 TABLE_SOURCE_USER_AGENT = {"User-Agent": "SkinMiner/table-extractor"}
 LOGGER = logging.getLogger("skinminer.extractors.table")
 TABLE_EXTRACTION_PROMPT_ASSET_ID = "extractors.table.structured_tables"
-TABLE_EXTRACTION_PROMPT_VERSION = "2026-03-28.v1"
+TABLE_EXTRACTION_PROMPT_VERSION = "2026-04-11.v1"
 
 SYSTEM_PROMPT = (
     "You extract formulation composition tables from OA scientific articles. "
@@ -95,6 +96,12 @@ class FormulationRow(BaseModel):
     endpoint_time_value: float | None = None
     endpoint_time_unit: str = ""
     endpoint_kind: Literal["amount_per_area", "amount_total", "percent", "flux", "jss", "unknown"] = "unknown"
+    membrane_type: str = ""
+    membrane_source: str = ""
+    membrane_thickness_um: float | None = None
+    receptor_medium: str = ""
+    dose_type: str = ""
+    dose_amount: str = ""
     water_qs_or_balance: Literal["yes", "no", "uncertain"] = "uncertain"
     table_id: str = ""
     source_pages: list[int] = Field(default_factory=list)
@@ -121,6 +128,7 @@ class StructuredTableBlock(BaseModel):
     title: str = ""
     text: str = ""
     score: int = 0
+    truncated: bool = False
 
 
 class TableEvidenceWindow(BaseModel):
@@ -135,6 +143,8 @@ class TableEvidenceWindow(BaseModel):
     image_page_indices: list[int] = Field(default_factory=list)
     content_text: str = ""
     score_debug: dict[str, int] = Field(default_factory=dict)
+    table_truncated: bool = False
+    truncation_notes: list[str] = Field(default_factory=list)
 
 
 def _norm_ws(text: str) -> str:
@@ -145,9 +155,31 @@ def _backoff(attempt: int) -> None:
     time.sleep(min(20.0, (2**attempt) * 0.6) + random.random() * 0.4)
 
 
-def _infer_table_hint(where_endpoint: str) -> str | None:
-    match = re.search(r"(table\s*\d+)", where_endpoint or "", flags=re.IGNORECASE)
-    return match.group(1) if match else None
+ROMAN_TABLE_NUMERALS = {
+    "i": 1,
+    "ii": 2,
+    "iii": 3,
+    "iv": 4,
+    "v": 5,
+    "vi": 6,
+    "vii": 7,
+    "viii": 8,
+    "ix": 9,
+    "x": 10,
+}
+
+
+def _infer_table_hint(*fragments: str) -> str | None:
+    text = " ".join(str(fragment or "") for fragment in fragments)
+    match = re.search(r"table\s*([0-9]+|[ivxlcdm]+)", text, flags=re.IGNORECASE)
+    if not match:
+        return None
+    token = match.group(1).lower()
+    if token.isdigit():
+        return f"Table {token}"
+    if token in ROMAN_TABLE_NUMERALS:
+        return f"Table {ROMAN_TABLE_NUMERALS[token]}"
+    return match.group(0)
 
 
 def _score_table_text(text: str) -> int:
@@ -274,8 +306,9 @@ def _strip_html_tags(text: str) -> str:
     return _norm_ws(unescape(cleaned))
 
 
-def _extract_html_rows(table_html: str, max_rows: int = 18) -> list[str]:
+def _extract_html_rows(table_html: str, max_rows: int = 60) -> tuple[list[str], bool]:
     rows: list[str] = []
+    truncated = False
     for row_html in re.findall(r"(?is)<tr\b.*?>.*?</tr>", table_html):
         cells: list[str] = []
         for cell_html in re.findall(r"(?is)<(?:th|td)\b.*?>.*?</(?:th|td)>", row_html):
@@ -285,8 +318,9 @@ def _extract_html_rows(table_html: str, max_rows: int = 18) -> list[str]:
         if cells:
             rows.append(" | ".join(cells))
         if len(rows) >= max_rows:
+            truncated = True
             break
-    return rows
+    return rows, truncated
 
 
 def _extract_html_table_blocks(raw_html: str) -> list[StructuredTableBlock]:
@@ -294,13 +328,16 @@ def _extract_html_table_blocks(raw_html: str) -> list[StructuredTableBlock]:
     for index, table_html in enumerate(re.findall(r"(?is)<table\b.*?>.*?</table>", raw_html), start=1):
         caption_match = re.search(r"(?is)<caption\b.*?>(.*?)</caption>", table_html)
         caption = _strip_html_tags(caption_match.group(1)) if caption_match else ""
-        rows = _extract_html_rows(table_html)
+        rows, truncated = _extract_html_rows(table_html)
         if not rows and not caption:
             continue
         locator = caption.split(".")[0][:80] if caption else f"Table {index}"
         parts = [f"TABLE_LOCATOR: {locator or f'Table {index}'}"]
         if caption:
             parts.append(f"CAPTION: {caption}")
+        if truncated:
+            parts.append("TABLE_TRUNCATED: true")
+            parts.append("TRUNCATION_NOTE: HTML table exceeded the row extraction cap; later rows are not present in this block.")
         if rows:
             parts.append("ROWS:")
             parts.extend(rows)
@@ -311,9 +348,63 @@ def _extract_html_table_blocks(raw_html: str) -> list[StructuredTableBlock]:
                 title=caption or f"table_{index}",
                 text=block_text,
                 score=_score_table_text(block_text),
+                truncated=truncated,
             )
         )
     return blocks
+
+
+CONDITION_CONTEXT_KEYWORDS = [
+    "franz",
+    "receptor compartment",
+    "receptor medium",
+    "receptor solution",
+    "receptor phase",
+    "receiver medium",
+    "receiver solution",
+    "pbs",
+    "ph 7.4",
+    "skin",
+    "membrane",
+    "dermatomed",
+    "porcine",
+    "human",
+    "strat-m",
+    "finite dose",
+    "infinite dose",
+    "dose",
+]
+
+
+def _extract_condition_context(raw_text: str, max_snippets: int = 6, window_chars: int = 420) -> str:
+    """Return compact source-backed context for condition fields."""
+
+    cleaned = _strip_html_tags(raw_text)
+    lowered = cleaned.lower()
+    snippets: list[str] = []
+    seen: set[str] = set()
+    for keyword in CONDITION_CONTEXT_KEYWORDS:
+        start = lowered.find(keyword)
+        if start < 0:
+            continue
+        left = max(0, start - window_chars // 2)
+        right = min(len(cleaned), start + window_chars // 2)
+        snippet = cleaned[left:right].strip(" ;,")
+        snippet = re.sub(r"\s+", " ", snippet)
+        key = snippet[:120].lower()
+        if snippet and key not in seen:
+            snippets.append(f"- {snippet}")
+            seen.add(key)
+        if len(snippets) >= max_snippets:
+            break
+    return "\n".join(snippets)
+
+
+def _cap_window_text(text: str, max_chars_total: int) -> tuple[str, bool]:
+    if len(text) <= max_chars_total:
+        return text.strip(), False
+    marker = "\n...[table_window_truncated: true]"
+    return f"{text[: max(0, max_chars_total - len(marker))].rstrip()}{marker}", True
 
 
 def _build_structured_table_window(
@@ -322,7 +413,11 @@ def _build_structured_table_window(
     max_tables_total: int = 4,
     max_chars_total: int = 28_000,
 ) -> TableEvidenceWindow | None:
-    table_hint = _infer_table_hint(str(route_decision.raw_labels.get("where_endpoint", "") or "")) or ""
+    table_hint = _infer_table_hint(
+        str(route_decision.raw_labels.get("where_endpoint", "") or ""),
+        str(route_decision.raw_labels.get("endpoint_carrier_snippet", "") or ""),
+        str(route_decision.raw_labels.get("formulation_carrier_snippet", "") or ""),
+    ) or ""
     for fmt, location, ref in _iter_structured_candidates(content_handle):
         try:
             raw_text = _load_text_from_ref(ref, location)
@@ -354,14 +449,28 @@ def _build_structured_table_window(
             f"--- TABLE BLOCK {position} (score={block.score}, locator={block.locator}, source={fmt}_{location}) ---\n{block.text}"
             for position, block in enumerate(selected, start=1)
         ]
+        condition_context = _extract_condition_context(raw_text)
+        if condition_context:
+            parts.append(f"--- EXPERIMENT CONDITION CONTEXT (source={fmt}_{location}) ---\n{condition_context}")
+        content_text, char_truncated = _cap_window_text("\n\n".join(parts), max_chars_total)
+        row_truncation_notes = [
+            f"{block.locator}: row cap reached"
+            for block in selected
+            if block.truncated
+        ]
+        truncation_notes = [*row_truncation_notes]
+        if char_truncated:
+            truncation_notes.append(f"window char cap reached at {max_chars_total}")
         return TableEvidenceWindow(
             source_format=fmt,
             source_backend=f"{fmt}_{location}",
             source_ref=ref,
             locator_mode="table",
             selected_locators=[block.locator for block in selected],
-            content_text="\n\n".join(parts)[:max_chars_total].strip(),
+            content_text=content_text,
             score_debug={block.locator: block.score for block in selected},
+            table_truncated=bool(row_truncation_notes or char_truncated),
+            truncation_notes=truncation_notes,
         )
     return None
 
@@ -443,6 +552,8 @@ def _build_pages_text(pdf_path: str, pages: list[int], max_chars_per_page: int =
 def _build_pdf_table_window(content_handle: ContentAccess) -> TableEvidenceWindow:
     pdf_path = require_pdf_path(content_handle)
     pages, weak_pages = _pick_candidate_pages(pdf_path)
+    content_text = _build_pages_text(pdf_path, pages)
+    table_truncated = "[truncated]" in content_text
     return TableEvidenceWindow(
         source_format="pdf",
         source_backend="pdf_local",
@@ -451,8 +562,10 @@ def _build_pdf_table_window(content_handle: ContentAccess) -> TableEvidenceWindo
         selected_pages=[page + 1 for page in pages],
         selected_locators=[f"page {page + 1}" for page in pages],
         image_page_indices=weak_pages,
-        content_text=_build_pages_text(pdf_path, pages),
+        content_text=content_text,
         score_debug={f"page {page + 1}": 1 for page in pages},
+        table_truncated=table_truncated,
+        truncation_notes=["PDF page text cap reached"] if table_truncated else [],
     )
 
 
@@ -490,10 +603,26 @@ def _build_prompt(
     window: TableEvidenceWindow,
     curve_hints: str,
 ) -> str:
+    endpoint_table_hint = _infer_table_hint(
+        str(route_decision.raw_labels.get("where_endpoint", "") or ""),
+        str(route_decision.raw_labels.get("endpoint_carrier_snippet", "") or ""),
+    ) or ""
     return (
         "Extract formulation composition tables relevant to ibuprofen in vitro permeation or release. "
         "Also capture endpoint summary values, endpoint times, units, and basis when they are explicitly tabulated. "
         "Return only structured output. Preserve explicit table identifiers in table_id.\n\n"
+        "STRICT ROW COMPLETENESS RULES:\n"
+        "- You MUST extract every relevant data row in the provided tables. Do not skip, summarize, or return only representative rows.\n"
+        "- If a table has 8 formulation rows and one endpoint column, return 8 records. If it has 8 formulation rows and 3 endpoint time columns, return 24 records.\n"
+        "- For one-row/multiple-timepoint endpoint tables, emit one independent record for each formulation x each timepoint column, and set endpoint_time_value/unit for that exact column.\n"
+        "- Do not copy a final-time endpoint value into earlier timepoint records. The endpoint_value must match the same time column named in endpoint_time_value.\n"
+        "- The formulation_label for an endpoint record MUST come from the same table row as endpoint_value. Do not substitute labels from another table by row order.\n"
+        "- If ENDPOINT_TABLE_HINT is set, prioritize that table for endpoint records. Use other tables only to fill composition or shared context for matching labels.\n"
+        "- When cumulative amount columns and flux/Jss columns are both present, prefer cumulative amount columns as endpoint records and do not substitute flux for amount.\n"
+        "- Keep composition-only rows separate from endpoint rows unless the same formulation label explicitly links them. Do not copy endpoint values onto unrelated composition/stability rows.\n"
+        "- Extract excipient/vehicle composition into components, including non-API ingredient names, concentrations, basis, and notes when available.\n"
+        "- Extract condition context when explicitly present in the table, footnote, title, or experiment context: membrane_type, membrane_source, membrane_thickness_um, receptor_medium, dose_type, and dose_amount.\n"
+        "- Use dose_type only as 'finite', 'infinite', or ''. Do not guess missing condition fields.\n\n"
         f"DOI: {content_handle.doi}\n"
         f"TITLE: {route_decision.title}\n"
         f"SOURCE_FORMAT: {window.source_format}\n"
@@ -501,6 +630,9 @@ def _build_prompt(
         f"SOURCE_REF: {window.source_ref}\n"
         f"LOCATOR_MODE: {window.locator_mode}\n"
         f"SELECTED_LOCATORS: {window.selected_locators}\n"
+        f"ENDPOINT_TABLE_HINT: {endpoint_table_hint}\n"
+        f"TABLE_TRUNCATED: {window.table_truncated}\n"
+        f"TRUNCATION_NOTES: {window.truncation_notes}\n"
         f"CURVE_HINTS: {curve_hints}\n\n"
         f"CONTENT:\n{window.content_text}"
     )
@@ -512,7 +644,7 @@ def _run_table_prompt(
     run_context: ExtractorRunContext,
     window: TableEvidenceWindow,
 ) -> TableExtractionResult:
-    client = OpenAI(timeout=90)
+    provider = resolve_provider_from_context(run_context)
     model_name = resolve_stage_model(run_context, "table_extract")
     prompt = _build_prompt(
         content_handle=content_handle,
@@ -528,13 +660,15 @@ def _run_table_prompt(
             if window.source_format == "pdf":
                 for page_index in window.image_page_indices[:2]:
                     user_content.append({"type": "input_image", "image_url": _render_page_jpg_dataurl(window.source_ref, page_index)})
-            response = client.responses.parse(
+            response = parse_structured(
+                provider=provider,
                 model=model_name,
                 input=[
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": user_content},
                 ],
                 text_format=TableExtractionResult,
+                timeout=90,
             )
             record_openai_usage(
                 run_context.shared_state.get("long_run_monitor"),
@@ -615,6 +749,228 @@ def _recover_endpoint_fields(row: FormulationRow) -> tuple[float | None, str, st
                 break
 
     return endpoint_value, endpoint_unit, endpoint_kind, endpoint_time_value, endpoint_time_unit
+
+
+def _parse_numeric_cell(cell: str) -> float | None:
+    match = re.search(r"[-+]?\d+(?:\.\d+)?", cell or "")
+    return float(match.group(0)) if match else None
+
+
+def _endpoint_unit_from_header(header: str) -> str:
+    match = re.search(r"\(([^)]*(?:µg|μg|ug|mg|ng)[^)]*)\)", header or "", flags=re.IGNORECASE)
+    if match:
+        unit = match.group(1).strip()
+        return unit.replace(" ", "")
+    if "µg" in header or "μg" in header or "ug" in header.lower():
+        return "μg"
+    if "mg" in header.lower():
+        return "mg"
+    return ""
+
+
+def _wide_timepoint_rows_from_window(window: TableEvidenceWindow) -> list[FormulationRow]:
+    """Deterministically expand structured wide endpoint tables into row x timepoint records."""
+
+    rows: list[FormulationRow] = []
+    current_locator = ""
+    lines = window.content_text.splitlines()
+    for index, line in enumerate(lines):
+        if line.startswith("TABLE_LOCATOR:"):
+            current_locator = line.split(":", 1)[1].strip()
+            continue
+        if "cum." not in line.lower() and "cumulative" not in line.lower():
+            continue
+        if "amount" not in line.lower() or "|" not in line:
+            continue
+        next_header = lines[index + 1] if index + 1 < len(lines) else ""
+        time_mentions = extract_time_mentions(next_header)
+        if not time_mentions:
+            continue
+        endpoint_unit = _endpoint_unit_from_header(line)
+        time_count = len(time_mentions)
+        for data_line in lines[index + 2 :]:
+            if not data_line.strip() or data_line.startswith("--- ") or data_line.startswith("TABLE_LOCATOR:"):
+                break
+            if "|" not in data_line:
+                continue
+            cells = [cell.strip() for cell in data_line.split("|")]
+            label = cells[0] if cells else ""
+            if not re.match(r"^[A-Za-z]{1,3}\d+[A-Za-z]?$", label):
+                continue
+            if len(cells) < time_count + 1:
+                continue
+            endpoint_cells = cells[-time_count:]
+            for endpoint_cell, (time_value, time_unit) in zip(endpoint_cells, time_mentions):
+                endpoint_value = _parse_numeric_cell(endpoint_cell)
+                if endpoint_value is None:
+                    continue
+                components: list[Component] = []
+                if len(cells) >= 4:
+                    components.extend(
+                        [
+                            Component(name_raw="Vit. E TPGS level", concentration_value=_parse_numeric_cell(cells[2]), concentration_unit="coded level", remark=f"source cell={cells[2]}"),
+                            Component(name_raw="HPMC K100 level", concentration_value=_parse_numeric_cell(cells[3]), concentration_unit="coded level", remark=f"source cell={cells[3]}"),
+                        ]
+                    )
+                    ps_value = _parse_numeric_cell(cells[1])
+                    if ps_value is not None:
+                        components.append(Component(name_raw="particle size factor", concentration_value=ps_value, concentration_unit="nm", remark=f"source cell={cells[1]}"))
+                rows.append(
+                    FormulationRow(
+                        formulation_label=label,
+                        api_name="Ibuprofen",
+                        api_concentration_value=5.0 if "drug %" in window.content_text.lower() else None,
+                        api_concentration_unit="% (w/v)" if "% ( w / v )" in window.content_text.lower() or "% w/v" in window.content_text.lower() else "",
+                        api_basis="w/v" if "% ( w / v )" in window.content_text.lower() or "% w/v" in window.content_text.lower() else "",
+                        api_concentration_raw="5% (w/v)" if "drug %" in window.content_text.lower() else "",
+                        components=components,
+                        endpoint_value=endpoint_value,
+                        endpoint_unit=endpoint_unit,
+                        endpoint_time_value=time_value,
+                        endpoint_time_unit=time_unit,
+                        endpoint_kind="amount_total",
+                        table_id=current_locator,
+                        source_locators=[current_locator] if current_locator else [],
+                        evidence_snippet=data_line,
+                        confidence=0.98,
+                        notes="deterministic_wide_timepoint_expansion",
+                    )
+                )
+    return rows
+
+
+def _postprocess_table_result(result: TableExtractionResult, window: TableEvidenceWindow) -> TableExtractionResult:
+    wide_rows = _wide_timepoint_rows_from_window(window)
+    if not wide_rows:
+        return result
+    wide_tables = {row.table_id for row in wide_rows if row.table_id}
+    filtered = [
+        row
+        for row in result.formulations
+        if row.table_id not in wide_tables
+    ]
+    notes = (result.notes or "").strip()
+    addition = f"deterministic_wide_timepoint_rows={len(wide_rows)}"
+    return result.model_copy(update={"formulations": [*wide_rows, *filtered], "notes": f"{notes} | {addition}".strip(" |")})
+
+
+def _condition_text(row: FormulationRow, window: TableEvidenceWindow, route_decision: RouteDecision) -> str:
+    return " ".join(
+        str(value or "")
+        for value in (
+            row.evidence_snippet,
+            row.notes,
+            window.content_text,
+            route_decision.notes,
+            route_decision.raw_labels.get("barrier_name_raw", ""),
+            route_decision.raw_labels.get("barrier_category", ""),
+        )
+    )
+
+
+def _infer_membrane_source(text: str) -> str:
+    lowered = (text or "").lower()
+    if any(token in lowered for token in ("strat-m", "silicone", "cellulose", "synthetic membrane")):
+        return "synthetic"
+    if "porcine" in lowered or "pig" in lowered:
+        return "porcine"
+    if "human" in lowered or "cadaver" in lowered:
+        return "human"
+    if "rat" in lowered:
+        return "rat"
+    if "mouse" in lowered or "murine" in lowered:
+        return "mouse"
+    return ""
+
+
+def _infer_membrane_type(row: FormulationRow, route_decision: RouteDecision, text: str) -> str:
+    explicit = row.membrane_type.strip()
+    explicit_lower = explicit.lower()
+    if explicit and not any(token in explicit_lower for token in ("franz", "diffusion cell", "receptor", "donor")):
+        return explicit
+    barrier = str(route_decision.raw_labels.get("barrier_name_raw", "") or "").strip()
+    if barrier and barrier.lower() not in {"skin", "both", "uncertain", "synthetic_membrane"}:
+        return barrier
+    patterns = [
+        r"(dermatomed\s+(?:porcine|human|rat)[^.;,]{0,40}skin)",
+        r"((?:porcine|human|rat|mouse|murine)[^.;,]{0,40}skin)",
+        r"(strat-?m[^.;,]{0,30})",
+        r"(silicone membrane)",
+        r"(cellulose membrane)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+    return ""
+
+
+def _infer_receptor_medium(row: FormulationRow, text: str) -> str:
+    if row.receptor_medium.strip():
+        return row.receptor_medium.strip()
+    pbs_match = re.search(
+        r"(PBS\s*(?:\(\s*pH\s*[\d.]+\s*\)|pH\s*[\d.]+)(?:\s*(?:with|\+|and containing)\s*[^.;\n]{0,80})?)",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if pbs_match:
+        value = pbs_match.group(1).strip()
+        return re.split(r"\s+and\s+maintained|\s+at\s+37|\s+with\s+constant", value, maxsplit=1, flags=re.IGNORECASE)[0].strip()
+    medium_match = re.search(
+        r"receptor\s+(?:compartment|medium|solution|phase|fluid)[^.;]{0,80}?(?:filled with|contained|consisted of|was)\s+([^.;]{3,120})",
+        text,
+        flags=re.IGNORECASE,
+    )
+    return medium_match.group(1).strip() if medium_match else ""
+
+
+def _infer_dose_type(row: FormulationRow, text: str) -> str:
+    explicit = row.dose_type.strip().lower()
+    if explicit in {"finite", "infinite"}:
+        return explicit
+    lowered = text.lower()
+    if "infinite dose" in lowered:
+        return "infinite"
+    if "finite dose" in lowered:
+        return "finite"
+    return ""
+
+
+def _infer_dose_amount(row: FormulationRow, dose_type: str, text: str) -> str:
+    if row.dose_amount.strip():
+        return row.dose_amount.strip()
+    if dose_type == "infinite":
+        return "infinite dose"
+    match = re.search(
+        r"(\d+(?:\.\d+)?\s*(?:mg|g|µg|ug|μg|mL|ml|µL|uL|μL)(?:\s*/\s*cm(?:\^?2|²))?)",
+        text,
+        flags=re.IGNORECASE,
+    )
+    return match.group(1).strip() if match else ""
+
+
+def _infer_membrane_thickness(row: FormulationRow, text: str) -> float | None:
+    if row.membrane_thickness_um is not None and row.membrane_thickness_um > 0:
+        return row.membrane_thickness_um
+    match = re.search(r"(\d+(?:\.\d+)?)\s*(?:µm|μm|um|microm(?:eter|etre)s?)", text, flags=re.IGNORECASE)
+    return float(match.group(1)) if match else None
+
+
+def _condition_snippet(value: str | float | None, text: str, max_chars: int = 520) -> str:
+    if value is None or value == "":
+        return ""
+    lowered = text.lower()
+    index = lowered.find(str(value).lower())
+    if index < 0:
+        for fallback in ("receptor", "membrane", "skin", "dose", "pbs", "franz"):
+            index = lowered.find(fallback)
+            if index >= 0:
+                break
+    if index < 0:
+        return str(value)
+    left = max(0, index - max_chars // 2)
+    right = min(len(text), index + max_chars // 2)
+    return re.sub(r"\s+", " ", text[left:right]).strip()
 
 
 def _matches_api_context(row: FormulationRow, fragment: str) -> bool:
@@ -709,9 +1065,46 @@ def _map_formulation_to_record(
                 confidence=row.confidence,
             )
         )
+    condition_text = _condition_text(row, window, route_decision)
+    membrane_type = _infer_membrane_type(row, route_decision, condition_text)
+    membrane_source = _infer_membrane_source(membrane_type or condition_text) or row.membrane_source.strip()
+    membrane_thickness_um = _infer_membrane_thickness(row, condition_text)
+    receptor_medium = _infer_receptor_medium(row, condition_text)
+    dose_type = _infer_dose_type(row, condition_text)
+    dose_amount = _infer_dose_amount(row, dose_type, condition_text)
+    for field_name, value in (
+        ("membrane_type", membrane_type),
+        ("membrane_source", membrane_source),
+        ("membrane_thickness_um", membrane_thickness_um),
+        ("receptor_medium", receptor_medium),
+        ("dose_type", dose_type),
+        ("dose_amount", dose_amount),
+    ):
+        if value not in {"", None}:
+            evidence_items.append(
+                EvidenceItem(
+                    field_name=field_name,
+                    modality="table",
+                    locator=locator,
+                    page=page,
+                    snippet=_condition_snippet(value, condition_text),
+                    source_ref=evidence_source_ref,
+                    confidence=row.confidence,
+                )
+            )
 
+    record_suffix_parts = ["table"]
+    if endpoint_time_value is not None:
+        record_suffix_parts.append(f"t{endpoint_time_value:g}{endpoint_time_unit}")
+    if endpoint_value is not None:
+        record_suffix_parts.append(f"v{endpoint_value:g}")
     return Record(
-        record_id=make_record_id(content_handle.paper_id, "table", row.formulation_label or row.table_id or locator, suffix="table"),
+        record_id=make_record_id(
+            content_handle.paper_id,
+            "table",
+            row.formulation_label or row.table_id or locator,
+            suffix="_".join(record_suffix_parts),
+        ),
         paper_id=content_handle.paper_id,
         doi=content_handle.doi,
         route=route_decision.route if route_decision.route in {"table", "mixed", "figure"} else "table",
@@ -761,6 +1154,12 @@ def _map_formulation_to_record(
         conditions=ConditionSpec(
             diffusion_area_cm2=area_cm2,
             duration_h=normalize_time_to_hours(endpoint_time_value, endpoint_time_unit),
+            membrane_type=membrane_type,
+            membrane_source=membrane_source,
+            membrane_thickness_um=membrane_thickness_um,
+            receptor_medium=receptor_medium,
+            dose_type=dose_type,
+            dose_amount=dose_amount,
         ),
         evidence_items=evidence_items,
         provenance=build_provenance(
@@ -778,6 +1177,8 @@ def _map_formulation_to_record(
                 "row_source_pages": row.source_pages,
                 "row_source_locators": row.source_locators,
                 "score_debug": window.score_debug,
+                "table_truncated": window.table_truncated,
+                "truncation_notes": window.truncation_notes,
             },
         ),
         source_notes=[row.notes] if row.notes else [],
@@ -797,6 +1198,7 @@ def extract(
 
     window = select_table_evidence_window(content_handle, route_decision)
     result = _run_table_prompt(content_handle, route_decision, run_context, window)
+    result = _postprocess_table_result(result, window)
     return [_map_formulation_to_record(content_handle, route_decision, row, window) for row in result.formulations]
 
 
@@ -838,6 +1240,7 @@ def extract_batch(
         try:
             window = select_table_evidence_window(content_handle, route_decision)
             result = _run_table_prompt(content_handle, route_decision, run_context, window)
+            result = _postprocess_table_result(result, window)
             raw_results.append(
                 {
                     "paper_id": content_handle.paper_id,
@@ -851,6 +1254,8 @@ def extract_batch(
                     "selected_pages": window.selected_pages,
                     "selected_locators": window.selected_locators,
                     "score_debug": window.score_debug,
+                    "table_truncated": window.table_truncated,
+                    "truncation_notes": window.truncation_notes,
                     **result.model_dump(mode="json"),
                 }
             )

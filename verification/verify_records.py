@@ -24,6 +24,7 @@ from utils.units import (
     parse_receptor_volume_ml,
 )
 from verification.failure_taxonomy import FailureCode, classify_outcome
+from verification.source_binding_guard import apply_source_context_guard
 
 STRICT_SHARED_API_HINT_MIN_QUALITY = 12
 RECOVERABLE_SCOPE_TAGS = {
@@ -37,6 +38,7 @@ RECOVERABLE_SCOPE_TAGS = {
     FailureCode.AMBIGUOUS_MAPPING.value: "recoverable_mapping",
     FailureCode.FIGURE_DIGITIZATION_FAILED.value: "recoverable_figure_digitization",
     FailureCode.FIGURE_PLOT_CONTEXT_MISSING.value: "recoverable_figure_plot_context",
+    FailureCode.SOURCE_CONTEXT_INCONSISTENT.value: "recoverable_source_context",
     FailureCode.UNRESOLVED_ROUTE.value: "recoverable_routing",
 }
 
@@ -810,6 +812,8 @@ def _derive_scope_bucket(record: Record, failure_codes: list[str], policy: V1Str
 
 def _collect_failure_codes(record: Record, policy: V1StrictIbuprofen5PctPolicy) -> list[str]:
     codes: list[str] = []
+
+    codes.extend(apply_source_context_guard(record))
 
     if record.route == "unresolved":
         codes.append(FailureCode.UNRESOLVED_ROUTE.value)

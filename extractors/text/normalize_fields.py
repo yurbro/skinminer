@@ -142,6 +142,12 @@ def normalize_text_record(
         conditions=ConditionSpec(
             diffusion_area_cm2=diffusion_area_cm2,
             duration_h=normalize_time_to_hours(legacy.endpoint_main.time_value, legacy.endpoint_main.time_unit),
+            membrane_type=legacy.membrane_type,
+            membrane_source=legacy.membrane_source,
+            membrane_thickness_um=legacy.membrane_thickness_um,
+            receptor_medium=legacy.receptor_medium,
+            dose_type=legacy.dose_type,
+            dose_amount=legacy.dose_amount,
         ),
         evidence_items=evidence_items,
         provenance=build_provenance(

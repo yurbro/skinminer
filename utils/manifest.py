@@ -21,6 +21,7 @@ def create_run_manifest(
     model_name: str,
     policy_name: str,
     input_paths: Iterable[str],
+    llm_provider: str = "openai",
     prompt_paths: Iterable[str] | None = None,
     config_paths: Iterable[str] | None = None,
     notes: Iterable[str] | None = None,
@@ -28,6 +29,7 @@ def create_run_manifest(
     module_notes = {
         "python": sys.version.split()[0],
         "openai": _safe_version("openai"),
+        "anthropic": _safe_version("anthropic"),
         "pandas": _safe_version("pandas"),
         "pydantic": _safe_version("pydantic"),
         "PyMuPDF": _safe_version("PyMuPDF"),
@@ -37,6 +39,7 @@ def create_run_manifest(
     return RunManifest(
         run_id=f"run_{uuid4().hex[:12]}",
         model_name=model_name,
+        llm_provider=llm_provider,
         policy_name=policy_name,
         input_paths=[str(Path(path)) for path in input_paths if path],
         prompt_paths=[str(Path(path)) for path in prompt_paths or [] if path],

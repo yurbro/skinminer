@@ -20,6 +20,12 @@ def _clean_text(text: str) -> str:
     )
 
 
+def _compact_unit_slashes(text: str) -> str:
+    """Normalize unit spellings like `w / v` to `w/v` for matching only."""
+
+    return re.sub(r"\s*/\s*", "/", text or "")
+
+
 def _contains_explicit_molar_unit(text: str) -> re.Match[str] | None:
     """Return a match only for explicit molar concentration units, not length units like `mm`."""
 
@@ -38,6 +44,7 @@ def _has_formulation_concentration_context(lowered: str, dosage_form: str) -> bo
             "api concentration",
             "active ingredient",
             "active drug",
+            "drug substance",
             "drug concentration",
             "loaded formulation",
             "table 1",
@@ -201,6 +208,21 @@ def amount_total_or_receiver_concentration_to_ug_per_cm2(
 ) -> tuple[float | None, str]:
     """Normalize total amount or receptor-concentration endpoints to `ug/cm^2`."""
 
+    lowered = _clean_text(unit).lower().replace(" ", "")
+    if any(token in lowered for token in ("ug/ml", "ug/m1", "mg/ml", "ng/ml")):
+        if value is None or area_cm2 is None or area_cm2 <= 0 or receptor_volume_ml is None or receptor_volume_ml <= 0:
+            return None, ""
+        total_ug: float | None = None
+        if "ug/ml" in lowered or "ug/m1" in lowered:
+            total_ug = float(value) * float(receptor_volume_ml)
+        elif "mg/ml" in lowered:
+            total_ug = float(value) * 1000.0 * float(receptor_volume_ml)
+        elif "ng/ml" in lowered:
+            total_ug = float(value) / 1000.0 * float(receptor_volume_ml)
+        if total_ug is None:
+            return None, ""
+        return total_ug / float(area_cm2), "ug/cm^2"
+
     direct_value, direct_unit = amount_total_to_ug_per_cm2(value, unit, area_cm2)
     if direct_value is not None:
         return direct_value, direct_unit
@@ -208,7 +230,6 @@ def amount_total_or_receiver_concentration_to_ug_per_cm2(
     if value is None or area_cm2 is None or area_cm2 <= 0 or receptor_volume_ml is None or receptor_volume_ml <= 0:
         return None, ""
 
-    lowered = _clean_text(unit).lower().replace(" ", "")
     total_ug: float | None = None
     if "ug/ml" in lowered or "ug/m1" in lowered:
         total_ug = float(value) * float(receptor_volume_ml)
@@ -228,24 +249,77 @@ def parse_api_concentration(raw_text: str) -> tuple[float | None, str, str]:
     if not text:
         return None, "", ""
 
-    match_pct = re.search(r"(\d+(?:\.\d+)?)\s*%\s*\(?\s*(w/w|wt/?wt|wt\.?\s*%|wt%)\s*\)?", text, flags=re.IGNORECASE)
+    explicit_pct_pattern = re.compile(
+        r"(\d+(?:\.\d+)?)\s*%\s*\(?\s*(w\s*/\s*w|wt\s*/\s*wt|wt\.?\s*%|wt%|w\s*/\s*v|wt\s*/\s*vol|w\s*v)\s*\)?\b",
+        flags=re.IGNORECASE,
+    )
+    explicit_candidates: list[tuple[int, int, float, str, str]] = []
+    for match in explicit_pct_pattern.finditer(text):
+        token = _compact_unit_slashes(match.group(2).lower())
+        basis = "w/v" if "v" in token or "vol" in token else "w/w"
+        unit = "% w/v" if basis == "w/v" else "% w/w"
+        start, end = match.span()
+        before = text[max(0, start - 70) : start].lower()
+        after = text[end : min(len(text), end + 35)].lower()
+        window = f"{before}{match.group(0).lower()}{after}"
+        immediate_context = f"{before}{match.group(0).lower()}"
+        compact_window = _compact_unit_slashes(window)
+        compact_immediate = _compact_unit_slashes(immediate_context)
+        compact_after = _compact_unit_slashes(after)
+        has_drug_cue = bool(
+            re.search(r"\b(?:ibuprofen|api|active ingredient|active drug|drug substance|model drug)\b", compact_immediate)
+            or re.search(r"\bdrug\b.{0,30}\d+(?:\.\d+)?\s*%", compact_immediate)
+            or re.search(r"^\s*(?:\([^)]*\)\s*)?\bdrug\b", compact_after)
+        )
+        has_excipient_cue = any(
+            token in compact_window
+            for token in (
+                "hpmc",
+                "vitamin e",
+                "tpgs",
+                "polymer",
+                "surfactant",
+                "stabilizer",
+                "pluronic",
+                "na-cmc",
+                "xanthan",
+                "carbopol",
+            )
+        )
+        score = 0
+        if has_drug_cue:
+            score += 20
+        if has_excipient_cue and not has_drug_cue:
+            score -= 12
+        if basis == "w/w":
+            score += 2
+        else:
+            score += 1
+        explicit_candidates.append((score, -start, float(match.group(1)), unit, basis))
+    if explicit_candidates:
+        explicit_candidates.sort(reverse=True)
+        _score, _neg_start, value, unit, basis = explicit_candidates[0]
+        return value, unit, basis
+
+    match_pct = re.search(r"(\d+(?:\.\d+)?)\s*%\s*\(?\s*(w\s*/\s*w|wt\s*/\s*wt|wt\.?\s*%|wt%)\s*\)?", text, flags=re.IGNORECASE)
     if match_pct:
         return float(match_pct.group(1)), "% w/w", "w/w"
 
-    match_weight_percent = re.search(r"(\d+(?:\.\d+)?)\s*(?:wt\s*%|wt%|w/w|wt/?wt)\b", text, flags=re.IGNORECASE)
+    match_weight_percent = re.search(r"(\d+(?:\.\d+)?)\s*(?:wt\s*%|wt%|w\s*/\s*w|wt\s*/\s*wt)\b", text, flags=re.IGNORECASE)
     if match_weight_percent:
         return float(match_weight_percent.group(1)), "% w/w", "w/w"
 
-    match_weight_volume = re.search(r"(\d+(?:\.\d+)?)\s*%\s*\(?\s*(w/v|wt/?vol|w/?v)\s*\)?\b", text, flags=re.IGNORECASE)
+    match_weight_volume = re.search(r"(\d+(?:\.\d+)?)\s*%\s*\(?\s*(w\s*/\s*v|wt\s*/\s*vol|w\s*v)\s*\)?\b", text, flags=re.IGNORECASE)
     if match_weight_volume:
         return float(match_weight_volume.group(1)), "% w/v", "w/v"
 
     match_plain_pct = re.search(r"(\d+(?:\.\d+)?)\s*%\b", text, flags=re.IGNORECASE)
     if match_plain_pct:
         lowered = text.lower()
-        if any(token in lowered for token in ("weight/weight", "weight percent", "weight-percent", "w/w", "wt/wt", "wt %", "wt%")):
+        compact_lowered = _compact_unit_slashes(lowered)
+        if any(token in compact_lowered for token in ("weight/weight", "weight percent", "weight-percent", "w/w", "wt/wt", "wt %", "wt%")):
             return float(match_plain_pct.group(1)), "% w/w", "w/w"
-        if any(token in lowered for token in ("weight/volume", "w/v", "wt/vol")):
+        if any(token in compact_lowered for token in ("weight/volume", "w/v", "wt/vol")):
             return float(match_plain_pct.group(1)), "% w/v", "w/v"
         return float(match_plain_pct.group(1)), "%", ""
 
@@ -309,12 +383,14 @@ def normalize_api_concentration_fields(
     lowered_raw = _clean_text(raw_text).lower()
     lowered_unit = resolved_unit.lower()
     lowered_basis = resolved_basis.lower()
+    lowered_raw_compact = _compact_unit_slashes(lowered_raw)
+    lowered_unit_compact = _compact_unit_slashes(lowered_unit)
 
-    if any(token in lowered_unit or token in lowered_raw for token in ("% (w/w)", "% w/w", "wt%", "wt %", "wt/wt", "g/100 g", "mg/100 mg")):
+    if any(token in lowered_unit_compact or token in lowered_raw_compact for token in ("% (w/w)", "% w/w", "wt%", "wt %", "wt/wt", "g/100 g", "mg/100 mg")):
         resolved_unit = "% w/w"
         resolved_basis = "w/w"
-    elif any(token in lowered_unit or token in lowered_raw for token in ("% (w/v)", "% w/v", "w/v", "wt/vol", "mg/ml")):
-        if "mg/ml" in lowered_unit:
+    elif any(token in lowered_unit_compact or token in lowered_raw_compact for token in ("% (w/v)", "% w/v", "w/v", "wt/vol", "mg/ml")):
+        if "mg/ml" in lowered_unit_compact:
             resolved_unit = "mg/ml"
         else:
             resolved_unit = "% w/v"
@@ -559,6 +635,16 @@ def parse_receptor_volume_ml(text: str) -> float | None:
     """Parse receptor or receiver chamber volume in mL."""
 
     cleaned = _clean_text(text)
+    contextual_patterns = [
+        r"(?:receptor|receiver)\s+(?:volume|compartment|chamber|cell)[^.]{0,220}?(?:approximately\s*)?(\d+(?:\.\d+)?)\s*m[l1]\b",
+        r"(?:orifice|filled\s+up\s+to)[^.]{0,140}?(?:approximately\s*)?(\d+(?:\.\d+)?)\s*m[l1]\b[^.]{0,100}?(?:receptor|receiver)",
+        r"(\d+(?:\.\d+)?)\s*m[l1]\b[^.]{0,100}?(?:receptor|receiver)\s+(?:volume|compartment|chamber|cell)",
+    ]
+    for pattern in contextual_patterns:
+        match = re.search(pattern, cleaned, flags=re.IGNORECASE)
+        if match:
+            return float(match.group(1))
+
     match = re.search(
         r"(?:receptor|receiver)\s+(?:volume|compartment|chamber)(?:\s+was|\s+of|\s*=|\s*:)?\s*(?:approximately\s*)?(\d+(?:\.\d+)?)\s*m[l1]\b",
         cleaned,
@@ -568,8 +654,13 @@ def parse_receptor_volume_ml(text: str) -> float | None:
         return float(match.group(1))
 
     generic_match = re.search(r"(\d+(?:\.\d+)?)\s*m[l1]\b", cleaned, flags=re.IGNORECASE)
-    if generic_match and any(token in cleaned.lower() for token in ("receptor", "receiver", "buffer")):
-        return float(generic_match.group(1))
+    if generic_match:
+        start, end = generic_match.span()
+        local_context = cleaned[max(0, start - 80) : min(len(cleaned), end + 80)].lower()
+        if any(token in local_context for token in ("receptor", "receiver")) and not any(
+            token in local_context for token in ("donor compartment", "dose tube", "syringe", "gel administered")
+        ):
+            return float(generic_match.group(1))
     return None
 
 

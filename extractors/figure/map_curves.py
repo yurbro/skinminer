@@ -9,13 +9,13 @@ from pathlib import Path
 from typing import Any
 
 import cv2
-from openai import OpenAI
 from pydantic import BaseModel, Field
 
 from extractors.common import artifact_path, resolve_stage_model
 from extractors.figure.models import DigitizedEndpointArtifact, FigureMappingArtifact, FigureTriageArtifact
 from schemas.models import ExtractorRunContext, Record
 from utils.io import write_jsonl, write_optional_csv
+from utils.llm_client import parse_structured, resolve_provider_from_context
 from utils.long_run import record_openai_attempt_failure, record_openai_usage
 
 FIGURE_MAPPING_PROMPT_ASSET_ID = "extractors.figure.curve_map"
@@ -146,7 +146,7 @@ def map_curves_to_formulations(
 ) -> list[FigureMappingArtifact]:
     """Map digitized curves to formulation labels for figure-route assembly."""
 
-    client = OpenAI(timeout=90)
+    provider = resolve_provider_from_context(run_context)
     model_name = resolve_stage_model(run_context, "figure_map")
     triage_by_paper = {artifact.paper_id: artifact for artifact in triage_artifacts}
     tables_by_paper: dict[str, list[Record]] = {}
@@ -162,7 +162,9 @@ def map_curves_to_formulations(
     for paper_id, endpoints in endpoints_by_paper.items():
         triage_artifact = triage_by_paper.get(paper_id)
         table_group = tables_by_paper.get(paper_id, [])
-        allowed_labels = [record.formulation.label for record in table_group if record.formulation.label]
+        allowed_labels = list(dict.fromkeys(record.formulation.label for record in table_group if record.formulation.label))
+        detected_curve_count = len(endpoints)
+        allowed_label_count = len(allowed_labels)
         if not triage_artifact or not allowed_labels:
             mappings.extend(
                 FigureMappingArtifact(
@@ -179,7 +181,67 @@ def map_curves_to_formulations(
                     source_table_record_ids=[record.record_id for record in table_group],
                     mapped_formulation_label=None,
                     mapping_status="unmapped",
+                    mapping_label_space_status="complete",
+                    detected_curve_count=detected_curve_count,
+                    allowed_label_count=allowed_label_count,
                     mapping_rationale="missing_triage_or_table_records",
+                    mapping_confidence=0.0,
+                )
+                for endpoint in endpoints
+            )
+            continue
+
+        if detected_curve_count == 1 and allowed_label_count == 1:
+            endpoint = endpoints[0]
+            mappings.append(
+                FigureMappingArtifact(
+                    paper_id=paper_id,
+                    doi=endpoint.doi,
+                    trace_id=endpoint.trace_id,
+                    triage_trace_id=endpoint.triage_trace_id,
+                    figure_id=endpoint.figure_id,
+                    page_number=endpoint.page_number,
+                    subplot=endpoint.subplot,
+                    curve_id=endpoint.curve_id,
+                    curve_color=endpoint.curve_color,
+                    curve_label=allowed_labels[0],
+                    mapping_image_path=endpoint.crop_path or endpoint.image_path,
+                    allowed_formulation_labels=allowed_labels,
+                    source_table_record_ids=[record.record_id for record in table_group],
+                    mapped_formulation_label=allowed_labels[0],
+                    mapping_status="vision_mapped",
+                    mapping_label_space_status="complete",
+                    detected_curve_count=detected_curve_count,
+                    allowed_label_count=allowed_label_count,
+                    mapping_rationale="single_source_label_exact_match",
+                    mapping_confidence=0.88,
+                )
+            )
+            continue
+
+        if detected_curve_count > allowed_label_count:
+            mappings.extend(
+                FigureMappingArtifact(
+                    paper_id=paper_id,
+                    doi=endpoint.doi,
+                    trace_id=endpoint.trace_id,
+                    triage_trace_id=endpoint.triage_trace_id,
+                    figure_id=endpoint.figure_id,
+                    page_number=endpoint.page_number,
+                    subplot=endpoint.subplot,
+                    curve_id=endpoint.curve_id,
+                    curve_color=endpoint.curve_color,
+                    allowed_formulation_labels=allowed_labels,
+                    source_table_record_ids=[record.record_id for record in table_group],
+                    mapped_formulation_label=None,
+                    mapping_status="underconstrained_labels",
+                    mapping_label_space_status="underconstrained",
+                    detected_curve_count=detected_curve_count,
+                    allowed_label_count=allowed_label_count,
+                    mapping_rationale=(
+                        f"underconstrained_label_space:{detected_curve_count}_curves>"
+                        f"{allowed_label_count}_labels"
+                    ),
                     mapping_confidence=0.0,
                 )
                 for endpoint in endpoints
@@ -204,6 +266,9 @@ def map_curves_to_formulations(
                     source_table_record_ids=[record.record_id for record in table_group],
                     mapped_formulation_label=None,
                     mapping_status="unmapped",
+                    mapping_label_space_status="complete",
+                    detected_curve_count=detected_curve_count,
+                    allowed_label_count=allowed_label_count,
                     mapping_rationale=f"failed_zoom_crop:{crop_source}",
                     mapping_confidence=0.0,
                 )
@@ -235,13 +300,15 @@ def map_curves_to_formulations(
                     },
                     {"type": "input_image", "image_url": plot_data_url},
                 ]
-                response = client.responses.parse(
+                response = parse_structured(
+                    provider=provider,
                     model=model_name,
                     input=[
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": user_content},
                     ],
                     text_format=MapResult,
+                    timeout=90,
                 )
                 record_openai_usage(
                     run_context.shared_state.get("long_run_monitor"),
@@ -273,6 +340,9 @@ def map_curves_to_formulations(
                             source_table_record_ids=[record.record_id for record in table_group],
                             mapped_formulation_label=mapping.assigned_formulation_label if mapping else None,
                             mapping_status="vision_mapped" if mapping and mapping.assigned_formulation_label else "unmapped",
+                            mapping_label_space_status="complete",
+                            detected_curve_count=detected_curve_count,
+                            allowed_label_count=allowed_label_count,
                             mapping_rationale=((mapping.rationale if mapping else "") + f" | zoom_source={crop_source}").strip(" |"),
                             mapping_confidence=mapping.confidence if mapping else 0.0,
                         )

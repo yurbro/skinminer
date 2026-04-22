@@ -28,6 +28,31 @@ class FigureTriageArtifact(BaseModel):
     selected_image_paths: list[str] = Field(default_factory=list)
     page_debug: str = ""
     page_scores: dict[str, float] = Field(default_factory=dict)
+    triage_retry_triggered: bool = False
+    triage_retry_reason: str = ""
+    triage_retry_source_trace_id: str = ""
+    triage_retry_source_figure_id: str = ""
+    triage_retry_source_page: int | None = None
+    triage_retry_candidate_pages: list[int] = Field(default_factory=list)
+    triage_retry_candidate_page: int | None = None
+    triage_retry_result: Literal[
+        "",
+        "recovered_digitizable",
+        "no_permeation_candidate",
+        "retry_not_digitizable",
+        "retry_failed",
+    ] = ""
+    triage_retry_notes: str = ""
+    subplot_raw: str = ""
+    subplot_selection_status: Literal["single", "coerced_from_multi", "ambiguous_none"] = "single"
+    figure_semantic_type: Literal[
+        "permeation_plot",
+        "release_plot",
+        "calibration_curve",
+        "formulation_schematic",
+        "other",
+    ] = "other"
+    has_permeation_plot: bool = False
     endpoint_curve_present: Literal["yes", "no", "uncertain"] = "uncertain"
     likely_endpoint_type: Literal["cumulative_amount", "flux", "jss", "unknown"] = "unknown"
     figure_id: str = ""
@@ -74,6 +99,8 @@ class DigitizedCurveArtifact(BaseModel):
     preprocessed_path: str = ""
     bbox_overlay_path: str = ""
     bbox_source: str = ""
+    candidate_tier: str = ""
+    subplot_lock_failed: bool = False
     bbox_used: list[float] = Field(default_factory=list)
     curve_id: str = ""
     curve_color: str = ""
@@ -86,6 +113,11 @@ class DigitizedCurveArtifact(BaseModel):
     y_max: float | None = None
     t_last: float | None = None
     q_final: float | None = None
+    curve_point_count_raw: int = 0
+    curve_point_count_sanitized: int = 0
+    endpoint_value_raw: float | None = None
+    endpoint_value_sanitized: float | None = None
+    endpoint_sampling_status: Literal["stable_tail", "unstable_tail", "too_sparse"] = "stable_tail"
     curve_xy: list[list[float]] = Field(default_factory=list)
     status: str = "ok"
     diagnostics: dict[str, str | int | float] = Field(default_factory=dict)
@@ -109,8 +141,13 @@ class DigitizedEndpointArtifact(BaseModel):
     preprocessed_path: str = ""
     bbox_overlay_path: str = ""
     bbox_source: str = ""
+    candidate_tier: str = ""
+    subplot_lock_failed: bool = False
     bbox_used: list[float] = Field(default_factory=list)
     status: str = "ok"
+    triage_decision: str = ""
+    failure_reason: str = ""
+    source_path: str = ""
     curve_id: str = ""
     curve_color: str = ""
     endpoint_time: float | None = None
@@ -118,7 +155,74 @@ class DigitizedEndpointArtifact(BaseModel):
     endpoint_value: float | None = None
     endpoint_unit: str = ""
     y_kind: str = "unknown"
+    curve_point_count_raw: int = 0
+    curve_point_count_sanitized: int = 0
+    endpoint_value_raw: float | None = None
+    endpoint_value_sanitized: float | None = None
+    endpoint_sampling_status: Literal["stable_tail", "unstable_tail", "too_sparse"] = "stable_tail"
     diagnostics: dict[str, str | int | float] = Field(default_factory=dict)
+
+
+class FigureVLMReadingArtifact(BaseModel):
+    """VLM-derived direct figure reading for a locked subplot crop."""
+
+    paper_id: str
+    doi: str = ""
+    title: str = ""
+    trace_id: str = ""
+    triage_trace_id: str = ""
+    figure_id: str = ""
+    page_number: int | None = None
+    subplot: str = ""
+    image_path: str = ""
+    crop_path: str = ""
+    candidate_tier: str = ""
+    subplot_lock_failed: bool = False
+    crop_width_px: int = 0
+    crop_height_px: int = 0
+    source_render_dpi: int | None = None
+    vlm_model: str = ""
+    vlm_prompt_asset_id: str = ""
+    vlm_prompt_version: str = ""
+    subplot_semantic_type: str = "other"
+    readability_status: Literal["readable", "partially_readable", "unreadable"] = "unreadable"
+    quality_flags: list[str] = Field(default_factory=list)
+    series_marker_raw: str = ""
+    series_label_raw: str = ""
+    series_rank_hint: str = ""
+    formulation_label: str = ""
+    legend_label_raw: str = ""
+    legend_match_basis: str = ""
+    grounding_status: Literal[
+        "pending",
+        "figure_label_space",
+        "source_label_space",
+        "figure_label_space_only",
+        "aggregate_source_only",
+        "ungrounded",
+        "none",
+    ] = "pending"
+    figure_label_space: list[str] = Field(default_factory=list)
+    source_label_space: list[str] = Field(default_factory=list)
+    endpoint_time: float | None = None
+    endpoint_time_unit: str = ""
+    endpoint_value: float | None = None
+    endpoint_unit: str = ""
+    confidence: float | None = None
+    notes: str = ""
+    source_endpoint_trace_id: str = ""
+    reconciliation_status: Literal[
+        "pending",
+        "vlm_only",
+        "cv_vlm_agree",
+        "cv_vlm_disagreement",
+        "cv_only",
+        "unreadable",
+        "no_source_record",
+    ] = "pending"
+    vlm_used_as_final: bool = False
+    cv_vlm_delta_pct: float | None = None
+    raw_response: dict = Field(default_factory=dict)
 
 
 class FigureMappingArtifact(BaseModel):
@@ -138,6 +242,9 @@ class FigureMappingArtifact(BaseModel):
     allowed_formulation_labels: list[str] = Field(default_factory=list)
     source_table_record_ids: list[str] = Field(default_factory=list)
     mapped_formulation_label: str | None = None
-    mapping_status: Literal["vision_mapped", "unmapped"] = "unmapped"
+    mapping_status: Literal["vision_mapped", "unmapped", "underconstrained_labels"] = "unmapped"
+    mapping_label_space_status: Literal["complete", "underconstrained"] = "complete"
+    detected_curve_count: int = 0
+    allowed_label_count: int = 0
     mapping_rationale: str = ""
     mapping_confidence: float | None = None

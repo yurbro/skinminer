@@ -1,11 +1,13 @@
-"""Lightweight scoring utility for comparing pipeline outputs against gold labels."""
+"""Scoring utilities for SkinMiner evaluation assets."""
 
 from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
+from evaluation.gold_audit import load_gold_audit_csv, score_gold_audit_rows
 from evaluation.models import GoldLabelEntry, GoldRecordLabel
 from schemas.models import Record
 from utils.io import ensure_parent, load_jsonl, load_records_jsonl
@@ -127,7 +129,8 @@ def score_predictions(gold_entries: list[GoldLabelEntry], predicted_records: lis
             }
         )
 
-    summary = {
+    return {
+        "mode": "jsonl_fixture",
         "gold_entries": len(gold_entries),
         "route_accuracy": route_matches / len(gold_entries) if gold_entries else 0.0,
         "verification_accuracy": verification_matches / max(
@@ -141,24 +144,100 @@ def score_predictions(gold_entries: list[GoldLabelEntry], predicted_records: lis
         },
         "paper_rows": paper_rows,
     }
-    return summary
+
+
+def _write_markdown_summary(summary: dict[str, object], path: Path) -> Path:
+    out_path = ensure_parent(path)
+    if summary.get("mode") == "gold_audit_csv":
+        overall = summary["overall"]
+        by_route = summary["by_route"]
+        recoverable = summary["recoverable_failure_rates"]
+        scope_value = summary["scope_value_metrics"]
+        lines = [
+            "# Round-1 Gold Audit Scoring Summary",
+            "",
+            f"- Total labeled rows: `{summary['total_rows']}`",
+            f"- Unique papers: `{summary['unique_papers']}`",
+            f"- Predicted positives (`verified`): `{overall['predicted_positive']}`",
+            f"- Gold positives (`gold_keep_record = yes`): `{overall['gold_positive']}`",
+            f"- Precision: `{overall['precision']:.3f}`",
+            f"- Recall: `{overall['recall']:.3f}`",
+            f"- F1: `{overall['f1']:.3f}`",
+            f"- Scope precision: `{scope_value['scope_precision']:.3f}`",
+            f"- End-to-end precision: `{scope_value['end_to_end_precision']:.3f}`",
+            "",
+            "## By Route",
+            "",
+            "| Route | Count | Precision | Recall | F1 |",
+            "|---|---:|---:|---:|---:|",
+        ]
+        for route in ["table", "text", "mixed", "figure"]:
+            row = by_route[route]
+            lines.append(
+                f"| {route} | {row['count']} | {row['precision']:.3f} | {row['recall']:.3f} | {row['f1']:.3f} |"
+            )
+        lines.extend(
+            [
+                "",
+                "## Recoverable Failure Rates In Unresolved",
+                "",
+                "| failure_reason | count | gold_keep=yes | recoverable_rate |",
+                "|---|---:|---:|---:|",
+            ]
+        )
+        for reason, row in sorted(
+            recoverable.items(),
+            key=lambda item: (item[1]["recoverable_rate"], item[1]["count"]),
+            reverse=True,
+        ):
+            lines.append(
+                f"| {reason} | {row['count']} | {row['gold_keep_yes']} | {row['recoverable_rate']:.3f} |"
+            )
+        out_path.write_text("\n".join(lines), encoding="utf-8")
+        return out_path
+
+    lines = [
+        "# Score Summary",
+        "",
+        f"- Gold entries: `{summary['gold_entries']}`",
+        f"- Route accuracy: `{summary['route_accuracy']:.3f}`",
+        f"- Verification accuracy: `{summary['verification_accuracy']:.3f}`",
+        f"- Gold record count: `{summary['gold_record_count']}`",
+    ]
+    out_path.write_text("\n".join(lines), encoding="utf-8")
+    return out_path
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Score SkinMiner pipeline outputs against gold labels.")
-    parser.add_argument("--gold-jsonl", type=Path, required=True)
-    parser.add_argument("--predicted-jsonl", type=Path, required=True)
+    parser = argparse.ArgumentParser(description="Score SkinMiner outputs against evaluation assets.")
+    parser.add_argument("--gold-jsonl", type=Path, default=None)
+    parser.add_argument("--predicted-jsonl", type=Path, default=None)
+    parser.add_argument("--gold-csv", type=Path, default=None)
     parser.add_argument("--output-json", type=Path, default=None)
+    parser.add_argument("--output-md", type=Path, default=None)
     args = parser.parse_args()
 
-    gold_entries = [GoldLabelEntry.model_validate(row) for row in load_jsonl(args.gold_jsonl)]
-    predicted_records = load_records_jsonl(args.predicted_jsonl)
-    summary = score_predictions(gold_entries, predicted_records)
+    if args.gold_csv:
+        rows = load_gold_audit_csv(args.gold_csv)
+        summary = {"mode": "gold_audit_csv", **score_gold_audit_rows(rows)}
+    else:
+        if args.gold_jsonl is None or args.predicted_jsonl is None:
+            raise SystemExit("Use --gold-csv for annotated audit CSVs, or --gold-jsonl with --predicted-jsonl.")
+        gold_entries = [GoldLabelEntry.model_validate(row) for row in load_jsonl(args.gold_jsonl)]
+        predicted_records = load_records_jsonl(args.predicted_jsonl)
+        summary = score_predictions(gold_entries, predicted_records)
 
     if args.output_json:
         ensure_parent(args.output_json).write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    if args.output_md:
+        _write_markdown_summary(summary, args.output_md)
 
-    print(json.dumps({key: value for key, value in summary.items() if key != "paper_rows"}, ensure_ascii=False, indent=2))
+    payload = json.dumps(
+        {key: value for key, value in summary.items() if key not in {"paper_rows"}},
+        ensure_ascii=False,
+        indent=2,
+    )
+    sys.stdout.buffer.write((payload + "\n").encode("utf-8", errors="backslashreplace"))
 
 
 if __name__ == "__main__":

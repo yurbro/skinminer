@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 from typing import Iterable
 
-from schemas.models import Record
+from schemas.models import EvidenceItem, Record
 from utils.io import write_records_csv, write_records_jsonl
 from utils.status_panel import ProgressCallback
 from utils.units import (
@@ -25,6 +25,10 @@ def _is_generic_label(label: str) -> bool:
 
 def _normalize_label_key(label: str) -> str:
     return " ".join((label or "").strip().lower().split())
+
+
+def _normalize_api_key(api_name: str) -> str:
+    return " ".join((api_name or "").strip().lower().split())
 
 
 def _table_support_score(record: Record) -> float:
@@ -127,6 +131,18 @@ def _merge_in_place(target: Record, incoming: Record) -> Record:
         merged.conditions.diffusion_area_cm2 = incoming.conditions.diffusion_area_cm2
     if merged.conditions.receptor_volume_ml is None and incoming.conditions.receptor_volume_ml is not None:
         merged.conditions.receptor_volume_ml = incoming.conditions.receptor_volume_ml
+    if not merged.conditions.membrane_type and incoming.conditions.membrane_type:
+        merged.conditions.membrane_type = incoming.conditions.membrane_type
+    if not merged.conditions.membrane_source and incoming.conditions.membrane_source:
+        merged.conditions.membrane_source = incoming.conditions.membrane_source
+    if merged.conditions.membrane_thickness_um is None and incoming.conditions.membrane_thickness_um is not None:
+        merged.conditions.membrane_thickness_um = incoming.conditions.membrane_thickness_um
+    if not merged.conditions.receptor_medium and incoming.conditions.receptor_medium:
+        merged.conditions.receptor_medium = incoming.conditions.receptor_medium
+    if not merged.conditions.dose_type and incoming.conditions.dose_type:
+        merged.conditions.dose_type = incoming.conditions.dose_type
+    if not merged.conditions.dose_amount and incoming.conditions.dose_amount:
+        merged.conditions.dose_amount = incoming.conditions.dose_amount
     if merged.extractor_confidence is None or (incoming.extractor_confidence or 0.0) > (merged.extractor_confidence or 0.0):
         merged.extractor_confidence = incoming.extractor_confidence
     if merged.mapping_confidence is None or (incoming.mapping_confidence or 0.0) > (merged.mapping_confidence or 0.0):
@@ -161,6 +177,127 @@ def _best_table_support(records: list[Record]) -> Record | None:
     if not records:
         return None
     return max(records, key=_table_support_score)
+
+
+def _api_concentration_signature(record: Record) -> tuple[float, str, str] | None:
+    value = record.formulation.api_concentration_value
+    if value is None:
+        return None
+    return (
+        round(float(value), 9),
+        " ".join((record.formulation.api_concentration_unit or "").strip().lower().split()),
+        " ".join((record.formulation.api_basis or "").strip().lower().split()),
+    )
+
+
+def _build_table_api_support_hints(records: list[Record]) -> dict[tuple[str, str], Record]:
+    """Return unique same-paper table API concentration support from partial rows."""
+
+    grouped: dict[tuple[str, str], list[Record]] = {}
+    for record in records:
+        if record.route != "table" or record.endpoint.value is not None:
+            continue
+        if _api_concentration_signature(record) is None:
+            continue
+        api_key = _normalize_api_key(record.formulation.api_name)
+        if not api_key:
+            continue
+        grouped.setdefault((record.paper_id, api_key), []).append(record)
+
+    hints: dict[tuple[str, str], Record] = {}
+    for key, candidates in grouped.items():
+        signatures = {_api_concentration_signature(candidate) for candidate in candidates}
+        signatures.discard(None)
+        if len(signatures) == 1:
+            best = _best_table_support(candidates)
+            if best is not None:
+                hints[key] = best
+    return hints
+
+
+def _api_support_fragment(record: Record) -> str:
+    for item in record.evidence_items:
+        if item.field_name == "api_concentration" and item.snippet:
+            return item.snippet
+    if record.formulation.api_concentration_raw:
+        return record.formulation.api_concentration_raw
+    for item in record.evidence_items:
+        if item.field_name == "formulation" and item.snippet:
+            return item.snippet
+    value = record.formulation.api_concentration_value
+    if value is None:
+        return ""
+    return " ".join(
+        part
+        for part in (
+            f"{float(value):g}",
+            record.formulation.api_concentration_unit,
+            record.formulation.api_basis,
+        )
+        if part
+    )
+
+
+def _api_support_locator(record: Record) -> str:
+    for field_name in ("api_concentration", "formulation"):
+        for item in record.evidence_items:
+            if item.field_name == field_name and item.locator:
+                return item.locator
+    return str(record.provenance.metadata.get("table_id", "") or "")
+
+
+def _add_api_support_evidence(target: Record, support_record: Record) -> None:
+    snippet = _api_support_fragment(support_record)
+    if not snippet:
+        return
+    locator = _api_support_locator(support_record)
+    seen = {(item.field_name, item.locator, item.snippet) for item in target.evidence_items}
+    key = ("api_concentration", locator, snippet)
+    if key in seen:
+        return
+    target.evidence_items.append(
+        EvidenceItem(
+            field_name="api_concentration",
+            modality="table",
+            locator=locator,
+            snippet=snippet,
+            source_ref=support_record.doi or target.doi or support_record.paper_id,
+            confidence=support_record.extractor_confidence or 0.7,
+        )
+    )
+
+
+def _apply_table_api_support(record: Record, support_record: Record) -> Record:
+    """Copy only same-paper table API concentration support into an endpoint row."""
+
+    if record.formulation.api_concentration_value is not None:
+        return record
+    api_key = _normalize_api_key(record.formulation.api_name)
+    support_api_key = _normalize_api_key(support_record.formulation.api_name)
+    if not api_key or api_key != support_api_key:
+        return record
+
+    merged = record.model_copy(deep=True)
+    merged.formulation.api_concentration_value = support_record.formulation.api_concentration_value
+    merged.formulation.api_concentration_unit = support_record.formulation.api_concentration_unit
+    merged.formulation.api_basis = support_record.formulation.api_basis
+    if not merged.formulation.api_concentration_raw and support_record.formulation.api_concentration_raw:
+        merged.formulation.api_concentration_raw = support_record.formulation.api_concentration_raw
+
+    support_ids = list(merged.provenance.metadata.get("table_api_support_record_ids", []))
+    if support_record.record_id not in support_ids:
+        support_ids.append(support_record.record_id)
+    merged.provenance.metadata["table_api_support_record_ids"] = support_ids
+
+    support_note = (
+        f"assembly_table_api_support:{support_record.formulation.label}"
+        if support_record.formulation.label
+        else f"assembly_table_api_support:{support_record.record_id}"
+    )
+    if support_note not in merged.source_notes:
+        merged.source_notes.append(support_note)
+    _add_api_support_evidence(merged, support_record)
+    return _normalize_record(merged)
 
 
 def _select_table_support_records(
@@ -201,6 +338,7 @@ def _select_table_support_records(
 def assemble_records(
     record_groups: Iterable[Iterable[Record]],
     include_table_partials: bool = False,
+    enable_table_promotion: bool = True,
     shared_state: dict[str, Any] | None = None,
     output_jsonl: str | Path | None = None,
     output_csv: str | Path | None = None,
@@ -213,6 +351,7 @@ def assemble_records(
     assembled_lookup: dict[tuple[str, str, str, float | None, float | None], Record] = {}
     table_partials_by_doi: dict[str, list[Record]] = {}
     table_support_by_paper, table_support_by_label = _build_table_support_indexes(all_records)
+    table_api_support_by_paper_api = _build_table_api_support_hints(all_records)
 
     total = len(all_records)
     for index, record in enumerate(all_records, start=1):
@@ -231,7 +370,17 @@ def assemble_records(
                 progress_callback(index, record.paper_id, "skip table partial")
             continue
 
-        support_records = _select_table_support_records(record, table_support_by_paper, table_support_by_label)
+        if record.route == "table" and record.endpoint.value is not None and record.formulation.api_concentration_value is None:
+            api_key = _normalize_api_key(record.formulation.api_name)
+            support_record = table_api_support_by_paper_api.get((record.paper_id, api_key))
+            if support_record is not None:
+                record = _apply_table_api_support(record, support_record)
+
+        support_records = (
+            _select_table_support_records(record, table_support_by_paper, table_support_by_label)
+            if enable_table_promotion
+            else []
+        )
         for support_record in support_records:
             record = _merge_in_place(record, support_record)
             support_ids = list(record.provenance.metadata.get("table_support_record_ids", []))

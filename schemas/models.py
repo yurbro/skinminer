@@ -60,6 +60,12 @@ class ConditionSpec(BaseModel):
     duration_h: float | None = None
     diffusion_area_cm2: float | None = None
     receptor_volume_ml: float | None = None
+    membrane_type: str = ""
+    membrane_source: str = ""
+    membrane_thickness_um: float | None = None
+    receptor_medium: str = ""
+    dose_type: str = ""
+    dose_amount: str = ""
     replicate_count: int | None = None
     notes: list[str] = Field(default_factory=list)
 
@@ -196,6 +202,7 @@ class RunManifest(BaseModel):
     run_id: str
     timestamp_utc: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     model_name: str = ""
+    llm_provider: str = "openai"
     policy_name: str = ""
     input_paths: list[str] = Field(default_factory=list)
     prompt_paths: list[str] = Field(default_factory=list)

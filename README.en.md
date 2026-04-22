@@ -65,8 +65,12 @@ Strict scope rules such as:
 are now centralized in:
 
 - `policies/v1_strict_ibuprofen_5pct.py`
+- `policies/v2_accept_wv.py`
+- `policies/v3_any_ibuprofen_concentration.py`
+- `policies/v4_accept_flux.py`
 
 This prevents scope logic from being scattered across extraction and verification modules.
+`run_pipeline.py --policy` currently supports `v1 / v1_strict_ibuprofen_5pct / v2 / v2_accept_wv / v3 / v3_any_ibuprofen_concentration / v4 / v4_accept_flux`.
 
 ### 1.4 Standardized extractor interfaces
 
@@ -132,6 +136,7 @@ Patchers are intended to:
 - endpoint and API-concentration patchers may now also revise populated but suspicious values when strict verification marks them as ambiguous or likely out-of-scope
 - API concentration fields are now normalized more consistently across assembly and verification, so `% w/w`, `% w/v`, `mg/g`, `mg/ml`, and `mM` are less likely to carry unstable basis strings
 - assembly now also performs proactive table-support promotion, so stronger table-side formulation, API, area, and support evidence can be merged into related `text / mixed / figure` records before final verification
+- ablation runs can pass `--no-patching` to skip every targeted patcher; this switch is stored in the run manifest and resume signature
 
 ### 1.7 Stronger figure traceability
 
@@ -181,6 +186,16 @@ The framework now also includes a more practical engineering feature:
 - when old `.resume` marker digests change because of small code fixes, but the existing `run_manifest.jsonl` still proves the same high-level run configuration, the current version will automatically use a soft-compatibility resume path and reuse the existing markers
 - this goes beyond monitoring-only long-run mode and is intended for real overnight or full-scale runs
 - the latest recovery-promotion round also adds `receptor_volume_ml`, two-pass endpoint shared-hint replay, a more conservative API-concentration patch quality check, and stricter separation between formulation concentration context and receiver / endpoint assay concentration context
+
+### 1.8.1 LLM provider abstraction
+
+The LLM call layer is now routed through a thin provider abstraction in `utils/llm_client.py`.
+
+- `run_pipeline.py --llm-provider` supports `openai` and `anthropic`
+- the default remains `openai`, preserving existing behavior unless explicitly changed
+- `--llm-provider anthropic` defaults the stage model family to `claude-sonnet-4-6`, while stage-level model overrides still work
+- run manifests now record `llm_provider` alongside model names and stage model overrides
+- Anthropic is imported lazily, so OpenAI-only runs do not require the Anthropic SDK to be loaded
 
 ### 1.9 Optional LLM triage and the current content strategy
 
@@ -357,6 +372,9 @@ Useful commands now include:
 - `python run_pipeline.py --list-run-profiles`
 - `python -m evaluation.validate_gold_labels --gold-jsonl evaluation/templates/gold_labels_template.jsonl`
 - `python -m evaluation.score_run --gold-jsonl <gold.jsonl> --predicted-jsonl <records.jsonl> --output-json <summary.json>`
+- `python -m evaluation.validate_gold_labels --gold-csv outputs/gold_audit_set/gold_set_seed_round1.csv`
+- `python -m evaluation.score_run --gold-csv outputs/gold_audit_set/gold_set_seed_round1.csv --output-json outputs/gold_audit_set/score_round1.json --output-md outputs/gold_audit_set/score_round1_summary.md`
+- This path now also supports separate scope-precision vs end-to-end precision reporting via derived `gold_scope_correct / gold_value_correct` columns.
 
 ## 2. Architecture Overview
 
@@ -772,6 +790,21 @@ Note:
   - `failure_reason`
   - `failure_reasons`
 
+### 8.1.1 Formulation And Condition Fields
+
+`Record.formulation` stores the API, concentration, dosage form, formulation label, and the `components` list. `components` is the place for vehicle / excipient composition beyond the API, including ingredient names, concentrations, basis, raw source text, and notes.
+
+`Record.conditions` now stores additional pharmaceutically important experiment context alongside diffusion area, receptor volume, duration, and replicate count:
+
+- `membrane_type`: membrane or skin type, such as human cadaver skin, porcine ear skin, or Strat-M.
+- `membrane_source`: source category, such as human, porcine, rat, or synthetic.
+- `membrane_thickness_um`: membrane thickness in µm.
+- `receptor_medium`: receptor medium, such as PBS pH 7.4 or PBS plus surfactant.
+- `dose_type`: finite or infinite dose.
+- `dose_amount`: dose amount or raw dose description, such as `5 mg/cm²`, `200 µL`, or `infinite dose`.
+
+These fields are structured record fields only. They do not currently participate in verification scope gates, policy decisions, or failure taxonomy; missing values do not reject a record.
+
 ### 8.2 `EvidenceItem`
 
 Each `EvidenceItem` typically includes:
@@ -894,6 +927,7 @@ The latest engineering round tightened three practical areas that were directly 
   - `--text-model`
   - `--table-model`
   - `--figure-triage-model`
+  - `--figure-vlm-model`
   - `--figure-map-model`
   - `--llm-adjudication-model`
 - These stage-level model settings now flow into the run manifest, run report, and resume-signature consistency checks.
@@ -911,3 +945,60 @@ The latest engineering round tightened three practical areas that were directly 
 - `extractors/table/extractor.py` and `extractors/text/normalize_fields.py` no longer fall back to a generic `diffusion cell` label unless routing metadata explicitly supports it.
 - `verification/verify_records.py` now consumes `route_raw_labels` such as `franz_confirmed`, `where_franz`, `where_diffusion_cell`, and `endpoint_carrier_snippet` when normalizing `device`, `study_type`, `endpoint_time`, and support evidence.
 - `extractors/figure/build_records.py` now preserves upstream routing metadata when figure-derived records are built from table-backed source records, so figure verification sees the same routing context as earlier modalities.
+
+## 17. Latest observability additions
+
+- `run_pipeline.py` now includes `verification.llm_adjudication` in `prompt_assets` and `prompt_paths`, so the adjudication prompt version is tracked in the manifest and run report alongside the other LLM stages.
+- `extractors/figure/triage.py` now writes an explicit `has_permeation_plot` boolean to every triage artifact. This is derived from existing triage outputs and is used for aggregation only; it does not change triage behavior.
+- `extractors/figure/digitize.py` now emits an explicit endpoint-style failure row with `status=digitization_no_output` when a figure is triaged as digitizable but produces no downstream digitization output. This closes the previous silent-loss gap in the figure funnel without changing digitization logic.
+- `extractors/figure/digitize.py` now also writes a `candidate_tier` field to digitized curve/endpoint artifacts, with values `triage_primary`, `same_page_alt`, or `cross_page_fallback`, so source-binding audits can see which image tier actually won.
+- `reports/build_run_report.py` now reports both `triage_has_permeation_plot_true` and `digitization_no_output` counts in the figure section, making the figure funnel more auditable end to end.
+
+## 18. Latest direct-figure VLM path
+
+- `run_pipeline.py` now supports a dedicated `--figure-vlm-model` override for the locked-subplot VLM value-reading stage.
+- `extractors/figure/vlm_digitize.py` adds a conservative parallel VLM path for direct figure rows only, using the locked subplot crop plus structured context such as axis ranges, known formulation labels, crop resolution, and source render DPI.
+- `run_pipeline.py` now tracks `extractors.figure.vlm_digitize` in prompt assets, and `reports/build_run_report.py` reports `vlm_readings_total`, `vlm_readings_readable`, `vlm_used_as_final`, and VLM reconciliation-status counts.
+- The first implementation is precision-first: CV/VLM disagreement does not auto-promote a figure row to `verified`; instead the row remains unresolved unless a safer path exists.
+
+## 19. Latest policy and ablation controls
+
+- `policies/v2_accept_wv.py` adds a V2 policy that keeps the V1 strict ibuprofen/Franz/amount/time gates while also accepting `5% w/v` and `50 mg/mL` as valid concentration bases.
+- `policies/v3_any_ibuprofen_concentration.py` adds an E8 relaxed-scope policy that keeps the non-concentration V1 gates but accepts any explicitly ibuprofen concentration.
+- `policies/v4_accept_flux.py` adds a policy-sensitivity scope that inherits V3 concentration behavior and also accepts flux/Jss plus explicitly grounded Kp/Papp/permeability coefficient endpoints.
+- `run_pipeline.py --policy` can select `v1`, `v1_strict_ibuprofen_5pct`, `v2`, `v2_accept_wv`, `v3`, `v3_any_ibuprofen_concentration`, `v4`, or `v4_accept_flux`; the selected policy is stored in the run manifest and resume signature.
+- `assembly/assemble_records.py` can propagate unique same-paper table API-concentration support into table endpoint rows without implicitly converting `w/v` to `w/w`.
+- `utils/units.py` parses spaced slash forms such as `% w / v`, so unit normalization is no longer sensitive to slash spacing.
+- `run_pipeline.py --no-patching` disables `patch_api_concentration`, `patch_endpoint_value`, `patch_endpoint_time`, and `patch_area` for E6-style ablation runs.
+- `run_pipeline.py --no-table-promotion` disables assembly-time table-support promotion into non-table records for E7-style ablation runs; same-paper table concentration propagation remains enabled.
+- Both ablation switches are recorded as `patching_enabled` and `table_promotion_enabled` in the manifest and resume signature.
+
+## 20. Latest schema and table extraction controls
+
+- `ConditionSpec` now includes `membrane_type`, `membrane_source`, `membrane_thickness_um`, `receptor_medium`, `dose_type`, and `dose_amount`; missing values do not affect policy gates, but source-inconsistent figure-route condition context can now trigger `source_context_inconsistent`.
+- Text and table extraction prompts now explicitly request membrane, receptor medium, dose, and vehicle/excipient composition fields.
+- Table extraction prompt asset `extractors.table.structured_tables` is now `2026-04-11.v1`; it explicitly requires every relevant table row and every formulation × timepoint endpoint cell rather than representative rows.
+- Text extraction prompt asset `extractors.text.structured_fields` is now `2026-04-11.v1`; it asks for condition context and excipient evidence.
+- Figure VLM prompt asset `extractors.figure.vlm_digitize` is now `2026-04-11.v1`; it receives known membrane/receptor/dose context from source table/text records but does not infer those fields from the figure crop.
+- HTML table extraction now reads up to 60 rows per table. If a table or window is truncated, `table_truncated` and `truncation_notes` are written to `table_raw.jsonl` and record provenance metadata.
+- Structured wide endpoint tables with multiple timepoint columns are conservatively expanded into one record per formulation x timepoint when the table text explicitly contains cumulative amount time columns.
+
+## 21. Latest Figure Source-Binding Guard
+
+- `verification/source_binding_guard.py` adds record-level source-context consistency checks and is called from `verification/verify_records.py` before final policy classification.
+- New failure taxonomy code: `source_context_inconsistent`. It is a recoverable unresolved code, not a rejection code, but it prevents source-inconsistent records from entering `verified`.
+- Figure-route records now check whether endpoint value, endpoint time, formulation label, figure mapping, and membrane/dose conditions are grounded to the same figure/subplot or to explicitly compatible source context.
+- `extractors/figure/build_records.py` no longer blindly copies membrane/receptor/dose conditions from table source records into figure records. Figure records keep only figure-context-grounded conditions; fields that cannot be grounded from the figure/subplot context are left blank.
+- CV-only figure mappings without VLM agreement or strong legend/marker/source-label grounding are treated as weak mappings, so endpoint-magnitude or semantic guesses cannot become verified records by themselves.
+- This is a precision-first guard: contaminated figure-route verified records are expected to move back to unresolved until a safer figure/source binding path recovers them.
+
+## 22. Latest Calibration-Gate Retry
+
+- `extractors/figure/triage.py` now runs a second-pass retry only when the `calibration_curve_not_target` gate fires. It excludes the primary calibration figure and retries at most 3 alternate candidate pages from the same paper.
+- Retry candidate pages are prioritized from router endpoint hints such as `Figure 11 shows ... permeated vs time`; if no explicit figure number is available, retry falls back to the original `page_scores`.
+- `FigureTriageArtifact` now includes observability fields such as `triage_retry_triggered`, `triage_retry_reason`, `triage_retry_candidate_pages`, `triage_retry_candidate_page`, and `triage_retry_result`. These fields are propagated into figure record provenance metadata.
+- `extractors/figure/digitize.py` prioritizes an explicit `plot_bbox` from retry/permeation triage so fixed subplot grids or whole-page fallbacks do not override the intended plot crop.
+- `extractors/figure/map_curves.py` uses deterministic `single_source_label_exact_match` grounding for single-curve/single-source-label cases, making the binding visible to the Fix 6 source-binding guard.
+- For calibration-retry records with one source label, high-confidence source-grounded VLM readings can be used as the final endpoint when CV and VLM disagree, recorded as `figure_extraction_method=vlm_retry_cv_disagreement`.
+- Figure records now preserve both retry figure pages and source table/method pages, so verification can recover diffusion area, receptor volume, and related support context from the correct parts of the paper.
+- `utils/units.py` tightens receptor-volume parsing and receptor-concentration normalization: donor gel volume and membrane-prep buffer volume are no longer accepted as receptor volume, and `ug/mL` endpoints are converted through receptor volume before area normalization.

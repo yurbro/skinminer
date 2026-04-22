@@ -5,11 +5,11 @@ import random
 import time
 from typing import Any, Iterable, Literal, Mapping
 
-from openai import OpenAI
 from pydantic import BaseModel, Field
 
 from triage.prompts import DEFAULT_TRIAGE_SYSTEM_PROMPT, build_triage_user_prompt
 from utils.io import write_jsonl, write_optional_csv
+from utils.llm_client import LLMProvider, parse_structured
 from utils.long_run import LongRunMonitor, record_openai_attempt_failure, record_openai_usage
 from utils.resume import load_jsonl_if_exists
 from utils.status_panel import ProgressCallback
@@ -62,8 +62,9 @@ def triage_records_with_llm(
     progress_callback: ProgressCallback | None = None,
     long_run_monitor: LongRunMonitor | None = None,
     resume_jsonl: str | None = None,
+    llm_provider: str | LLMProvider = LLMProvider.OPENAI,
 ) -> list[dict[str, Any]]:
-    client = OpenAI()
+    provider = LLMProvider.parse(llm_provider)
     record_list = list(records)
     progress_every = max(1, progress_every)
     checkpoint_every = max(1, checkpoint_every)
@@ -98,7 +99,8 @@ def triage_records_with_llm(
         while True:
             try:
                 user_prompt = build_triage_user_prompt(title, abstract)
-                response = client.responses.parse(
+                response = parse_structured(
+                    provider=provider,
                     model=model,
                     input=[
                         {"role": "system", "content": system_prompt},

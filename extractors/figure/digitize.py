@@ -217,13 +217,13 @@ def _default_plot_bbox() -> list[float]:
     return [0.08, 0.12, 0.94, 0.92]
 
 
-def _iter_image_candidates(triage: FigureTriageArtifact) -> list[tuple[int | None, str, str]]:
-    ordered: list[tuple[int | None, str, str]] = []
+def _iter_image_candidates(triage: FigureTriageArtifact) -> list[tuple[int | None, str, str, str]]:
+    ordered: list[tuple[int | None, str, str, str]] = []
     seen: set[str] = set()
 
     primary_path = str(triage.selected_image_path or "").strip()
     if primary_path:
-        ordered.append((triage.page_number, primary_path, "triage_primary"))
+        ordered.append((triage.page_number, primary_path, "triage_primary", "triage_primary"))
         seen.add(primary_path)
 
     for index, path in enumerate(triage.selected_image_paths):
@@ -231,11 +231,23 @@ def _iter_image_candidates(triage: FigureTriageArtifact) -> list[tuple[int | Non
         if not normalized_path or normalized_path in seen:
             continue
         page_number = triage.selected_pages[index] if index < len(triage.selected_pages) else triage.page_number
-        origin = "triage_alternative" if page_number != triage.page_number else "triage_selected"
-        ordered.append((page_number, normalized_path, origin))
+        same_page = page_number == triage.page_number
+        origin = "triage_selected" if same_page else "triage_alternative"
+        candidate_tier = "same_page_alt" if same_page else "cross_page_fallback"
+        ordered.append((page_number, normalized_path, origin, candidate_tier))
         seen.add(normalized_path)
 
     return ordered
+
+
+def _normalize_subplot_id(subplot: str) -> str:
+    value = (subplot or "").strip()
+    if not value:
+        return ""
+    for char in value:
+        if char.isalpha():
+            return char.upper()
+    return value.upper()
 
 
 def _iter_bbox_candidates(
@@ -265,6 +277,72 @@ def _iter_bbox_candidates(
         add(_expand_bbox(auto_bbox, pad_x=0.05, pad_y=0.06), "auto_detect_expanded", auto_diag)
 
     add(_default_plot_bbox(), "default_plot_bbox", {"bbox_candidates": 0, "bbox_best_score": 0.0, "bbox_best_area_ratio": 0.0})
+    return candidates
+
+
+def _iter_explicit_plot_bbox_candidates(
+    image: np.ndarray,
+    triage: FigureTriageArtifact,
+) -> list[tuple[list[float], str, dict[str, float | int]]]:
+    triage_bbox = _parse_bbox(triage.plot_bbox)
+    if triage_bbox is None:
+        return []
+    diagnostics = {"bbox_candidates": 1, "bbox_best_score": 1.0, "bbox_best_area_ratio": 0.0}
+    candidates = [(triage_bbox, "triage_plot_bbox", diagnostics)]
+    expanded = _expand_bbox(triage_bbox, pad_x=0.03, pad_y=0.04)
+    if expanded is not None and tuple(round(value, 4) for value in expanded) != tuple(round(value, 4) for value in triage_bbox):
+        candidates.append((expanded, "triage_plot_bbox_expanded", diagnostics))
+    return candidates
+
+
+def _iter_subplot_bbox_candidates(
+    image: np.ndarray,
+    triage: FigureTriageArtifact,
+) -> list[tuple[list[float], str, dict[str, float | int]]]:
+    subplot = _normalize_subplot_id(triage.subplot)
+    if subplot not in {"A", "B", "C", "D"}:
+        return []
+
+    candidates: list[tuple[list[float], str, dict[str, float | int]]] = []
+    seen: set[tuple[float, float, float, float]] = set()
+
+    def add(bbox: list[float] | None, source: str) -> None:
+        parsed = _parse_bbox(bbox)
+        if parsed is None:
+            return
+        key = tuple(round(value, 4) for value in parsed)
+        if key in seen:
+            return
+        seen.add(key)
+        candidates.append((parsed, source, {"subplot_lock": 1}))
+
+    def subbox(base: list[float], kind: str) -> list[float] | None:
+        x0, y0, x1, y1 = base
+        mid_x = (x0 + x1) / 2.0
+        mid_y = (y0 + y1) / 2.0
+        lookup = {
+            "top_half": [x0, y0, x1, mid_y],
+            "bottom_half": [x0, mid_y, x1, y1],
+            "left_half": [x0, y0, mid_x, y1],
+            "right_half": [mid_x, y0, x1, y1],
+            "top_left": [x0, y0, mid_x, mid_y],
+            "top_right": [mid_x, y0, x1, mid_y],
+            "bottom_left": [x0, mid_y, mid_x, y1],
+            "bottom_right": [mid_x, mid_y, x1, y1],
+        }
+        return lookup.get(kind)
+
+    base_region = [0.05, 0.04, 0.95, 0.70]
+    ordered_kinds = {
+        "A": ("top_left", "top_half", "left_half"),
+        "B": ("top_right", "bottom_half", "right_half"),
+        "C": ("bottom_left", "bottom_half", "left_half"),
+        "D": ("bottom_right", "bottom_half", "right_half"),
+    }[subplot]
+
+    for kind in ordered_kinds:
+        add(subbox(base_region, kind), f"subplot_{subplot}_{kind}")
+
     return candidates
 
 
@@ -364,6 +442,37 @@ def _build_curve_from_points(xs: np.ndarray, ys: np.ndarray, min_cols: int = 30)
     return x_out, y_out
 
 
+def _rolling_median(values: np.ndarray, window: int = 7) -> np.ndarray:
+    if values.size == 0:
+        return values
+    radius = max(1, window // 2)
+    result = np.empty_like(values, dtype=np.float32)
+    for index in range(values.size):
+        left = max(0, index - radius)
+        right = min(values.size, index + radius + 1)
+        result[index] = float(np.median(values[left:right]))
+    return result
+
+
+def _sanitize_curve_pixels(xpix: np.ndarray, ypix: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    if xpix.size < 30 or ypix.size < 30:
+        return xpix, ypix
+    smooth = _rolling_median(ypix, window=7)
+    residual = np.abs(ypix - smooth)
+    median_residual = float(np.median(residual)) if residual.size else 0.0
+    mad = float(np.median(np.abs(residual - median_residual))) if residual.size else 0.0
+    threshold = max(4.0, (mad * 3.5) + median_residual)
+    keep_mask = residual <= threshold
+    x_keep = xpix[keep_mask]
+    y_keep = ypix[keep_mask]
+    if x_keep.size < 30:
+        return xpix, ypix
+    x_clean, y_clean = _build_curve_from_points(x_keep.astype(np.int32), y_keep.astype(np.int32), min_cols=20)
+    if x_clean.size < 20:
+        return xpix, ypix
+    return x_clean, y_clean
+
+
 def _pixel_to_data(
     xpix: np.ndarray,
     ypix: np.ndarray,
@@ -387,6 +496,30 @@ def _interp_at(x_values: np.ndarray, y_values: np.ndarray, query_x: float) -> fl
     ys = y_values[order]
     clipped_x = min(max(query_x, float(xs[0])), float(xs[-1]))
     return float(np.interp(clipped_x, xs, ys))
+
+
+def _sample_endpoint_from_curve(x_values: np.ndarray, y_values: np.ndarray) -> tuple[float | None, str]:
+    if x_values.size < 2 or y_values.size < 2:
+        return None, "too_sparse"
+    order = np.argsort(x_values)
+    xs = x_values[order]
+    ys = y_values[order]
+    x_span = float(xs[-1] - xs[0])
+    if x_span <= 0.0:
+        return float(ys[-1]), "too_sparse"
+    tail_width = max(x_span * 0.08, x_span / 12.0)
+    tail_mask = xs >= float(xs[-1] - tail_width)
+    tail_y = ys[tail_mask]
+    if tail_y.size < 3:
+        return float(np.median(tail_y)) if tail_y.size else float(ys[-1]), "too_sparse"
+    tail_median = float(np.median(tail_y))
+    tail_mad = float(np.median(np.abs(tail_y - tail_median)))
+    threshold = max(0.5, tail_mad * 3.0, abs(tail_median) * 0.03)
+    stable_mask = np.abs(tail_y - tail_median) <= threshold
+    stable_y = tail_y[stable_mask]
+    if stable_y.size >= 3:
+        return float(np.median(stable_y)), "stable_tail"
+    return float(np.median(tail_y)), "unstable_tail"
 
 
 def _coarse_color_name(hsv_center: np.ndarray) -> str:
@@ -463,6 +596,137 @@ def _curve_trace_id(triage: FigureTriageArtifact, curve_id: str) -> str:
     return f"{base}::{curve_id}"
 
 
+def _append_digitization_no_output(
+    endpoints: list[DigitizedEndpointArtifact],
+    triage: FigureTriageArtifact,
+    *,
+    status: str,
+    failure_reason: str,
+    source_path: str,
+    candidate_tier: str = "",
+    subplot_lock_failed: bool = False,
+    diagnostics: dict[str, Any] | None = None,
+) -> None:
+    payload = dict(diagnostics or {})
+    payload.setdefault("triage_decision", triage.recommended_route)
+    payload.setdefault("digitizable", triage.digitizable)
+    payload.setdefault("endpoint_curve_present", triage.endpoint_curve_present)
+    endpoints.append(
+        DigitizedEndpointArtifact(
+            paper_id=triage.paper_id,
+            doi=triage.doi,
+            title=triage.title,
+            trace_id=f"{triage.trace_id}::{status}",
+            triage_trace_id=triage.trace_id,
+            figure_id=triage.figure_id,
+            page_number=triage.page_number,
+            subplot=triage.subplot,
+            image_path=source_path,
+            source_path=source_path,
+            candidate_tier=candidate_tier,
+            subplot_lock_failed=subplot_lock_failed,
+            status=status,
+            triage_decision=triage.recommended_route,
+            failure_reason=failure_reason,
+            diagnostics=payload,
+        )
+    )
+
+
+def _build_candidate(
+    *,
+    triage: FigureTriageArtifact,
+    page_number: int | None,
+    image_path: str,
+    image_origin: str,
+    image_tier: str,
+    image: np.ndarray,
+    bbox: list[float],
+    bbox_source: str,
+    bbox_diagnostics: dict[str, float | int],
+) -> dict[str, Any] | None:
+    crop = _crop_by_bbox(image, bbox)
+    if crop.size == 0:
+        return None
+    mask, preprocessed, edge_diagnostics = _extract_edge_mask(crop)
+    ys, xs = np.where(mask > 0)
+    return {
+        "page_number": page_number if page_number is not None else triage.page_number,
+        "image_path": image_path,
+        "image_origin": image_origin,
+        "candidate_tier": image_tier,
+        "image": image,
+        "bbox": bbox,
+        "bbox_source": bbox_source,
+        "bbox_diagnostics": bbox_diagnostics,
+        "crop": crop,
+        "mask": mask,
+        "preprocessed": preprocessed,
+        "edge_diagnostics": edge_diagnostics,
+        "edge_points": int(xs.size),
+        "xs": xs,
+        "ys": ys,
+    }
+
+
+def _select_candidate(
+    triage: FigureTriageArtifact,
+    image_candidates: list[tuple[int | None, str, str, str]],
+    *,
+    bbox_provider,
+    prefer_first_threshold_hit: bool,
+) -> tuple[dict[str, Any] | None, dict[str, Any] | None, int, int]:
+    best_candidate: dict[str, Any] | None = None
+    fallback_candidate: dict[str, Any] | None = None
+    image_read_failures = 0
+    bbox_attempts = 0
+
+    for candidate_tier in ("triage_primary", "same_page_alt", "cross_page_fallback"):
+        tier_best: dict[str, Any] | None = None
+        for page_number, image_path, image_origin, image_tier in image_candidates:
+            if image_tier != candidate_tier:
+                continue
+            if not image_path or not Path(image_path).exists():
+                continue
+            image = cv2.imread(image_path)
+            if image is None:
+                image_read_failures += 1
+                continue
+
+            for bbox, bbox_source, bbox_diagnostics in bbox_provider(image, triage):
+                bbox_attempts += 1
+                candidate = _build_candidate(
+                    triage=triage,
+                    page_number=page_number,
+                    image_path=image_path,
+                    image_origin=image_origin,
+                    image_tier=image_tier,
+                    image=image,
+                    bbox=bbox,
+                    bbox_source=bbox_source,
+                    bbox_diagnostics=bbox_diagnostics,
+                )
+                if candidate is None:
+                    continue
+                if fallback_candidate is None:
+                    fallback_candidate = candidate
+                if prefer_first_threshold_hit and candidate["edge_points"] >= MIN_EDGE_POINTS:
+                    return candidate, fallback_candidate, image_read_failures, bbox_attempts
+                if tier_best is None or candidate["edge_points"] > tier_best["edge_points"]:
+                    tier_best = candidate
+
+        if tier_best is None:
+            continue
+        if best_candidate is None or tier_best["edge_points"] > best_candidate["edge_points"]:
+            best_candidate = tier_best
+        if not prefer_first_threshold_hit and tier_best["edge_points"] >= MIN_EDGE_POINTS:
+            return tier_best, fallback_candidate, image_read_failures, bbox_attempts
+
+    if prefer_first_threshold_hit:
+        return None, fallback_candidate, image_read_failures, bbox_attempts
+    return best_candidate, fallback_candidate, image_read_failures, bbox_attempts
+
+
 def digitize_figure_curves(
     triage_artifacts: list[FigureTriageArtifact],
     run_context: ExtractorRunContext,
@@ -479,6 +743,21 @@ def digitize_figure_curves(
         if triage.digitizable != "yes" or triage.recommended_route != "digitize":
             continue
         if triage.y_kind == "percent":
+            _append_digitization_no_output(
+                endpoints,
+                triage,
+                status="digitization_no_output",
+                failure_reason="unsupported_percent_y_kind",
+                source_path=str(triage.selected_image_path or ""),
+                candidate_tier="triage_primary" if str(triage.selected_image_path or "").strip() else "",
+                subplot_lock_failed=False,
+                diagnostics={
+                    "reason": "unsupported_percent_y_kind",
+                    "y_kind": triage.y_kind,
+                    "axes_y_unit": triage.axes_y_unit,
+                    "has_permeation_plot": triage.has_permeation_plot,
+                },
+            )
             continue
 
         image_candidates = _iter_image_candidates(triage)
@@ -494,7 +773,10 @@ def digitize_figure_curves(
                     page_number=triage.page_number,
                     subplot=triage.subplot,
                     image_path="",
+                    source_path="",
                     status="fail_missing_plot_context",
+                    triage_decision=triage.recommended_route,
+                    failure_reason="missing_selected_image_candidates",
                     diagnostics={"reason": "missing_selected_image_candidates"},
                 )
             )
@@ -513,49 +795,75 @@ def digitize_figure_curves(
                     page_number=triage.page_number,
                     subplot=triage.subplot,
                     image_path=str(triage.selected_image_path or ""),
+                    source_path=str(triage.selected_image_path or ""),
                     status="fail_missing_axis_range",
+                    triage_decision=triage.recommended_route,
+                    failure_reason="missing_axis_range",
                     diagnostics={"reason": "missing_axis_range"},
                 )
             )
             continue
 
+        subplot_lock_requested = bool(_normalize_subplot_id(triage.subplot))
+        explicit_plot_bbox_requested = triage.figure_semantic_type == "permeation_plot" and _parse_bbox(triage.plot_bbox) is not None
+        subplot_lock_failed = False
+
         best_candidate: dict[str, Any] | None = None
+        fallback_candidate: dict[str, Any] | None = None
         image_read_failures = 0
         bbox_attempts = 0
 
-        for page_number, image_path, image_origin in image_candidates:
-            if not image_path or not Path(image_path).exists():
-                continue
-            image = cv2.imread(image_path)
-            if image is None:
-                image_read_failures += 1
-                continue
+        if explicit_plot_bbox_requested:
+            explicit_candidate, explicit_fallback, explicit_read_failures, explicit_bbox_attempts = _select_candidate(
+                triage,
+                image_candidates,
+                bbox_provider=_iter_explicit_plot_bbox_candidates,
+                prefer_first_threshold_hit=True,
+            )
+            image_read_failures += explicit_read_failures
+            bbox_attempts += explicit_bbox_attempts
+            if explicit_candidate is not None:
+                best_candidate = explicit_candidate
+                fallback_candidate = explicit_fallback
 
-            for bbox, bbox_source, bbox_diagnostics in _iter_bbox_candidates(image, triage):
-                bbox_attempts += 1
-                crop = _crop_by_bbox(image, bbox)
-                if crop.size == 0:
-                    continue
-                mask, preprocessed, edge_diagnostics = _extract_edge_mask(crop)
-                ys, xs = np.where(mask > 0)
-                candidate = {
-                    "page_number": page_number if page_number is not None else triage.page_number,
-                    "image_path": image_path,
-                    "image_origin": image_origin,
-                    "image": image,
-                    "bbox": bbox,
-                    "bbox_source": bbox_source,
-                    "bbox_diagnostics": bbox_diagnostics,
-                    "crop": crop,
-                    "mask": mask,
-                    "preprocessed": preprocessed,
-                    "edge_diagnostics": edge_diagnostics,
-                    "edge_points": int(xs.size),
-                    "xs": xs,
-                    "ys": ys,
-                }
-                if best_candidate is None or candidate["edge_points"] > best_candidate["edge_points"]:
-                    best_candidate = candidate
+        if best_candidate is None and subplot_lock_requested:
+            locked_candidate, locked_fallback, locked_read_failures, locked_bbox_attempts = _select_candidate(
+                triage,
+                image_candidates,
+                bbox_provider=_iter_subplot_bbox_candidates,
+                prefer_first_threshold_hit=True,
+            )
+            image_read_failures += locked_read_failures
+            bbox_attempts += locked_bbox_attempts
+            if locked_candidate is not None:
+                best_candidate = locked_candidate
+                fallback_candidate = locked_fallback
+            else:
+                generic_candidate, generic_fallback, generic_read_failures, generic_bbox_attempts = _select_candidate(
+                    triage,
+                    image_candidates,
+                    bbox_provider=_iter_bbox_candidates,
+                    prefer_first_threshold_hit=False,
+                )
+                image_read_failures += generic_read_failures
+                bbox_attempts += generic_bbox_attempts
+                best_candidate = generic_candidate
+                fallback_candidate = generic_fallback or locked_fallback
+                subplot_lock_failed = best_candidate is not None
+        elif best_candidate is None:
+            generic_candidate, generic_fallback, generic_read_failures, generic_bbox_attempts = _select_candidate(
+                triage,
+                image_candidates,
+                bbox_provider=_iter_bbox_candidates,
+                prefer_first_threshold_hit=False,
+            )
+            image_read_failures += generic_read_failures
+            bbox_attempts += generic_bbox_attempts
+            best_candidate = generic_candidate
+            fallback_candidate = generic_fallback
+
+        if best_candidate is None:
+            best_candidate = fallback_candidate
 
         if best_candidate is None:
             failure_status = "fail_image_read" if image_read_failures else "fail_missing_plot_context"
@@ -570,7 +878,11 @@ def digitize_figure_curves(
                     page_number=triage.page_number,
                     subplot=triage.subplot,
                     image_path=str(triage.selected_image_path or ""),
+                    source_path=str(triage.selected_image_path or ""),
+                    subplot_lock_failed=subplot_lock_failed,
                     status=failure_status,
+                    triage_decision=triage.recommended_route,
+                    failure_reason="no_usable_image_candidate",
                     diagnostics={
                         "reason": "no_usable_image_candidate",
                         "image_candidates_tried": len(image_candidates),
@@ -592,6 +904,7 @@ def digitize_figure_curves(
         xs = best_candidate["xs"]
         ys = best_candidate["ys"]
         page_number = best_candidate["page_number"]
+        candidate_tier = str(best_candidate["candidate_tier"])
         bbox_overlay_path = _write_bbox_overlay(run_context, triage, image, bbox, bbox_source)
         crop_path = _write_crop(run_context, triage, crop)
         mask_path = _write_mask(run_context, triage, mask)
@@ -602,6 +915,10 @@ def digitize_figure_curves(
             **best_candidate["edge_diagnostics"],
             "bbox_source": bbox_source,
             "image_origin": str(best_candidate["image_origin"]),
+            "candidate_tier": candidate_tier,
+            "explicit_plot_bbox_requested": explicit_plot_bbox_requested,
+            "subplot_lock_requested": subplot_lock_requested,
+            "subplot_lock_failed": subplot_lock_failed,
             "image_candidates_tried": len(image_candidates),
             "bbox_candidates_tried": bbox_attempts,
         }
@@ -617,13 +934,18 @@ def digitize_figure_curves(
                     page_number=page_number,
                     subplot=triage.subplot,
                     image_path=image_path,
+                    source_path=image_path,
                     crop_path=crop_path,
                     mask_path=mask_path,
                     preprocessed_path=preprocessed_path,
                     bbox_overlay_path=bbox_overlay_path,
                     bbox_source=bbox_source,
+                    candidate_tier=candidate_tier,
+                    subplot_lock_failed=subplot_lock_failed,
                     bbox_used=bbox,
                     status="fail_few_edges",
+                    triage_decision=triage.recommended_route,
+                    failure_reason="few_edges",
                     diagnostics={
                         **shared_diagnostics,
                         "edge_points": int(xs.size),
@@ -670,13 +992,18 @@ def digitize_figure_curves(
                     page_number=page_number,
                     subplot=triage.subplot,
                     image_path=image_path,
+                    source_path=image_path,
                     crop_path=crop_path,
                     mask_path=mask_path,
                     preprocessed_path=preprocessed_path,
                     bbox_overlay_path=bbox_overlay_path,
                     bbox_source=bbox_source,
+                    candidate_tier=candidate_tier,
+                    subplot_lock_failed=subplot_lock_failed,
                     bbox_used=bbox,
                     status="fail_no_curves",
+                    triage_decision=triage.recommended_route,
+                    failure_reason="no_curves_detected",
                     diagnostics={
                         **shared_diagnostics,
                         "edge_points": int(xs.size),
@@ -695,16 +1022,22 @@ def digitize_figure_curves(
         y_kind = triage.y_kind
 
         for curve_id, center, xs_cluster, ys_cluster, xpix, ypix in curve_parts:
-            x_data, y_data = _pixel_to_data(xpix, ypix, x_min, x_max, y_min, y_max, width, height)
-            q_final = _interp_at(x_data, y_data, x_max)
+            raw_x_data, raw_y_data = _pixel_to_data(xpix, ypix, x_min, x_max, y_min, y_max, width, height)
+            raw_q_final = _interp_at(raw_x_data, raw_y_data, x_max)
+            xpix_sanitized, ypix_sanitized = _sanitize_curve_pixels(xpix, ypix)
+            x_data, y_data = _pixel_to_data(xpix_sanitized, ypix_sanitized, x_min, x_max, y_min, y_max, width, height)
+            q_final_sampled, sampling_status = _sample_endpoint_from_curve(x_data, y_data)
+            q_final = q_final_sampled if q_final_sampled is not None else raw_q_final
             color_name = _coarse_color_name(center) if center is not None else ""
-            overlay_path = _write_overlay(run_context, triage, crop, xpix, ypix, curve_id)
+            overlay_path = _write_overlay(run_context, triage, crop, xpix_sanitized, ypix_sanitized, curve_id)
             trace_id = _curve_trace_id(triage, curve_id)
             diagnostics = {
                 **shared_diagnostics,
                 "edge_points": int(xs.size),
                 "approx_curves": approx_curves,
                 "cluster_points": int(xs_cluster.size),
+                "curve_point_count_raw": int(xpix.size),
+                "curve_point_count_sanitized": int(xpix_sanitized.size),
             }
             curve_artifact = DigitizedCurveArtifact(
                 paper_id=triage.paper_id,
@@ -722,6 +1055,8 @@ def digitize_figure_curves(
                 preprocessed_path=preprocessed_path,
                 bbox_overlay_path=bbox_overlay_path,
                 bbox_source=bbox_source,
+                candidate_tier=candidate_tier,
+                subplot_lock_failed=subplot_lock_failed,
                 bbox_used=bbox,
                 curve_id=curve_id,
                 curve_color=color_name,
@@ -734,6 +1069,11 @@ def digitize_figure_curves(
                 y_max=y_max,
                 t_last=float(x_max),
                 q_final=float(q_final) if np.isfinite(q_final) else None,
+                curve_point_count_raw=int(xpix.size),
+                curve_point_count_sanitized=int(xpix_sanitized.size),
+                endpoint_value_raw=float(raw_q_final) if np.isfinite(raw_q_final) else None,
+                endpoint_value_sanitized=float(q_final) if q_final is not None and np.isfinite(q_final) else None,
+                endpoint_sampling_status=sampling_status,
                 curve_xy=[[float(x_value), float(y_value)] for x_value, y_value in zip(x_data.tolist(), y_data.tolist())],
                 status="ok",
                 diagnostics=diagnostics,
@@ -756,8 +1096,12 @@ def digitize_figure_curves(
                     preprocessed_path=preprocessed_path,
                     bbox_overlay_path=bbox_overlay_path,
                     bbox_source=bbox_source,
+                    candidate_tier=candidate_tier,
+                    subplot_lock_failed=subplot_lock_failed,
                     bbox_used=bbox,
                     status="ok",
+                    triage_decision=triage.recommended_route,
+                    source_path=image_path,
                     curve_id=curve_id,
                     curve_color=color_name,
                     endpoint_time=float(x_max),
@@ -765,6 +1109,11 @@ def digitize_figure_curves(
                     endpoint_value=curve_artifact.q_final,
                     endpoint_unit=y_unit,
                     y_kind=y_kind,
+                    curve_point_count_raw=int(xpix.size),
+                    curve_point_count_sanitized=int(xpix_sanitized.size),
+                    endpoint_value_raw=float(raw_q_final) if np.isfinite(raw_q_final) else None,
+                    endpoint_value_sanitized=float(q_final) if q_final is not None and np.isfinite(q_final) else None,
+                    endpoint_sampling_status=sampling_status,
                     diagnostics=diagnostics,
                 )
             )

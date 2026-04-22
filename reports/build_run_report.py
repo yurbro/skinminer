@@ -54,11 +54,14 @@ def _build_figure_failure_summary(manifest: RunManifest) -> dict[str, Any]:
     triage_rows = _load_jsonl_if_exists(manifest.stage_outputs.get("figure_triage"))
     curve_rows = _load_jsonl_if_exists(manifest.stage_outputs.get("figure_curves"))
     endpoint_rows = _load_jsonl_if_exists(manifest.stage_outputs.get("figure_endpoints"))
+    vlm_rows = _load_jsonl_if_exists(manifest.stage_outputs.get("figure_vlm_readings"))
     mapping_rows = _load_jsonl_if_exists(manifest.stage_outputs.get("figure_curve_map"))
 
     triage_signals: Counter[str] = Counter()
     triage_route_counts: Counter[str] = Counter()
+    triage_has_permeation_plot_counts: Counter[str] = Counter()
     for row in triage_rows:
+        triage_has_permeation_plot_counts["true" if bool(row.get("has_permeation_plot")) else "false"] += 1
         recommended_route = str(row.get("recommended_route", "") or "")
         if recommended_route:
             triage_route_counts[recommended_route] += 1
@@ -97,10 +100,12 @@ def _build_figure_failure_summary(manifest: RunManifest) -> dict[str, Any]:
 
     stage_counts = {
         "triage_artifacts": len(triage_rows),
+        "triage_has_permeation_plot_true": triage_has_permeation_plot_counts.get("true", 0),
         "triage_digitize_candidates": sum(1 for row in triage_rows if row.get("recommended_route") == "digitize"),
         "digitized_curves": len(curve_rows),
         "digitized_endpoints_ok": endpoint_status_counts.get("ok", 0),
         "digitized_endpoints_failed": sum(count for status, count in endpoint_status_counts.items() if status != "ok"),
+        "digitization_no_output": endpoint_status_counts.get("digitization_no_output", 0),
         "mapped_curves": sum(
             1
             for row in mapping_rows
@@ -111,16 +116,24 @@ def _build_figure_failure_summary(manifest: RunManifest) -> dict[str, Any]:
             for row in mapping_rows
             if row.get("mapping_status") != "vision_mapped" or not str(row.get("mapped_formulation_label", "") or "").strip()
         ),
+        "vlm_readings_total": len(vlm_rows),
+        "vlm_readings_readable": sum(
+            1 for row in vlm_rows if str(row.get("readability_status", "") or "") in {"readable", "partially_readable"}
+        ),
+        "vlm_used_as_final": sum(1 for row in vlm_rows if bool(row.get("vlm_used_as_final"))),
     }
 
     return {
         "stage_counts": stage_counts,
         "triage_route_counts": dict(triage_route_counts),
+        "triage_has_permeation_plot_counts": dict(triage_has_permeation_plot_counts),
         "triage_signals": dict(triage_signals),
         "digitization_status_counts": dict(endpoint_status_counts),
         "digitization_failure_counts": dict(digitization_failures),
         "mapping_status_counts": dict(mapping_status_counts),
         "mapping_failure_counts": dict(mapping_failures),
+        "vlm_grounding_status_counts": dict(Counter(str(row.get("grounding_status", "") or "unknown") for row in vlm_rows)),
+        "vlm_reconciliation_status_counts": dict(Counter(str(row.get("reconciliation_status", "") or "unknown") for row in vlm_rows)),
     }
 
 
@@ -360,11 +373,14 @@ def build_run_report(
             {"stage": "figure_gate", "bucket": "after_gate", "count": int((manifest.stage_metrics.get("figure_gate_counts", {}) or {}).get("after_gate", 0))}
         ]
         + [{"stage": "figure_triage_route", "bucket": key, "count": value} for key, value in sorted(figure_failure_summary["triage_route_counts"].items())]
+        + [{"stage": "figure_has_permeation_plot", "bucket": key, "count": value} for key, value in sorted(figure_failure_summary["triage_has_permeation_plot_counts"].items())]
         + [{"stage": "figure_triage_signal", "bucket": key, "count": value} for key, value in sorted(figure_failure_summary["triage_signals"].items())]
         + [{"stage": "figure_digitization_status", "bucket": key, "count": value} for key, value in sorted(figure_failure_summary["digitization_status_counts"].items())]
         + [{"stage": "figure_digitization_failure", "bucket": key, "count": value} for key, value in sorted(figure_failure_summary["digitization_failure_counts"].items())]
         + [{"stage": "figure_mapping_status", "bucket": key, "count": value} for key, value in sorted(figure_failure_summary["mapping_status_counts"].items())]
         + [{"stage": "figure_mapping_failure", "bucket": key, "count": value} for key, value in sorted(figure_failure_summary["mapping_failure_counts"].items())]
+        + [{"stage": "figure_vlm_grounding_status", "bucket": key, "count": value} for key, value in sorted(figure_failure_summary["vlm_grounding_status_counts"].items())]
+        + [{"stage": "figure_vlm_reconciliation_status", "bucket": key, "count": value} for key, value in sorted(figure_failure_summary["vlm_reconciliation_status_counts"].items())]
         + [{"stage": f"verification_route:{route}", "bucket": key, "count": value} for route, counts in sorted(failure_counts_by_route.items()) for key, value in sorted(counts.items())]
     )
     blockage_rows = (
@@ -479,6 +495,9 @@ def build_run_report(
     markdown.append("## Figure Triage Routes")
     markdown.extend([f"- {key}: {value}" for key, value in sorted(figure_failure_summary["triage_route_counts"].items())])
     markdown.append("")
+    markdown.append("## Figure Plot Presence")
+    markdown.extend([f"- {key}: {value}" for key, value in sorted(figure_failure_summary["triage_has_permeation_plot_counts"].items())])
+    markdown.append("")
     markdown.append("## Figure Triage Signals")
     markdown.extend([f"- {key}: {value}" for key, value in sorted(figure_failure_summary["triage_signals"].items())])
     markdown.append("")
@@ -487,6 +506,12 @@ def build_run_report(
     markdown.append("")
     markdown.append("## Figure Mapping Statuses")
     markdown.extend([f"- {key}: {value}" for key, value in sorted(figure_failure_summary["mapping_status_counts"].items())])
+    markdown.append("")
+    markdown.append("## Figure VLM Grounding Statuses")
+    markdown.extend([f"- {key}: {value}" for key, value in sorted(figure_failure_summary["vlm_grounding_status_counts"].items())] or ["- none"])
+    markdown.append("")
+    markdown.append("## Figure VLM Reconciliation Statuses")
+    markdown.extend([f"- {key}: {value}" for key, value in sorted(figure_failure_summary["vlm_reconciliation_status_counts"].items())] or ["- none"])
     markdown.append("")
     markdown.append("## LLM Reliability")
     if llm_reliability:

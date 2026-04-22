@@ -14,6 +14,7 @@ STAGE_MODEL_KEYS = (
     "text_extract",
     "table_extract",
     "figure_triage",
+    "figure_vlm",
     "figure_map",
     "llm_adjudicate",
 )

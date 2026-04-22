@@ -3,17 +3,18 @@ from __future__ import annotations
 import logging
 import random
 import re
+import time
 import xml.etree.ElementTree as ET
 from html import unescape
 from pathlib import Path
 from typing import Any, Iterable, Literal, Mapping
 
 import fitz
-from openai import OpenAI
 from pydantic import BaseModel, Field
 
 from schemas.models import EvidenceItem, RouteDecision
 from utils.io import write_jsonl, write_optional_csv
+from utils.llm_client import LLMProvider, parse_structured
 from utils.long_run import LongRunMonitor, record_openai_attempt_failure, record_openai_usage
 from utils.resume import load_typed_jsonl_if_exists
 from utils.source_cache import fetch_cached_text
@@ -454,8 +455,9 @@ def route_papers(
     long_run_monitor: LongRunMonitor | None = None,
     checkpoint_every: int = 25,
     resume_jsonl: str | Path | None = None,
+    llm_provider: str | LLMProvider = LLMProvider.OPENAI,
 ) -> list[RouteDecision]:
-    client = OpenAI(timeout=60)
+    provider = LLMProvider.parse(llm_provider)
     paper_list = list(papers)
     progress_every = max(1, progress_every)
     checkpoint_every = max(1, checkpoint_every)
@@ -518,13 +520,15 @@ def route_papers(
                     f"TITLE: {title}\n\n"
                     f"DOCUMENT:\n{router_document.content}"
                 )
-                response = client.responses.parse(
+                response = parse_structured(
+                    provider=provider,
                     model=model,
                     input=[
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": user_prompt},
                     ],
                     text_format=RouterLLMResponse,
+                    timeout=60,
                 )
                 record_openai_usage(
                     long_run_monitor,

@@ -29,6 +29,7 @@ class FailureCode(StrEnum):
     UNIT_NORMALIZATION_FAILED = "unit_normalization_failed"
     FIGURE_DIGITIZATION_FAILED = "figure_digitization_failed"
     FIGURE_PLOT_CONTEXT_MISSING = "figure_plot_context_missing"
+    SOURCE_CONTEXT_INCONSISTENT = "source_context_inconsistent"
 
 
 REJECTED_CODES = {
@@ -53,6 +54,7 @@ UNRESOLVED_CODES = {
     FailureCode.UNIT_NORMALIZATION_FAILED.value,
     FailureCode.FIGURE_DIGITIZATION_FAILED.value,
     FailureCode.FIGURE_PLOT_CONTEXT_MISSING.value,
+    FailureCode.SOURCE_CONTEXT_INCONSISTENT.value,
 }
 
 

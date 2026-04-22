@@ -6,16 +6,16 @@ import random
 import time
 from typing import Literal
 
-from openai import OpenAI
 from pydantic import BaseModel, Field
 
 from extractors.common import resolve_stage_model
 from extractors.text.page_selection import TextEvidenceWindow
 from schemas.models import ExtractorRunContext, RouteDecision
+from utils.llm_client import parse_structured, resolve_provider_from_context
 from utils.long_run import record_openai_attempt_failure, record_openai_usage
 
 TEXT_EXTRACTION_PROMPT_ASSET_ID = "extractors.text.structured_fields"
-TEXT_EXTRACTION_PROMPT_VERSION = "2026-03-28.v1"
+TEXT_EXTRACTION_PROMPT_VERSION = "2026-04-11.v1"
 
 SYSTEM_PROMPT = (
     "You are a careful scientific extraction assistant. "
@@ -61,6 +61,12 @@ class LegacyExtractedRecord(BaseModel):
     api_name: Literal["ibuprofen"] = "ibuprofen"
     api_conc_raw: str = ""
     diffusion_area_cm2: float | None = None
+    membrane_type: str = ""
+    membrane_source: str = ""
+    membrane_thickness_um: float | None = None
+    receptor_medium: str = ""
+    dose_type: str = ""
+    dose_amount: str = ""
     endpoint_main: LegacyEndpoint
     endpoint_optional: list[LegacyEndpoint] = Field(default_factory=list)
     ingredients: list[Ingredient] = Field(default_factory=list)
@@ -91,13 +97,20 @@ def extract_text_fields(
 ) -> PaperExtraction:
     """Run the text extraction prompt over a selected evidence window."""
 
-    client = OpenAI(timeout=90)
+    provider = resolve_provider_from_context(run_context)
     model_name = resolve_stage_model(run_context, "text_extract")
     doi = route_decision.doi
     title = route_decision.title or str(route_decision.raw_labels.get("title", "") or "")
     prompt = (
         "Extract structured records for ibuprofen diffusion-cell IVPT/IVRT text-route evidence. "
         "Return up to five explicit records only when multiple formulations are clearly reported.\n\n"
+        "Extraction requirements:\n"
+        "- Extract vehicle/excipient composition into ingredients, including non-API ingredient names and raw concentration text.\n"
+        "- Extract membrane_type, membrane_source, and membrane_thickness_um when explicitly reported.\n"
+        "- Extract receptor_medium when explicitly reported, including pH and surfactants/cosolvents.\n"
+        "- Extract dose_type as finite or infinite when explicitly reported, plus dose_amount as the source text amount.\n"
+        "- Include evidence items for membrane, receptor medium, dose, excipients, API concentration, endpoint, time, area, and device when present.\n"
+        "- Do not guess missing fields and do not treat receptor-medium drug concentration as formulation API concentration.\n\n"
         f"DOI: {doi}\n"
         f"TITLE: {title}\n"
         f"SOURCE_FORMAT: {window.source_format}\n"
@@ -113,13 +126,15 @@ def extract_text_fields(
     attempt = 0
     while True:
         try:
-            response = client.responses.parse(
+            response = parse_structured(
+                provider=provider,
                 model=model_name,
                 input=[
                     {"role": "system", "content": SYSTEM_PROMPT},
                     {"role": "user", "content": prompt},
                 ],
                 text_format=PaperExtraction,
+                timeout=90,
             )
             record_openai_usage(
                 run_context.shared_state.get("long_run_monitor"),

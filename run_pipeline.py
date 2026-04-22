@@ -22,6 +22,7 @@ from extractors.common import has_local_pdf, has_structured_source
 from extractors.figure.build_records import extract_batch as extract_figure_batch
 from extractors.figure.map_curves import FIGURE_MAPPING_PROMPT_ASSET_ID, FIGURE_MAPPING_PROMPT_VERSION
 from extractors.figure.triage import FIGURE_TRIAGE_PROMPT_ASSET_ID, FIGURE_TRIAGE_PROMPT_VERSION
+from extractors.figure.vlm_digitize import FIGURE_VLM_PROMPT_ASSET_ID, FIGURE_VLM_PROMPT_VERSION
 from extractors.table.extractor import TABLE_EXTRACTION_PROMPT_ASSET_ID, TABLE_EXTRACTION_PROMPT_VERSION, extract_batch as extract_table_batch
 from extractors.text.extract_fields import TEXT_EXTRACTION_PROMPT_ASSET_ID, TEXT_EXTRACTION_PROMPT_VERSION
 from extractors.text.extractor import extract_batch as extract_text_batch
@@ -29,13 +30,14 @@ from patchers.patch_api_concentration import patch_api_concentration
 from patchers.patch_endpoint import patch_endpoint_value
 from patchers.patch_area import patch_area
 from patchers.patch_endpoint_time import patch_endpoint_time
-from policies.v1_strict_ibuprofen_5pct import V1StrictIbuprofen5PctPolicy
+from policies import V1StrictIbuprofen5PctPolicy, V2AcceptWvPolicy, V3AnyIbuprofenConcentrationPolicy, V4AcceptFluxPolicy
 from reports.build_run_report import build_run_report
 from schemas.models import ContentAccess, ExtractorRunContext, RouteDecision
 from triage.llm_triage import triage_records_with_llm
 from triage.prompts import TRIAGE_PROMPT_ASSET_ID, TRIAGE_PROMPT_VERSION
 from triage.rule_filter import apply_rule_filter
 from utils.io import load_jsonl, load_records_jsonl, make_paper_id, write_jsonl, write_optional_csv
+from utils.llm_client import LLMProvider, default_model_for_provider
 from utils.long_run import LongRunMonitor, merge_progress_callbacks
 from utils.manifest import create_run_manifest, write_manifest
 from utils.resume import (
@@ -50,7 +52,12 @@ from utils.resume import (
     validate_existing_stage_markers,
 )
 from utils.status_panel import PipelineStatusPanel
-from verification.llm_adjudicate import adjudicate_records, select_adjudication_candidates
+from verification.llm_adjudicate import (
+    ADJUDICATION_PROMPT_ASSET_ID,
+    ADJUDICATION_PROMPT_VERSION,
+    adjudicate_records,
+    select_adjudication_candidates,
+)
 from verification.verify_records import verify_records
 
 LOGGER = logging.getLogger("skinminer.pipeline")
@@ -59,12 +66,19 @@ PROMPT_PATHS = [
     "extractors/text/extract_fields.py",
     "extractors/table/extractor.py",
     "extractors/figure/triage.py",
+    "extractors/figure/vlm_digitize.py",
     "extractors/figure/map_curves.py",
+    "verification/llm_adjudicate.py",
 ]
 CONFIG_PATHS = [
     "policies/v1_strict_ibuprofen_5pct.py",
+    "policies/v2_accept_wv.py",
+    "policies/v3_any_ibuprofen_concentration.py",
+    "policies/v4_accept_flux.py",
+    "policies/__init__.py",
     "corpus/query_profiles.py",
     "configs/run_profiles.py",
+    "utils/llm_client.py",
 ]
 PROMPT_ASSETS = {
     TRIAGE_PROMPT_ASSET_ID: TRIAGE_PROMPT_VERSION,
@@ -72,8 +86,30 @@ PROMPT_ASSETS = {
     TEXT_EXTRACTION_PROMPT_ASSET_ID: TEXT_EXTRACTION_PROMPT_VERSION,
     TABLE_EXTRACTION_PROMPT_ASSET_ID: TABLE_EXTRACTION_PROMPT_VERSION,
     FIGURE_TRIAGE_PROMPT_ASSET_ID: FIGURE_TRIAGE_PROMPT_VERSION,
+    FIGURE_VLM_PROMPT_ASSET_ID: FIGURE_VLM_PROMPT_VERSION,
     FIGURE_MAPPING_PROMPT_ASSET_ID: FIGURE_MAPPING_PROMPT_VERSION,
+    ADJUDICATION_PROMPT_ASSET_ID: ADJUDICATION_PROMPT_VERSION,
 }
+
+POLICY_ALIASES = {
+    "v1": V1StrictIbuprofen5PctPolicy,
+    "v1_strict_ibuprofen_5pct": V1StrictIbuprofen5PctPolicy,
+    "v2": V2AcceptWvPolicy,
+    "v2_accept_wv": V2AcceptWvPolicy,
+    "v3": V3AnyIbuprofenConcentrationPolicy,
+    "v3_any_ibuprofen_concentration": V3AnyIbuprofenConcentrationPolicy,
+    "v4": V4AcceptFluxPolicy,
+    "v4_accept_flux": V4AcceptFluxPolicy,
+}
+
+
+def _build_policy(policy_name: str) -> V1StrictIbuprofen5PctPolicy:
+    key = (policy_name or "v1").strip().lower()
+    policy_cls = POLICY_ALIASES.get(key)
+    if policy_cls is None:
+        valid = ", ".join(sorted(POLICY_ALIASES))
+        raise ValueError(f"Unknown policy '{policy_name}'. Valid choices: {valid}")
+    return policy_cls()
 
 
 def _load_input_corpus(path: Path) -> list[dict]:
@@ -245,6 +281,7 @@ def _resolve_stage_models(args: argparse.Namespace, run_profile) -> dict[str, st
         "text_extract": args.text_model,
         "table_extract": args.table_model,
         "figure_triage": args.figure_triage_model,
+        "figure_vlm": args.figure_vlm_model,
         "figure_map": args.figure_map_model,
         "llm_adjudicate": args.llm_adjudication_model,
     }
@@ -327,6 +364,7 @@ def _manifest_soft_resume_compatible(
     manifest_row: dict,
     *,
     model_name: str,
+    llm_provider: str,
     stage_models: dict[str, str],
     policy_name: str,
     run_profile_name: str,
@@ -335,12 +373,20 @@ def _manifest_soft_resume_compatible(
     query_source: str,
     corpus_query: str,
     with_llm_adjudication: bool,
+    patching_enabled: bool,
+    table_promotion_enabled: bool,
 ) -> bool:
     stage_metrics = manifest_row.get("stage_metrics", {}) or {}
     manifest_stage_models = dict(stage_metrics.get("stage_models", {}) or {})
     if not manifest_stage_models:
         manifest_stage_models = {key: manifest_row.get("model_name", "") for key in STAGE_MODEL_KEYS}
+    manifest_llm_provider = str(
+        manifest_row.get("llm_provider")
+        or stage_metrics.get("llm_provider")
+        or LLMProvider.OPENAI.value
+    )
     checks = [
+        manifest_llm_provider == llm_provider,
         manifest_row.get("model_name", "") == model_name,
         manifest_stage_models == stage_models,
         manifest_row.get("policy_name", "") == policy_name,
@@ -350,6 +396,8 @@ def _manifest_soft_resume_compatible(
         stage_metrics.get("query_source", "") == query_source,
         stage_metrics.get("corpus_query", "") == corpus_query,
         _manifest_requested_llm_adjudication(manifest_row) == with_llm_adjudication,
+        stage_metrics.get("patching_enabled", True) == patching_enabled,
+        stage_metrics.get("table_promotion_enabled", True) == table_promotion_enabled,
     ]
     return all(checks)
 
@@ -365,13 +413,39 @@ def main() -> None:
     parser.add_argument("--list-run-profiles", action="store_true")
     parser.add_argument("--max-results", type=int, default=50000)
     parser.add_argument("--output-dir", type=Path, default=Path("outputs/round2_run"))
+    parser.add_argument(
+        "--policy",
+        type=str,
+        choices=sorted(POLICY_ALIASES),
+        default="v1",
+        help=(
+            "Verification policy: v1 keeps the original 5%% w/w scope; "
+            "v2 also accepts 5%% w/v or 50 mg/mL; v3 accepts any ibuprofen concentration; "
+            "v4 also accepts flux/Jss and permeability endpoints."
+        ),
+    )
+    parser.add_argument(
+        "--llm-provider",
+        type=str,
+        choices=[provider.value for provider in LLMProvider],
+        default=LLMProvider.OPENAI.value,
+        help="Structured LLM provider. Defaults to openai; anthropic uses Claude Sonnet 4.6 unless models are overridden.",
+    )
     parser.add_argument("--model", type=str, default=None)
     parser.add_argument("--llm-triage-model", type=str, default=None)
     parser.add_argument("--routing-model", type=str, default=None)
     parser.add_argument("--text-model", type=str, default=None)
     parser.add_argument("--table-model", type=str, default=None)
     parser.add_argument("--figure-triage-model", type=str, default=None)
+    parser.add_argument("--figure-vlm-model", type=str, default=None)
     parser.add_argument("--figure-map-model", type=str, default=None)
+    parser.add_argument("--no-figure-vlm", action="store_true")
+    parser.add_argument("--no-patching", action="store_true", help="Skip all targeted evidence patchers.")
+    parser.add_argument(
+        "--no-table-promotion",
+        action="store_true",
+        help="Disable assembly-time table-support promotion into non-table records.",
+    )
     parser.add_argument("--with-llm-triage", dest="with_llm_triage", action="store_true")
     parser.add_argument("--no-llm-triage", dest="with_llm_triage", action="store_false")
     parser.add_argument("--download-content", dest="download_content", action="store_true")
@@ -400,6 +474,8 @@ def main() -> None:
         download_content=None,
     )
     args = parser.parse_args()
+    llm_provider = LLMProvider.parse(args.llm_provider)
+    args.llm_provider = llm_provider.value
 
     if args.list_query_profiles:
         for profile in list_query_profiles():
@@ -424,7 +500,7 @@ def main() -> None:
     )
     run_profile = get_run_profile(args.run_profile)
     if args.model is None:
-        args.model = run_profile.model
+        args.model = default_model_for_provider(llm_provider) if llm_provider is LLMProvider.ANTHROPIC else run_profile.model
     if args.with_llm_triage is None:
         args.with_llm_triage = run_profile.with_llm_triage
     if args.enable_figure is None:
@@ -434,13 +510,14 @@ def main() -> None:
     if args.auto_pdf_download is None:
         args.auto_pdf_download = run_profile.auto_pdf_download
     stage_models = _resolve_stage_models(args, run_profile)
+    args.figure_vlm_model = stage_models["figure_vlm"]
     args.llm_adjudication_model = stage_models["llm_adjudicate"]
     query_profile = get_query_profile(args.query_profile)
     effective_query = args.query or query_profile.query
     query_source_label = f"custom_override:{query_profile.name}" if args.query else f"profile:{query_profile.name}"
     output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
-    policy = V1StrictIbuprofen5PctPolicy()
+    policy = _build_policy(args.policy)
     content_strategy = build_default_content_strategy(
         eager_download_primary=args.download_content,
         auto_download_pdf_for_legacy=args.auto_pdf_download,
@@ -491,6 +568,17 @@ def main() -> None:
         "Stage-level model configuration: "
         f"default={args.model}; overrides={_format_stage_model_overrides(args.model, stage_models)}."
     )
+    manifest_notes.append(f"LLM provider: {args.llm_provider}.")
+    if args.no_figure_vlm:
+        manifest_notes.append(
+            "Figure VLM parallel path disabled via --no-figure-vlm; figure reconciliation uses CV-only behavior."
+        )
+    if args.no_patching:
+        manifest_notes.append("Targeted patching disabled via --no-patching; patch stages are skipped.")
+    if args.no_table_promotion:
+        manifest_notes.append(
+            "Assembly table-support promotion disabled via --no-table-promotion; same-paper table concentration propagation remains enabled."
+        )
     resume_signature = build_resume_signature(
         {
             "pipeline_version": "round2_resume_v4",
@@ -508,6 +596,7 @@ def main() -> None:
             "query": effective_query,
             "max_results": args.max_results,
             "limit": args.limit,
+            "llm_provider": args.llm_provider,
             "model": args.model,
             "stage_models": stage_models,
             "policy_name": policy.name,
@@ -517,6 +606,9 @@ def main() -> None:
             "llm_adjudication_limit": args.llm_adjudication_limit,
             "auto_pdf_download": args.auto_pdf_download,
             "enable_figure": args.enable_figure,
+            "figure_vlm_enabled": not args.no_figure_vlm,
+            "patching_enabled": not args.no_patching,
+            "table_promotion_enabled": not args.no_table_promotion,
             "prompt_files": build_file_fingerprints(PROMPT_PATHS),
             "config_files": build_file_fingerprints(CONFIG_PATHS),
         }
@@ -535,6 +627,7 @@ def main() -> None:
             and _manifest_soft_resume_compatible(
                 existing_manifest_row,
                 model_name=args.model,
+                llm_provider=args.llm_provider,
                 stage_models=stage_models,
                 policy_name=policy.name,
                 run_profile_name=run_profile.name,
@@ -543,6 +636,8 @@ def main() -> None:
                 query_source=query_source_label,
                 corpus_query=effective_query,
                 with_llm_adjudication=args.with_llm_adjudication,
+                patching_enabled=not args.no_patching,
+                table_promotion_enabled=not args.no_table_promotion,
             )
         ):
             LOGGER.warning(
@@ -562,6 +657,7 @@ def main() -> None:
             )
     manifest = create_run_manifest(
         model_name=args.model,
+        llm_provider=args.llm_provider,
         policy_name=policy.name,
         input_paths=manifest_input_paths,
         prompt_paths=PROMPT_PATHS,
@@ -599,7 +695,11 @@ def main() -> None:
             "query_override": bool(args.query),
             "corpus_query": effective_query,
             "prompt_assets": PROMPT_ASSETS,
+            "llm_provider": args.llm_provider,
             "stage_models": stage_models,
+            "figure_vlm_enabled": not args.no_figure_vlm,
+            "patching_enabled": not args.no_patching,
+            "table_promotion_enabled": not args.no_table_promotion,
         }
     )
     manifest.module_notes.update({f"prompt_asset:{asset_id}": version for asset_id, version in sorted(PROMPT_ASSETS.items())})
@@ -639,7 +739,7 @@ def main() -> None:
             f"Content Strategy: {content_strategy.summary}",
             f"Long Run: {long_run_monitor.summary_label if args.long_run_mode else 'off'}",
             f"Resume: {'on' if args.resume else 'off'}",
-            f"Model: {args.model} | Stage Overrides: {_format_stage_model_overrides(args.model, stage_models)} | Policy: {policy.name} | Output: {output_dir}",
+            f"Provider: {args.llm_provider} | Model: {args.model} | Stage Overrides: {_format_stage_model_overrides(args.model, stage_models)} | Policy: {policy.name} | Output: {output_dir}",
         ],
     ) as status_panel:
         for key, label in stage_labels.items():
@@ -819,11 +919,12 @@ def main() -> None:
                 triaged_rows = [row for row in triage_rows if row.get("queue") in {"now", "later"}]
                 skip_stage("llm_triage", f"resume:kept={len(triaged_rows)}")
             else:
-                start_stage("llm_triage", total=len(passed), detail="requesting OpenAI triage")
+                start_stage("llm_triage", total=len(passed), detail=f"requesting {args.llm_provider} triage")
                 try:
                     triage_rows = triage_records_with_llm(
                         passed,
                         model=stage_models["llm_triage"],
+                        llm_provider=args.llm_provider,
                         output_jsonl=output_dir / "llm_triage.jsonl",
                         output_csv=(output_dir / "llm_triage.csv") if args.export_csv else None,
                         progress_every=args.progress_every,
@@ -926,6 +1027,7 @@ def main() -> None:
                 route_decisions = route_papers(
                     routed_inputs,
                     model=stage_models["routing"],
+                    llm_provider=args.llm_provider,
                     output_jsonl=output_dir / "route_decisions.jsonl",
                     output_csv=(output_dir / "route_decisions.csv") if args.export_csv else None,
                     progress_every=args.progress_every,
@@ -995,8 +1097,10 @@ def main() -> None:
             notes=["Round 2 standardized extractor context."],
             fail_on_malformed_output=True,
             shared_state={
+                "llm_provider": args.llm_provider,
                 "long_run_monitor": long_run_monitor,
                 "figure_gate_counts": run_context_figure_gate_counts,
+                "figure_vlm_enabled": not args.no_figure_vlm,
             },
         )
 
@@ -1081,6 +1185,7 @@ def main() -> None:
                     output_dir / "figure_triage.jsonl",
                     output_dir / "figure_curves.jsonl",
                     output_dir / "figure_endpoints.jsonl",
+                    output_dir / "figure_vlm_readings.jsonl",
                     output_dir / "figure_curve_map.jsonl",
                 ],
                 expected_input_count=figure_stage_total,
@@ -1109,6 +1214,7 @@ def main() -> None:
                         triage_jsonl=output_dir / "figure_triage.jsonl",
                         digitized_curves_jsonl=output_dir / "figure_curves.jsonl",
                         digitized_endpoints_jsonl=output_dir / "figure_endpoints.jsonl",
+                        vlm_jsonl=output_dir / "figure_vlm_readings.jsonl",
                         mapping_jsonl=output_dir / "figure_curve_map.jsonl",
                         progress_callback=stage_callback("figure_extract"),
                         checkpoint_every=args.progress_every,
@@ -1125,6 +1231,7 @@ def main() -> None:
                             output_dir / "figure_triage.jsonl",
                             output_dir / "figure_curves.jsonl",
                             output_dir / "figure_endpoints.jsonl",
+                            output_dir / "figure_vlm_readings.jsonl",
                             output_dir / "figure_curve_map.jsonl",
                         ],
                     )
@@ -1149,6 +1256,7 @@ def main() -> None:
                 assembled = assemble_records(
                     [table_records, text_records, figure_records],
                     include_table_partials=False,
+                    enable_table_promotion=not args.no_table_promotion,
                     shared_state=run_context.shared_state,
                     output_jsonl=output_dir / "assembled_records.jsonl",
                     output_csv=(output_dir / "assembled_records.csv") if args.export_csv else None,
@@ -1201,7 +1309,13 @@ def main() -> None:
                 fail_stage("verify_initial", exc)
                 raise
 
-        if can_resume_stage(
+        if args.no_patching:
+            patched_records = initial_verified
+            skip_stage("patch_api", "disabled:no-patching")
+            skip_stage("patch_endpoint", "disabled:no-patching")
+            skip_stage("patch_time", "disabled:no-patching")
+            skip_stage("patch_area", "disabled:no-patching")
+        elif can_resume_stage(
             "patch_api",
             required_paths=[output_dir / "patched_api_concentration.jsonl"],
             expected_input_count=len(initial_verified),
@@ -1231,95 +1345,96 @@ def main() -> None:
                 fail_stage("patch_api", exc)
                 raise
 
-        if can_resume_stage(
-            "patch_endpoint",
-            required_paths=[output_dir / "patched_endpoint_value.jsonl"],
-            expected_input_count=len(patched_records),
-            expected_output_count=len(patched_records),
-            output_count_path=output_dir / "patched_endpoint_value.jsonl",
-        ):
-            patched_records = load_records_jsonl(output_dir / "patched_endpoint_value.jsonl")
-            skip_stage("patch_endpoint", f"resume:applied={_count_patch_applications(patched_records, 'patch_endpoint_value')}")
-        else:
-            start_stage("patch_endpoint", total=len(patched_records), detail="recovering endpoint value evidence")
-            try:
-                patched_records = patch_endpoint_value(
-                    patched_records,
-                    output_jsonl=output_dir / "patched_endpoint_value.jsonl",
-                    progress_callback=stage_callback("patch_endpoint"),
-                )
-                finish_stage(
-                    "patch_endpoint",
-                    completed=len(patched_records),
-                    total=len(patched_records),
-                    detail=f"applied={_count_patch_applications(patched_records, 'patch_endpoint_value')}",
-                    input_count=len(patched_records),
-                    output_count=len(patched_records),
-                    output_paths=[output_dir / "patched_endpoint_value.jsonl"],
-                )
-            except Exception as exc:
-                fail_stage("patch_endpoint", exc)
-                raise
+        if not args.no_patching:
+            if can_resume_stage(
+                "patch_endpoint",
+                required_paths=[output_dir / "patched_endpoint_value.jsonl"],
+                expected_input_count=len(patched_records),
+                expected_output_count=len(patched_records),
+                output_count_path=output_dir / "patched_endpoint_value.jsonl",
+            ):
+                patched_records = load_records_jsonl(output_dir / "patched_endpoint_value.jsonl")
+                skip_stage("patch_endpoint", f"resume:applied={_count_patch_applications(patched_records, 'patch_endpoint_value')}")
+            else:
+                start_stage("patch_endpoint", total=len(patched_records), detail="recovering endpoint value evidence")
+                try:
+                    patched_records = patch_endpoint_value(
+                        patched_records,
+                        output_jsonl=output_dir / "patched_endpoint_value.jsonl",
+                        progress_callback=stage_callback("patch_endpoint"),
+                    )
+                    finish_stage(
+                        "patch_endpoint",
+                        completed=len(patched_records),
+                        total=len(patched_records),
+                        detail=f"applied={_count_patch_applications(patched_records, 'patch_endpoint_value')}",
+                        input_count=len(patched_records),
+                        output_count=len(patched_records),
+                        output_paths=[output_dir / "patched_endpoint_value.jsonl"],
+                    )
+                except Exception as exc:
+                    fail_stage("patch_endpoint", exc)
+                    raise
 
-        if can_resume_stage(
-            "patch_time",
-            required_paths=[output_dir / "patched_endpoint_time.jsonl"],
-            expected_input_count=len(patched_records),
-            expected_output_count=len(patched_records),
-            output_count_path=output_dir / "patched_endpoint_time.jsonl",
-        ):
-            patched_records = load_records_jsonl(output_dir / "patched_endpoint_time.jsonl")
-            skip_stage("patch_time", f"resume:applied={_count_patch_applications(patched_records, 'patch_endpoint_time')}")
-        else:
-            start_stage("patch_time", total=len(patched_records), detail="recovering endpoint time evidence")
-            try:
-                patched_records = patch_endpoint_time(
-                    patched_records,
-                    output_jsonl=output_dir / "patched_endpoint_time.jsonl",
-                    progress_callback=stage_callback("patch_time"),
-                )
-                finish_stage(
-                    "patch_time",
-                    completed=len(patched_records),
-                    total=len(patched_records),
-                    detail=f"applied={_count_patch_applications(patched_records, 'patch_endpoint_time')}",
-                    input_count=len(patched_records),
-                    output_count=len(patched_records),
-                    output_paths=[output_dir / "patched_endpoint_time.jsonl"],
-                )
-            except Exception as exc:
-                fail_stage("patch_time", exc)
-                raise
+            if can_resume_stage(
+                "patch_time",
+                required_paths=[output_dir / "patched_endpoint_time.jsonl"],
+                expected_input_count=len(patched_records),
+                expected_output_count=len(patched_records),
+                output_count_path=output_dir / "patched_endpoint_time.jsonl",
+            ):
+                patched_records = load_records_jsonl(output_dir / "patched_endpoint_time.jsonl")
+                skip_stage("patch_time", f"resume:applied={_count_patch_applications(patched_records, 'patch_endpoint_time')}")
+            else:
+                start_stage("patch_time", total=len(patched_records), detail="recovering endpoint time evidence")
+                try:
+                    patched_records = patch_endpoint_time(
+                        patched_records,
+                        output_jsonl=output_dir / "patched_endpoint_time.jsonl",
+                        progress_callback=stage_callback("patch_time"),
+                    )
+                    finish_stage(
+                        "patch_time",
+                        completed=len(patched_records),
+                        total=len(patched_records),
+                        detail=f"applied={_count_patch_applications(patched_records, 'patch_endpoint_time')}",
+                        input_count=len(patched_records),
+                        output_count=len(patched_records),
+                        output_paths=[output_dir / "patched_endpoint_time.jsonl"],
+                    )
+                except Exception as exc:
+                    fail_stage("patch_time", exc)
+                    raise
 
-        if can_resume_stage(
-            "patch_area",
-            required_paths=[output_dir / "patched_area.jsonl"],
-            expected_input_count=len(patched_records),
-            expected_output_count=len(patched_records),
-            output_count_path=output_dir / "patched_area.jsonl",
-        ):
-            patched_records = load_records_jsonl(output_dir / "patched_area.jsonl")
-            skip_stage("patch_area", f"resume:applied={_count_patch_applications(patched_records, 'patch_area')}")
-        else:
-            start_stage("patch_area", total=len(patched_records), detail="recovering diffusion area evidence")
-            try:
-                patched_records = patch_area(
-                    patched_records,
-                    output_jsonl=output_dir / "patched_area.jsonl",
-                    progress_callback=stage_callback("patch_area"),
-                )
-                finish_stage(
-                    "patch_area",
-                    completed=len(patched_records),
-                    total=len(patched_records),
-                    detail=f"applied={_count_patch_applications(patched_records, 'patch_area')}",
-                    input_count=len(patched_records),
-                    output_count=len(patched_records),
-                    output_paths=[output_dir / "patched_area.jsonl"],
-                )
-            except Exception as exc:
-                fail_stage("patch_area", exc)
-                raise
+            if can_resume_stage(
+                "patch_area",
+                required_paths=[output_dir / "patched_area.jsonl"],
+                expected_input_count=len(patched_records),
+                expected_output_count=len(patched_records),
+                output_count_path=output_dir / "patched_area.jsonl",
+            ):
+                patched_records = load_records_jsonl(output_dir / "patched_area.jsonl")
+                skip_stage("patch_area", f"resume:applied={_count_patch_applications(patched_records, 'patch_area')}")
+            else:
+                start_stage("patch_area", total=len(patched_records), detail="recovering diffusion area evidence")
+                try:
+                    patched_records = patch_area(
+                        patched_records,
+                        output_jsonl=output_dir / "patched_area.jsonl",
+                        progress_callback=stage_callback("patch_area"),
+                    )
+                    finish_stage(
+                        "patch_area",
+                        completed=len(patched_records),
+                        total=len(patched_records),
+                        detail=f"applied={_count_patch_applications(patched_records, 'patch_area')}",
+                        input_count=len(patched_records),
+                        output_count=len(patched_records),
+                        output_paths=[output_dir / "patched_area.jsonl"],
+                    )
+                except Exception as exc:
+                    fail_stage("patch_area", exc)
+                    raise
 
         if can_resume_stage(
             "verify_final",
@@ -1332,7 +1447,8 @@ def main() -> None:
             final_status_counts = _count_verification_statuses(verified)
             skip_stage("verify_final", f"resume:{' '.join(f'{status}={count}' for status, count in sorted(final_status_counts.items()))}")
         else:
-            start_stage("verify_final", total=len(patched_records), detail="final verification after patching")
+            verify_detail = "final verification after patching" if not args.no_patching else "final verification without patching"
+            start_stage("verify_final", total=len(patched_records), detail=verify_detail)
             try:
                 verified = verify_records(
                     patched_records,
@@ -1377,6 +1493,7 @@ def main() -> None:
                     adjudication_rows = adjudicate_records(
                         verified,
                         model=stage_models["llm_adjudicate"],
+                        llm_provider=args.llm_provider,
                         output_jsonl=adjudication_output_path,
                         output_csv=adjudication_csv_path if args.export_csv else None,
                         progress_callback=stage_callback("llm_adjudicate"),
@@ -1419,6 +1536,7 @@ def main() -> None:
                     "figure_triage": str(output_dir / "figure_triage.jsonl"),
                     "figure_curves": str(output_dir / "figure_curves.jsonl"),
                     "figure_endpoints": str(output_dir / "figure_endpoints.jsonl"),
+                    "figure_vlm_readings": str(output_dir / "figure_vlm_readings.jsonl"),
                     "figure_curve_map": str(output_dir / "figure_curve_map.jsonl"),
                     "figure_records": str(output_dir / "figure_records.jsonl"),
                 }
@@ -1439,6 +1557,8 @@ def main() -> None:
                 "final_unresolved_records": _count_records_with_status(verified, "unresolved"),
                 "final_rejected_records": _count_records_with_status(verified, "rejected"),
                 "patch_count": sum(len(record.patches) for record in verified),
+                "patching_enabled": not args.no_patching,
+                "table_promotion_enabled": not args.no_table_promotion,
                 "figure_gate_counts": run_context.shared_state.get("figure_gate_counts", {}),
                 "llm_adjudication_rows": len(adjudication_rows),
             }
