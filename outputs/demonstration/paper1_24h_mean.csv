@@ -1,0 +1,31 @@
+﻿source,formulation_id,design_group,design_method,poloxamer_407_pct,ethanol_pct,propylene_glycol_pct,cumulative_amount_24h_ug_cm2
+Paper 1 (this study),Cf1,BBD,Box-Behnken design,30.0,20.0,15.0,214.9262089552239
+Paper 1 (this study),Cf2,BBD,Box-Behnken design,30.0,15.0,10.0,254.2749253731343
+Paper 1 (this study),Cf3,BBD,Box-Behnken design,25.0,20.0,20.0,180.56979104477614
+Paper 1 (this study),Cf4,BBD,Box-Behnken design,25.0,15.0,15.0,178.81316417910455
+Paper 1 (this study),Cf5,BBD,Box-Behnken design,25.0,10.0,20.0,270.4458208955225
+Paper 1 (this study),Cf6,BBD,Box-Behnken design,25.0,20.0,10.0,206.28244776119405
+Paper 1 (this study),Cf7,BBD,Box-Behnken design,20.0,20.0,15.0,194.9365074626866
+Paper 1 (this study),Cf8,BBD,Box-Behnken design,30.0,10.0,15.0,217.9153432835821
+Paper 1 (this study),Cf9,BBD,Box-Behnken design,20.0,15.0,10.0,186.16071641791046
+Paper 1 (this study),Cf10,BBD,Box-Behnken design,25.0,10.0,10.0,210.31931343283583
+Paper 1 (this study),Cf11,BBD,Box-Behnken design,20.0,15.0,20.0,222.0470447761194
+Paper 1 (this study),Cf12,BBD,Box-Behnken design,30.0,15.0,20.0,184.66119402985075
+Paper 1 (this study),Cf13,BBD,Box-Behnken design,20.0,10.0,15.0,262.03
+Paper 1 (this study),Cf14,BBD,Box-Behnken design,25.0,15.0,15.0,223.1465074626865
+Paper 1 (this study),Cf15,BBD,Box-Behnken design,25.0,15.0,15.0,204.0362686567164
+Paper 1 (this study),BO1,BO,Bayesian optimization,21.17,19.95,10.59,218.1831641791045
+Paper 1 (this study),BO2,BO,Bayesian optimization,25.22,19.41,19.29,168.30692537313433
+Paper 1 (this study),BO3,BO,Bayesian optimization,26.06,11.99,15.7,223.2257313432836
+Paper 1 (this study),BO4,BO,Bayesian optimization,20.95,19.44,12.14,272.062328358209
+Paper 1 (this study),Cf16,LHS,Latin hypercube sampling,21.0,16.6,17.3,248.65826865671642
+Paper 1 (this study),Cf17,LHS,Latin hypercube sampling,21.3,20.0,10.6,283.2579104477612
+Paper 1 (this study),Cf18,LHS,Latin hypercube sampling,22.7,14.4,16.0,260.5416119402986
+Paper 1 (this study),Cf19,LHS,Latin hypercube sampling,23.5,17.9,18.1,225.75182089552246
+Paper 1 (this study),Cf20,LHS,Latin hypercube sampling,24.3,13.1,11.9,264.1280298507464
+Paper 1 (this study),Cf21,LHS,Latin hypercube sampling,25.5,10.1,14.8,283.86346268656723
+Paper 1 (this study),Cf22,LHS,Latin hypercube sampling,26.6,11.6,16.8,272.72931343283585
+Paper 1 (this study),Cf23,LHS,Latin hypercube sampling,27.2,18.7,13.1,236.24794029850742
+Paper 1 (this study),Cf24,LHS,Latin hypercube sampling,28.3,15.5,12.7,276.8343880597015
+Paper 1 (this study),Cf25,LHS,Latin hypercube sampling,29.2,12.9,19.6,261.7731343283582
+Paper 1 (this study),OPT1,OPT,Final optimum,20.0,20.0,10.0,242.84979104477617

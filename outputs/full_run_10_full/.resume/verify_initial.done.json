@@ -1,0 +1,12 @@
+{
+  "stage": "verify_initial",
+  "completed": 88,
+  "total": 88,
+  "detail": "rejected=34 unresolved=54",
+  "input_count": 88,
+  "output_count": 88,
+  "output_paths": [
+    "outputs\\full_run_10_full\\verified_initial.jsonl"
+  ],
+  "resume_signature_digest": "7dc6e7516de9a70a59648357de63260af81dfcad"
+}

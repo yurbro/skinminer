@@ -1,7 +1,7 @@
 from schemas.models import (
     ConditionSpec,
     ContentAccess,
-    EndpointSpec,
+    EndpointMeasurement,
     EvidenceItem,
     ExtractorRunContext,
     FormulationComponent,
@@ -11,12 +11,14 @@ from schemas.models import (
     RecordProvenance,
     RouteDecision,
     RunManifest,
+    primary_endpoint,
+    sorted_endpoints,
 )
 
 __all__ = [
     "ConditionSpec",
     "ContentAccess",
-    "EndpointSpec",
+    "EndpointMeasurement",
     "EvidenceItem",
     "ExtractorRunContext",
     "FormulationComponent",
@@ -26,4 +28,6 @@ __all__ = [
     "RecordProvenance",
     "RouteDecision",
     "RunManifest",
+    "primary_endpoint",
+    "sorted_endpoints",
 ]

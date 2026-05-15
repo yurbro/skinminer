@@ -1,0 +1,12 @@
+{
+  "stage": "verify_initial",
+  "completed": 24,
+  "total": 24,
+  "detail": "unresolved=24",
+  "input_count": 24,
+  "output_count": 24,
+  "output_paths": [
+    "outputs\\e3_step4_claude_smoke_fresh\\verified_initial.jsonl"
+  ],
+  "resume_signature_digest": "638fcdc11df6ff5d884f1ed0fe6864215305d5d9"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "assembly",
+  "completed": 95,
+  "total": 95,
+  "detail": "assembled=88",
+  "input_count": 95,
+  "output_count": 88,
+  "output_paths": [
+    "outputs\\full_run_10_full\\assembled_records.jsonl"
+  ],
+  "resume_signature_digest": "7dc6e7516de9a70a59648357de63260af81dfcad"
+}

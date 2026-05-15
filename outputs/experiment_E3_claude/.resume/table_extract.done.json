@@ -1,0 +1,13 @@
+{
+  "stage": "table_extract",
+  "completed": 13,
+  "total": 13,
+  "detail": "records=77",
+  "input_count": 13,
+  "output_count": 77,
+  "output_paths": [
+    "outputs\\experiment_E3_claude\\table_records.jsonl",
+    "outputs\\experiment_E3_claude\\table_raw.jsonl"
+  ],
+  "resume_signature_digest": "a1a849689fb856eac1d6aefcb5dcc1d2e7844db6"
+}

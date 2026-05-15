@@ -1,0 +1,220 @@
+{
+  "input_records": "outputs\\full_run_15_schema_table_fix\\patched_area.jsonl",
+  "before_records": "outputs\\full_run_15_schema_table_fix\\verified_records.jsonl",
+  "after_records": "outputs\\full_run_15_schema_table_fix\\fix6_rescore\\verified_records_fix6.jsonl",
+  "policy": "v1_strict_ibuprofen_5pct",
+  "total_records_before": 233,
+  "total_records_after": 233,
+  "status_counts_before": {
+    "verified": 10,
+    "unresolved": 161,
+    "rejected": 62
+  },
+  "status_counts_after": {
+    "verified": 1,
+    "unresolved": 170,
+    "rejected": 62
+  },
+  "status_delta": {
+    "verified": -9,
+    "unresolved": 9,
+    "rejected": 0
+  },
+  "route_status_counts_before": {
+    "figure": {
+      "verified": 9,
+      "unresolved": 49,
+      "rejected": 13
+    },
+    "mixed": {
+      "verified": 1,
+      "unresolved": 49,
+      "rejected": 19
+    },
+    "table": {
+      "verified": 0,
+      "unresolved": 60,
+      "rejected": 29
+    },
+    "text": {
+      "verified": 0,
+      "unresolved": 3,
+      "rejected": 1
+    }
+  },
+  "route_status_counts_after": {
+    "figure": {
+      "verified": 0,
+      "unresolved": 58,
+      "rejected": 13
+    },
+    "mixed": {
+      "verified": 1,
+      "unresolved": 49,
+      "rejected": 19
+    },
+    "table": {
+      "verified": 0,
+      "unresolved": 60,
+      "rejected": 29
+    },
+    "text": {
+      "verified": 0,
+      "unresolved": 3,
+      "rejected": 1
+    }
+  },
+  "route_status_delta": {
+    "figure": {
+      "verified": -9,
+      "unresolved": 9,
+      "rejected": 0
+    },
+    "mixed": {
+      "verified": 0,
+      "unresolved": 0,
+      "rejected": 0
+    },
+    "table": {
+      "verified": 0,
+      "unresolved": 0,
+      "rejected": 0
+    },
+    "text": {
+      "verified": 0,
+      "unresolved": 0,
+      "rejected": 0
+    }
+  },
+  "original_figure_verified_count": 9,
+  "original_figure_verified_after_status_counts": {
+    "unresolved": 9
+  },
+  "original_figure_verified_guard_reason_counts": {
+    "figure_route_table_endpoint": 5,
+    "endpoint_value_from_shared_hint": 4,
+    "endpoint_value_time_context_mismatch": 4,
+    "weak_figure_mapping_grounding": 4,
+    "figure_condition_not_source_grounded": 4
+  },
+  "source_context_inconsistent_total_after": 59,
+  "source_context_inconsistent_figure_after": 59,
+  "failure_counts_before": {
+    "insufficient_evidence": 140,
+    "ambiguous_api_concentration": 102,
+    "missing_area": 44,
+    "not_target_api": 49,
+    "missing_endpoint": 20,
+    "figure_digitization_failed": 7,
+    "unit_normalization_failed": 13,
+    "not_target_api_concentration": 44,
+    "missing_api_concentration": 55,
+    "not_target_study_type": 20,
+    "not_target_device": 6,
+    "percent_only": 19
+  },
+  "failure_counts_after": {
+    "insufficient_evidence": 140,
+    "ambiguous_api_concentration": 102,
+    "missing_area": 44,
+    "not_target_api": 49,
+    "missing_endpoint": 20,
+    "figure_digitization_failed": 7,
+    "unit_normalization_failed": 13,
+    "source_context_inconsistent": 59,
+    "not_target_api_concentration": 44,
+    "missing_api_concentration": 55,
+    "not_target_study_type": 20,
+    "not_target_device": 6,
+    "percent_only": 19
+  },
+  "figure_failure_counts_before": {
+    "missing_endpoint": 12,
+    "figure_digitization_failed": 7,
+    "unit_normalization_failed": 6,
+    "ambiguous_api_concentration": 25,
+    "missing_area": 19,
+    "insufficient_evidence": 24,
+    "not_target_api": 9,
+    "not_target_study_type": 7,
+    "not_target_api_concentration": 17,
+    "missing_api_concentration": 8,
+    "not_target_device": 2
+  },
+  "figure_failure_counts_after": {
+    "missing_endpoint": 12,
+    "figure_digitization_failed": 7,
+    "unit_normalization_failed": 6,
+    "source_context_inconsistent": 59,
+    "ambiguous_api_concentration": 25,
+    "missing_area": 19,
+    "insufficient_evidence": 24,
+    "not_target_api": 9,
+    "not_target_study_type": 7,
+    "not_target_api_concentration": 17,
+    "missing_api_concentration": 8,
+    "not_target_device": 2
+  },
+  "transition_counts": [
+    {
+      "before_status": "rejected",
+      "after_status": "rejected",
+      "route": "figure",
+      "count": 13
+    },
+    {
+      "before_status": "rejected",
+      "after_status": "rejected",
+      "route": "mixed",
+      "count": 19
+    },
+    {
+      "before_status": "rejected",
+      "after_status": "rejected",
+      "route": "table",
+      "count": 29
+    },
+    {
+      "before_status": "rejected",
+      "after_status": "rejected",
+      "route": "text",
+      "count": 1
+    },
+    {
+      "before_status": "unresolved",
+      "after_status": "unresolved",
+      "route": "figure",
+      "count": 49
+    },
+    {
+      "before_status": "unresolved",
+      "after_status": "unresolved",
+      "route": "mixed",
+      "count": 49
+    },
+    {
+      "before_status": "unresolved",
+      "after_status": "unresolved",
+      "route": "table",
+      "count": 60
+    },
+    {
+      "before_status": "unresolved",
+      "after_status": "unresolved",
+      "route": "text",
+      "count": 3
+    },
+    {
+      "before_status": "verified",
+      "after_status": "unresolved",
+      "route": "figure",
+      "count": 9
+    },
+    {
+      "before_status": "verified",
+      "after_status": "verified",
+      "route": "mixed",
+      "count": 1
+    }
+  ]
+}

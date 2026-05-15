@@ -1,0 +1,20 @@
+{
+  "doi": "10.1159/000183922",
+  "title": "Influence of Ethanol on the Solubility, Ionization and Permeation Characteristics of Ibuprofen in Silicone and Human Skin",
+  "year": 2009,
+  "journal": "Skin Pharmacology and Physiology",
+  "authors": [
+    "R.M. Watkinson",
+    "C. Herkenne",
+    "R.H. Guy",
+    "J. Hadgraft",
+    "G. Oliveira",
+    "M.E. Lane"
+  ],
+  "abstract": "In the context of topical and transdermal delivery, cosolvents may be expected to enhance solubility, modify drug partitioning behaviour and alter skin barrier properties. In the present study, we have investigated systematically the influence of increasing amounts of the cosolvent ethanol on the solubility, ionization, and permeability characteristics of ibuprofen in silicone and in skin. The possibility of ibuprofen self-association was also examined. As the amount of ethanol was raised from 0 to 100%, ibuprofen solubility was enhanced 5,500-fold relative to its aqueous solubility. Up to 50%, the pKa of ibuprofen shifted from 4.44 to 5.68. Infrared spectroscopy confirmed the presence of ibuprofen in both monomer and dimer forms in vehicles containing 75 and 100% ethanol. In silicone membranes, the flux of ibuprofen increased 8-fold over the range of ethanol concentrations studied (0–100%) relative to aqueous solutions, with the highest flux observed for 100% ethanol. However, in skin, the flux of ibuprofen was optimal for 50:50 and 75:25 ethanol-water vehicles (1 10-fold flux enhancement). The lower ibuprofen flux from pure ethanol may reflect the alcohol’s",
+  "source_pdf_path": "papers\\uploaded_external\\watkinson_2009_I.pdf",
+  "source_pdf_sha1": "72bb9ee37eaf04efb48344b2998719a772dde157",
+  "extraction_method": "llm",
+  "llm_model_used": "gpt-4o-mini",
+  "warnings": []
+}

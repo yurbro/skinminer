@@ -1,0 +1,278 @@
+{
+  "run_id": "run_7e2bb2af4893",
+  "status": "completed",
+  "started_at_utc": "2026-04-09T14:15:17.184444+00:00",
+  "finished_at_utc": "2026-04-09T14:27:12.494412+00:00",
+  "elapsed_seconds": 715.31,
+  "active_stage": "",
+  "last_error": null,
+  "llm_usage": {
+    "extractors.figure.triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 22,
+      "estimated_requests": 0,
+      "input_tokens": 1712877,
+      "output_tokens": 4656,
+      "total_tokens": 1717533
+    },
+    "extractors.figure.map_curves": {
+      "model_name": "gpt-4o-mini",
+      "requests": 8,
+      "estimated_requests": 0,
+      "input_tokens": 195565,
+      "output_tokens": 890,
+      "total_tokens": 196455
+    },
+    "verification.llm_adjudicate": {
+      "model_name": "gpt-4o-mini",
+      "requests": 33,
+      "estimated_requests": 0,
+      "input_tokens": 258038,
+      "output_tokens": 4867,
+      "total_tokens": 262905
+    }
+  },
+  "llm_reliability": {
+    "extractors.figure.triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 22,
+      "retries_attempted": 2,
+      "retried_requests": 2,
+      "retry_successes": 2,
+      "final_failures": 0,
+      "attempt_failures": 2,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 2,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "extractors.figure.map_curves": {
+      "model_name": "gpt-4o-mini",
+      "requests": 8,
+      "retries_attempted": 1,
+      "retried_requests": 1,
+      "retry_successes": 1,
+      "final_failures": 0,
+      "attempt_failures": 1,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 1,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "verification.llm_adjudicate": {
+      "model_name": "gpt-4o-mini",
+      "requests": 33,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    }
+  },
+  "stages": {
+    "corpus": {
+      "label": "Corpus",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-09T14:15:17.450066+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:loaded rows=1828"
+    },
+    "rule_filter": {
+      "label": "Rule Triage",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-09T14:15:17.631361+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:pass=749 fail=1079"
+    },
+    "llm_triage": {
+      "label": "LLM Triage",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-09T14:15:17.713004+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:kept=529"
+    },
+    "access": {
+      "label": "Content Access",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-09T14:15:17.839868+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:resolved=86 downloaded=219 unresolved=223 error=1"
+    },
+    "routing": {
+      "label": "Evidence Routing",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-09T14:15:18.704264+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:figure=24 mixed=6 table=13 text=9 unresolved=477"
+    },
+    "table_extract": {
+      "label": "Table Extract",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-09T14:15:18.800558+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:records=64"
+    },
+    "text_extract": {
+      "label": "Text Extract",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-09T14:15:18.836967+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:records=11"
+    },
+    "figure_extract": {
+      "label": "Figure Extract",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:15:18.839316+00:00",
+      "finished_at_utc": "2026-04-09T14:23:39.467385+00:00",
+      "elapsed_seconds": 500.628,
+      "completed": 25,
+      "total": 25,
+      "current_item": "",
+      "detail": "records=10"
+    },
+    "assembly": {
+      "label": "Assembly",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:23:39.473168+00:00",
+      "finished_at_utc": "2026-04-09T14:23:39.572665+00:00",
+      "elapsed_seconds": 0.099,
+      "completed": 85,
+      "total": 85,
+      "current_item": "",
+      "detail": "assembled=80"
+    },
+    "verify_initial": {
+      "label": "Verify Initial",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:23:39.578031+00:00",
+      "finished_at_utc": "2026-04-09T14:23:45.805390+00:00",
+      "elapsed_seconds": 6.227,
+      "completed": 80,
+      "total": 80,
+      "current_item": "",
+      "detail": "rejected=29 unresolved=47 verified=4"
+    },
+    "patch_api": {
+      "label": "Patch API Conc",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:23:45.809496+00:00",
+      "finished_at_utc": "2026-04-09T14:23:49.692272+00:00",
+      "elapsed_seconds": 3.883,
+      "completed": 80,
+      "total": 80,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "patch_endpoint": {
+      "label": "Patch Endpoint",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:23:49.695835+00:00",
+      "finished_at_utc": "2026-04-09T14:23:54.049463+00:00",
+      "elapsed_seconds": 4.354,
+      "completed": 80,
+      "total": 80,
+      "current_item": "",
+      "detail": "applied=28"
+    },
+    "patch_time": {
+      "label": "Patch End Time",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:23:54.053322+00:00",
+      "finished_at_utc": "2026-04-09T14:23:55.274572+00:00",
+      "elapsed_seconds": 1.221,
+      "completed": 80,
+      "total": 80,
+      "current_item": "",
+      "detail": "applied=18"
+    },
+    "patch_area": {
+      "label": "Patch Area",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:23:55.277992+00:00",
+      "finished_at_utc": "2026-04-09T14:23:57.070870+00:00",
+      "elapsed_seconds": 1.793,
+      "completed": 80,
+      "total": 80,
+      "current_item": "",
+      "detail": "applied=11"
+    },
+    "verify_final": {
+      "label": "Verify Final",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:23:57.074607+00:00",
+      "finished_at_utc": "2026-04-09T14:24:02.175947+00:00",
+      "elapsed_seconds": 5.101,
+      "completed": 80,
+      "total": 80,
+      "current_item": "",
+      "detail": "rejected=28 unresolved=48 verified=4"
+    },
+    "llm_adjudicate": {
+      "label": "LLM Adjudicate",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:24:02.182598+00:00",
+      "finished_at_utc": "2026-04-09T14:27:12.164052+00:00",
+      "elapsed_seconds": 189.981,
+      "completed": 33,
+      "total": 33,
+      "current_item": "",
+      "detail": "rows=33"
+    },
+    "report": {
+      "label": "Run Report",
+      "state": "done",
+      "started_at_utc": "2026-04-09T14:27:12.170986+00:00",
+      "finished_at_utc": "2026-04-09T14:27:12.484363+00:00",
+      "elapsed_seconds": 0.313,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "path=outputs\\experiment_E4_cv_only\\report\\run_report.md"
+    }
+  },
+  "command": "run_pipeline.py --input-csv outputs/full_run_12_full/corpus.csv --output-dir outputs/experiment_E4_cv_only --run-profile balanced_full --with-llm-adjudication --export-csv --long-run-mode --resume --progress-every 25 --access-checkpoint-every 25 --long-run-log-every 25 --no-figure-vlm --no-status-panel"
+}

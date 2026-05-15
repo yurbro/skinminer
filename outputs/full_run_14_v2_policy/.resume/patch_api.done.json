@@ -1,0 +1,12 @@
+{
+  "stage": "patch_api",
+  "completed": 75,
+  "total": 75,
+  "detail": "applied=0",
+  "input_count": 75,
+  "output_count": 75,
+  "output_paths": [
+    "outputs\\full_run_14_v2_policy\\patched_api_concentration.jsonl"
+  ],
+  "resume_signature_digest": "da0114121f9d486f7a7df646670d6c4928db53fa"
+}

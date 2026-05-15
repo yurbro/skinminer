@@ -1,0 +1,12 @@
+{
+  "stage": "verify_initial",
+  "completed": 74,
+  "total": 74,
+  "detail": "rejected=24 unresolved=42 verified=8",
+  "input_count": 74,
+  "output_count": 74,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\verified_initial.jsonl"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

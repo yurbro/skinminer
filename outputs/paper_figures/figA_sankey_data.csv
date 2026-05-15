@@ -1,0 +1,12 @@
+﻿stage,node,count
+Corpus,Corpus rows,1828
+Rule pre-filter,Rule pass,749
+Rule pre-filter,Filtered out,1079
+Full-text triage,Retained,536
+Full-text triage,Dropped,213
+Routing,Routeable papers,56
+Routing,Routing unresolved,480
+Assembly,Assembled papers,38
+Assembly,No extracted record,18
+Verified output,Verified papers,2
+Verified output,No verified output,36

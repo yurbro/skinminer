@@ -1,0 +1,12 @@
+{
+  "stage": "access",
+  "completed": 1,
+  "total": 1,
+  "detail": "resolved=0 downloaded=0 unresolved=1 error=0",
+  "input_count": 1,
+  "output_count": 1,
+  "output_paths": [
+    "outputs\\_smoke_no_figure_vlm\\content_access.jsonl"
+  ],
+  "resume_signature_digest": "206b762452d5e3992fe133d341a26c560e95e108"
+}

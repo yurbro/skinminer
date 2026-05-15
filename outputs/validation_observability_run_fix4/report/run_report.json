@@ -1,0 +1,243 @@
+{
+  "run_id": "run_48d438c1f45f",
+  "model_name": "gpt-4o-mini",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-04-06T16:11:13.989419+00:00",
+  "run_profile": "balanced_full",
+  "query_profile": "ibuprofen_dermal_oa_v1",
+  "query_profile_version": "2026-03-28.v1",
+  "query_source": "profile:ibuprofen_dermal_oa_v1",
+  "stage_models": {
+    "llm_triage": "gpt-4o-mini",
+    "routing": "gpt-4o-mini",
+    "text_extract": "gpt-4o-mini",
+    "table_extract": "gpt-4o-mini",
+    "figure_triage": "gpt-4o-mini",
+    "figure_map": "gpt-4o-mini",
+    "llm_adjudicate": "gpt-4o-mini"
+  },
+  "prompt_assets": {
+    "triage.abstract_relevance": "2026-03-28.v1",
+    "routing.structured_first": "2026-03-28.v1",
+    "extractors.text.structured_fields": "2026-03-28.v1",
+    "extractors.table.structured_tables": "2026-03-28.v1",
+    "extractors.figure.triage": "2026-04-06.v1",
+    "extractors.figure.curve_map": "2026-03-28.v1",
+    "verification.llm_adjudication": "2026-04-03.v1"
+  },
+  "module_counts": {
+    "table": 23,
+    "text": 0,
+    "figure": 4
+  },
+  "route_distribution": {
+    "figure": 8,
+    "table": 2
+  },
+  "extractor_output_counts": {
+    "table": 23,
+    "text": 0,
+    "figure": 4
+  },
+  "verification_outcome_counts": {
+    "unresolved": 15,
+    "verified": 8,
+    "rejected": 3
+  },
+  "scope_bucket_counts": {
+    "recoverable_unresolved": 13,
+    "strict_in_scope": 8,
+    "useful_but_out_of_scope": 2,
+    "out_of_scope": 3
+  },
+  "scope_tag_counts": {
+    "recoverable_unresolved": 13,
+    "recoverable_endpoint": 2,
+    "recoverable_figure_digitization": 2,
+    "recoverable_api_basis": 10,
+    "useful_but_out_of_scope": 2,
+    "useful_api_concentration_out_of_scope": 2,
+    "recoverable_support_gap": 4,
+    "non_target_api": 3
+  },
+  "failure_taxonomy_counts": {
+    "missing_endpoint": 3,
+    "figure_digitization_failed": 3,
+    "ambiguous_api_concentration": 13,
+    "not_target_api_concentration": 2,
+    "insufficient_evidence": 8,
+    "not_target_api": 3,
+    "missing_area": 2,
+    "percent_only": 2,
+    "not_target_device": 1
+  },
+  "failure_taxonomy_counts_by_route": {
+    "figure": {
+      "missing_endpoint": 3,
+      "figure_digitization_failed": 3,
+      "not_target_api_concentration": 2,
+      "insufficient_evidence": 8,
+      "ambiguous_api_concentration": 5,
+      "not_target_api": 3,
+      "missing_area": 2,
+      "percent_only": 2,
+      "not_target_device": 1
+    },
+    "table": {
+      "ambiguous_api_concentration": 8
+    }
+  },
+  "figure_verification_failure_taxonomy_counts": {
+    "missing_endpoint": 3,
+    "figure_digitization_failed": 3,
+    "not_target_api_concentration": 2,
+    "insufficient_evidence": 8,
+    "ambiguous_api_concentration": 5,
+    "not_target_api": 3,
+    "missing_area": 2,
+    "percent_only": 2,
+    "not_target_device": 1
+  },
+  "figure_stage_counts": {
+    "triage_artifacts": 8,
+    "triage_has_permeation_plot_true": 7,
+    "triage_digitize_candidates": 7,
+    "digitized_curves": 9,
+    "digitized_endpoints_ok": 9,
+    "digitized_endpoints_failed": 4,
+    "digitization_no_output": 3,
+    "mapped_curves": 4,
+    "unmapped_curves": 5
+  },
+  "figure_failure_counts": {
+    "triage_signals": {
+      "recommended_route:skip": 1,
+      "digitizable:no": 1,
+      "why_not_digitizable:calibration_curve_not_target": 1,
+      "ticks_readable:uncertain": 1,
+      "endpoint_curve_present:uncertain": 1
+    },
+    "digitization_failure_counts": {
+      "digitization_no_output": 3,
+      "fail_missing_axis_range": 1
+    },
+    "mapping_failure_counts": {
+      "underconstrained_label_space_3_curves_2_labels": 3,
+      "underconstrained_label_space_2_curves_1_labels": 2
+    }
+  },
+  "figure_gate_counts": {
+    "routed_candidates": 8,
+    "after_gate": 8,
+    "skipped": {}
+  },
+  "figure_route_counts": {
+    "skip": 1,
+    "digitize": 7
+  },
+  "figure_digitization_status_counts": {
+    "ok": 9,
+    "digitization_no_output": 3,
+    "fail_missing_axis_range": 1
+  },
+  "figure_mapping_status_counts": {
+    "vision_mapped": 4,
+    "underconstrained_labels": 5
+  },
+  "llm_reliability": {},
+  "llm_adjudication_summary": {
+    "row_count": 11,
+    "candidate_reason_counts": {
+      "recoverable_unresolved:ambiguous_api_concentration": 10,
+      "recoverable_unresolved:missing_endpoint": 1
+    },
+    "priority_bucket_counts": {
+      "high": 10,
+      "medium": 1
+    },
+    "review_focus_counts": {
+      "api_concentration_basis": 10,
+      "endpoint_value": 1
+    },
+    "recommended_status_counts": {
+      "unresolved": 7,
+      "rejected": 4
+    },
+    "should_keep_strict_counts": {
+      "no": 11
+    },
+    "disagreement_counts": {
+      "status_disagreement": 4,
+      "scope_bucket_disagreement": 4
+    },
+    "original_vs_recommended_counts": {
+      "unresolved->unresolved": 7,
+      "unresolved->rejected": 4
+    }
+  },
+  "blockage_summary": {
+    "access_status_counts": {
+      "downloaded": 10
+    },
+    "access_reason_counts": {},
+    "route_unresolved_reason_counts": {},
+    "route_note_counts": {
+      "the_study_evaluates_the_solubility_and_skin_permeation_characteristics_of_ibupro": 1,
+      "study_investigates_the_formulation_parameters_affecting_ibuprofen_permeability_a": 1,
+      "the_study_shows_improved_transdermal_delivery_and_biosafety_of_ibuprofen_using_a": 1,
+      "the_study_focuses_on_the_permeation_of_lidocaine_and_ibuprofen_through_a_silicon": 1,
+      "significant_statistical_increases_in_neurite_outgrowth_at_specific_ibuprofen_con": 1,
+      "the_paper_emphasizes_the_ability_of_the_formulation_to_modulate_drug_release_fro": 1,
+      "the_study_illustrates_the_formulation_of_chitosan_ibuprofen_aerogels_and_evaluat": 1,
+      "the_study_discusses_the_synthesis_and_effects_of_ibuprofen_ha_conjugate_and_its_": 1
+    },
+    "extractor_blockages": {
+      "text": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      },
+      "table": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      }
+    },
+    "patch_status_counts": {
+      "patch_api_concentration": {
+        "skipped": 16,
+        "applied": 1
+      },
+      "patch_area": {
+        "skipped": 4
+      },
+      "patch_endpoint_value": {
+        "skipped": 9,
+        "applied": 3
+      }
+    },
+    "patch_reason_counts": {
+      "patch_api_concentration": {
+        "no_recoverable_concentration_fragment": 16
+      },
+      "patch_area": {
+        "no_recoverable_area_fragment": 4
+      },
+      "patch_endpoint_value": {
+        "no_recoverable_endpoint_fragment": 7,
+        "recovered_endpoint_matches_existing_value": 2
+      }
+    }
+  },
+  "patch_success_counts": {
+    "patch_api_concentration": 1,
+    "patch_endpoint_value": 3
+  },
+  "output_record_counts": {
+    "assembled": 26,
+    "final_records_evaluated": 26,
+    "actually_verified": 8,
+    "unresolved": 15,
+    "rejected": 3
+  }
+}

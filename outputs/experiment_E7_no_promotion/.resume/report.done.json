@@ -1,0 +1,13 @@
+{
+  "stage": "report",
+  "completed": null,
+  "total": null,
+  "detail": "path=outputs\\experiment_E7_no_promotion\\report\\run_report.md",
+  "input_count": 73,
+  "output_count": null,
+  "output_paths": [
+    "outputs\\experiment_E7_no_promotion\\report\\run_report.md",
+    "outputs\\experiment_E7_no_promotion\\report\\run_report.json"
+  ],
+  "resume_signature_digest": "56d643623d891e7fdd361cb29579b3c11204b57f"
+}

@@ -1,0 +1,175 @@
+{
+  "run_id": "run_51c573a62eee",
+  "model_name": "claude-sonnet-4-6",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-04-16T19:50:35.603035+00:00",
+  "run_profile": "balanced_full",
+  "query_profile": "ibuprofen_dermal_oa_v1",
+  "query_profile_version": "2026-03-28.v1",
+  "query_source": "profile:ibuprofen_dermal_oa_v1",
+  "stage_models": {
+    "llm_triage": "claude-sonnet-4-6",
+    "routing": "claude-sonnet-4-6",
+    "text_extract": "claude-sonnet-4-6",
+    "table_extract": "claude-sonnet-4-6",
+    "figure_triage": "claude-sonnet-4-6",
+    "figure_vlm": "claude-sonnet-4-6",
+    "figure_map": "claude-sonnet-4-6",
+    "llm_adjudicate": "claude-sonnet-4-6"
+  },
+  "prompt_assets": {
+    "triage.abstract_relevance": "2026-03-28.v1",
+    "routing.structured_first": "2026-03-28.v1",
+    "extractors.text.structured_fields": "2026-04-11.v1",
+    "extractors.table.structured_tables": "2026-04-11.v1",
+    "extractors.figure.triage": "2026-04-06.v1",
+    "extractors.figure.vlm_digitize": "2026-04-11.v1",
+    "extractors.figure.curve_map": "2026-03-28.v1",
+    "verification.llm_adjudication": "2026-04-03.v1"
+  },
+  "module_counts": {
+    "table": 24,
+    "text": 0,
+    "figure": 0
+  },
+  "route_distribution": {
+    "table": 1
+  },
+  "extractor_output_counts": {
+    "table": 24,
+    "text": 0,
+    "figure": 0
+  },
+  "verification_outcome_counts": {
+    "unresolved": 24
+  },
+  "scope_bucket_counts": {
+    "recoverable_unresolved": 24
+  },
+  "scope_tag_counts": {
+    "recoverable_unresolved": 24,
+    "recoverable_api_basis": 24
+  },
+  "failure_taxonomy_counts": {
+    "ambiguous_api_concentration": 24
+  },
+  "failure_taxonomy_counts_by_route": {
+    "table": {
+      "ambiguous_api_concentration": 24
+    }
+  },
+  "figure_verification_failure_taxonomy_counts": {},
+  "figure_stage_counts": {
+    "triage_artifacts": 0,
+    "triage_has_permeation_plot_true": 0,
+    "triage_digitize_candidates": 0,
+    "digitized_curves": 0,
+    "digitized_endpoints_ok": 0,
+    "digitized_endpoints_failed": 0,
+    "digitization_no_output": 0,
+    "mapped_curves": 0,
+    "unmapped_curves": 0,
+    "vlm_readings_total": 0,
+    "vlm_readings_readable": 0,
+    "vlm_used_as_final": 0
+  },
+  "figure_failure_counts": {
+    "triage_signals": {},
+    "digitization_failure_counts": {},
+    "mapping_failure_counts": {}
+  },
+  "figure_gate_counts": {
+    "routed_candidates": 0,
+    "after_gate": 0,
+    "skipped": {}
+  },
+  "figure_route_counts": {},
+  "figure_digitization_status_counts": {},
+  "figure_mapping_status_counts": {},
+  "llm_reliability": {
+    "triage.llm_triage": {
+      "model_name": "claude-sonnet-4-6",
+      "requests": 1,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "detection.router": {
+      "model_name": "claude-sonnet-4-6",
+      "requests": 0,
+      "retries_attempted": 1,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 1,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 1
+    }
+  },
+  "llm_adjudication_summary": {
+    "row_count": 0,
+    "candidate_reason_counts": {},
+    "priority_bucket_counts": {},
+    "review_focus_counts": {},
+    "recommended_status_counts": {},
+    "should_keep_strict_counts": {},
+    "disagreement_counts": {},
+    "original_vs_recommended_counts": {}
+  },
+  "blockage_summary": {
+    "access_status_counts": {
+      "downloaded": 1
+    },
+    "access_reason_counts": {},
+    "route_unresolved_reason_counts": {},
+    "route_note_counts": {
+      "primary_ivpt_study_using_ibuprofen_as_model_drug_in_nanosuspension_gel_formulati": 1
+    },
+    "extractor_blockages": {
+      "text": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      },
+      "table": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      }
+    },
+    "patch_status_counts": {
+      "patch_api_concentration": {
+        "skipped": 24
+      }
+    },
+    "patch_reason_counts": {
+      "patch_api_concentration": {
+        "no_recoverable_concentration_fragment": 24
+      }
+    }
+  },
+  "patch_success_counts": {},
+  "output_record_counts": {
+    "assembled": 24,
+    "final_records_evaluated": 24,
+    "actually_verified": 0,
+    "unresolved": 24,
+    "rejected": 0
+  }
+}

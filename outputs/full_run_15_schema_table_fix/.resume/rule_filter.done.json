@@ -1,0 +1,13 @@
+{
+  "stage": "rule_filter",
+  "completed": 1828,
+  "total": 1828,
+  "detail": "pass=749 fail=1079",
+  "input_count": 1828,
+  "output_count": 1828,
+  "output_paths": [
+    "outputs\\full_run_15_schema_table_fix\\rule_pass.jsonl",
+    "outputs\\full_run_15_schema_table_fix\\rule_fail.jsonl"
+  ],
+  "resume_signature_digest": "83519bfbbf95736ab9e75efa0e002417f2c45b20"
+}

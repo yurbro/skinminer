@@ -1,0 +1,60 @@
+# Record: record_c13a8cda365e
+
+**Sample ID:** R2-075  
+**Tier:** tier2_gpt_v4_unresolved_stratified  
+**Source baseline:** gpt  
+**DOI:** 10.1007/s13346-022-01182-x  
+**Title:** Soluplus<sup></sup> polymeric nanomicelles improve solubility of BCS-class II drugs.  
+**Route:** table  
+**Policy first verified:** never  
+**Pipeline status (v4):** unresolved  
+**Failure reasons (v4):** insufficient_evidence; missing_area
+
+## Formulation
+
+- Label: SNM-IBU1
+- API: Ibuprofen
+- Concentration: 0.5 % w/v (w/v)
+- Raw concentration: 0.5% w/v ibuprofen
+- Dosage form: 
+
+## Components
+
+- Soluplus: 1.725 g Soluplus; raw=
+
+## Endpoint
+
+- Value: 74.0 %
+- Time: 24.0 h
+- Kind: amount_total
+- Normalized:  
+
+## Conditions
+
+- Device: 
+- Study type: IVPT
+- Barrier: Soluplus nanomicelles
+- Membrane: Soluplus nanomicelles (, 0.2 um)
+- Receptor: 
+- Dose: finite, 50 mg
+- Area:  cm2
+
+## Evidence Summary
+
+- formulation/table at Table 5; endpoint/table at Table 5; membrane_type/table at Table 5; membrane_thickness_um/table at Table 5; dose_type/table at Table 5; dose_amount/table at Table 5
+
+## Evidence Locators
+
+- formulation | table | Table 5 | p.10 | papers\pdf\10.1007_s13346-022-01182-x__31f896767a.pdf
+- endpoint | table | Table 5 | p.10 | papers\pdf\10.1007_s13346-022-01182-x__31f896767a.pdf
+- membrane_type | table | Table 5 | p.10 | papers\pdf\10.1007_s13346-022-01182-x__31f896767a.pdf
+- membrane_thickness_um | table | Table 5 | p.10 | papers\pdf\10.1007_s13346-022-01182-x__31f896767a.pdf
+- dose_type | table | Table 5 | p.10 | papers\pdf\10.1007_s13346-022-01182-x__31f896767a.pdf
+- dose_amount | table | Table 5 | p.10 | papers\pdf\10.1007_s13346-022-01182-x__31f896767a.pdf
+- device | text | unknown | 10.1007/s13346-022-01182-x
+- api_concentration | table | verify:api_concentration | 10.1007/s13346-022-01182-x
+
+## For Annotator
+
+- Paper link: https://doi.org/10.1007/s13346-022-01182-x
+- Key table/figure to check: Table 5; page(s): 1, 4, 10, 11, 14

@@ -1,0 +1,13 @@
+{
+  "stage": "table_extract",
+  "completed": 1,
+  "total": 1,
+  "detail": "records=24",
+  "input_count": 1,
+  "output_count": 24,
+  "output_paths": [
+    "outputs\\e3_step2_openai_parity_smoke\\table_records.jsonl",
+    "outputs\\e3_step2_openai_parity_smoke\\table_raw.jsonl"
+  ],
+  "resume_signature_digest": "009441693465c187d15422ea272868aeadf93d6e"
+}

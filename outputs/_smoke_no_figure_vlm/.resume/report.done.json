@@ -1,0 +1,13 @@
+{
+  "stage": "report",
+  "completed": null,
+  "total": null,
+  "detail": "path=outputs\\_smoke_no_figure_vlm\\report\\run_report.md",
+  "input_count": 0,
+  "output_count": null,
+  "output_paths": [
+    "outputs\\_smoke_no_figure_vlm\\report\\run_report.md",
+    "outputs\\_smoke_no_figure_vlm\\report\\run_report.json"
+  ],
+  "resume_signature_digest": "206b762452d5e3992fe133d341a26c560e95e108"
+}

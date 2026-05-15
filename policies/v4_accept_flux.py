@@ -4,7 +4,44 @@ from dataclasses import dataclass
 import re
 
 from policies.v3_any_ibuprofen_concentration import V3AnyIbuprofenConcentrationPolicy
-from schemas.models import Record
+from schemas.models import EndpointMeasurement, Record
+
+FLUX_UNITS = frozenset(
+    {
+        "ug/cm2/h",
+        "\u00b5g/cm2/h",
+        "\u03bcg/cm2/h",
+        "\u00c2\u00b5g/cm2/h",
+        "ug/cm^2/h",
+        "\u00b5g/cm^2/h",
+        "\u03bcg/cm^2/h",
+        "ug/cm\u00b2/h",
+        "\u00b5g/cm\u00b2/h",
+        "\u03bcg/cm\u00b2/h",
+        "ug/cm2/hr",
+        "ug/cm^2/hr",
+        "ug cm-2 h-1",
+        "\u00b5g cm-2 h-1",
+        "\u03bcg cm-2 h-1",
+        "ug.cm-2.h-1",
+        "ug/(cm2 h)",
+        "\u00b5g/(cm2 h)",
+        "\u03bcg/(cm2 h)",
+        "ug/(cm^2 h)",
+        "\u00b5g/(cm^2 h)",
+        "\u03bcg/(cm^2 h)",
+        "mg/cm2/h",
+        "mg/cm^2/h",
+        "mg/cm2/hr",
+        "mg cm-2 h-1",
+        "mg/(cm2 h)",
+        "mg/(cm^2 h)",
+        "nmol/cm2/h",
+        "nmol cm-2 h-1",
+        "nmol/(cm2 h)",
+        "pmol/cm2/h",
+    }
+)
 
 
 def _clean_endpoint_text(text: str) -> str:
@@ -36,16 +73,17 @@ def _compact_endpoint_text(text: str) -> str:
     return re.sub(r"\s+", "", _clean_endpoint_text(text))
 
 
-def _looks_like_flux_unit(unit: str) -> bool:
-    compact = _compact_endpoint_text(unit)
-    if not compact:
-        return False
-    amount_terms = ("ug", "mg", "ng", "mcg")
-    area_terms = ("cm2", "cm^2", "cm-2")
-    time_terms = ("/h", "/hr", "/hour", "h-1", "hr-1", "hour-1")
-    return any(term in compact for term in amount_terms) and any(term in compact for term in area_terms) and any(
-        term in compact for term in time_terms
-    )
+def _normalize_unit(unit: str | None) -> str:
+    if unit is None:
+        return ""
+    return _clean_endpoint_text(unit).replace(" ", "").replace(".", "")
+
+
+FLUX_UNITS_NORMALIZED = frozenset(_normalize_unit(unit) for unit in FLUX_UNITS)
+
+
+def is_flux_unit(unit: str | None) -> bool:
+    return _normalize_unit(unit) in FLUX_UNITS_NORMALIZED
 
 
 def _looks_like_permeability_unit(unit: str) -> bool:
@@ -53,15 +91,20 @@ def _looks_like_permeability_unit(unit: str) -> bool:
     return any(term in compact for term in ("cm/h", "cm/hr", "cm/s", "cmsec-1", "cmh-1", "cms-1"))
 
 
-def _permeability_context(record: Record) -> str:
+def _primary_endpoint(record: Record) -> EndpointMeasurement | None:
+    return record.primary_endpoint()
+
+
+def _permeability_context(record: Record, endpoint: EndpointMeasurement) -> str:
     snippets = " ".join(item.snippet for item in record.evidence_items if item.field_name in {"endpoint", "endpoint_value", "endpoint_unit"})
-    return _clean_endpoint_text(" ".join([record.endpoint.field_name, record.endpoint.unit, snippets]))
+    return _clean_endpoint_text(" ".join([endpoint.kind, endpoint.unit, snippets]))
 
 
 def _looks_like_permeability_endpoint(record: Record) -> bool:
-    if not _looks_like_permeability_unit(record.endpoint.unit):
+    endpoint = _primary_endpoint(record)
+    if endpoint is None or not _looks_like_permeability_unit(endpoint.unit):
         return False
-    context = _permeability_context(record)
+    context = _permeability_context(record, endpoint)
     return any(token in context for token in ("kp", "k p", "papp", "p app", "permeability coefficient", "permeability"))
 
 
@@ -71,12 +114,24 @@ class V4AcceptFluxPolicy(V3AnyIbuprofenConcentrationPolicy):
 
     name: str = "v4_accept_flux"
 
+    def effective_endpoint_kind(self, record: Record) -> tuple[str, str | None]:
+        endpoint = _primary_endpoint(record)
+        if endpoint is None:
+            return "unknown", None
+        if endpoint.kind == "cumulative_amount" and is_flux_unit(endpoint.unit):
+            return "flux", "unit_implies_flux"
+        if endpoint.kind == "unknown" and _looks_like_permeability_endpoint(record):
+            return "permeability_coefficient", "unit_implies_permeability"
+        return endpoint.kind, None
+
     def endpoint_scope_status(self, record: Record) -> str:
-        if record.endpoint.value is None:
+        endpoint = _primary_endpoint(record)
+        if endpoint is None or endpoint.mean is None:
             return "missing"
-        if record.endpoint.kind in {"flux", "jss"}:
+        effective_kind, _ = self.effective_endpoint_kind(record)
+        if effective_kind in {"flux", "permeability_coefficient"}:
             return "ok"
-        if _looks_like_flux_unit(record.endpoint.unit):
+        if is_flux_unit(endpoint.unit):
             return "ok"
         if _looks_like_permeability_endpoint(record):
             return "ok"

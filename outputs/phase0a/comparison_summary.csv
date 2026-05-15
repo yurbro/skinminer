@@ -1,0 +1,3 @@
+track,pubmed_hits,epmc_hits,unique_papers,oa_papers,oa_with_pdf_url,modelling_ready_oa,with_franz_in_abstract,with_quantitative_pct_in_abstract,pre_2010_pct,post_2015_pct,api_breakdown
+A_caffeine,113,94,187,101,100,4,2,45,19.3,59.9,"caffeine=47, nicotinamide=14, lidocaine=49, multi-API=4"
+B_ibuprofen_gel,83,76,140,78,76,2,1,5,11.4,67.9,

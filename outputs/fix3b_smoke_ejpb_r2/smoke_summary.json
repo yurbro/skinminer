@@ -1,0 +1,53 @@
+{
+  "paper_id": "paper_b451e1b601ac",
+  "doi": "10.1016/j.ejpb.2020.05.013",
+  "table_records_input": 7,
+  "figure_records": 1,
+  "verified_counts": {
+    "verified": 1
+  },
+  "records": [
+    {
+      "record_id": "record_4fcf67b3f8a8",
+      "status": "verified",
+      "failure_reasons": [],
+      "formulation_label": "5% w/w Ibuprofen Gel",
+      "endpoint_value": 207.2633514404297,
+      "endpoint_unit": "µg/mL",
+      "endpoint_time": 720.0,
+      "endpoint_time_unit": "min",
+      "normalized_value": 66.00743676446805,
+      "normalized_unit": "ug/cm^2",
+      "area_cm2": 3.14,
+      "receptor_volume_ml": 40.0,
+      "source_pages": [
+        5,
+        8,
+        9,
+        10,
+        11,
+        15,
+        16,
+        17
+      ],
+      "source_binding_reasons": [],
+      "metadata": {
+        "figure_id": "Figure 11",
+        "triage_retry_triggered": true,
+        "triage_retry_reason": "calibration_curve_not_target",
+        "triage_retry_source_figure_id": "Figure 10",
+        "triage_retry_source_page": 14,
+        "triage_retry_candidate_pages": [
+          16,
+          15,
+          17
+        ],
+        "triage_retry_candidate_page": 16,
+        "triage_retry_result": "recovered_digitizable",
+        "mapping_rationale": "single_source_label_exact_match",
+        "mapping_status": "vision_mapped",
+        "mapping_label_space_status": "complete"
+      }
+    }
+  ]
+}

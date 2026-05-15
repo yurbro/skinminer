@@ -1,0 +1,12 @@
+{
+  "stage": "patch_api",
+  "completed": 24,
+  "total": 24,
+  "detail": "applied=0",
+  "input_count": 24,
+  "output_count": 24,
+  "output_paths": [
+    "outputs\\e3_step4_claude_smoke\\patched_api_concentration.jsonl"
+  ],
+  "resume_signature_digest": "76ce5cf452e69a92080b16486900016a6be56f6b"
+}

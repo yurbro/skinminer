@@ -36,8 +36,45 @@ class FormulationSpec(BaseModel):
     components: list[FormulationComponent] = Field(default_factory=list)
 
 
+EndpointKind = Literal[
+    "flux",
+    "cumulative_amount",
+    "permeability_coefficient",
+    "partition_parameter",
+    "diffusion_parameter",
+    "lag_time",
+    "permeated_fraction",
+    "unknown",
+]
+
+ENDPOINT_KIND_PRIORITY: dict[str, int] = {
+    "flux": 0,
+    "cumulative_amount": 1,
+    "permeability_coefficient": 2,
+    "partition_parameter": 3,
+    "diffusion_parameter": 4,
+    "lag_time": 5,
+    "permeated_fraction": 6,
+    "unknown": 7,
+}
+
+
+class EndpointMeasurement(BaseModel):
+    """One endpoint measurement paired with its own unit and replicate metadata."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    kind: EndpointKind = "unknown"
+    mean: float | None = None
+    sd: float | None = None
+    unit: str = ""
+    n_replicates: int | None = None
+    normalized_mean: float | None = None
+    normalized_unit: str = ""
+
+
 class EndpointSpec(BaseModel):
-    """Structured endpoint information extracted from text, tables, or figures."""
+    """Deprecated construction shim for out-of-scope extractors during PR-C migration."""
 
     model_config = ConfigDict(extra="forbid")
 
@@ -49,6 +86,64 @@ class EndpointSpec(BaseModel):
     time_unit: str = ""
     normalized_value: float | None = None
     normalized_unit: str = ""
+
+
+def _legacy_endpoint_kind(kind: str) -> str:
+    lowered = (kind or "").strip().lower()
+    if lowered in {"amount_per_area", "amount_total"}:
+        return "cumulative_amount"
+    if lowered in {"percent", "percentage"}:
+        return "permeated_fraction"
+    if lowered in {"flux", "jss", "j_ss"}:
+        return "flux"
+    return "unknown"
+
+
+def _legacy_endpoint_time_to_hours(value: float | None, unit: str) -> float | None:
+    if value is None:
+        return None
+    lowered = (unit or "").strip().lower()
+    if lowered in {"h", "hr", "hrs", "hour", "hours"}:
+        return float(value)
+    if lowered in {"min", "mins", "minute", "minutes"}:
+        return float(value) / 60.0
+    if lowered in {"s", "sec", "secs", "second", "seconds"}:
+        return float(value) / 3600.0
+    if lowered in {"d", "day", "days"}:
+        return float(value) * 24.0
+    return None
+
+
+def _measurement_from_legacy_endpoint(endpoint: EndpointSpec) -> EndpointMeasurement | None:
+    if endpoint.value is None:
+        return None
+    return EndpointMeasurement(
+        kind=_legacy_endpoint_kind(endpoint.kind),  # type: ignore[arg-type]
+        mean=endpoint.value,
+        unit=endpoint.unit,
+        normalized_mean=endpoint.normalized_value,
+        normalized_unit=endpoint.normalized_unit,
+    )
+
+
+def endpoint_priority(endpoint: EndpointMeasurement) -> tuple[int, str, str, float]:
+    """Stable priority for choosing a primary endpoint from a paired endpoint list."""
+
+    mean = endpoint.mean if endpoint.mean is not None else float("inf")
+    return (ENDPOINT_KIND_PRIORITY.get(endpoint.kind, ENDPOINT_KIND_PRIORITY["unknown"]), endpoint.unit, endpoint.kind, mean)
+
+
+def sorted_endpoints(endpoints: list[EndpointMeasurement]) -> list[EndpointMeasurement]:
+    """Return endpoint measurements in deterministic primary-endpoint order."""
+
+    return sorted(endpoints, key=endpoint_priority)
+
+
+def primary_endpoint(endpoints: list[EndpointMeasurement]) -> EndpointMeasurement | None:
+    """Return the priority endpoint used by single-endpoint policies and reports."""
+
+    ordered = sorted_endpoints(endpoints)
+    return ordered[0] if ordered else None
 
 
 class ConditionSpec(BaseModel):
@@ -125,8 +220,14 @@ class Record(BaseModel):
     study_type: str = "uncertain"
     device: str = ""
     barrier: str = ""
+    occlusion: Literal["occluded", "non_occluded", "pretreated", "unknown"] = Field(
+        default="unknown",
+        description="Donor compartment protocol modifier. 'occluded' = sealed; "
+        "'non_occluded' = open; 'pretreated' = membrane pretreated with vehicle "
+        "(e.g. ethanol pretreatment); 'unknown' = not captured.",
+    )
     formulation: FormulationSpec = Field(default_factory=FormulationSpec)
-    endpoint: EndpointSpec = Field(default_factory=EndpointSpec)
+    endpoints: list[EndpointMeasurement] = Field(default_factory=list)
     conditions: ConditionSpec = Field(default_factory=ConditionSpec)
     evidence_items: list[EvidenceItem] = Field(default_factory=list)
     provenance: RecordProvenance = Field(default_factory=RecordProvenance)
@@ -141,6 +242,32 @@ class Record(BaseModel):
     failure_reason: str | None = None
     failure_reasons: list[str] = Field(default_factory=list)
     source_notes: list[str] = Field(default_factory=list)
+
+    def __init__(self, **data: Any) -> None:
+        legacy_endpoint = data.get("endpoint")
+        if isinstance(legacy_endpoint, EndpointSpec):
+            data.pop("endpoint")
+            if "endpoints" not in data:
+                measurement = _measurement_from_legacy_endpoint(legacy_endpoint)
+                data["endpoints"] = [measurement] if measurement is not None else []
+            duration_h = _legacy_endpoint_time_to_hours(legacy_endpoint.time_value, legacy_endpoint.time_unit)
+            if duration_h is not None:
+                conditions = data.get("conditions")
+                if isinstance(conditions, ConditionSpec):
+                    if conditions.duration_h is None:
+                        data["conditions"] = conditions.model_copy(update={"duration_h": duration_h})
+                elif isinstance(conditions, dict):
+                    conditions = dict(conditions)
+                    conditions.setdefault("duration_h", duration_h)
+                    data["conditions"] = conditions
+                elif conditions is None:
+                    data["conditions"] = ConditionSpec(duration_h=duration_h)
+        super().__init__(**data)
+
+    def primary_endpoint(self) -> EndpointMeasurement | None:
+        """Return this record's endpoint selected by PR-C priority order."""
+
+        return primary_endpoint(self.endpoints)
 
 
 class ContentAccess(BaseModel):
@@ -157,7 +284,8 @@ class ContentAccess(BaseModel):
     available_formats: list[str] = Field(default_factory=list)
     access_urls: dict[str, str] = Field(default_factory=dict)
     local_paths: dict[str, str] = Field(default_factory=dict)
-    status: Literal["resolved", "downloaded", "unresolved", "error"] = "unresolved"
+    status: Literal["resolved", "downloaded", "success", "unresolved", "error"] = "unresolved"
+    backend: str = ""
     notes: list[str] = Field(default_factory=list)
 
 

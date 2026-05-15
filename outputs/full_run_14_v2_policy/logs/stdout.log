@@ -1,0 +1,16 @@
+Corpus rows: 1828
+Route decisions: 538
+Table records: 60
+Text records: 13
+Figure records: 7
+Final records evaluated: 75
+Actually verified: 10
+Final unresolved: 43
+Final rejected: 22
+Run report: outputs\full_run_14_v2_policy\report\run_report.md
+Failure taxonomy counts: {'insufficient_evidence': 54, 'ambiguous_api_concentration': 26, 'missing_area': 17, 'not_target_study_type': 9, 'missing_endpoint': 9, 'figure_digitization_failed': 5, 'not_target_api': 11, 'not_target_api_concentration': 10, 'not_target_device': 5, 'unit_normalization_failed': 1, 'missing_api_concentration': 1, 'percent_only': 2}
+Figure failure counts: {'triage_signals': {'recommended_route:skip': 2, 'digitizable:no': 2, 'why_not_digitizable:calibration_curve_not_target': 1, 'endpoint_curve_present:no': 2, 'ticks_readable:uncertain': 2, 'why_not_digitizable:figure_does_not_contain_endpoint_curves_related_to_ibuprofen': 1}, 'digitization_failure_counts': {'digitization_no_output': 6, 'fail_missing_axis_range': 1}, 'mapping_failure_counts': {'underconstrained_label_space_4_curves_1_labels': 4, 'underconstrained_label_space_3_curves_2_labels': 3, 'underconstrained_label_space_2_curves_1_labels': 2}}
+LLM adjudication rows: 20
+LLM adjudication summary: outputs\full_run_14_v2_policy\report\llm_adjudication_summary.csv
+Long-run summary: outputs\full_run_14_v2_policy\long_run\summary.json
+Long-run events: outputs\full_run_14_v2_policy\long_run\events.jsonl

@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-05-10T21:39:57.570232+00:00",
+  "dpi": 300,
+  "figure_size_inches": [
+    7,
+    3.5
+  ],
+  "files": {
+    "pdf": "outputs/phase1_step3/figure_step3_main.pdf",
+    "png": "outputs/phase1_step3/figure_step3_main.png"
+  },
+  "font_requested": "Arial",
+  "matplotlib_version": "3.10.3",
+  "palette": {
+    "blue": "#4477AA",
+    "grey": "#999999",
+    "orange": "#EE7733",
+    "red": "#CC3311"
+  }
+}

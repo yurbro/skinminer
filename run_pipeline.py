@@ -16,6 +16,13 @@ from access.resolve_content import resolve_content_batch
 from assembly.assemble_records import assemble_records
 from configs.run_profiles import DEFAULT_RUN_PROFILE, RUN_PROFILE_REGISTRY_VERSION, STAGE_MODEL_KEYS, get_run_profile, list_run_profiles
 from corpus.build_epmc import build_corpus
+from corpus.extract_pdf_metadata import (
+    PDF_METADATA_PROMPT_ASSET_ID,
+    PDF_METADATA_PROMPT_VERSION,
+    build_corpus_from_metadata,
+    extract_pdf_metadata,
+    read_pdf_input_csv,
+)
 from corpus.query_profiles import DEFAULT_QUERY_PROFILE, QUERY_PROFILE_REGISTRY_VERSION, get_query_profile, list_query_profiles
 from detection.router import ROUTER_PROMPT_ASSET_ID, ROUTER_PROMPT_VERSION, route_papers
 from extractors.common import has_local_pdf, has_structured_source
@@ -76,6 +83,7 @@ CONFIG_PATHS = [
     "policies/v3_any_ibuprofen_concentration.py",
     "policies/v4_accept_flux.py",
     "policies/__init__.py",
+    "corpus/extract_pdf_metadata.py",
     "corpus/query_profiles.py",
     "configs/run_profiles.py",
     "utils/llm_client.py",
@@ -88,6 +96,7 @@ PROMPT_ASSETS = {
     FIGURE_TRIAGE_PROMPT_ASSET_ID: FIGURE_TRIAGE_PROMPT_VERSION,
     FIGURE_VLM_PROMPT_ASSET_ID: FIGURE_VLM_PROMPT_VERSION,
     FIGURE_MAPPING_PROMPT_ASSET_ID: FIGURE_MAPPING_PROMPT_VERSION,
+    PDF_METADATA_PROMPT_ASSET_ID: PDF_METADATA_PROMPT_VERSION,
     ADJUDICATION_PROMPT_ASSET_ID: ADJUDICATION_PROMPT_VERSION,
 }
 
@@ -116,6 +125,55 @@ def _load_input_corpus(path: Path) -> list[dict]:
     if path.suffix.lower() == ".jsonl":
         return pd.read_json(path, lines=True).to_dict("records")
     return pd.read_csv(path).to_dict("records")
+
+
+def _build_user_pdf_corpus(
+    input_pdf_csv: Path,
+    *,
+    refresh_metadata: bool,
+    llm_provider: str,
+    model: str,
+) -> list[dict]:
+    pdf_rows = read_pdf_input_csv(input_pdf_csv)
+    metadata_records = [
+        extract_pdf_metadata(
+            row.local_pdf_path,
+            user_doi_hint=row.user_doi_hint,
+            user_title_hint=row.user_title_hint,
+            use_cache=not refresh_metadata,
+            llm_provider=llm_provider,
+            model=model,
+        )
+        for row in pdf_rows
+    ]
+    return build_corpus_from_metadata(metadata_records)
+
+
+def _build_user_upload_access_items(rows: list[dict]) -> list[ContentAccess]:
+    access_items: list[ContentAccess] = []
+    for row in rows:
+        doi = str(row.get("doi", "") or "").strip().lower()
+        title = str(row.get("title", "") or "").strip()
+        local_pdf_path = str(row.get("url", "") or "").strip()
+        paper_id = str(row.get("paper_id", "") or row.get("id", "") or make_paper_id(doi=doi, title=title, fallback=local_pdf_path))
+        if not local_pdf_path:
+            raise FileNotFoundError(f"User-upload row has no local PDF path for paper_id={paper_id}")
+        if not Path(local_pdf_path).exists():
+            raise FileNotFoundError(f"User-upload PDF does not exist for paper_id={paper_id}: {local_pdf_path}")
+        access_items.append(
+            ContentAccess(
+                paper_id=paper_id,
+                doi=doi,
+                title=title,
+                preferred_format="pdf",
+                available_formats=["pdf"],
+                local_paths={"pdf": local_pdf_path},
+                status="success",
+                backend="user_upload",
+                notes=["user_upload_pdf", "oa_resolution_skipped"],
+            )
+        )
+    return access_items
 
 
 def _find_existing_pdf(doi: str, pdf_dir: Path) -> str:
@@ -154,6 +212,7 @@ def _build_content_handles(triaged_rows: list[dict], access_items: list[ContentA
             access_urls=access_item.access_urls if access_item else {},
             local_paths=local_paths,
             status=access_item.status if access_item else ("downloaded" if local_paths else "unresolved"),
+            backend=access_item.backend if access_item else "",
             notes=list(access_item.notes) if access_item else [],
         )
     return handles
@@ -404,7 +463,10 @@ def _manifest_soft_resume_compatible(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Round 2 research-grade SkinMiner pipeline.")
-    parser.add_argument("--input-csv", type=Path, default=Path("data/corpus_ibuprofen.csv"))
+    input_group = parser.add_mutually_exclusive_group()
+    input_group.add_argument("--input-csv", type=Path, default=Path("data/corpus_ibuprofen.csv"))
+    input_group.add_argument("--input-pdf-csv", type=Path, default=None)
+    parser.add_argument("--refresh-metadata", action="store_true", help="Ignore user PDF metadata caches and re-extract them.")
     parser.add_argument("--build-corpus", action="store_true")
     parser.add_argument("--query", type=str, default=None)
     parser.add_argument("--query-profile", type=str, default=DEFAULT_QUERY_PROFILE)
@@ -461,6 +523,13 @@ def main() -> None:
     parser.add_argument("--long-run-mode", action="store_true")
     parser.add_argument("--long-run-log-every", type=int, default=25)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument(
+        "--stop-after-stage",
+        type=str,
+        choices=["router", "routing"],
+        default=None,
+        help="Stop after the router stage; intended for PR-B entry-point validation.",
+    )
     parser.add_argument("--with-llm-adjudication", action="store_true")
     parser.add_argument("--llm-adjudication-model", type=str, default=None)
     parser.add_argument("--llm-adjudication-limit", type=int, default=None)
@@ -474,6 +543,9 @@ def main() -> None:
         download_content=None,
     )
     args = parser.parse_args()
+    pdf_input_mode = args.input_pdf_csv is not None
+    if pdf_input_mode and args.build_corpus:
+        parser.error("--build-corpus cannot be used with --input-pdf-csv")
     llm_provider = LLMProvider.parse(args.llm_provider)
     args.llm_provider = llm_provider.value
 
@@ -513,8 +585,12 @@ def main() -> None:
     args.figure_vlm_model = stage_models["figure_vlm"]
     args.llm_adjudication_model = stage_models["llm_adjudicate"]
     query_profile = get_query_profile(args.query_profile)
-    effective_query = args.query or query_profile.query
-    query_source_label = f"custom_override:{query_profile.name}" if args.query else f"profile:{query_profile.name}"
+    if pdf_input_mode:
+        effective_query = "user_upload_pdf"
+        query_source_label = f"input_pdf_csv:{args.input_pdf_csv}"
+    else:
+        effective_query = args.query or query_profile.query
+        query_source_label = f"custom_override:{query_profile.name}" if args.query else f"profile:{query_profile.name}"
     output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
     policy = _build_policy(args.policy)
@@ -522,13 +598,20 @@ def main() -> None:
         eager_download_primary=args.download_content,
         auto_download_pdf_for_legacy=args.auto_pdf_download,
     )
-    effective_build_corpus, fallback_build_corpus = _resolve_corpus_mode(args.input_csv, args.build_corpus)
+    if pdf_input_mode:
+        effective_build_corpus, fallback_build_corpus = False, False
+    else:
+        effective_build_corpus, fallback_build_corpus = _resolve_corpus_mode(args.input_csv, args.build_corpus)
     corpus_csv_output: Path | None = None
-    if fallback_build_corpus:
+    if pdf_input_mode:
+        corpus_csv_output = output_dir / "corpus.csv"
+    elif fallback_build_corpus:
         corpus_csv_output = args.input_csv
     elif args.export_csv:
         corpus_csv_output = output_dir / "corpus.csv"
-    if effective_build_corpus and fallback_build_corpus:
+    if pdf_input_mode:
+        corpus_source_label = f"user_pdf_csv:{args.input_pdf_csv}"
+    elif effective_build_corpus and fallback_build_corpus:
         corpus_source_label = f"fallback_build:EuropePMC -> {args.input_csv}"
     elif effective_build_corpus:
         corpus_source_label = "explicit_build:EuropePMC"
@@ -536,13 +619,25 @@ def main() -> None:
         corpus_source_label = f"input_csv:{args.input_csv}"
     manifest_notes = [
         "Round 2 extractor standardization, verification, patching, and reporting pipeline.",
-        "OA-only; legacy extraction logic preserved inside modular wrappers.",
-        *content_strategy.notes,
+        (
+            "User-supplied PDF entry point; legacy extraction logic preserved inside modular wrappers."
+            if pdf_input_mode
+            else "OA-only; legacy extraction logic preserved inside modular wrappers."
+        ),
     ]
+    if pdf_input_mode:
+        manifest_notes.append(
+            "User-uploaded PDF mode enabled: metadata is extracted into sibling caches and access resolution is short-circuited to local PDFs."
+        )
+    else:
+        manifest_notes.extend(content_strategy.notes)
     if args.resume:
         manifest_notes.append("Resume mode enabled: completed stages may be skipped and iterative stages may continue from JSONL checkpoints.")
         manifest_notes.append("Resume now enforces run-signature consistency for the same output directory.")
-    manifest_input_paths = [str(args.input_csv)] if not effective_build_corpus else []
+    if pdf_input_mode:
+        manifest_input_paths = [str(args.input_pdf_csv)]
+    else:
+        manifest_input_paths = [str(args.input_csv)] if not effective_build_corpus else []
     if fallback_build_corpus:
         manifest_notes.append(f"Input corpus missing at {args.input_csv}; fell back to Europe PMC corpus build.")
         LOGGER.warning("Input corpus missing at %s; falling back to Europe PMC corpus build.", args.input_csv)
@@ -582,9 +677,12 @@ def main() -> None:
     resume_signature = build_resume_signature(
         {
             "pipeline_version": "round2_resume_v4",
+            "input_mode": "user_pdf_csv" if pdf_input_mode else "corpus_csv",
             "effective_build_corpus": effective_build_corpus,
             "fallback_build_corpus": fallback_build_corpus,
-            "input_csv": build_file_fingerprints([args.input_csv]),
+            "input_csv": build_file_fingerprints([args.input_csv]) if not pdf_input_mode else [],
+            "input_pdf_csv": build_file_fingerprints([args.input_pdf_csv]) if pdf_input_mode else [],
+            "refresh_metadata": bool(args.refresh_metadata),
             "run_profile": run_profile.name,
             "run_profile_registry_version": RUN_PROFILE_REGISTRY_VERSION,
             "figure_gate_mode": run_profile.figure_gate_mode,
@@ -683,6 +781,9 @@ def main() -> None:
     manifest.stage_metrics.update(
         {
             "resume_signature_digest": resume_signature["digest"],
+            "input_mode": "user_pdf_csv" if pdf_input_mode else "corpus_csv",
+            "input_pdf_csv": str(args.input_pdf_csv) if pdf_input_mode else "",
+            "refresh_metadata": bool(args.refresh_metadata),
             "query_profile": query_profile.name,
             "query_profile_version": query_profile.version,
             "query_profile_registry_version": QUERY_PROFILE_REGISTRY_VERSION,
@@ -736,7 +837,7 @@ def main() -> None:
             f"Corpus Source: {corpus_source_label}",
             f"Corpus Query: {query_source_label} @ {query_profile.version}",
             f"Run Profile: {run_profile.name}",
-            f"Content Strategy: {content_strategy.summary}",
+            f"Content Strategy: {'user_upload_pdf' if pdf_input_mode else content_strategy.summary}",
             f"Long Run: {long_run_monitor.summary_label if args.long_run_mode else 'off'}",
             f"Resume: {'on' if args.resume else 'off'}",
             f"Provider: {args.llm_provider} | Model: {args.model} | Stage Overrides: {_format_stage_model_overrides(args.model, stage_models)} | Policy: {policy.name} | Output: {output_dir}",
@@ -824,7 +925,9 @@ def main() -> None:
             return True
 
         corpus_stage_detail = "loading input corpus"
-        if effective_build_corpus and fallback_build_corpus:
+        if pdf_input_mode:
+            corpus_stage_detail = "extracting metadata from user PDF CSV"
+        elif effective_build_corpus and fallback_build_corpus:
             corpus_stage_detail = f"input missing -> fallback build ({args.input_csv})"
         elif effective_build_corpus:
             corpus_stage_detail = "building corpus from Europe PMC"
@@ -838,7 +941,19 @@ def main() -> None:
         else:
             start_stage("corpus", detail=corpus_stage_detail)
             try:
-                if effective_build_corpus:
+                if pdf_input_mode:
+                    corpus_rows = _build_user_pdf_corpus(
+                        args.input_pdf_csv,
+                        refresh_metadata=args.refresh_metadata,
+                        llm_provider=args.llm_provider,
+                        model=args.model,
+                    )
+                    if args.limit:
+                        corpus_rows = corpus_rows[: args.limit]
+                    write_jsonl(corpus_rows, output_dir / "corpus.jsonl")
+                    if corpus_csv_output:
+                        write_optional_csv(corpus_rows, corpus_csv_output)
+                elif effective_build_corpus:
                     corpus_rows = build_corpus(
                         query=effective_query,
                         max_results=args.max_results,
@@ -951,7 +1066,9 @@ def main() -> None:
             skip_stage("llm_triage", "disabled")
 
         access_stage_detail = "resolving OA access"
-        if content_strategy.auto_download_pdf_for_legacy and not content_strategy.eager_download_primary:
+        if pdf_input_mode:
+            access_stage_detail = "using user-uploaded local PDFs"
+        elif content_strategy.auto_download_pdf_for_legacy and not content_strategy.eager_download_primary:
             access_stage_detail = "resolving OA access + auto PDF for legacy extraction"
         elif content_strategy.eager_download_primary:
             access_stage_detail = "resolving OA access + downloading primary content"
@@ -969,6 +1086,7 @@ def main() -> None:
                 (
                     f"resume:resolved={access_counts.get('resolved', 0)} "
                     f"downloaded={access_counts.get('downloaded', 0)} "
+                    f"success={access_counts.get('success', 0)} "
                     f"unresolved={access_counts.get('unresolved', 0)} "
                     f"error={access_counts.get('error', 0)}"
                 ),
@@ -976,18 +1094,24 @@ def main() -> None:
         else:
             start_stage("access", total=len(triaged_rows), detail=access_stage_detail)
             try:
-                access_items = resolve_content_batch(
-                    triaged_rows,
-                    content_root="papers",
-                    download=content_strategy.eager_download_primary,
-                    require_legacy_pdf=content_strategy.auto_download_pdf_for_legacy,
-                    output_jsonl=output_dir / "content_access.jsonl",
-                    output_csv=(output_dir / "content_access.csv") if args.export_csv else None,
-                    progress_every=args.progress_every,
-                    checkpoint_every=args.access_checkpoint_every,
-                    progress_callback=stage_callback("access"),
-                    resume_jsonl=(output_dir / "content_access.jsonl") if args.resume else None,
-                )
+                if pdf_input_mode:
+                    access_items = _build_user_upload_access_items(triaged_rows)
+                    write_jsonl(access_items, output_dir / "content_access.jsonl")
+                    if args.export_csv:
+                        write_optional_csv([item.model_dump(mode="json") for item in access_items], output_dir / "content_access.csv")
+                else:
+                    access_items = resolve_content_batch(
+                        triaged_rows,
+                        content_root="papers",
+                        download=content_strategy.eager_download_primary,
+                        require_legacy_pdf=content_strategy.auto_download_pdf_for_legacy,
+                        output_jsonl=output_dir / "content_access.jsonl",
+                        output_csv=(output_dir / "content_access.csv") if args.export_csv else None,
+                        progress_every=args.progress_every,
+                        checkpoint_every=args.access_checkpoint_every,
+                        progress_callback=stage_callback("access"),
+                        resume_jsonl=(output_dir / "content_access.jsonl") if args.resume else None,
+                    )
                 access_counts = _count_access_statuses(access_items)
                 finish_stage(
                     "access",
@@ -996,6 +1120,7 @@ def main() -> None:
                     detail=(
                         f"resolved={access_counts.get('resolved', 0)} "
                         f"downloaded={access_counts.get('downloaded', 0)} "
+                        f"success={access_counts.get('success', 0)} "
                         f"unresolved={access_counts.get('unresolved', 0)} "
                         f"error={access_counts.get('error', 0)}"
                     ),
@@ -1050,6 +1175,25 @@ def main() -> None:
                 fail_stage("routing", exc)
                 raise
         manifest.stage_outputs["route_decisions"] = str(output_dir / "route_decisions.jsonl")
+        if args.stop_after_stage in {"router", "routing"}:
+            manifest.stage_metrics.update(
+                {
+                    "corpus_rows": len(corpus_rows),
+                    "rule_pass_rows": len(passed),
+                    "triaged_rows": len(triaged_rows),
+                    "access_items": len(access_items),
+                    "route_decisions": len(route_decisions),
+                    "stopped_after_stage": "routing",
+                }
+            )
+            write_manifest(manifest, output_dir / "run_manifest.jsonl")
+            print(f"Corpus rows: {len(corpus_rows)}")
+            print(f"Rule-pass rows: {len(passed)}")
+            print(f"Access items: {len(access_items)}")
+            print(f"Route decisions: {len(route_decisions)}")
+            print("Stopped after stage: routing")
+            print(f"Route decisions: {output_dir / 'route_decisions.jsonl'}")
+            return
 
         table_route_pairs = _pairs_from_route_decisions(
             route_decisions,

@@ -1,0 +1,13 @@
+{
+  "stage": "text_extract",
+  "completed": 0,
+  "total": 0,
+  "detail": "records=0",
+  "input_count": 0,
+  "output_count": 0,
+  "output_paths": [
+    "outputs\\e3_step2_openai_parity_smoke\\text_records.jsonl",
+    "outputs\\e3_step2_openai_parity_smoke\\text_raw.jsonl"
+  ],
+  "resume_signature_digest": "009441693465c187d15422ea272868aeadf93d6e"
+}

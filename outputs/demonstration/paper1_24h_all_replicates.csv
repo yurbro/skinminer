@@ -1,0 +1,151 @@
+﻿source,formulation_id,design_group,design_method,replicate,poloxamer_407_pct,ethanol_pct,propylene_glycol_pct,cumulative_amount_24h_ug_cm2
+Paper 1 (this study),Cf1,BBD,Box-Behnken design,1,30.0,20.0,15.0,184.17014925373138
+Paper 1 (this study),Cf1,BBD,Box-Behnken design,2,30.0,20.0,15.0,254.69582089552242
+Paper 1 (this study),Cf1,BBD,Box-Behnken design,3,30.0,20.0,15.0,205.4155223880597
+Paper 1 (this study),Cf1,BBD,Box-Behnken design,4,30.0,20.0,15.0,213.16328358208958
+Paper 1 (this study),Cf1,BBD,Box-Behnken design,5,30.0,20.0,15.0,217.1862686567164
+Paper 1 (this study),Cf2,BBD,Box-Behnken design,1,30.0,15.0,10.0,257.11223880597015
+Paper 1 (this study),Cf2,BBD,Box-Behnken design,2,30.0,15.0,10.0,250.97134328358212
+Paper 1 (this study),Cf2,BBD,Box-Behnken design,3,30.0,15.0,10.0,299.4292537313433
+Paper 1 (this study),Cf2,BBD,Box-Behnken design,4,30.0,15.0,10.0,221.35164179104478
+Paper 1 (this study),Cf2,BBD,Box-Behnken design,5,30.0,15.0,10.0,242.510149253731
+Paper 1 (this study),Cf3,BBD,Box-Behnken design,1,25.0,20.0,20.0,231.74238805970154
+Paper 1 (this study),Cf3,BBD,Box-Behnken design,2,25.0,20.0,20.0,135.3023880597015
+Paper 1 (this study),Cf3,BBD,Box-Behnken design,3,25.0,20.0,20.0,158.60059701492537
+Paper 1 (this study),Cf3,BBD,Box-Behnken design,4,25.0,20.0,20.0,197.65223880597017
+Paper 1 (this study),Cf3,BBD,Box-Behnken design,5,25.0,20.0,20.0,179.55134328358213
+Paper 1 (this study),Cf4,BBD,Box-Behnken design,1,25.0,15.0,15.0,194.0919402985075
+Paper 1 (this study),Cf4,BBD,Box-Behnken design,2,25.0,15.0,15.0,230.9131343283582
+Paper 1 (this study),Cf4,BBD,Box-Behnken design,3,25.0,15.0,15.0,147.2492537313433
+Paper 1 (this study),Cf4,BBD,Box-Behnken design,4,25.0,15.0,15.0,172.61641791044778
+Paper 1 (this study),Cf4,BBD,Box-Behnken design,5,25.0,15.0,15.0,149.195074626866
+Paper 1 (this study),Cf5,BBD,Box-Behnken design,1,25.0,10.0,20.0,256.96746268656716
+Paper 1 (this study),Cf5,BBD,Box-Behnken design,2,25.0,10.0,20.0,216.84835820895523
+Paper 1 (this study),Cf5,BBD,Box-Behnken design,3,25.0,10.0,20.0,417.34865671641796
+Paper 1 (this study),Cf5,BBD,Box-Behnken design,4,25.0,10.0,20.0,190.43701492537315
+Paper 1 (this study),Cf5,BBD,Box-Behnken design,5,25.0,10.0,20.0,270.627611940299
+Paper 1 (this study),Cf6,BBD,Box-Behnken design,1,25.0,20.0,10.0,250.27552238805973
+Paper 1 (this study),Cf6,BBD,Box-Behnken design,2,25.0,20.0,10.0,211.83880597014928
+Paper 1 (this study),Cf6,BBD,Box-Behnken design,3,25.0,20.0,10.0,174.03641791044777
+Paper 1 (this study),Cf6,BBD,Box-Behnken design,4,25.0,20.0,10.0,179.6340298507463
+Paper 1 (this study),Cf6,BBD,Box-Behnken design,5,25.0,20.0,10.0,215.62746268656716
+Paper 1 (this study),Cf7,BBD,Box-Behnken design,1,20.0,20.0,15.0,176.6340298507463
+Paper 1 (this study),Cf7,BBD,Box-Behnken design,2,20.0,20.0,15.0,209.6259701492538
+Paper 1 (this study),Cf7,BBD,Box-Behnken design,3,20.0,20.0,15.0,221.28746268656715
+Paper 1 (this study),Cf7,BBD,Box-Behnken design,4,20.0,20.0,15.0,172.40417910447763
+Paper 1 (this study),Cf7,BBD,Box-Behnken design,5,20.0,20.0,15.0,194.730895522388
+Paper 1 (this study),Cf8,BBD,Box-Behnken design,1,30.0,10.0,15.0,248.27074626865675
+Paper 1 (this study),Cf8,BBD,Box-Behnken design,2,30.0,10.0,15.0,132.90447761194034
+Paper 1 (this study),Cf8,BBD,Box-Behnken design,3,30.0,10.0,15.0,219.8471641791045
+Paper 1 (this study),Cf8,BBD,Box-Behnken design,4,30.0,10.0,15.0,244.1740298507463
+Paper 1 (this study),Cf8,BBD,Box-Behnken design,5,30.0,10.0,15.0,244.38029850746273
+Paper 1 (this study),Cf9,BBD,Box-Behnken design,1,20.0,15.0,10.0,225.2537313432836
+Paper 1 (this study),Cf9,BBD,Box-Behnken design,2,20.0,15.0,10.0,189.13194029850746
+Paper 1 (this study),Cf9,BBD,Box-Behnken design,3,20.0,15.0,10.0,126.83194029850748
+Paper 1 (this study),Cf9,BBD,Box-Behnken design,4,20.0,15.0,10.0,172.07582089552238
+Paper 1 (this study),Cf9,BBD,Box-Behnken design,5,20.0,15.0,10.0,217.51014925373136
+Paper 1 (this study),Cf10,BBD,Box-Behnken design,1,25.0,10.0,10.0,178.42477611940302
+Paper 1 (this study),Cf10,BBD,Box-Behnken design,2,25.0,10.0,10.0,173.93641791044777
+Paper 1 (this study),Cf10,BBD,Box-Behnken design,3,25.0,10.0,10.0,266.9325373134329
+Paper 1 (this study),Cf10,BBD,Box-Behnken design,4,25.0,10.0,10.0,194.02447761194034
+Paper 1 (this study),Cf10,BBD,Box-Behnken design,5,25.0,10.0,10.0,238.278358208955
+Paper 1 (this study),Cf11,BBD,Box-Behnken design,1,20.0,15.0,20.0,261.27671641791045
+Paper 1 (this study),Cf11,BBD,Box-Behnken design,2,20.0,15.0,20.0,215.58417910447764
+Paper 1 (this study),Cf11,BBD,Box-Behnken design,3,20.0,15.0,20.0,197.86626865671641
+Paper 1 (this study),Cf11,BBD,Box-Behnken design,4,20.0,15.0,20.0,213.21791044776123
+Paper 1 (this study),Cf11,BBD,Box-Behnken design,5,20.0,15.0,20.0,222.29014925373133
+Paper 1 (this study),Cf12,BBD,Box-Behnken design,1,30.0,15.0,20.0,187.5605970149254
+Paper 1 (this study),Cf12,BBD,Box-Behnken design,2,30.0,15.0,20.0,196.4808955223881
+Paper 1 (this study),Cf12,BBD,Box-Behnken design,3,30.0,15.0,20.0,219.79134328358208
+Paper 1 (this study),Cf12,BBD,Box-Behnken design,4,30.0,15.0,20.0,172.01880597014926
+Paper 1 (this study),Cf12,BBD,Box-Behnken design,5,30.0,15.0,20.0,147.45432835820895
+Paper 1 (this study),Cf13,BBD,Box-Behnken design,1,20.0,10.0,15.0,203.51402985074628
+Paper 1 (this study),Cf13,BBD,Box-Behnken design,2,20.0,10.0,15.0,241.98208955223882
+Paper 1 (this study),Cf13,BBD,Box-Behnken design,3,20.0,10.0,15.0,328.3185074626866
+Paper 1 (this study),Cf13,BBD,Box-Behnken design,4,20.0,10.0,15.0,236.96656716417914
+Paper 1 (this study),Cf13,BBD,Box-Behnken design,5,20.0,10.0,15.0,299.368805970149
+Paper 1 (this study),Cf14,BBD,Box-Behnken design,1,25.0,15.0,15.0,232.30925373134332
+Paper 1 (this study),Cf14,BBD,Box-Behnken design,2,25.0,15.0,15.0,186.27402985074627
+Paper 1 (this study),Cf14,BBD,Box-Behnken design,3,25.0,15.0,15.0,245.40059701492538
+Paper 1 (this study),Cf14,BBD,Box-Behnken design,4,25.0,15.0,15.0,222.60149253731345
+Paper 1 (this study),Cf14,BBD,Box-Behnken design,5,25.0,15.0,15.0,229.147164179104
+Paper 1 (this study),Cf15,BBD,Box-Behnken design,1,25.0,15.0,15.0,137.30776119402987
+Paper 1 (this study),Cf15,BBD,Box-Behnken design,2,25.0,15.0,15.0,150.9665671641791
+Paper 1 (this study),Cf15,BBD,Box-Behnken design,3,25.0,15.0,15.0,230.68
+Paper 1 (this study),Cf15,BBD,Box-Behnken design,4,25.0,15.0,15.0,227.27044776119405
+Paper 1 (this study),Cf15,BBD,Box-Behnken design,5,25.0,15.0,15.0,273.956567164179
+Paper 1 (this study),Cf16,LHS,Latin hypercube sampling,1,21.0,16.6,17.3,235.5737313432836
+Paper 1 (this study),Cf16,LHS,Latin hypercube sampling,2,21.0,16.6,17.3,214.45343283582088
+Paper 1 (this study),Cf16,LHS,Latin hypercube sampling,3,21.0,16.6,17.3,286.85880597014926
+Paper 1 (this study),Cf16,LHS,Latin hypercube sampling,4,21.0,16.6,17.3,254.86447761194032
+Paper 1 (this study),Cf16,LHS,Latin hypercube sampling,5,21.0,16.6,17.3,251.5408955223881
+Paper 1 (this study),Cf17,LHS,Latin hypercube sampling,1,21.3,20.0,10.6,307.9340298507463
+Paper 1 (this study),Cf17,LHS,Latin hypercube sampling,2,21.3,20.0,10.6,243.42746268656717
+Paper 1 (this study),Cf17,LHS,Latin hypercube sampling,3,21.3,20.0,10.6,304.22477611940303
+Paper 1 (this study),Cf17,LHS,Latin hypercube sampling,4,21.3,20.0,10.6,274.2710447761194
+Paper 1 (this study),Cf17,LHS,Latin hypercube sampling,5,21.3,20.0,10.6,286.43223880597014
+Paper 1 (this study),Cf18,LHS,Latin hypercube sampling,1,22.7,14.4,16.0,277.9185074626866
+Paper 1 (this study),Cf18,LHS,Latin hypercube sampling,2,22.7,14.4,16.0,192.3361194029851
+Paper 1 (this study),Cf18,LHS,Latin hypercube sampling,3,22.7,14.4,16.0,255.77074626865675
+Paper 1 (this study),Cf18,LHS,Latin hypercube sampling,4,22.7,14.4,16.0,284.80925373134335
+Paper 1 (this study),Cf18,LHS,Latin hypercube sampling,5,22.7,14.4,16.0,291.87343283582095
+Paper 1 (this study),Cf19,LHS,Latin hypercube sampling,1,23.5,17.9,18.1,203.3961194029851
+Paper 1 (this study),Cf19,LHS,Latin hypercube sampling,2,23.5,17.9,18.1,226.52985074626864
+Paper 1 (this study),Cf19,LHS,Latin hypercube sampling,3,23.5,17.9,18.1,256.3826865671642
+Paper 1 (this study),Cf19,LHS,Latin hypercube sampling,4,23.5,17.9,18.1,228.04149253731347
+Paper 1 (this study),Cf19,LHS,Latin hypercube sampling,5,23.5,17.9,18.1,214.40895522388067
+Paper 1 (this study),Cf20,LHS,Latin hypercube sampling,1,24.3,13.1,11.9,247.49164179104477
+Paper 1 (this study),Cf20,LHS,Latin hypercube sampling,2,24.3,13.1,11.9,259.8086567164179
+Paper 1 (this study),Cf20,LHS,Latin hypercube sampling,3,24.3,13.1,11.9,293.4322388059702
+Paper 1 (this study),Cf20,LHS,Latin hypercube sampling,4,24.3,13.1,11.9,248.46865671641788
+Paper 1 (this study),Cf20,LHS,Latin hypercube sampling,5,24.3,13.1,11.9,271.438955223881
+Paper 1 (this study),Cf21,LHS,Latin hypercube sampling,1,25.5,10.1,14.8,257.464776119403
+Paper 1 (this study),Cf21,LHS,Latin hypercube sampling,2,25.5,10.1,14.8,298.00328358208964
+Paper 1 (this study),Cf21,LHS,Latin hypercube sampling,3,25.5,10.1,14.8,306.69313432835827
+Paper 1 (this study),Cf21,LHS,Latin hypercube sampling,4,25.5,10.1,14.8,249.2179104477612
+Paper 1 (this study),Cf21,LHS,Latin hypercube sampling,5,25.5,10.1,14.8,307.9382089552239
+Paper 1 (this study),Cf22,LHS,Latin hypercube sampling,1,26.6,11.6,16.8,296.30656716417917
+Paper 1 (this study),Cf22,LHS,Latin hypercube sampling,2,26.6,11.6,16.8,249.77343283582093
+Paper 1 (this study),Cf22,LHS,Latin hypercube sampling,3,26.6,11.6,16.8,228.2376119402985
+Paper 1 (this study),Cf22,LHS,Latin hypercube sampling,4,26.6,11.6,16.8,289.19164179104484
+Paper 1 (this study),Cf22,LHS,Latin hypercube sampling,5,26.6,11.6,16.8,300.1373134328358
+Paper 1 (this study),Cf23,LHS,Latin hypercube sampling,1,27.2,18.7,13.1,235.45223880597018
+Paper 1 (this study),Cf23,LHS,Latin hypercube sampling,2,27.2,18.7,13.1,157.7582089552239
+Paper 1 (this study),Cf23,LHS,Latin hypercube sampling,3,27.2,18.7,13.1,249.86119402985076
+Paper 1 (this study),Cf23,LHS,Latin hypercube sampling,4,27.2,18.7,13.1,265.4817910447762
+Paper 1 (this study),Cf23,LHS,Latin hypercube sampling,5,27.2,18.7,13.1,272.686268656716
+Paper 1 (this study),Cf24,LHS,Latin hypercube sampling,1,28.3,15.5,12.7,323.5692537313433
+Paper 1 (this study),Cf24,LHS,Latin hypercube sampling,2,28.3,15.5,12.7,279.80865671641794
+Paper 1 (this study),Cf24,LHS,Latin hypercube sampling,3,28.3,15.5,12.7,266.59641791044777
+Paper 1 (this study),Cf24,LHS,Latin hypercube sampling,4,28.3,15.5,12.7,288.34597014925373
+Paper 1 (this study),Cf24,LHS,Latin hypercube sampling,5,28.3,15.5,12.7,225.8516417910448
+Paper 1 (this study),Cf25,LHS,Latin hypercube sampling,1,29.2,12.9,19.6,239.3137313432836
+Paper 1 (this study),Cf25,LHS,Latin hypercube sampling,2,29.2,12.9,19.6,236.72358208955225
+Paper 1 (this study),Cf25,LHS,Latin hypercube sampling,3,29.2,12.9,19.6,287.1659701492537
+Paper 1 (this study),Cf25,LHS,Latin hypercube sampling,4,29.2,12.9,19.6,297.92208955223884
+Paper 1 (this study),Cf25,LHS,Latin hypercube sampling,5,29.2,12.9,19.6,247.7402985074627
+Paper 1 (this study),BO1,BO,Bayesian optimization,1,21.17,19.95,10.59,251.14865671641795
+Paper 1 (this study),BO1,BO,Bayesian optimization,2,21.17,19.95,10.59,206.95731343283586
+Paper 1 (this study),BO1,BO,Bayesian optimization,3,21.17,19.95,10.59,210.7056716417911
+Paper 1 (this study),BO1,BO,Bayesian optimization,4,21.17,19.95,10.59,212.48597014925375
+Paper 1 (this study),BO1,BO,Bayesian optimization,5,21.17,19.95,10.59,209.6182089552239
+Paper 1 (this study),BO2,BO,Bayesian optimization,1,25.22,19.41,19.29,195.59104477611945
+Paper 1 (this study),BO2,BO,Bayesian optimization,2,25.22,19.41,19.29,183.7802985074627
+Paper 1 (this study),BO2,BO,Bayesian optimization,3,25.22,19.41,19.29,150.74119402985076
+Paper 1 (this study),BO2,BO,Bayesian optimization,4,25.22,19.41,19.29,153.93940298507465
+Paper 1 (this study),BO2,BO,Bayesian optimization,5,25.22,19.41,19.29,157.48268656716422
+Paper 1 (this study),BO3,BO,Bayesian optimization,1,26.06,11.99,15.7,247.364776119403
+Paper 1 (this study),BO3,BO,Bayesian optimization,2,26.06,11.99,15.7,206.42626865671642
+Paper 1 (this study),BO3,BO,Bayesian optimization,3,26.06,11.99,15.7,251.84925373134334
+Paper 1 (this study),BO3,BO,Bayesian optimization,4,26.06,11.99,15.7,200.18597014925373
+Paper 1 (this study),BO3,BO,Bayesian optimization,5,26.06,11.99,15.7,210.3023880597015
+Paper 1 (this study),BO4,BO,Bayesian optimization,1,20.95,19.44,12.14,278.014328358209
+Paper 1 (this study),BO4,BO,Bayesian optimization,2,20.95,19.44,12.14,253.40686567164178
+Paper 1 (this study),BO4,BO,Bayesian optimization,3,20.95,19.44,12.14,303.02477611940304
+Paper 1 (this study),BO4,BO,Bayesian optimization,4,20.95,19.44,12.14,247.6653731343284
+Paper 1 (this study),BO4,BO,Bayesian optimization,5,20.95,19.44,12.14,278.2002985074627
+Paper 1 (this study),OPT1,OPT,Final optimum,1,20.0,20.0,10.0,241.17671641791048
+Paper 1 (this study),OPT1,OPT,Final optimum,2,20.0,20.0,10.0,214.27611940298507
+Paper 1 (this study),OPT1,OPT,Final optimum,3,20.0,20.0,10.0,219.3185074626866
+Paper 1 (this study),OPT1,OPT,Final optimum,4,20.0,20.0,10.0,224.34029850746273
+Paper 1 (this study),OPT1,OPT,Final optimum,5,20.0,20.0,10.0,315.13731343283587

@@ -1,0 +1,12 @@
+{
+    "stage":  "routing",
+    "completed":  529,
+    "total":  529,
+    "detail":  "figure=24 mixed=6 table=13 text=9 unresolved=477",
+    "input_count":  529,
+    "output_count":  529,
+    "output_paths":  [
+                         "outputs\\\\experiment_E4_cv_only\\route_decisions.jsonl"
+                     ],
+    "resume_signature_digest":  "045100982d6bea38bbe93bc78f89c363d1b17f63"
+}

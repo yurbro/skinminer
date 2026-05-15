@@ -1,0 +1,11 @@
+﻿route,status,full_run_15,full_run_16,delta
+figure,rejected,13,23,10
+figure,unresolved,49,49,0
+figure,verified,9,1,-8
+mixed,rejected,19,20,1
+mixed,unresolved,49,65,16
+mixed,verified,1,0,-1
+table,rejected,29,16,-13
+table,unresolved,60,58,-2
+text,rejected,1,0,-1
+text,unresolved,3,7,4

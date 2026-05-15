@@ -1,0 +1,16 @@
+Corpus rows: 1828
+Route decisions: 552
+Table records: 70
+Text records: 11
+Figure records: 4
+Final records evaluated: 74
+Actually verified: 14
+Final unresolved: 37
+Final rejected: 23
+Run report: outputs\experiment_E8_relaxed_scope\report\run_report.md
+Failure taxonomy counts: {'insufficient_evidence': 54, 'missing_area': 14, 'missing_endpoint': 4, 'figure_digitization_failed': 2, 'not_target_api': 14, 'not_target_api_concentration': 9, 'percent_only': 7, 'not_target_study_type': 7, 'not_target_device': 3, 'unit_normalization_failed': 1, 'missing_endpoint_time': 1}
+Figure failure counts: {'triage_signals': {'recommended_route:skip': 3, 'digitizable:no': 3, 'why_not_digitizable:calibration_curve_not_target': 1, 'ticks_readable:uncertain': 5, 'endpoint_curve_present:no': 4, 'why_not_digitizable:graph_does_not_depict_mean_sem_values_over_a_concentration_range_for_ibuprofen_i': 1, 'why_not_digitizable:no_curves_are_present_panels_show_sem_images_only': 1}, 'digitization_failure_counts': {'digitization_no_output': 8}, 'mapping_failure_counts': {'underconstrained_label_space_2_curves_1_labels': 2}}
+LLM adjudication rows: 9
+LLM adjudication summary: outputs\experiment_E8_relaxed_scope\report\llm_adjudication_summary.csv
+Long-run summary: outputs\experiment_E8_relaxed_scope\long_run\summary.json
+Long-run events: outputs\experiment_E8_relaxed_scope\long_run\events.jsonl

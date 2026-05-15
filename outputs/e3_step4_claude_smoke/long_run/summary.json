@@ -1,0 +1,253 @@
+{
+  "run_id": "run_51c573a62eee",
+  "status": "completed",
+  "started_at_utc": "2026-04-16T19:50:35.604283+00:00",
+  "finished_at_utc": "2026-04-16T19:52:20.054781+00:00",
+  "elapsed_seconds": 104.451,
+  "active_stage": "",
+  "last_error": null,
+  "llm_usage": {
+    "detection.router": {
+      "model_name": "claude-sonnet-4-6",
+      "requests": 1,
+      "estimated_requests": 0,
+      "input_tokens": 5205,
+      "output_tokens": 827,
+      "total_tokens": 6032
+    },
+    "extractors.table": {
+      "model_name": "claude-sonnet-4-6",
+      "requests": 1,
+      "estimated_requests": 0,
+      "input_tokens": 5482,
+      "output_tokens": 12000,
+      "total_tokens": 17482
+    }
+  },
+  "llm_reliability": {
+    "detection.router": {
+      "model_name": "claude-sonnet-4-6",
+      "requests": 1,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "extractors.table": {
+      "model_name": "claude-sonnet-4-6",
+      "requests": 1,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    }
+  },
+  "stages": {
+    "corpus": {
+      "label": "Corpus",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-16T19:50:35.636845+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:loaded rows=1"
+    },
+    "rule_filter": {
+      "label": "Rule Triage",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-16T19:50:35.654449+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:pass=1 fail=0"
+    },
+    "llm_triage": {
+      "label": "LLM Triage",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-16T19:50:35.673402+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:kept=1"
+    },
+    "access": {
+      "label": "Content Access",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-16T19:50:35.689453+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "resume:resolved=0 downloaded=1 unresolved=0 error=0"
+    },
+    "routing": {
+      "label": "Evidence Routing",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:50:35.692035+00:00",
+      "finished_at_utc": "2026-04-16T19:50:55.885712+00:00",
+      "elapsed_seconds": 20.194,
+      "completed": 1,
+      "total": 1,
+      "current_item": "",
+      "detail": "table=1"
+    },
+    "table_extract": {
+      "label": "Table Extract",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:50:55.888552+00:00",
+      "finished_at_utc": "2026-04-16T19:52:18.299648+00:00",
+      "elapsed_seconds": 82.411,
+      "completed": 1,
+      "total": 1,
+      "current_item": "",
+      "detail": "records=24"
+    },
+    "text_extract": {
+      "label": "Text Extract",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:18.302886+00:00",
+      "finished_at_utc": "2026-04-16T19:52:18.312295+00:00",
+      "elapsed_seconds": 0.009,
+      "completed": 0,
+      "total": 0,
+      "current_item": "",
+      "detail": "records=0"
+    },
+    "figure_extract": {
+      "label": "Figure Extract",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:18.316056+00:00",
+      "finished_at_utc": "2026-04-16T19:52:18.326730+00:00",
+      "elapsed_seconds": 0.011,
+      "completed": 0,
+      "total": 0,
+      "current_item": "",
+      "detail": "records=0"
+    },
+    "assembly": {
+      "label": "Assembly",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:18.330718+00:00",
+      "finished_at_utc": "2026-04-16T19:52:18.429084+00:00",
+      "elapsed_seconds": 0.098,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "assembled=24"
+    },
+    "verify_initial": {
+      "label": "Verify Initial",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:18.433344+00:00",
+      "finished_at_utc": "2026-04-16T19:52:19.002972+00:00",
+      "elapsed_seconds": 0.57,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "unresolved=24"
+    },
+    "patch_api": {
+      "label": "Patch API Conc",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:19.006133+00:00",
+      "finished_at_utc": "2026-04-16T19:52:19.304061+00:00",
+      "elapsed_seconds": 0.298,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "patch_endpoint": {
+      "label": "Patch Endpoint",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:19.307966+00:00",
+      "finished_at_utc": "2026-04-16T19:52:19.505854+00:00",
+      "elapsed_seconds": 0.198,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "patch_time": {
+      "label": "Patch End Time",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:19.510157+00:00",
+      "finished_at_utc": "2026-04-16T19:52:19.608336+00:00",
+      "elapsed_seconds": 0.098,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "patch_area": {
+      "label": "Patch Area",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:19.612857+00:00",
+      "finished_at_utc": "2026-04-16T19:52:19.685467+00:00",
+      "elapsed_seconds": 0.073,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "verify_final": {
+      "label": "Verify Final",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:19.688559+00:00",
+      "finished_at_utc": "2026-04-16T19:52:19.993228+00:00",
+      "elapsed_seconds": 0.305,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "unresolved=24"
+    },
+    "llm_adjudicate": {
+      "label": "LLM Adjudicate",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-16T19:52:19.997997+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "disabled"
+    },
+    "report": {
+      "label": "Run Report",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:52:20.002130+00:00",
+      "finished_at_utc": "2026-04-16T19:52:20.051848+00:00",
+      "elapsed_seconds": 0.05,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "path=outputs\\e3_step4_claude_smoke\\report\\run_report.md"
+    }
+  },
+  "command": "run_pipeline.py --input-csv outputs\\e3_step2_single_paper.csv --llm-provider anthropic --policy v1 --enable-figure --export-csv --long-run-mode --output-dir outputs\\e3_step4_claude_smoke --progress-every 1 --access-checkpoint-every 1 --long-run-log-every 1 --no-status-panel --resume"
+}

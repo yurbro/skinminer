@@ -1,0 +1,32 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.4",
+  "parsed_success": true,
+  "parsed": {
+    "24h": 118.4,
+    "48h": 201.7,
+    "72h": 268.9
+  },
+  "raw_response": "{\"24h\": 118.4, \"48h\": 201.7, \"72h\": 268.9}",
+  "attempts": [
+    {
+      "attempt": 0,
+      "text": "{\"24h\": 118.4, \"48h\": 201.7, \"72h\": 268.9}",
+      "parsed": {
+        "24h": 118.4,
+        "48h": 201.7,
+        "72h": 268.9
+      },
+      "input_tokens": 151,
+      "output_tokens": 33,
+      "total_tokens": 184,
+      "error": null
+    }
+  ],
+  "input_tokens": 151,
+  "output_tokens": 33,
+  "total_tokens": 184,
+  "error": null,
+  "cost_usd_estimate": 0.0042450000000000005,
+  "cost_rate_note": "configured estimate: input $15/M tokens, output $60/M tokens"
+}

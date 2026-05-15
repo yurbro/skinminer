@@ -1,0 +1,12 @@
+{
+  "stage": "patch_api",
+  "completed": 3,
+  "total": 3,
+  "detail": "applied=0",
+  "input_count": 3,
+  "output_count": 3,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_route\\patched_api_concentration.jsonl"
+  ],
+  "resume_signature_digest": "9f82c7c592e021911b14df01f8ea1bf13e3d5b0d"
+}

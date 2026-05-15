@@ -1,0 +1,7 @@
+scenario,target,min_N
+A,R2 > 0,8.0
+A,R2 > 0.5,
+A,Accuracy >= 0.9,15.0
+B,R2 > 0,8.0
+B,R2 > 0.5,
+B,Accuracy >= 0.9,15.0

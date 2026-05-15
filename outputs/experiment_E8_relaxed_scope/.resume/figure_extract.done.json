@@ -1,0 +1,17 @@
+{
+  "stage": "figure_extract",
+  "completed": 19,
+  "total": 19,
+  "detail": "records=4",
+  "input_count": 19,
+  "output_count": 4,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\figure_records.jsonl",
+    "outputs\\experiment_E8_relaxed_scope\\figure_triage.jsonl",
+    "outputs\\experiment_E8_relaxed_scope\\figure_curves.jsonl",
+    "outputs\\experiment_E8_relaxed_scope\\figure_endpoints.jsonl",
+    "outputs\\experiment_E8_relaxed_scope\\figure_vlm_readings.jsonl",
+    "outputs\\experiment_E8_relaxed_scope\\figure_curve_map.jsonl"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

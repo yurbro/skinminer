@@ -1,0 +1,16 @@
+Corpus rows: 1828
+Route decisions: 529
+Table records: 64
+Text records: 11
+Figure records: 10
+Final records evaluated: 80
+Actually verified: 4
+Final unresolved: 48
+Final rejected: 28
+Run report: outputs\experiment_E4_cv_only\report\run_report.md
+Failure taxonomy counts: {'insufficient_evidence': 57, 'ambiguous_api_concentration': 45, 'not_target_api': 16, 'percent_only': 6, 'missing_area': 15, 'missing_endpoint': 11, 'figure_digitization_failed': 6, 'not_target_study_type': 13, 'not_target_api_concentration': 8, 'unit_normalization_failed': 3, 'not_target_device': 3, 'missing_api_concentration': 1, 'missing_endpoint_time': 2}
+Figure failure counts: {'triage_signals': {'recommended_route:skip': 2, 'digitizable:no': 2, 'why_not_digitizable:calibration_curve_not_target': 1, 'endpoint_curve_present:no': 5, 'ticks_readable:uncertain': 4, 'why_not_digitizable:the_figure_does_not_contain_any_endpoint_curves_related_to_ibuprofen': 1}, 'digitization_failure_counts': {'digitization_no_output': 3, 'fail_missing_axis_range': 4}, 'mapping_failure_counts': {'underconstrained_label_space_5_curves_4_labels': 5, 'underconstrained_label_space_6_curves_5_labels': 6, 'underconstrained_label_space_6_curves_2_labels': 6, 'underconstrained_label_space_4_curves_2_labels': 4, 'underconstrained_label_space_3_curves_2_labels': 3}}
+LLM adjudication rows: 33
+LLM adjudication summary: outputs\experiment_E4_cv_only\report\llm_adjudication_summary.csv
+Long-run summary: outputs\experiment_E4_cv_only\long_run\summary.json
+Long-run events: outputs\experiment_E4_cv_only\long_run\events.jsonl

@@ -1,0 +1,507 @@
+{
+  "mode": "gold_audit_csv",
+  "total_rows": 71,
+  "unique_papers": 23,
+  "overall": {
+    "tp": 7,
+    "fp": 0,
+    "fn": 7,
+    "tn": 57,
+    "predicted_positive": 7,
+    "gold_positive": 14,
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1": 0.6666666666666666
+  },
+  "by_status": {
+    "verified": {
+      "count": 7,
+      "gold_keep_yes": 7,
+      "gold_keep_no": 0,
+      "yes_rate": 1.0
+    },
+    "unresolved": {
+      "count": 58,
+      "gold_keep_yes": 7,
+      "gold_keep_no": 51,
+      "yes_rate": 0.1206896551724138
+    },
+    "rejected": {
+      "count": 6,
+      "gold_keep_yes": 0,
+      "gold_keep_no": 6,
+      "yes_rate": 0.0
+    }
+  },
+  "by_route": {
+    "table": {
+      "count": 18,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 18,
+      "predicted_positive": 0,
+      "gold_positive": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "text": {
+      "count": 7,
+      "tp": 0,
+      "fp": 0,
+      "fn": 3,
+      "tn": 4,
+      "predicted_positive": 0,
+      "gold_positive": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "mixed": {
+      "count": 18,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 18,
+      "predicted_positive": 0,
+      "gold_positive": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "figure": {
+      "count": 28,
+      "tp": 7,
+      "fp": 0,
+      "fn": 4,
+      "tn": 17,
+      "predicted_positive": 7,
+      "gold_positive": 11,
+      "precision": 1.0,
+      "recall": 0.6363636363636364,
+      "f1": 0.7777777777777778
+    }
+  },
+  "route_status": {
+    "table": {
+      "verified_keep_yes": 0,
+      "verified_keep_no": 0,
+      "unresolved_keep_yes": 0,
+      "unresolved_keep_no": 13
+    },
+    "text": {
+      "verified_keep_yes": 0,
+      "verified_keep_no": 0,
+      "unresolved_keep_yes": 3,
+      "unresolved_keep_no": 4
+    },
+    "mixed": {
+      "verified_keep_yes": 0,
+      "verified_keep_no": 0,
+      "unresolved_keep_yes": 0,
+      "unresolved_keep_no": 18
+    },
+    "figure": {
+      "verified_keep_yes": 7,
+      "verified_keep_no": 0,
+      "unresolved_keep_yes": 4,
+      "unresolved_keep_no": 16
+    }
+  },
+  "dimension_pass_rates": {
+    "gold_target_api_ok": {
+      "yes": 65,
+      "no": 6,
+      "uncertain": 0,
+      "approximate": 0,
+      "n_a": 0,
+      "pass_rate": 0.9154929577464789
+    },
+    "gold_5pct_ww_ok": {
+      "yes": 14,
+      "no": 57,
+      "uncertain": 0,
+      "approximate": 0,
+      "n_a": 0,
+      "pass_rate": 0.19718309859154928
+    },
+    "gold_franz_ok": {
+      "yes": 38,
+      "no": 33,
+      "uncertain": 0,
+      "approximate": 0,
+      "n_a": 0,
+      "pass_rate": 0.5352112676056338
+    },
+    "gold_ivpt_ivrt_ok": {
+      "yes": 38,
+      "no": 33,
+      "uncertain": 0,
+      "approximate": 0,
+      "n_a": 0,
+      "pass_rate": 0.5352112676056338
+    },
+    "gold_amount_endpoint_ok": {
+      "yes": 39,
+      "no": 32,
+      "uncertain": 0,
+      "approximate": 0,
+      "n_a": 0,
+      "pass_rate": 0.5492957746478874
+    },
+    "gold_endpoint_time_ok": {
+      "yes": 41,
+      "no": 30,
+      "uncertain": 0,
+      "approximate": 0,
+      "n_a": 0,
+      "pass_rate": 0.5774647887323944
+    },
+    "gold_endpoint_value_correct": {
+      "yes": 9,
+      "no": 62,
+      "uncertain": 0,
+      "approximate": 0,
+      "n_a": 0,
+      "pass_rate": 0.1267605633802817
+    },
+    "gold_area_ok": {
+      "yes": 25,
+      "no": 46,
+      "uncertain": 0,
+      "approximate": 0,
+      "n_a": 0,
+      "pass_rate": 0.352112676056338
+    }
+  },
+  "false_negative_rows": [
+    {
+      "record_id": "record_47710103a12d",
+      "paper_id": "paper_b451e1b601ac",
+      "doi": "10.1016/j.ejpb.2020.05.013",
+      "route": "text",
+      "failure_reasons": [
+        "insufficient_evidence"
+      ],
+      "scope_tags": [
+        "recoverable_unresolved",
+        "recoverable_support_gap"
+      ],
+      "all_main_scope_yes": true,
+      "gold_notes": "conclusion: no; evidence: section 2.2.6 and Fig. 11(a); Reason: the area is 3.14 cm^2, endpoint was extracted 261.17059 μg, but the paper states approximately 200 μg/cm². "
+    },
+    {
+      "record_id": "record_cc84e1bf6e4e",
+      "paper_id": "paper_b451e1b601ac",
+      "doi": "10.1016/j.ejpb.2020.05.013",
+      "route": "text",
+      "failure_reasons": [
+        "insufficient_evidence"
+      ],
+      "scope_tags": [
+        "recoverable_unresolved",
+        "recoverable_support_gap"
+      ],
+      "all_main_scope_yes": true,
+      "gold_notes": "conclusion: no; evidence: section 2.2.6 and Fig. 11(a); Reason: the area is 3.14 cm^2, endpoint was extracted 261.17059 μg, but the paper states approximately 200 μg/cm²."
+    },
+    {
+      "record_id": "record_e04ec91b3e26",
+      "paper_id": "paper_b451e1b601ac",
+      "doi": "10.1016/j.ejpb.2020.05.013",
+      "route": "text",
+      "failure_reasons": [
+        "insufficient_evidence"
+      ],
+      "scope_tags": [
+        "recoverable_unresolved",
+        "recoverable_support_gap"
+      ],
+      "all_main_scope_yes": true,
+      "gold_notes": "conclusion: no; evidence: section 2.2.6 and Fig. 11(a); Reason: the area is 3.14 cm^2, endpoint was extracted 261.17059 μg, but the paper states approximately 200 μg/cm²."
+    },
+    {
+      "record_id": "record_62962b5f0280",
+      "paper_id": "paper_85f231cdccef",
+      "doi": "10.1208/s12249-019-1584-8",
+      "route": "figure",
+      "failure_reasons": [
+        "not_target_api_concentration"
+      ],
+      "scope_tags": [
+        "useful_but_out_of_scope",
+        "useful_api_concentration_out_of_scope"
+      ],
+      "all_main_scope_yes": true,
+      "gold_notes": "conclusion: yes; evidence: Fig.3a; Reason: the api_concentration was extracted as 1% w/w. the paper states 5 % w/w in Table I, diffusion area is 1.6 cm^2."
+    },
+    {
+      "record_id": "record_96e92dcd41dd",
+      "paper_id": "paper_85f231cdccef",
+      "doi": "10.1208/s12249-019-1584-8",
+      "route": "figure",
+      "failure_reasons": [
+        "not_target_api_concentration"
+      ],
+      "scope_tags": [
+        "useful_but_out_of_scope",
+        "useful_api_concentration_out_of_scope"
+      ],
+      "all_main_scope_yes": true,
+      "gold_notes": "conclusion: yes; evidence: Fig.3a; Reason: the api_concentration was extracted as 1% w/w. the paper states 5 % w/w in Table I, diffusion area is 1.6 cm^3."
+    },
+    {
+      "record_id": "record_c3fdc7aafe21",
+      "paper_id": "paper_85f231cdccef",
+      "doi": "10.1208/s12249-019-1584-8",
+      "route": "figure",
+      "failure_reasons": [
+        "not_target_api_concentration"
+      ],
+      "scope_tags": [
+        "useful_but_out_of_scope",
+        "useful_api_concentration_out_of_scope"
+      ],
+      "all_main_scope_yes": true,
+      "gold_notes": "conclusion: yes; evidence: Fig.3a; Reason: the api_concentration was extracted as 1% w/w. the paper states 5 % w/w in Table I, diffusion area is 1.6 cm^4."
+    },
+    {
+      "record_id": "record_c846ed69a806",
+      "paper_id": "paper_85f231cdccef",
+      "doi": "10.1208/s12249-019-1584-8",
+      "route": "figure",
+      "failure_reasons": [
+        "not_target_api_concentration"
+      ],
+      "scope_tags": [
+        "useful_but_out_of_scope",
+        "useful_api_concentration_out_of_scope"
+      ],
+      "all_main_scope_yes": true,
+      "gold_notes": "conclusion: no; evidence: Fig.3a; Reason: endpoint is not correct by extraction, the api_concentration was extracted as 1% w/w. the paper states 5 % w/w in Table I, diffusion area is 1.6 cm^5."
+    }
+  ],
+  "false_negative_failure_counts": {
+    "insufficient_evidence": 3,
+    "not_target_api_concentration": 4
+  },
+  "false_positive_rows": [],
+  "false_positive_failure_dimensions": {},
+  "rejected_rows": [
+    {
+      "record_id": "record_ad27c13dbfc5",
+      "paper_id": "paper_6d7ce6948405",
+      "doi": "10.1002/14651858.cd001177.pub2",
+      "gold_keep_record": "no",
+      "gold_notes": "conclusion: no; Evidence: no; Reason: this paper is out of scope, it didn't use the standard experiments for test, even it's a review paper."
+    },
+    {
+      "record_id": "record_8e1fffe4c0d8",
+      "paper_id": "paper_cceb8131dfed",
+      "doi": "10.1016/j.ijpharm.2019.118975",
+      "gold_keep_record": "no",
+      "gold_notes": "conclusion: no; evidence: Fig. 6 and Table 5, area states 0.636cm^2 in section \"2.13 In vitro skin permeation study\", concentration states in Table 1."
+    },
+    {
+      "record_id": "record_e3dfbeb3c6e6",
+      "paper_id": "paper_cceb8131dfed",
+      "doi": "10.1016/j.ijpharm.2019.118975",
+      "gold_keep_record": "no",
+      "gold_notes": "conclusion: no; evidence: Fig. 6 and Table 5, area states 0.636cm^2 in section \"2.13 In vitro skin permeation study\", concentration states in Table 1."
+    },
+    {
+      "record_id": "record_4bf2d137203c",
+      "paper_id": "paper_5101cbd7e8bb",
+      "doi": "10.1038/s41598-020-65845-w",
+      "gold_keep_record": "no",
+      "gold_notes": "conclusion: no; Evidence: no; Reason: this paper is out of scope, it didn't use the standard experiments for test."
+    },
+    {
+      "record_id": "record_80b4061123c9",
+      "paper_id": "paper_c400793e914a",
+      "doi": "10.1186/s12951-020-00718-y",
+      "gold_keep_record": "no",
+      "gold_notes": "conclusion: no; evidence: Fig. 9; reason: it's out of scope and without experiment description."
+    },
+    {
+      "record_id": "record_227806162423",
+      "paper_id": "paper_12ae56196f6e",
+      "doi": "10.1371/journal.pone.0118536",
+      "gold_keep_record": "no",
+      "gold_notes": "conclusion: no; evidence: no; reason: it's out of scope."
+    }
+  ],
+  "recoverable_failure_rates": {
+    "insufficient_evidence": {
+      "count": 54,
+      "gold_keep_yes": 3,
+      "recoverable_rate": 0.05555555555555555
+    },
+    "ambiguous_api_concentration": {
+      "count": 12,
+      "gold_keep_yes": 0,
+      "recoverable_rate": 0.0
+    },
+    "missing_area": {
+      "count": 6,
+      "gold_keep_yes": 0,
+      "recoverable_rate": 0.0
+    },
+    "unit_normalization_failed": {
+      "count": 2,
+      "gold_keep_yes": 0,
+      "recoverable_rate": 0.0
+    },
+    "missing_api_concentration": {
+      "count": 16,
+      "gold_keep_yes": 0,
+      "recoverable_rate": 0.0
+    },
+    "not_target_api_concentration": {
+      "count": 8,
+      "gold_keep_yes": 4,
+      "recoverable_rate": 0.5
+    },
+    "missing_endpoint": {
+      "count": 6,
+      "gold_keep_yes": 0,
+      "recoverable_rate": 0.0
+    },
+    "missing_endpoint_time": {
+      "count": 2,
+      "gold_keep_yes": 0,
+      "recoverable_rate": 0.0
+    },
+    "percent_only": {
+      "count": 3,
+      "gold_keep_yes": 0,
+      "recoverable_rate": 0.0
+    }
+  },
+  "scope_value_metrics": {
+    "verified_count": 7,
+    "scope_correct_yes": 7,
+    "scope_precision": 1.0,
+    "scope_and_value_yes_or_approx": 0,
+    "end_to_end_precision": 0.0,
+    "scope_yes_value_no": 7,
+    "scope_no": 0
+  },
+  "value_error_rows": [
+    {
+      "record_id": "record_47710103a12d",
+      "paper_id": "paper_b451e1b601ac",
+      "doi": "10.1016/j.ejpb.2020.05.013",
+      "route": "text",
+      "endpoint_kind": "flux",
+      "endpoint_value": "0.75",
+      "endpoint_unit": "µg/cm²/h",
+      "gold_notes": "conclusion: no; evidence: section 2.2.6 and Fig. 11(a); Reason: the area is 3.14 cm^2, endpoint was extracted 261.17059 μg, but the paper states approximately 200 μg/cm². "
+    },
+    {
+      "record_id": "record_cc84e1bf6e4e",
+      "paper_id": "paper_b451e1b601ac",
+      "doi": "10.1016/j.ejpb.2020.05.013",
+      "route": "text",
+      "endpoint_kind": "flux",
+      "endpoint_value": "0.75",
+      "endpoint_unit": "µg/cm²/h",
+      "gold_notes": "conclusion: no; evidence: section 2.2.6 and Fig. 11(a); Reason: the area is 3.14 cm^2, endpoint was extracted 261.17059 μg, but the paper states approximately 200 μg/cm²."
+    },
+    {
+      "record_id": "record_e04ec91b3e26",
+      "paper_id": "paper_b451e1b601ac",
+      "doi": "10.1016/j.ejpb.2020.05.013",
+      "route": "text",
+      "endpoint_kind": "flux",
+      "endpoint_value": "0.75",
+      "endpoint_unit": "µg/cm²/h",
+      "gold_notes": "conclusion: no; evidence: section 2.2.6 and Fig. 11(a); Reason: the area is 3.14 cm^2, endpoint was extracted 261.17059 μg, but the paper states approximately 200 μg/cm²."
+    },
+    {
+      "record_id": "record_1d882e0e9090",
+      "paper_id": "paper_7008480bdcae",
+      "doi": "10.1016/j.ijpharm.2016.03.043",
+      "route": "figure",
+      "endpoint_kind": "amount_per_area",
+      "endpoint_value": "16.183204650878906",
+      "endpoint_unit": "µg/cm²",
+      "gold_notes": "conclusion: no; Evidence: Fig. 1; Reason: the endpoint is no correct by Figure, paper states Ibuprofen (blue) permeates the Human skin in Figure 1(A), but it seem the Figure-Agent misatched y-axis (actually belongs to Fig. 1(B)) in the extraction progress."
+    },
+    {
+      "record_id": "record_339f642dd0cd",
+      "paper_id": "paper_7008480bdcae",
+      "doi": "10.1016/j.ijpharm.2016.03.043",
+      "route": "figure",
+      "endpoint_kind": "amount_per_area",
+      "endpoint_value": "15.0",
+      "endpoint_unit": "µg/cm²",
+      "gold_notes": "conclusion: no; Evidence: Fig. 1; Reason: the endpoint is no correct by Figure, paper states Ibuprofen (blue) permeates the Porcine skin in Figure 1(B)."
+    },
+    {
+      "record_id": "record_437e38b169f5",
+      "paper_id": "paper_7008480bdcae",
+      "doi": "10.1016/j.ijpharm.2016.03.043",
+      "route": "figure",
+      "endpoint_kind": "amount_per_area",
+      "endpoint_value": "280.0",
+      "endpoint_unit": "µg/cm2",
+      "gold_notes": "conclusion: no; Evidence: Fig. 1; Reason: the endpoint is no correct by Figure, paper states Ibuprofen (blue) permeates the Human skin in Figure 1(A), but it seem the Figure-Agent misatched y-axis (actually belongs to Fig. 1(B)) in the extraction progress."
+    },
+    {
+      "record_id": "record_982332825448",
+      "paper_id": "paper_7008480bdcae",
+      "doi": "10.1016/j.ijpharm.2016.03.043",
+      "route": "figure",
+      "endpoint_kind": "amount_per_area",
+      "endpoint_value": "16.183204650878906",
+      "endpoint_unit": "µg/cm²",
+      "gold_notes": "conclusion: no; Evidence: Fig. 1; Reason: the endpoint is no correct by Figure, paper states Ibuprofen (blue) permeates the Porcine skin in Figure 1(B)."
+    },
+    {
+      "record_id": "record_a28c8f99f0f6",
+      "paper_id": "paper_7008480bdcae",
+      "doi": "10.1016/j.ijpharm.2016.03.043",
+      "route": "figure",
+      "endpoint_kind": "amount_per_area",
+      "endpoint_value": "280.0",
+      "endpoint_unit": "µg/cm2",
+      "gold_notes": "conclusion: no; Evidence: Fig. 1; Reason: the endpoint is no correct by Figure, paper states Ibuprofen (blue) permeates the Human skin in Figure 1(A), but it seem the Figure-Agent misatched y-axis (actually belongs to Fig. 1(B)) in the extraction progress."
+    },
+    {
+      "record_id": "record_ca0291b430fe",
+      "paper_id": "paper_7008480bdcae",
+      "doi": "10.1016/j.ijpharm.2016.03.043",
+      "route": "figure",
+      "endpoint_kind": "amount_per_area",
+      "endpoint_value": "15.0",
+      "endpoint_unit": "µg/cm²",
+      "gold_notes": "conclusion: no; Evidence: Fig. 1; Reason: the endpoint is no correct by Figure, paper states Ibuprofen (blue) permeates the Porcine skin in Figure 1(B)."
+    },
+    {
+      "record_id": "record_e5a5cd848fa6",
+      "paper_id": "paper_7008480bdcae",
+      "doi": "10.1016/j.ijpharm.2016.03.043",
+      "route": "figure",
+      "endpoint_kind": "amount_per_area",
+      "endpoint_value": "280.0",
+      "endpoint_unit": "µg/cm2",
+      "gold_notes": "conclusion: no; Evidence: Fig. 1; Reason: the endpoint is no correct by Figure, paper states Ibuprofen (blue) permeates the Human skin in Figure 1(A), but it seem the Figure-Agent misatched y-axis (actually belongs to Fig. 1(B)) in the extraction progress."
+    },
+    {
+      "record_id": "record_c846ed69a806",
+      "paper_id": "paper_85f231cdccef",
+      "doi": "10.1208/s12249-019-1584-8",
+      "route": "figure",
+      "endpoint_kind": "amount_per_area",
+      "endpoint_value": "74.0",
+      "endpoint_unit": "µg/cm²",
+      "gold_notes": "conclusion: no; evidence: Fig.3a; Reason: endpoint is not correct by extraction, the api_concentration was extracted as 1% w/w. the paper states 5 % w/w in Table I, diffusion area is 1.6 cm^5."
+    }
+  ],
+  "value_error_route_counts": {
+    "text": 3,
+    "figure": 8
+  }
+}

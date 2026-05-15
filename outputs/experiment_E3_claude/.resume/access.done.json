@@ -1,0 +1,12 @@
+{
+  "stage": "access",
+  "completed": 216,
+  "total": 216,
+  "detail": "resolved=37 downloaded=52 unresolved=127 error=0",
+  "input_count": 216,
+  "output_count": 216,
+  "output_paths": [
+    "outputs\\experiment_E3_claude\\content_access.jsonl"
+  ],
+  "resume_signature_digest": "a1a849689fb856eac1d6aefcb5dcc1d2e7844db6"
+}

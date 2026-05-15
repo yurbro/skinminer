@@ -1,0 +1,7 @@
+run_id: run_a19b32f00b06
+query_profile: ibuprofen_dermal_oa_v1
+query_profile_version: 2026-03-28.v1
+query_source: profile:ibuprofen_dermal_oa_v1
+
+SkinMiner retrieval query verbatim:
+(TITLE:"ibuprofen" OR ABSTRACT:"ibuprofen") AND (permeation OR permeat* OR diffusion OR "in vitro" OR release) AND (skin OR membrane OR topical OR transdermal OR "diffusion cell")

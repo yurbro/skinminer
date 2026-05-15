@@ -1,0 +1,265 @@
+{
+  "candidate": {
+    "dr_rank": 1,
+    "first_author_year": "Bolla_2020",
+    "journal": "Pharmaceutics",
+    "primary_doi": "10.3390/pharmaceutics12020151",
+    "doi_candidates": [
+      "10.3390/pharmaceutics12020151"
+    ],
+    "title_keywords": [
+      "ibuprofen",
+      "strat-m"
+    ],
+    "year": "2020",
+    "first_author": "Bolla"
+  },
+  "resolution": {
+    "doi_resolution": "direct_doi_match",
+    "corpus_doi": "10.3390/pharmaceutics12020151",
+    "resolution_note": "direct DOI match on 10.3390/pharmaceutics12020151"
+  },
+  "corpus_record": {
+    "source": "MED",
+    "id": "32069850",
+    "pmid": "32069850",
+    "pmcid": "PMC7076669",
+    "doi": "10.3390/pharmaceutics12020151",
+    "title": "Evaluation of Formulation Parameters on Permeation of Ibuprofen from Topical Formulations Using Strat-M<sup>\u00ae</sup> Membrane.",
+    "abstract": "Topical drug delivery is an attractive alternative to conventional methods because of advantages such as non-invasive delivery, by-pass of first pass metabolism, and improved patient compliance. However, several factors such as skin, physicochemical properties of the drug, and vehicle characteristics influence the permeation. Within a formulation, critical factors such as concentration of drug, physical state of drug in the formulation, and organoleptic properties affect the flux across the skin. The aim of the study was to develop and investigate topical semisolid preparations (creams and gels) with ibuprofen as the model drug and investigate the effect of various formulation parameters on the in-vitro performance across the Strat-M<sup>\u00ae</sup> membrane using flow-through cells. In addition, the physical stability of the developed formulations was investigated by studying viscosity, pH, and appearance. All the formulations developed in the study had appealing appearance with smooth texture and no signs of separation. Viscosity and pH of the formulations were acceptable. Cumulative amount of drug permeated at the end of 24 h was highest for clear gel (3% <i>w</i>/<i>w</i> ibuprofen; F6: 739.6 \u00b1 36.1 \u00b5g/cm<sup>2</sup>) followed by cream with high concentration of ibuprofen in suspended form (5% <i>w</i>/<i>w</i>; F3: 320.8 \u00b1 17.53 \u00b5g/cm<sup>2</sup>), emulgel (3% <i>w</i>/<i>w</i> ibuprofen; F5: 178.5 \u00b1 34.5 \u00b5g/cm<sup>2</sup>), and cream with solubilized ibuprofen (3% <i>w</i>/<i>w</i>; F2A: 163.2 \u00b1 9.36 \u00b5g/cm<sup>2</sup>). Results from this study showed that permeation of ibuprofen was significantly influenced by formulation parameters such as concentration of ibuprofen (3% vs. 5% <i>w</i>/<i>w</i>), physical state of ibuprofen (solubilized vs. suspended), formulation type (cream vs. gel), mucoadhesive agents, and viscosity (high vs. low). Thus, findings from this study indicate that pharmaceutical formulation scientists should explore these critical factors during the early development of any new topical drug product in order to meet pre-determined quality target product profile.",
+    "year": "2020",
+    "journal": "",
+    "authors": "Bolla PK, Clark BA, Juluri A, Cheruvu HS, Renukuntla J.",
+    "url": "https://doi.org/10.3390/pharmaceutics12020151",
+    "query_used": "(TITLE:\"ibuprofen\" OR ABSTRACT:\"ibuprofen\") AND (permeation OR permeat* OR diffusion OR \"in vitro\" OR release) AND (skin OR membrane OR topical OR transdermal OR \"diffusion cell\")"
+  },
+  "rule_pass_records": [
+    {
+      "source": "MED",
+      "id": "32069850",
+      "pmid": 32069850.0,
+      "pmcid": "PMC7076669",
+      "doi": "10.3390/pharmaceutics12020151",
+      "title": "Evaluation of Formulation Parameters on Permeation of Ibuprofen from Topical Formulations Using Strat-M<sup>\u00ae</sup> Membrane.",
+      "abstract": "Topical drug delivery is an attractive alternative to conventional methods because of advantages such as non-invasive delivery, by-pass of first pass metabolism, and improved patient compliance. However, several factors such as skin, physicochemical properties of the drug, and vehicle characteristics influence the permeation. Within a formulation, critical factors such as concentration of drug, physical state of drug in the formulation, and organoleptic properties affect the flux across the skin. The aim of the study was to develop and investigate topical semisolid preparations (creams and gels) with ibuprofen as the model drug and investigate the effect of various formulation parameters on the in-vitro performance across the Strat-M<sup>\u00ae</sup> membrane using flow-through cells. In addition, the physical stability of the developed formulations was investigated by studying viscosity, pH, and appearance. All the formulations developed in the study had appealing appearance with smooth texture and no signs of separation. Viscosity and pH of the formulations were acceptable. Cumulative amount of drug permeated at the end of 24 h was highest for clear gel (3% <i>w</i>/<i>w</i> ibuprofen; F6: 739.6 \u00b1 36.1 \u00b5g/cm<sup>2</sup>) followed by cream with high concentration of ibuprofen in suspended form (5% <i>w</i>/<i>w</i>; F3: 320.8 \u00b1 17.53 \u00b5g/cm<sup>2</sup>), emulgel (3% <i>w</i>/<i>w</i> ibuprofen; F5: 178.5 \u00b1 34.5 \u00b5g/cm<sup>2</sup>), and cream with solubilized ibuprofen (3% <i>w</i>/<i>w</i>; F2A: 163.2 \u00b1 9.36 \u00b5g/cm<sup>2</sup>). Results from this study showed that permeation of ibuprofen was significantly influenced by formulation parameters such as concentration of ibuprofen (3% vs. 5% <i>w</i>/<i>w</i>), physical state of ibuprofen (solubilized vs. suspended), formulation type (cream vs. gel), mucoadhesive agents, and viscosity (high vs. low). Thus, findings from this study indicate that pharmaceutical formulation scientists should explore these critical factors during the early development of any new topical drug product in order to meet pre-determined quality target product profile.",
+      "year": 2020,
+      "journal": null,
+      "authors": "Bolla PK, Clark BA, Juluri A, Cheruvu HS, Renukuntla J.",
+      "url": "https://doi.org/10.3390/pharmaceutics12020151",
+      "query_used": "(TITLE:\"ibuprofen\" OR ABSTRACT:\"ibuprofen\") AND (permeation OR permeat* OR diffusion OR \"in vitro\" OR release) AND (skin OR membrane OR topical OR transdermal OR \"diffusion cell\")",
+      "rule_relevance_label": "relevant",
+      "rule_confidence": 0.8,
+      "rule_hints": [
+        "\\bpermeat",
+        "\\btopical\\b",
+        "\\bskin\\b",
+        "\\bmembrane\\b"
+      ],
+      "rule_exclusions": []
+    }
+  ],
+  "rule_fail_records": [],
+  "llm_triage_records": [
+    {
+      "source": "MED",
+      "id": "32069850",
+      "pmid": 32069850.0,
+      "pmcid": "PMC7076669",
+      "doi": "10.3390/pharmaceutics12020151",
+      "title": "Evaluation of Formulation Parameters on Permeation of Ibuprofen from Topical Formulations Using Strat-M<sup>\u00ae</sup> Membrane.",
+      "abstract": "Topical drug delivery is an attractive alternative to conventional methods because of advantages such as non-invasive delivery, by-pass of first pass metabolism, and improved patient compliance. However, several factors such as skin, physicochemical properties of the drug, and vehicle characteristics influence the permeation. Within a formulation, critical factors such as concentration of drug, physical state of drug in the formulation, and organoleptic properties affect the flux across the skin. The aim of the study was to develop and investigate topical semisolid preparations (creams and gels) with ibuprofen as the model drug and investigate the effect of various formulation parameters on the in-vitro performance across the Strat-M<sup>\u00ae</sup> membrane using flow-through cells. In addition, the physical stability of the developed formulations was investigated by studying viscosity, pH, and appearance. All the formulations developed in the study had appealing appearance with smooth texture and no signs of separation. Viscosity and pH of the formulations were acceptable. Cumulative amount of drug permeated at the end of 24 h was highest for clear gel (3% <i>w</i>/<i>w</i> ibuprofen; F6: 739.6 \u00b1 36.1 \u00b5g/cm<sup>2</sup>) followed by cream with high concentration of ibuprofen in suspended form (5% <i>w</i>/<i>w</i>; F3: 320.8 \u00b1 17.53 \u00b5g/cm<sup>2</sup>), emulgel (3% <i>w</i>/<i>w</i> ibuprofen; F5: 178.5 \u00b1 34.5 \u00b5g/cm<sup>2</sup>), and cream with solubilized ibuprofen (3% <i>w</i>/<i>w</i>; F2A: 163.2 \u00b1 9.36 \u00b5g/cm<sup>2</sup>). Results from this study showed that permeation of ibuprofen was significantly influenced by formulation parameters such as concentration of ibuprofen (3% vs. 5% <i>w</i>/<i>w</i>), physical state of ibuprofen (solubilized vs. suspended), formulation type (cream vs. gel), mucoadhesive agents, and viscosity (high vs. low). Thus, findings from this study indicate that pharmaceutical formulation scientists should explore these critical factors during the early development of any new topical drug product in order to meet pre-determined quality target product profile.",
+      "year": 2020,
+      "journal": null,
+      "authors": "Bolla PK, Clark BA, Juluri A, Cheruvu HS, Renukuntla J.",
+      "url": "https://doi.org/10.3390/pharmaceutics12020151",
+      "query_used": "(TITLE:\"ibuprofen\" OR ABSTRACT:\"ibuprofen\") AND (permeation OR permeat* OR diffusion OR \"in vitro\" OR release) AND (skin OR membrane OR topical OR transdermal OR \"diffusion cell\")",
+      "rule_relevance_label": "relevant",
+      "rule_confidence": 0.8,
+      "rule_hints": [
+        "\\bpermeat",
+        "\\btopical\\b",
+        "\\bskin\\b",
+        "\\bmembrane\\b"
+      ],
+      "rule_exclusions": [],
+      "queue": "now",
+      "relevance_label": "relevant",
+      "mentions_franz_in_abstract": "no",
+      "likely_study_type": "IVPT",
+      "likely_has_measurable_endpoint": "yes",
+      "likely_has_formulation_info": "yes",
+      "likely_barrier_category": "synthetic_membrane",
+      "what_to_check_in_fulltext": [
+        "Detailed formulation compositions",
+        "Specific permeability metrics",
+        "Comprehensive methodology for in-vitro testing",
+        "Impact of physical state on permeation",
+        "Stability studies results"
+      ],
+      "rationale": "The abstract discusses the evaluation of various formulation parameters that significantly influence ibuprofen permeation using a synthetic membrane, indicating it is relevant for IVPT study.",
+      "confidence": 0.9
+    }
+  ],
+  "content_access_records": [
+    {
+      "paper_id": "paper_701029bf55bc",
+      "doi": "10.3390/pharmaceutics12020151",
+      "pmid": "32069850.0",
+      "pmcid": "PMC7076669",
+      "title": "Evaluation of Formulation Parameters on Permeation of Ibuprofen from Topical Formulations Using Strat-M<sup>\u00ae</sup> Membrane.",
+      "preferred_format": "html",
+      "available_formats": [
+        "html",
+        "pdf"
+      ],
+      "access_urls": {
+        "html": "https://europepmc.org/articles/PMC7076669",
+        "pdf": "https://europepmc.org/articles/PMC7076669?pdf=render"
+      },
+      "local_paths": {
+        "html": "papers\\html\\10.3390_pharmaceutics12020151__c5e94d827e.html",
+        "pdf": "papers\\pdf\\10.3390_pharmaceutics12020151__795b0a9f10.pdf"
+      },
+      "status": "downloaded",
+      "notes": [
+        "legacy_pdf_reused_local"
+      ]
+    }
+  ],
+  "route_decision_records": [
+    {
+      "paper_id": "paper_701029bf55bc",
+      "doi": "10.3390/pharmaceutics12020151",
+      "title": "Evaluation of Formulation Parameters on Permeation of Ibuprofen from Topical Formulations Using Strat-M<sup>\u00ae</sup> Membrane.",
+      "route": "unresolved",
+      "route_confidence": 0.2,
+      "endpoint_carrier": "unknown",
+      "formulation_carrier": "unknown",
+      "anchor_evidence": [
+        {
+          "field_name": "device",
+          "modality": "text",
+          "locator": "unknown",
+          "page": null,
+          "bbox": null,
+          "snippet": "unknown",
+          "source_ref": "10.3390/pharmaceutics12020151",
+          "confidence": 0.7
+        },
+        {
+          "field_name": "endpoint",
+          "modality": "metadata",
+          "locator": "unknown",
+          "page": null,
+          "bbox": null,
+          "snippet": "unknown",
+          "source_ref": "10.3390/pharmaceutics12020151",
+          "confidence": 0.8
+        },
+        {
+          "field_name": "formulation",
+          "modality": "metadata",
+          "locator": "unknown",
+          "page": null,
+          "bbox": null,
+          "snippet": "unknown",
+          "source_ref": "10.3390/pharmaceutics12020151",
+          "confidence": 0.7
+        }
+      ],
+      "notes": "The document appears to be a study focusing on ibuprofen permeation through a synthetic membrane.",
+      "raw_labels": {
+        "paper_type": "uncertain",
+        "mentions_ibuprofen": "yes",
+        "mentions_diffusion_cell": "yes",
+        "franz_confirmed": "no",
+        "where_diffusion_cell": "Strat-M\u00ae Membrane",
+        "where_franz": "unknown",
+        "study_type": "IVPT",
+        "barrier_category": "synthetic_membrane",
+        "barrier_name_raw": "Strat-M\u00ae Membrane",
+        "endpoint_found": "uncertain",
+        "endpoint_time_found": "uncertain",
+        "where_endpoint": "unknown",
+        "endpoint_carrier": "unknown",
+        "endpoint_carrier_snippet": "unknown",
+        "formulation_carrier": "unknown",
+        "formulation_carrier_snippet": "unknown",
+        "endpoint_likely_in_supp": "uncertain",
+        "formulation_table_missing": "uncertain",
+        "notes": "The document appears to be a study focusing on ibuprofen permeation through a synthetic membrane.",
+        "router_source_backend": "pdf_local",
+        "router_source_ref": "papers\\pdf\\10.3390_pharmaceutics12020151__795b0a9f10.pdf",
+        "router_source_diagnostics": [
+          "blocked:html_local:captcha",
+          "blocked:html_remote:captcha"
+        ],
+        "router_heuristic_signals": {
+          "table_hits": 0,
+          "figure_hits": 0,
+          "endpoint_hits": 0,
+          "formulation_hits": 0
+        }
+      }
+    }
+  ],
+  "text_records": [],
+  "table_records": [],
+  "figure_records": [],
+  "assembled_records": [],
+  "patched_area_records": [],
+  "verified_records": {
+    "v1": [],
+    "v2": [],
+    "v3": [],
+    "v4": []
+  },
+  "expected_table7_records": [
+    {
+      "formulation": "F1A",
+      "expected_24h_amount_ug_cm2": 59.1
+    },
+    {
+      "formulation": "F1B",
+      "expected_24h_amount_ug_cm2": 43.4
+    },
+    {
+      "formulation": "F2A",
+      "expected_24h_amount_ug_cm2": 163.2
+    },
+    {
+      "formulation": "F2B",
+      "expected_24h_amount_ug_cm2": 77.5
+    },
+    {
+      "formulation": "F3",
+      "expected_24h_amount_ug_cm2": 320.8
+    },
+    {
+      "formulation": "F4",
+      "expected_24h_amount_ug_cm2": 82.0
+    },
+    {
+      "formulation": "F5",
+      "expected_24h_amount_ug_cm2": 178.5
+    },
+    {
+      "formulation": "F6",
+      "expected_24h_amount_ug_cm2": 739.6
+    }
+  ],
+  "summary": {
+    "in_corpus": true,
+    "failure_stage": "router_unresolved",
+    "expected_records_table7": 8,
+    "n_text_records": 0,
+    "n_table_records": 0,
+    "n_figure_records": 0,
+    "n_assembled_records": 0,
+    "n_patched_records": 0,
+    "verified_v1": 0,
+    "verified_v2": 0,
+    "verified_v3": 0,
+    "verified_v4": 0
+  }
+}

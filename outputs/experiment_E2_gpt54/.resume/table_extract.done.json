@@ -1,0 +1,13 @@
+{
+  "stage": "table_extract",
+  "completed": 19,
+  "total": 19,
+  "detail": "records=70",
+  "input_count": 19,
+  "output_count": 70,
+  "output_paths": [
+    "outputs\\experiment_E2_gpt54\\table_records.jsonl",
+    "outputs\\experiment_E2_gpt54\\table_raw.jsonl"
+  ],
+  "resume_signature_digest": "1fdae1eb3b77082da290ec83e9badfbbbc552ef0"
+}

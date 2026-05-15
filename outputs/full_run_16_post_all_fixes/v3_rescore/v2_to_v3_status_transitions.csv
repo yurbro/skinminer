@@ -1,0 +1,240 @@
+﻿record_id,doi,route,previous_status,current_status,transition,endpoint_kind,endpoint_unit,api_raw,failure_reason
+record_05c22499eb1a,10.1248/bpb.b19-00221,table,unresolved,verified,unresolved->verified,amount_total,mg,3.83 mg/mL,
+record_0644080d4156,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm2,1%,source_context_inconsistent
+record_06ac7a8b3930,10.1371/journal.pone.0156931,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,invasion score,,insufficient_evidence
+record_08d8e7a055b8,10.1523/jneurosci.15-04-02768.1995,figure,rejected,rejected,rejected->rejected,amount_total,%,,source_context_inconsistent
+record_0a56e7ea5527,10.1523/jneurosci.15-04-02768.1995,figure,rejected,rejected,rejected->rejected,amount_total,,,source_context_inconsistent
+record_0aca1f9d808f,10.1523/jneurosci.15-04-02768.1995,figure,rejected,rejected,rejected->rejected,amount_total,%,,not_target_api
+record_0ad8278f1ee0,10.1039/d0ra00100g,table,rejected,rejected,rejected->rejected,amount_total,mg IBU cm²,,not_target_api
+record_0b97a6afd6c5,10.1371/journal.pone.0118536,figure,rejected,rejected,rejected->rejected,amount_per_area,μg/cm²,100 μM,source_context_inconsistent
+record_0bbb13628c42,10.3389/fchem.2021.767923,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,5 mg/ml,source_context_inconsistent
+record_0c86a8a8bb55,10.1523/jneurosci.5741-07.2008,text,unresolved,verified,unresolved->verified,amount_total,mg,40 mg/kg,
+record_0dbf50f97a74,10.1021/acs.molpharmaceut.0c00720,figure,unresolved,unresolved,unresolved->unresolved,unknown,,,missing_endpoint
+record_12a2a82537f4,10.1208/s12249-015-0474-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,,not_target_api
+record_1554f1765160,10.1007/s11095-020-02887-9,mixed,rejected,rejected,rejected->rejected,amount_total,mg,60%,not_target_api
+record_161a7275a03e,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_17d097c8eb40,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,,source_context_inconsistent
+record_1b7997ecf760,10.1007/s11095-008-9785-y,mixed,unresolved,verified,unresolved->verified,amount_per_area,μg/cm²,Ibuprofen saturated solution in 75:25 propylene glycol/water,
+record_1bd324e90169,10.1248/bpb.b19-00221,table,unresolved,verified,unresolved->verified,amount_total,mg,3.83 mg/mL,
+record_1bf5e1e73737,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_1d494691ecc1,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,,source_context_inconsistent
+record_1e4415c46bc5,10.1186/s12951-020-00718-y,table,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_1fdbfc6e224e,10.3389/fphys.2016.00263,figure,rejected,rejected,rejected->rejected,amount_total,mg,15 mg/kg,source_context_inconsistent
+record_20cc788ee0ea,10.1523/jneurosci.15-04-02768.1995,figure,rejected,rejected,rejected->rejected,amount_total,%,,not_target_api
+record_217c1e06fdac,10.1371/journal.pone.0118536,figure,rejected,rejected,rejected->rejected,amount_per_area,μg/cm²,5 μM,source_context_inconsistent
+record_22e1a1ebe25e,10.1186/s12951-020-00718-y,table,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_22f2ed6c64d6,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5%,source_context_inconsistent
+record_23728b9b7a89,10.1039/d0ra00100g,table,rejected,rejected,rejected->rejected,amount_total,mg IBU cm²,,not_target_api
+record_24b33ca6e596,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm2,1%,source_context_inconsistent
+record_256fed3f4d2f,10.1186/2050-6511-13-5,mixed,unresolved,verified,unresolved->verified,amount_per_area,μg/cm²/h,,
+record_28f2d35be22d,10.1593/neo.121890,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,1 mg/ml,source_context_inconsistent
+record_2a2672953a1d,10.3390/membranes13030355,table,unresolved,unresolved,unresolved->unresolved,amount_total,mg,0 mg/L,insufficient_evidence
+record_2a3f65cf4898,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_2b5555a0682b,10.1007/s11095-024-03747-6,mixed,rejected,rejected,rejected->rejected,unknown,,15% w/v,not_target_device
+record_2c775db21521,10.1371/journal.pone.0118536,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,μg/cm²,500 μM,source_context_inconsistent
+record_2c9fa747f279,10.1007/s11095-008-9785-y,mixed,unresolved,unresolved,unresolved->unresolved,jss,-,10 mg/ml,insufficient_evidence
+record_317a07999fda,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_32062e7155cc,10.1208/s12249-019-1481-1,table,unresolved,verified,unresolved->verified,amount_per_area,µg/cm²,-,
+record_3388a279c7e8,10.1038/s41598-020-74885-1,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,4 mg/ml,insufficient_evidence
+record_33a608f5b97a,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_35feeb8d88cf,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,%,,insufficient_evidence
+record_3672e05a60e6,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_3687bb2add91,10.1523/jneurosci.15-04-02768.1995,figure,rejected,rejected,rejected->rejected,amount_total,%,,source_context_inconsistent
+record_376e82e8f4c3,10.1007/s11095-008-9785-y,mixed,unresolved,verified,unresolved->verified,amount_per_area,μg/cm²,Ibuprofen saturated solution in 75:25 propylene glycol/water,
+record_379eac963b90,10.1186/s13065-022-00901-2,table,rejected,rejected,rejected->rejected,unknown,µmol/ml,,not_target_api
+record_386924aa4a1e,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,cm/s,,insufficient_evidence
+record_396d098189b9,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_3a3312bfab87,10.1038/s41598-020-74885-1,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,4 mg/ml,source_context_inconsistent
+record_3b4ea7b3d9d6,10.1039/d0ra00100g,table,rejected,rejected,rejected->rejected,amount_total,mg IBU cm²,,not_target_api
+record_3cafd2b883f5,10.1523/jneurosci.5741-07.2008,text,unresolved,verified,unresolved->verified,amount_total,mg,40 mg/kg,
+record_3ce2c5362afc,10.1593/neo.121890,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,1 mg/ml,source_context_inconsistent
+record_3ec6644ba612,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_3f078e0f5942,10.1371/journal.pone.0130253,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg g–1,,insufficient_evidence
+record_3f6ffcf94e8b,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_4306a8808b9e,10.1523/jneurosci.5741-07.2008,text,unresolved,verified,unresolved->verified,amount_total,mg,40 mg/kg,
+record_444d3fbba1c8,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,cm/s,,insufficient_evidence
+record_453da10d1ec5,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_465f54a451d1,10.18433/j3160b,figure,rejected,rejected,rejected->rejected,amount_total,%,1%,source_context_inconsistent
+record_48266fe84cb1,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_489d1193529e,10.1208/s12249-019-1481-1,table,unresolved,verified,unresolved->verified,amount_per_area,µg/cm²,-,
+record_48f549b70122,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,%,,insufficient_evidence
+record_4ce1a013d96f,10.1186/s13065-022-00901-2,table,rejected,rejected,rejected->rejected,unknown,µmol/ml,,not_target_api
+record_4d624f430c6c,10.1021/acs.molpharmaceut.0c00720,figure,unresolved,unresolved,unresolved->unresolved,amount_total,hours,,source_context_inconsistent
+record_4d6d64cf8596,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,%,,insufficient_evidence
+record_501612f87cab,10.1039/d0ra00100g,table,rejected,rejected,rejected->rejected,amount_total,mg IBU cm²,,not_target_api
+record_5020cd3721bb,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_504c0645a368,10.1002/14651858.cd001177.pub2,table,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm2,0.5 mg/cm2,insufficient_evidence
+record_50c67f819b5f,10.18433/j3160b,figure,rejected,rejected,rejected->rejected,amount_total,%,1%,source_context_inconsistent
+record_53de1fd970cc,10.1523/jneurosci.15-04-02768.1995,figure,rejected,rejected,rejected->rejected,amount_total,mg,,source_context_inconsistent
+record_54f0c77ecce9,10.1038/s41598-020-74885-1,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,4 mg/ml,source_context_inconsistent
+record_56905c334e84,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_56d2d3b2dd1a,10.1021/acs.molpharmaceut.0c00720,figure,unresolved,unresolved,unresolved->unresolved,unknown,,,missing_endpoint
+record_56fa9eac1385,10.21203/rs.3.rs-3773667/v1,table,unresolved,unresolved,unresolved->unresolved,amount_total,µg/g,1 mg/cm²,insufficient_evidence
+record_5702761c7ab9,10.1186/s13065-022-00901-2,table,rejected,rejected,rejected->rejected,unknown,µmol/ml,,not_target_api
+record_596369d34f61,10.1208/s12249-015-0474-y,mixed,rejected,rejected,rejected->rejected,flux,μg/(cm2 h),,not_target_api
+record_59963ee27e78,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_5a2901d16067,10.3389/fphar.2024.1355283,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,source_context_inconsistent
+record_5a7c814731a3,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_5b82144ee3e1,10.1371/journal.pone.0156931,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,invasion score,,insufficient_evidence
+record_5bc4d003491f,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm2,5%,source_context_inconsistent
+record_5c419d7bef3a,10.1371/journal.pone.0118536,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,μg/cm²,10 μM,source_context_inconsistent
+record_5c91ad38b660,10.1371/journal.pone.0118536,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,μg/cm²,100 μM,source_context_inconsistent
+record_5d8638739de7,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_5ff80e2cdc44,10.1371/journal.pone.0156931,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,invasion score,NaIbu 100μM hydrogel,insufficient_evidence
+record_6064914aedba,10.3390/molecules28207156,table,unresolved,unresolved,unresolved->unresolved,unknown,µg/mL,74.1 ± 2.6,insufficient_evidence
+record_606a0299d260,10.1016/j.ijpharm.2019.118975,table,rejected,rejected,rejected->rejected,amount_per_area,mg/cm²,20 mg/cm²,not_target_device
+record_61ffd65ceb45,10.1593/neo.121890,figure,unresolved,unresolved,unresolved->unresolved,amount_total,arbitrary units,1 mg/ml,source_context_inconsistent
+record_62949d412ef7,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_631b45331512,10.1208/s12249-015-0474-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,,not_target_api
+record_6378b97946c2,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_6536e275b856,10.18433/j3160b,figure,rejected,rejected,rejected->rejected,amount_total,%,1%,source_context_inconsistent
+record_66049faea073,10.3389/fphys.2016.00263,figure,rejected,rejected,rejected->rejected,amount_total,mg,15 mg/kg,source_context_inconsistent
+record_66b02b4fbf70,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_671f2cae7a6e,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_67841a39b2ca,10.1016/j.ijpharm.2019.118975,table,rejected,rejected,rejected->rejected,amount_per_area,mg/cm²,10 mg/cm²,not_target_device
+record_6791b1578ec1,10.3389/fphys.2016.00263,figure,rejected,rejected,rejected->rejected,amount_total,mg,15 mg/kg,source_context_inconsistent
+record_67bd50b0e73c,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_6985299e799c,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_69b036af1c1b,10.1208/s12249-015-0474-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,,not_target_api
+record_6a484a2ea1ad,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_6a7eb23c8774,10.3390/membranes13030355,table,unresolved,unresolved,unresolved->unresolved,amount_total,ug,500 µg/L,insufficient_evidence
+record_6ad4079b03f5,10.1007/s13346-022-01182-x,table,unresolved,unresolved,unresolved->unresolved,amount_total,%,0.5% w/v ibuprofen,insufficient_evidence
+record_6d9ea1e74925,10.1007/s11095-024-03747-6,mixed,rejected,rejected,rejected->rejected,unknown,,10% w/v,not_target_device
+record_6e12e1587b9e,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_6ef7cb7d4ade,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_6f4d81e453f5,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,μg/cm²,5%,source_context_inconsistent
+record_6febc8ac05cc,10.1186/s12951-020-00718-y,table,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_70e3e452fbe6,10.1371/journal.pone.0118536,figure,rejected,rejected,rejected->rejected,amount_per_area,μg/cm²,10 μM,source_context_inconsistent
+record_71107dc9af13,10.3390/molecules28207156,table,unresolved,unresolved,unresolved->unresolved,unknown,µg/mL,78.1 ± 2.3,insufficient_evidence
+record_719fc9a9d07a,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_72e99d415db4,10.1523/jneurosci.15-04-02768.1995,figure,rejected,rejected,rejected->rejected,amount_total,%,,source_context_inconsistent
+record_72eaf44a4ef4,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5%,source_context_inconsistent
+record_73e793f7cfd0,10.1208/s12249-019-1481-1,table,unresolved,verified,unresolved->verified,amount_per_area,µg/cm²,-,
+record_764e4aa71249,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_76594a25e56c,10.1038/srep08114,table,unresolved,unresolved,unresolved->unresolved,amount_total,μg/ml,10 mM,insufficient_evidence
+record_771853ae9097,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_78260fd2f235,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_785196d303e1,10.3390/molecules28207156,table,unresolved,unresolved,unresolved->unresolved,unknown,µg/mL,34.7 ± 1.2,insufficient_evidence
+record_795d5ea23996,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5%,source_context_inconsistent
+record_797d3caa1991,10.1039/d0ra00100g,table,unresolved,verified,unresolved->verified,amount_total,mg IBU cm²,,
+record_7a1f7f95aa3b,10.1007/s11095-024-03747-6,mixed,rejected,rejected,rejected->rejected,unknown,,15% w/v,not_target_device
+record_7a488406a9ab,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_7c2e998fb428,10.1208/s12249-015-0474-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,,not_target_api
+record_7dc18248cda0,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_7e09f19f04ab,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,cm/s,,insufficient_evidence
+record_7f1a8e76ddde,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_81fa3c94d4c0,10.1208/s12249-015-0474-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,μg/cm2,,not_target_api
+record_8286a15b79b9,10.1371/journal.pone.0118536,figure,rejected,rejected,rejected->rejected,amount_per_area,μg/cm²,10 μM,source_context_inconsistent
+record_82a89a0d0703,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_83a3f9b0e06e,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_841675c590bd,10.3390/molecules28207156,table,unresolved,unresolved,unresolved->unresolved,unknown,µg/mL,5.7 ± 0.2,insufficient_evidence
+record_8451385f5434,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_8452491461ab,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_8515317ce0a0,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,μg/cm²,5%,source_context_inconsistent
+record_85db64f6a3e6,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,%,,insufficient_evidence
+record_8755ab5ac908,10.1007/s13346-022-01182-x,table,unresolved,unresolved,unresolved->unresolved,amount_total,%,0.5% w/v ibuprofen,insufficient_evidence
+record_89a4be188bec,10.1039/d0ra00100g,table,rejected,rejected,rejected->rejected,amount_total,mg IBU cm²,,not_target_api
+record_8cbb8eafc69e,10.1016/j.jpba.2019.04.040,text,unresolved,unresolved,unresolved->unresolved,flux,mg/cm2/h,Ibuprofen formulation with Acetone treatment,insufficient_evidence
+record_8eaf064b8d83,10.1371/journal.pone.0118536,figure,rejected,rejected,rejected->rejected,amount_per_area,μg/cm²,50 μM,source_context_inconsistent
+record_8f4d08b87384,10.1007/s11095-024-03747-6,mixed,rejected,rejected,rejected->rejected,unknown,,5% w/v,not_target_device
+record_903ca1acf8d9,10.1007/s11095-024-03747-6,mixed,rejected,rejected,rejected->rejected,unknown,,5% w/v,not_target_device
+record_903ce061d6ea,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_9056a0f2cc8d,10.1016/j.ijpharm.2019.118975,table,rejected,rejected,rejected->rejected,amount_per_area,mg/cm²,15 mg/cm²,not_target_device
+record_9424b5553135,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_94487029ac2e,10.1172/jci2614,figure,unresolved,unresolved,unresolved->unresolved,amount_total,ng,500 µM,insufficient_evidence
+record_94fdeacead82,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_971a466d8370,10.1523/jneurosci.5741-07.2008,text,unresolved,verified,unresolved->verified,amount_total,mg,40 mg/kg,
+record_973925f56245,10.21203/rs.3.rs-3773667/v1,table,unresolved,unresolved,unresolved->unresolved,amount_total,µg/g,1 mg/cm²,insufficient_evidence
+record_97a37df47a5c,10.1016/j.ijpharm.2019.118975,table,rejected,rejected,rejected->rejected,amount_per_area,mg/cm²,10 mg/cm²,not_target_device
+record_986560e8c9fc,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,%,,insufficient_evidence
+record_9b9583220402,10.1371/journal.pone.0156931,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,invasion score,,insufficient_evidence
+record_9ef995c91d9b,10.1523/jneurosci.5741-07.2008,text,unresolved,verified,unresolved->verified,amount_total,mg,40 mg/kg,
+record_9fdffcafbf4e,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_a09829bd9871,10.1016/j.ijpharm.2019.118975,table,rejected,rejected,rejected->rejected,amount_per_area,mg/cm²,20 mg/cm²,not_target_device
+record_a13c1416d8f0,10.1007/s11095-020-02887-9,mixed,rejected,rejected,rejected->rejected,amount_total,mg,60%,not_target_api
+record_a1da113d2ef1,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm2,1%,source_context_inconsistent
+record_a28c8f99f0f6,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm2,5%,source_context_inconsistent
+record_a3142734cc9f,10.3389/fphar.2024.1355283,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,source_context_inconsistent
+record_a52834b24d3a,10.1523/jneurosci.15-04-02768.1995,figure,rejected,rejected,rejected->rejected,amount_total,%,,not_target_api
+record_a5877b6e3be2,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,%,,insufficient_evidence
+record_a7f82bfef9e1,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,%,,insufficient_evidence
+record_a82be72002a6,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,cm/s,,insufficient_evidence
+record_a8514a78092f,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_a8b14ec9c84e,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_a9cd86939b25,10.1038/srep08114,table,unresolved,unresolved,unresolved->unresolved,amount_total,μg/ml,10 mM,insufficient_evidence
+record_ac4b338144c7,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,%,,insufficient_evidence
+record_ac85bd7b8eae,10.1038/srep08114,table,unresolved,unresolved,unresolved->unresolved,amount_total,μg/ml,10 mM,insufficient_evidence
+record_ae0ca3ad9725,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_aeecd0d08d28,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_b19ebae807b2,10.21203/rs.3.rs-3773667/v1,table,unresolved,unresolved,unresolved->unresolved,amount_total,µg/g,1 mg/cm²,insufficient_evidence
+record_b1d83a122415,10.1172/jci2614,figure,unresolved,unresolved,unresolved->unresolved,unknown,mA/cm²,500 µM,source_context_inconsistent
+record_b21caddad006,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,cm/s,,insufficient_evidence
+record_b38e30c2a7de,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_b442e8fdd276,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,cm/s,,insufficient_evidence
+record_bb3bb86401c1,10.1007/s11095-024-03747-6,mixed,rejected,rejected,rejected->rejected,unknown,,10% w/v,not_target_device
+record_bbc291658e05,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_bbed5ffe19a8,10.1371/journal.pone.0118536,figure,rejected,rejected,rejected->rejected,amount_per_area,μg/cm²,1 μM,source_context_inconsistent
+record_bc79e0e452d8,10.1208/s12249-015-0474-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,,not_target_api
+record_bccde2cb806b,10.1371/journal.pone.0156931,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,invasion score,NaIbu 100μM hydrogel,insufficient_evidence
+record_be6922d882d2,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,μg/cm²,5%,source_context_inconsistent
+record_bec7e6328c62,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,unknown,%,,insufficient_evidence
+record_c12134a7f2e9,10.1186/s13065-022-00901-2,table,unresolved,unresolved,unresolved->unresolved,unknown,µmol/ml,,insufficient_evidence
+record_c13a8cda365e,10.1007/s13346-022-01182-x,table,unresolved,unresolved,unresolved->unresolved,amount_total,%,0.5% w/v ibuprofen,insufficient_evidence
+record_c1732c8a4393,10.1007/s11095-024-03747-6,mixed,rejected,rejected,rejected->rejected,unknown,,15% w/v,not_target_device
+record_c3546a6dfa5f,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_c36382dfd014,10.1021/acs.molpharmaceut.0c00720,figure,unresolved,unresolved,unresolved->unresolved,amount_total,hours,,source_context_inconsistent
+record_c447072b4569,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_c5d101295c15,10.3389/fphys.2016.00263,figure,rejected,rejected,rejected->rejected,amount_total,mg,15 mg/kg,source_context_inconsistent
+record_c83676244c03,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_c84160eda0bb,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_ca4b1d3e6308,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_cbe2463917d1,10.1016/j.ijpharm.2019.118975,table,rejected,rejected,rejected->rejected,amount_per_area,mg/cm²,15 mg/cm²,not_target_device
+record_ccfbcf0f6bbe,10.1172/jci2614,figure,unresolved,unresolved,unresolved->unresolved,unknown,mA/cm²,500 µM,source_context_inconsistent
+record_ce086dd6b33a,10.1208/s12249-015-0474-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,,not_target_api
+record_cee02a763e46,10.1186/s13065-022-00901-2,table,rejected,rejected,rejected->rejected,unknown,µmol/ml,,not_target_api
+record_cf75fe70f7e7,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_cf8f689281a3,10.1007/s11095-008-9785-y,mixed,unresolved,verified,unresolved->verified,amount_per_area,μg/cm²,Ibuprofen saturated solution in 75:25 propylene glycol/water,
+record_cff9534403d5,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_d16c057fc54f,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_d39ce62be933,10.1007/s11095-008-9785-y,mixed,unresolved,verified,unresolved->verified,amount_per_area,μg/cm²,Ibuprofen saturated solution in 75:25 propylene glycol/water,
+record_d41e1e0d78c1,10.1371/journal.pone.0156931,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,invasion score,,insufficient_evidence
+record_d44a8caf44a3,10.1002/14651858.cd001177.pub2,table,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm2,0.5 mg/cm2,insufficient_evidence
+record_d8d2b57596ab,10.1208/s12249-019-1481-1,table,unresolved,verified,unresolved->verified,amount_per_area,µg/cm²,-,
+record_d8ec78052c20,10.1371/journal.pone.0156931,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,invasion score,NaIbu 131μM hydrogel,insufficient_evidence
+record_d9ccefdc9f5c,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,mg/cm²,5 % w/w,source_context_inconsistent
+record_d9fc1e579464,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_daa04f908693,10.1039/d0ra00100g,table,rejected,rejected,rejected->rejected,amount_total,mg IBU cm²,,not_target_api
+record_db9e53b4e4c5,10.1593/neo.121890,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,1 mg/ml,source_context_inconsistent
+record_dc0536190cb0,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_dc75f062c81e,10.1208/s12249-019-1481-1,table,unresolved,verified,unresolved->verified,amount_per_area,µg/cm²,-,
+record_dcb14df0525a,10.3390/molecules28207156,table,unresolved,unresolved,unresolved->unresolved,unknown,µg/mL,67.4 ± 2.6,insufficient_evidence
+record_de6fae5613ca,10.3390/molecules28207156,table,unresolved,unresolved,unresolved->unresolved,unknown,µg/mL,17.2 ± 1.2,insufficient_evidence
+record_dea378194778,10.1186/2050-6511-13-5,mixed,unresolved,verified,unresolved->verified,amount_per_area,μg/cm²/h,,
+record_df8235034e6d,10.1208/s12249-015-0474-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,,not_target_api
+record_dfe6c44e744a,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm2,5%,source_context_inconsistent
+record_e058c87cb94e,10.1038/nature18615,text,unresolved,unresolved,unresolved->unresolved,unknown,none,not specified,missing_endpoint
+record_e0f692cb7519,10.3389/fphar.2024.1355283,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,source_context_inconsistent
+record_e1258a12308c,10.1007/s11095-024-03747-6,mixed,rejected,rejected,rejected->rejected,unknown,,5% w/v,not_target_device
+record_e2382147b1cd,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_e26a9af3a51b,10.1038/s41598-024-57883-5,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg,,insufficient_evidence
+record_e3375489a6c9,10.1016/j.ejpb.2020.05.013,figure,verified,verified,verified->verified,amount_total,µg/mL,5 % w/w,
+record_e56d12da6110,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_e6bcd65ec626,10.4103/jomfp.jomfp_253_19,mixed,unresolved,unresolved,unresolved->unresolved,percent,%,,insufficient_evidence
+record_e6ee5fbe2ba0,10.1208/s12249-015-0474-y,mixed,unresolved,unresolved,unresolved->unresolved,jss,μg/(cm2 h),N/A,insufficient_evidence
+record_e9f28313fe6a,10.1371/journal.pone.0156931,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,invasion score,,insufficient_evidence
+record_ea6d3cf8e803,10.1172/jci2614,figure,unresolved,unresolved,unresolved->unresolved,unknown,mA/cm²,500 µM,source_context_inconsistent
+record_ea936078e644,10.3389/fchem.2021.767923,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,5 mg/ml,source_context_inconsistent
+record_eb5e98f7f8bb,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_ed1043dd980c,10.1371/journal.pone.0118536,figure,rejected,rejected,rejected->rejected,amount_per_area,μg/cm²,1 μM,source_context_inconsistent
+record_eebedadd4c16,10.1007/s11095-024-03747-6,mixed,rejected,rejected,rejected->rejected,unknown,,10% w/v,not_target_device
+record_f014c92e4f9a,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_f1bd4b546c11,10.1208/s12249-015-0474-y,mixed,unresolved,unresolved,unresolved->unresolved,jss,μg/(cm2 h),N/A,insufficient_evidence
+record_f478ed281906,10.1523/jneurosci.15-04-02768.1995,figure,rejected,rejected,rejected->rejected,amount_total,%,,source_context_inconsistent
+record_f4ad6fc69336,10.1007/s11095-008-9785-y,mixed,unresolved,verified,unresolved->verified,amount_per_area,μg/cm²,Ibuprofen saturated solution in 75:25 propylene glycol/water,
+record_f4db8f371df4,10.1208/s12249-019-1481-1,table,unresolved,verified,unresolved->verified,amount_per_area,µg/cm²,-,
+record_f5b1e66e5b83,10.1371/journal.pone.0130253,mixed,unresolved,unresolved,unresolved->unresolved,amount_total,mg g–1,,insufficient_evidence
+record_fa22d53562d2,10.3390/molecules28207156,table,unresolved,unresolved,unresolved->unresolved,unknown,µg/mL,17.6 ± 1.2,insufficient_evidence
+record_fb26829467a8,10.1186/2050-6511-13-5,mixed,unresolved,verified,unresolved->verified,amount_per_area,μg/cm²/h,,
+record_fb64e8e3e022,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,,source_context_inconsistent
+record_fb7946ffb370,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,,source_context_inconsistent
+record_ffa5e9ab3144,10.1007/s13346-022-01182-x,table,unresolved,unresolved,unresolved->unresolved,amount_total,%,0.5% w/v ibuprofen,insufficient_evidence

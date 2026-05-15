@@ -1,0 +1,5 @@
+﻿run,policy,table_records,text_records,figure_records,assembled,final_records,verified,unresolved,rejected
+full_run_13_post_fix5_v1,v1_strict_ibuprofen_5pct,64,11,9,79,79,4,48,27
+full_run_14_v2_policy,v2_accept_wv,60,13,7,75,75,10,43,22
+full_run_15_schema_table_fix_v1,v1_strict_ibuprofen_5pct,220,11,16,233,233,10,161,62
+full_run_15_schema_table_fix_v2_rescore,v2_accept_wv (rescore of full_run15 patched records),220,11,16,233,233,34,137,62

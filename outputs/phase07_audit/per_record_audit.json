@@ -1,0 +1,2783 @@
+{
+  "records": [
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "0:100",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000183922",
+        "expected_J_mean": 186.0,
+        "expected_J_sd": 11.0,
+        "extracted_J_mean": 186.0,
+        "extracted_J_sd": 11.0,
+        "mean_ratio": 1.0,
+        "mean_relative_error": 0.0,
+        "mean_within_2pct": true,
+        "paper": "Part I",
+        "record_id": "record_2abb314c7b9a",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "0:100"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 0.0,
+        "water_vv": 100.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_2abb314c7b9a",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "25:75",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000183922",
+        "expected_J_mean": 420.0,
+        "expected_J_sd": 2.5,
+        "extracted_J_mean": 420.0,
+        "extracted_J_sd": 2.5,
+        "mean_ratio": 1.0,
+        "mean_relative_error": 0.0,
+        "mean_within_2pct": true,
+        "paper": "Part I",
+        "record_id": "record_c5c947facd5e",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "25:75"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 25.0,
+        "water_vv": 75.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_c5c947facd5e",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "50:50",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000183922",
+        "expected_J_mean": 916.0,
+        "expected_J_sd": 79.0,
+        "extracted_J_mean": 916.0,
+        "extracted_J_sd": 79.0,
+        "mean_ratio": 1.0,
+        "mean_relative_error": 0.0,
+        "mean_within_2pct": true,
+        "paper": "Part I",
+        "record_id": "record_9d951ad8e97f",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "50:50"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 50.0,
+        "water_vv": 50.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_9d951ad8e97f",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "75:25",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000183922",
+        "expected_J_mean": 945.0,
+        "expected_J_sd": 61.0,
+        "extracted_J_mean": 945.0,
+        "extracted_J_sd": 61.0,
+        "mean_ratio": 1.0,
+        "mean_relative_error": 0.0,
+        "mean_within_2pct": true,
+        "paper": "Part I",
+        "record_id": "record_6addda23f9bf",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "75:25"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 75.0,
+        "water_vv": 25.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_6addda23f9bf",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "100:0",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000183922",
+        "expected_J_mean": 1495.0,
+        "expected_J_sd": 116.0,
+        "extracted_J_mean": 1495.0,
+        "extracted_J_sd": 116.0,
+        "mean_ratio": 1.0,
+        "mean_relative_error": 0.0,
+        "mean_within_2pct": true,
+        "paper": "Part I",
+        "record_id": "record_3a82944abc56",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "100:0"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 100.0,
+        "water_vv": 0.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_3a82944abc56",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown",
+        "expected_protocol=pretreated"
+      ],
+      "expected_occlusion_by_table": "pretreated",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "25:75",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 25.0,
+        "water_vv": 75.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_a98d86faa525",
+      "source_table": "Table 4",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown",
+        "expected_protocol=pretreated"
+      ],
+      "expected_occlusion_by_table": "pretreated",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "75:25",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 75.0,
+        "water_vv": 25.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_0479b8762ff7",
+      "source_table": "Table 4",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown",
+        "expected_protocol=pretreated"
+      ],
+      "expected_occlusion_by_table": "pretreated",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "100:0",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 100.0,
+        "water_vv": 0.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_d64a87c207d1",
+      "source_table": "Table 4",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "0:100",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 0.0,
+        "water_vv": 100.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_1bd68bcc4d72",
+      "source_table": "Table 5",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "25:75",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 25.0,
+        "water_vv": 75.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_42e39d599287",
+      "source_table": "Table 5",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "50:50",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 50.0,
+        "water_vv": 50.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_06c6fe15e023",
+      "source_table": "Table 5",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "75:25",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 75.0,
+        "water_vv": 25.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_d28ec2f5bcb5",
+      "source_table": "Table 5",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000183922",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "100:0",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part I",
+      "paper_id": "paper_de978dfa4371",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": null,
+        "ethanol_vv": 100.0,
+        "water_vv": 0.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_1fbd0dd25b18",
+      "source_table": "Table 5",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "0:100",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 185.5,
+        "expected_J_sd": 10.94,
+        "extracted_J_mean": 185.58,
+        "extracted_J_sd": 10.94,
+        "mean_ratio": 1.0004312668463613,
+        "mean_relative_error": 0.0004312668463612534,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_b178d612dacc",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "0:100"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 0.0,
+        "ethanol_vv": null,
+        "water_vv": 100.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_b178d612dacc",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "10:90",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 225.4,
+        "expected_J_sd": 31.47,
+        "extracted_J_mean": 225.48,
+        "extracted_J_sd": 31.47,
+        "mean_ratio": 1.000354924578527,
+        "mean_relative_error": 0.0003549245785269924,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_50358ab6a9ca",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "10:90"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 10.0,
+        "ethanol_vv": null,
+        "water_vv": 90.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_50358ab6a9ca",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "20:80",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 229.5,
+        "expected_J_sd": 14.2,
+        "extracted_J_mean": 229.58,
+        "extracted_J_sd": 14.2,
+        "mean_ratio": 1.0003485838779957,
+        "mean_relative_error": 0.0003485838779956972,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_fbbd43bde2f5",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "20:80"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 20.0,
+        "ethanol_vv": null,
+        "water_vv": 80.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_fbbd43bde2f5",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "30:70",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 216.0,
+        "expected_J_sd": 22.47,
+        "extracted_J_mean": 216.08,
+        "extracted_J_sd": 22.47,
+        "mean_ratio": 1.0003703703703704,
+        "mean_relative_error": 0.00037037037037042825,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_937d3e534888",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "30:70"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 30.0,
+        "ethanol_vv": null,
+        "water_vv": 70.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_937d3e534888",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "40:60",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 277.1,
+        "expected_J_sd": 31.22,
+        "extracted_J_mean": 277.18,
+        "extracted_J_sd": 31.22,
+        "mean_ratio": 1.0002887044388307,
+        "mean_relative_error": 0.00028870443883068954,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_9002f53353a8",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "40:60"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 40.0,
+        "ethanol_vv": null,
+        "water_vv": 60.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_9002f53353a8",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "60:40",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 355.4,
+        "expected_J_sd": 36.34,
+        "extracted_J_mean": 355.48,
+        "extracted_J_sd": 36.34,
+        "mean_ratio": 1.0002250984805854,
+        "mean_relative_error": 0.00022509848058537121,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_3738ac92928d",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "60:40"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 60.0,
+        "ethanol_vv": null,
+        "water_vv": 40.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_3738ac92928d",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "70:30",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 443.3,
+        "expected_J_sd": 19.86,
+        "extracted_J_mean": 443.38,
+        "extracted_J_sd": 19.86,
+        "mean_ratio": 1.0001804646965937,
+        "mean_relative_error": 0.00018046469659369294,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_bc629b7ee4f2",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "70:30"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 70.0,
+        "ethanol_vv": null,
+        "water_vv": 30.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_bc629b7ee4f2",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "80:20",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 245.2,
+        "expected_J_sd": 28.55,
+        "extracted_J_mean": 245.28,
+        "extracted_J_sd": 28.55,
+        "mean_ratio": 1.000326264274062,
+        "mean_relative_error": 0.00032626427406204123,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_8308d93e2200",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "80:20"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 80.0,
+        "ethanol_vv": null,
+        "water_vv": 20.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_8308d93e2200",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "90:10",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 219.6,
+        "expected_J_sd": 22.32,
+        "extracted_J_mean": 219.68,
+        "extracted_J_sd": 22.32,
+        "mean_ratio": 1.0003642987249546,
+        "mean_relative_error": 0.00036429872495451963,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_d1ff98d4c972",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "90:10"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 90.0,
+        "ethanol_vv": null,
+        "water_vv": 10.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_d1ff98d4c972",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "100:0",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 297.1,
+        "expected_J_sd": 29.43,
+        "extracted_J_mean": 297.18,
+        "extracted_J_sd": 29.43,
+        "mean_ratio": 1.0002692696061932,
+        "mean_relative_error": 0.00026926960619314737,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_f34719333f70",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 2",
+        "vehicle": "100:0"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 100.0,
+        "ethanol_vv": null,
+        "water_vv": 0.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_f34719333f70",
+      "source_table": "Table 2",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "25:25:50",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 525.8,
+        "expected_J_sd": 37.3,
+        "extracted_J_mean": 525.88,
+        "extracted_J_sd": 37.3,
+        "mean_ratio": 1.000152149106124,
+        "mean_relative_error": 0.00015214910612407938,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_6b4ab72b9a59",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "25:25:50"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 25.0,
+        "ethanol_vv": 25.0,
+        "water_vv": 50.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_6b4ab72b9a59",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "50:25:25",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000231528",
+        "expected_J_mean": 641.1,
+        "expected_J_sd": 84.1,
+        "extracted_J_mean": 641.18,
+        "extracted_J_sd": 4.1,
+        "mean_ratio": 1.000124785524879,
+        "mean_relative_error": 0.00012478552487900054,
+        "mean_within_2pct": true,
+        "paper": "Part II",
+        "record_id": "record_073219db157b",
+        "sd_ratio": 0.04875148632580262,
+        "sd_relative_error": 0.9512485136741975,
+        "sd_within_5pct": false,
+        "table": "Table 3",
+        "vehicle": "50:25:25"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 25.0,
+        "ethanol_vv": 50.0,
+        "water_vv": 25.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_073219db157b",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown",
+        "expected_protocol=non_occluded"
+      ],
+      "expected_occlusion_by_table": "non_occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "25:25:50",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 25.0,
+        "ethanol_vv": 25.0,
+        "water_vv": 50.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_af7d9fdf90d6",
+      "source_table": "Table 4",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown",
+        "expected_protocol=non_occluded"
+      ],
+      "expected_occlusion_by_table": "non_occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "50:25:25",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 25.0,
+        "ethanol_vv": 50.0,
+        "water_vv": 25.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_eea14c396acf",
+      "source_table": "Table 4",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "0:100",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 0.0,
+        "ethanol_vv": null,
+        "water_vv": 100.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_fb1e9524c1f2",
+      "source_table": "Table 5",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "25:75",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 25.0,
+        "ethanol_vv": null,
+        "water_vv": 75.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_d56177853e9b",
+      "source_table": "Table 5",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "50:50",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 50.0,
+        "ethanol_vv": null,
+        "water_vv": 50.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_0917c25edbf8",
+      "source_table": "Table 5",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "100:0",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 100.0,
+        "ethanol_vv": null,
+        "water_vv": 0.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_ed550befcd82",
+      "source_table": "Table 5",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "25:25:50",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 25.0,
+        "ethanol_vv": 25.0,
+        "water_vv": 50.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_3e452eb93e69",
+      "source_table": "Table 6",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000231528",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "50:25:25",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part II",
+      "paper_id": "paper_a147e8c5cba7",
+      "parsed_composition": {
+        "MG_vv": null,
+        "MO_vv": null,
+        "PG_vv": 25.0,
+        "ethanol_vv": 50.0,
+        "water_vv": 25.0
+      },
+      "raw_barrier_contains_silicone": false,
+      "raw_top_level_barrier": "human skin",
+      "record_id": "record_6c7b2e45db8e",
+      "source_table": "Table 6",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "0/100",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 623.8,
+        "expected_J_sd": 67.7,
+        "extracted_J_mean": 623.88,
+        "extracted_J_sd": 67.7,
+        "mean_ratio": 1.000128246232767,
+        "mean_relative_error": 0.0001282462327669781,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_cb52be540c78",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "0/100"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 100.0,
+        "MO_vv": 0.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_cb52be540c78",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "10/90",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 439.9,
+        "expected_J_sd": 23.9,
+        "extracted_J_mean": 439.98,
+        "extracted_J_sd": 23.9,
+        "mean_ratio": 1.000181859513526,
+        "mean_relative_error": 0.00018185951352589437,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_727c284f387d",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "10/90"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 90.0,
+        "MO_vv": 10.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_727c284f387d",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "20/80",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 569.6,
+        "expected_J_sd": 63.5,
+        "extracted_J_mean": 569.68,
+        "extracted_J_sd": 63.5,
+        "mean_ratio": 1.000140449438202,
+        "mean_relative_error": 0.00014044943820211946,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_d89ce76d4e73",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "20/80"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 80.0,
+        "MO_vv": 20.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_d89ce76d4e73",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "30/70",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 573.5,
+        "expected_J_sd": 55.0,
+        "extracted_J_mean": 573.58,
+        "extracted_J_sd": 55.0,
+        "mean_ratio": 1.0001394943330428,
+        "mean_relative_error": 0.0001394943330427915,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_fd14bfeef86b",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "30/70"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 70.0,
+        "MO_vv": 30.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_fd14bfeef86b",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "40/60",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 409.4,
+        "expected_J_sd": 13.6,
+        "extracted_J_mean": 409.48,
+        "extracted_J_sd": 13.6,
+        "mean_ratio": 1.0001954079140207,
+        "mean_relative_error": 0.0001954079140206178,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_251b349f4982",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "40/60"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 60.0,
+        "MO_vv": 40.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_251b349f4982",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "50/50",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 311.9,
+        "expected_J_sd": 33.8,
+        "extracted_J_mean": 311.98,
+        "extracted_J_sd": 33.8,
+        "mean_ratio": 1.000256492465534,
+        "mean_relative_error": 0.0002564924655339562,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_7c57e0a8f5f4",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "50/50"
+      },
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 50.0,
+        "MO_vv": 50.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_7c57e0a8f5f4",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "60/40",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 675.1,
+        "expected_J_sd": 66.8,
+        "extracted_J_mean": 675.18,
+        "extracted_J_sd": 66.8,
+        "mean_ratio": 1.0001185009628202,
+        "mean_relative_error": 0.00011850096282021514,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_00cea63f02f2",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "60/40"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 40.0,
+        "MO_vv": 60.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_00cea63f02f2",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "70/30",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 646.9,
+        "expected_J_sd": 9.9,
+        "extracted_J_mean": 646.98,
+        "extracted_J_sd": 9.9,
+        "mean_ratio": 1.0001236667181945,
+        "mean_relative_error": 0.0001236667181945292,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_5aa5cbaf50a8",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "70/30"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 30.0,
+        "MO_vv": 70.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_5aa5cbaf50a8",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "80/20",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 519.1,
+        "expected_J_sd": 20.2,
+        "extracted_J_mean": 519.18,
+        "extracted_J_sd": 20.2,
+        "mean_ratio": 1.00015411288769,
+        "mean_relative_error": 0.00015411288769009293,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_7f58f7aeb93b",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "80/20"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 20.0,
+        "MO_vv": 80.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_7f58f7aeb93b",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "90/10",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 457.0,
+        "expected_J_sd": 53.5,
+        "extracted_J_mean": 457.08,
+        "extracted_J_sd": 53.5,
+        "mean_ratio": 1.0001750547045951,
+        "mean_relative_error": 0.00017505470459515117,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_efe20315f4cc",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "90/10"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 10.0,
+        "MO_vv": 90.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_efe20315f4cc",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "silicone",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "silicone membrane",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": true,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "100/0",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": {
+        "doi": "10.1159/000315139",
+        "expected_J_mean": 579.4,
+        "expected_J_sd": 35.3,
+        "extracted_J_mean": 579.48,
+        "extracted_J_sd": 35.3,
+        "mean_ratio": 1.0001380738695202,
+        "mean_relative_error": 0.00013807386952026395,
+        "mean_within_2pct": true,
+        "paper": "Part III",
+        "record_id": "record_0ae15e6cd56d",
+        "sd_ratio": 1.0,
+        "sd_relative_error": 0.0,
+        "sd_within_5pct": true,
+        "table": "Table 3",
+        "vehicle": "100/0"
+      },
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 0.0,
+        "MO_vv": 100.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_0ae15e6cd56d",
+      "source_table": "Table 3",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "0/100",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 100.0,
+        "MO_vv": 0.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_34054a56b952",
+      "source_table": "Table 4",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 1,
+      "endpoint_kinds": [
+        "flux"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "50/50",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 50.0,
+        "MO_vv": 50.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_0b32573fac67",
+      "source_table": "Table 4",
+      "source_table_found_in": "provenance.metadata.table_id"
+    },
+    {
+      "actual_occlusion": "unknown",
+      "audit_barrier": "human_epidermis",
+      "composition_non_empty": true,
+      "composition_source": "formulation.label + provenance.metadata.table_id",
+      "conditions_membrane_type": "human epidermis",
+      "coverage_criteria": {
+        "barrier_contains_silicone_after_audit_normalization": false,
+        "composition_non_empty_after_multifield_parse": true,
+        "has_flux_endpoint": true,
+        "has_flux_unit": true,
+        "occlusion_strict_occluded": false
+      },
+      "doi": "10.1159/000315139",
+      "endpoint_count": 2,
+      "endpoint_kinds": [
+        "flux",
+        "permeability_coefficient"
+      ],
+      "exclude_reason": [
+        "barrier=human_epidermis",
+        "occlusion=unknown"
+      ],
+      "expected_occlusion_by_table": "occluded",
+      "explicit_composition_fields": [],
+      "flux_unit_ok": true,
+      "formulation_label": "100/0",
+      "has_flux_endpoint": true,
+      "include_in_main_task": false,
+      "main_task_J_accuracy": null,
+      "missing_endpoint_kinds": [
+        "partition_parameter",
+        "diffusion_parameter"
+      ],
+      "paper": "Part III",
+      "paper_id": "paper_067e8b4e5b8c",
+      "parsed_composition": {
+        "MG_vv": 0.0,
+        "MO_vv": 100.0,
+        "PG_vv": null,
+        "ethanol_vv": null,
+        "water_vv": null
+      },
+      "raw_barrier_contains_silicone": true,
+      "raw_top_level_barrier": "silicone membrane and human skin",
+      "record_id": "record_5e114a7c7ff6",
+      "source_table": "Table 4",
+      "source_table_found_in": "provenance.metadata.table_id"
+    }
+  ],
+  "summary": {
+    "J_mean_within_2pct": 28,
+    "J_sd_within_5pct": 27,
+    "composition_anchor_pass": 6,
+    "composition_binary_pass": 4,
+    "composition_ternary_pass": 2,
+    "coverage": {
+      "coverage_ratio": 0.0,
+      "n_modelling_ready": 0,
+      "n_silicone": 33,
+      "n_silicone_occluded": 0,
+      "n_with_flux_endpoint": 0,
+      "n_with_flux_unit": 0
+    },
+    "endpoint_kind_counts": {
+      "flux": 47,
+      "permeability_coefficient": 23
+    },
+    "endpoint_length_counts": {
+      "1": 24,
+      "2": 23
+    },
+    "failure_inventory_rows": 142,
+    "input_counts": {
+      "assembled_records.jsonl": 47,
+      "corpus.csv": 3,
+      "patched_area.jsonl": 47,
+      "route_decisions.jsonl": 3,
+      "table_records.jsonl": 47,
+      "verified_records.jsonl": 47
+    },
+    "occlusion_counts": {
+      "unknown": 47
+    },
+    "overall_verdict": "RED",
+    "per_paper_counts": {
+      "10.1159/000183922": 13,
+      "10.1159/000231528": 20,
+      "10.1159/000315139": 14
+    },
+    "per_table_counts": {
+      "10.1159/000183922 Table 3": 5,
+      "10.1159/000183922 Table 4": 3,
+      "10.1159/000183922 Table 5": 5,
+      "10.1159/000231528 Table 2": 10,
+      "10.1159/000231528 Table 3": 2,
+      "10.1159/000231528 Table 4": 2,
+      "10.1159/000231528 Table 5": 4,
+      "10.1159/000231528 Table 6": 2,
+      "10.1159/000315139 Table 3": 11,
+      "10.1159/000315139 Table 4": 3
+    },
+    "records_with_at_least_one_issue": 47,
+    "source_table_present": 47,
+    "total_verified_records_audited": 47
+  }
+}

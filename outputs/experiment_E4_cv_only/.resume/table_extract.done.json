@@ -1,0 +1,13 @@
+{
+    "stage":  "table_extract",
+    "completed":  43,
+    "total":  43,
+    "detail":  "records=64",
+    "input_count":  43,
+    "output_count":  64,
+    "output_paths":  [
+                         "outputs\\\\experiment_E4_cv_only\\table_records.jsonl",
+                         "outputs\\\\experiment_E4_cv_only\\table_raw.jsonl"
+                     ],
+    "resume_signature_digest":  "045100982d6bea38bbe93bc78f89c363d1b17f63"
+}

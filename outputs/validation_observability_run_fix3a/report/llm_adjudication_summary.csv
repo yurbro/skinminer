@@ -1,0 +1,13 @@
+﻿stage,bucket,count
+llm_adjudication_candidate_reason,recoverable_unresolved:ambiguous_api_concentration,13
+llm_adjudication_candidate_reason,recoverable_unresolved:missing_endpoint,1
+llm_adjudication_priority_bucket,high,14
+llm_adjudication_review_focus,api_concentration_basis,13
+llm_adjudication_review_focus,endpoint_value,1
+llm_adjudication_recommended_status,rejected,3
+llm_adjudication_recommended_status,unresolved,11
+llm_adjudication_should_keep,no,14
+llm_adjudication_disagreement,scope_bucket_disagreement,3
+llm_adjudication_disagreement,status_disagreement,3
+llm_adjudication_transition,unresolved->rejected,3
+llm_adjudication_transition,unresolved->unresolved,11

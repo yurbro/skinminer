@@ -1,0 +1,14 @@
+{
+  "doi": "10.1208/s12249-013-9995-4",
+  "n_records": 24,
+  "input_dimensions": 4,
+  "n_restarts_optimizer": 20,
+  "alpha_scaling": "alpha = (SD / y_std)^2 because sklearn normalize_y=True standardizes targets",
+  "y_std_for_alpha": 471.024407699489,
+  "in_sample_r2": 0.9578870561715913,
+  "raw_sd2_alpha_in_sample_r2_diagnostic": 1.548052305011538e-06,
+  "learned_kernel": "1.18**2 * RBF(length_scale=[0.0171, 2.67, 5.19, 37.4])",
+  "learned_length_scale": "0.01707;2.668;5.191;37.38",
+  "warning_count": 0,
+  "warnings": []
+}

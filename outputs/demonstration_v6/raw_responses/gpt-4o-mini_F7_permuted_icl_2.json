@@ -1,0 +1,31 @@
+{
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "parsed_success": true,
+  "parsed": {
+    "24h": 232.0,
+    "48h": 838.0,
+    "72h": 1785.0
+  },
+  "raw_response": "```json\n{\"24h\": 232.0, \"48h\": 838.0, \"72h\": 1785.0}\n```",
+  "attempts": [
+    {
+      "attempt": 0,
+      "text": "```json\n{\"24h\": 232.0, \"48h\": 838.0, \"72h\": 1785.0}\n```",
+      "parsed": {
+        "24h": 232.0,
+        "48h": 838.0,
+        "72h": 1785.0
+      },
+      "input_tokens": 649,
+      "output_tokens": 32,
+      "total_tokens": 681,
+      "error": null
+    }
+  ],
+  "input_tokens": 649,
+  "output_tokens": 32,
+  "total_tokens": 681,
+  "error": null,
+  "cost_usd_estimate": 0.00011654999999999999
+}

@@ -1,0 +1,6 @@
+﻿method,input_mode,model,gold_tp_coverage_num,gold_tp_coverage_pct,value_correct_num,value_correct_pct,cost_usd,source
+Modular pipeline,modular,gpt-4o-mini,25/25,100.0,24/25,96.0,0.71,outputs/experiment_single_pass/single_pass_vs_pipeline_comparison.md
+"Single-pass (text, GPT-4o-mini)",text + HTML tables,gpt-4o-mini,7/25,28.0,7/24,29.2,0.085,reports/single_pass_architecture_comparison.md
+"Single-pass (PDF, GPT-4o-mini)",raw PDF,gpt-4o-mini,9/25,36.0,9/24,37.5,0.8375,reports/single_pass_architecture_comparison.md
+"Single-pass (PDF, GPT-5.4-mini)",raw PDF,gpt-5.4-mini,24/25,96.0,24/24,100.0,0.9734,reports/single_pass_architecture_comparison.md
+"Single-pass (PDF, Claude Sonnet)",raw PDF,claude-sonnet-4-6,0/25,0.0,0/24,0.0,4.1983,reports/single_pass_architecture_comparison.md

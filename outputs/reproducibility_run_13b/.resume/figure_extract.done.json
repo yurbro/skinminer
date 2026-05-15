@@ -1,0 +1,17 @@
+{
+  "stage": "figure_extract",
+  "completed": 21,
+  "total": 21,
+  "detail": "records=8",
+  "input_count": 21,
+  "output_count": 8,
+  "output_paths": [
+    "outputs\\reproducibility_run_13b\\figure_records.jsonl",
+    "outputs\\reproducibility_run_13b\\figure_triage.jsonl",
+    "outputs\\reproducibility_run_13b\\figure_curves.jsonl",
+    "outputs\\reproducibility_run_13b\\figure_endpoints.jsonl",
+    "outputs\\reproducibility_run_13b\\figure_vlm_readings.jsonl",
+    "outputs\\reproducibility_run_13b\\figure_curve_map.jsonl"
+  ],
+  "resume_signature_digest": "cec10203692928f42894731eef3ebaf3510b26ff"
+}

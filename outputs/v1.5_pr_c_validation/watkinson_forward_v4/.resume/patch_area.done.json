@@ -1,0 +1,12 @@
+{
+  "stage": "patch_area",
+  "completed": 14,
+  "total": 14,
+  "detail": "applied=0",
+  "input_count": 14,
+  "output_count": 14,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\watkinson_forward_v4\\patched_area.jsonl"
+  ],
+  "resume_signature_digest": "8fdc45372df26b721f9a1b793ad6b11d915f4954"
+}

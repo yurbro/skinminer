@@ -1,0 +1,13 @@
+{
+  "stage": "text_extract",
+  "completed": 8,
+  "total": 8,
+  "detail": "records=5",
+  "input_count": 8,
+  "output_count": 5,
+  "output_paths": [
+    "outputs\\experiment_E3_claude_v2\\text_records.jsonl",
+    "outputs\\experiment_E3_claude_v2\\text_raw.jsonl"
+  ],
+  "resume_signature_digest": "36d8876cffbddb4840a0bfacff145e1227e13a56"
+}

@@ -1,0 +1,94 @@
+﻿record_id,doi,route,previous_status,current_status,transition,endpoint_kind,endpoint_unit,api_raw,failure_reason
+record_03e7234f3890,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm^2,5% w/w,source_context_inconsistent
+record_0e3a2ba50747,10.1208/s12249-019-1481-1,table,unresolved,unresolved,unresolved->unresolved,percent,ug/cm^2,saturated,percent_only
+record_10b707b5eead,10.18433/j3160b,figure,unresolved,unresolved,unresolved->unresolved,percent,ug,1% (inferred from NSV-IBU preparation),source_context_inconsistent
+record_129338b0f03d,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm2,,source_context_inconsistent
+record_133155f197b0,10.1208/s12249-019-1481-1,table,unresolved,unresolved,unresolved->unresolved,percent,ug/cm^2,saturated,percent_only
+record_1481d36c2466,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_1781048540af,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0.6/0.4 (at preparation); LID/IBU as IL 0.4/0.4; Dissolved LID/IBU 0.2/0; Suspended LID/IBU 0/0,
+record_1a4b21f6917f,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0.3/0.7 (at preparation); LID/IBU as IL 0.3/0.3; Dissolved LID/IBU 0/0.4; Suspended LID/IBU 0/0,
+record_1bf5e1e73737,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_1ebb457466f0,10.1021/acs.molpharmaceut.0c00720,figure,unresolved,unresolved,unresolved->unresolved,unknown,,8 mM,missing_endpoint
+record_201abe3c58a1,10.1186/2050-6511-13-5,mixed,unresolved,verified,unresolved->verified,amount_total,mg,80% saturated solution,
+record_251f93e67bb6,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,flux,μg/cm²/h,80% saturated solution,insufficient_evidence
+record_2c9fa747f279,10.1007/s11095-008-9785-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,µg/cm²,~10 mg/ml (saturated),not_target_study_type
+record_345ccda9546c,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm^2,5% w/w,source_context_inconsistent
+record_3672e05a60e6,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_3914bb1c1af8,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm2,,source_context_inconsistent
+record_3ac46f7f86d1,10.1021/acs.molpharmaceut.0c00720,figure,unresolved,unresolved,unresolved->unresolved,unknown,,,missing_endpoint
+record_3b926a423aec,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_3c9e8dca27c5,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_3ec6644ba612,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_42659813bb90,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0.9/0.1 (at preparation); LID/IBU as IL 0.1/0.1; Dissolved LID/IBU 0.19/0; Suspended LID/IBU 0.61/0,
+record_42a672b9da26,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_453da10d1ec5,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_47a0ef575c25,10.18433/j3160b,figure,unresolved,unresolved,unresolved->unresolved,percent,ug,1% in vesicle preparation,source_context_inconsistent
+record_4c336477ef96,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_59930f2888d3,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0/1.0 (at preparation); LID/IBU as IL 0/0; Dissolved LID/IBU 0/0; Suspended LID/IBU 0/1.0,
+record_59963ee27e78,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_5a2ad96041ad,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_5ba910f21605,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm^2,5% w/w,source_context_inconsistent
+record_5ff2f5a2e3dc,10.1038/s41598-022-05912-6,figure,unresolved,unresolved,unresolved->unresolved,amount_total,mg,1:1 resin:drug ratio,source_context_inconsistent
+record_625109621efe,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm^2,5% w/w,source_context_inconsistent
+record_625975cc9b8d,10.1248/cpb.c21-00033,mixed,unresolved,unresolved,unresolved->unresolved,flux,µmol/cm²/h,"~3x solubility in water, stirred 37°C 24h (suspended solution)",insufficient_evidence
+record_6378b97946c2,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_63abbcc0fd2e,10.1007/s13346-022-01182-x,mixed,rejected,rejected,rejected->rejected,amount_total,mg,0.5% w/v,not_target_study_type
+record_6627f5d7e52b,10.1007/s11095-008-9785-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,~10 mg/ml (saturated solution),not_target_study_type
+record_680d383d11b3,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0.2/0.8 (at preparation); LID/IBU as IL 0.2/0.2; Dissolved LID/IBU 0/0.52; Suspended LID/IBU 0/0.08,
+record_68421bba5cec,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0.1/0.9 (at preparation); LID/IBU as IL 0.1/0.1; Dissolved LID/IBU 0/0.26; Suspended LID/IBU 0/0.54,
+record_6a282bc8bc67,10.18433/j3160b,figure,unresolved,unresolved,unresolved->unresolved,percent,ug,1%,source_context_inconsistent
+record_6a484a2ea1ad,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_6af6165a7e09,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm^2,5% w/w,source_context_inconsistent
+record_6ef7cb7d4ade,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_708e484f3c8d,10.1007/s13346-022-01182-x,mixed,rejected,rejected,rejected->rejected,unknown,R² (zero-order model),0.5% w/v,not_target_study_type
+record_7490da0d3c66,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0.5/0.5 (at preparation); LID/IBU as IL 0.5/0.5; Dissolved LID/IBU 0/0; Suspended LID/IBU 0/0,
+record_7518659de717,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_764e4aa71249,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_77122dc1ea41,10.1007/s11095-008-9785-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,~10 mg/ml (saturated solution),not_target_study_type
+record_771853ae9097,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_7d07cd813340,10.1039/d0ra00100g,text,unresolved,unresolved,unresolved->unresolved,unknown,,,missing_endpoint
+record_7f1a8e76ddde,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_80b0c7294292,10.1021/acs.molpharmaceut.0c00720,figure,unresolved,unresolved,unresolved->unresolved,unknown,,8 mM,missing_endpoint
+record_83a3f9b0e06e,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_8451385f5434,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_86585b48b473,10.1007/s11095-008-9785-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,~10 mg/ml (saturated solution),not_target_study_type
+record_86a97cf46af2,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm^2,5% w/w,source_context_inconsistent
+record_8cbb8eafc69e,10.1016/j.jpba.2019.04.040,text,unresolved,unresolved,unresolved->unresolved,unknown,,,missing_endpoint
+record_93126011b4da,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,flux,10⁻⁶ cm/s,80% saturated solution,insufficient_evidence
+record_9424b5553135,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_94fdeacead82,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_99b016ce3ce2,10.1007/s11095-008-9785-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,~10 mg/ml (saturated solution),not_target_study_type
+record_9ae51c5b007d,10.1208/s12249-019-1584-8,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm2,,source_context_inconsistent
+record_a1bb31150869,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,flux,10⁻⁶ cm/s,80% saturated solution,insufficient_evidence
+record_a8b14ec9c84e,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_aa3b53856a4c,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_b0d3bc96b995,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0.7/0.3 (at preparation); LID/IBU as IL 0.3/0.3; Dissolved LID/IBU 0.4/0; Suspended LID/IBU 0/0,
+record_b2c674a09bff,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0.8/0.2 (at preparation); LID/IBU as IL 0.2/0.2; Dissolved LID/IBU 0.38/0; Suspended LID/IBU 0.22/0,
+record_b3be8bb7a24a,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm^2,5% w/w,source_context_inconsistent
+record_b4d8eb6b246d,10.1007/s11095-008-9785-y,mixed,rejected,rejected,rejected->rejected,amount_total,mg,~10 mg/ml (saturated solution),not_target_study_type
+record_b595315133cb,10.1186/2050-6511-13-5,mixed,unresolved,verified,unresolved->verified,amount_total,mg,80% saturated solution,
+record_b8450d40a00a,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,flux,μg/cm²/h,80% saturated solution,insufficient_evidence
+record_b9475c62bade,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_bb1cbf1d5f0b,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,flux,10⁻⁶ cm/s,80% saturated solution,insufficient_evidence
+record_bbc291658e05,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_c13a8cda365e,10.1007/s13346-022-01182-x,mixed,rejected,rejected,rejected->rejected,amount_total,mg,0.5% w/v,not_target_study_type
+record_c823d905d9ab,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 0.4/0.6 (at preparation); LID/IBU as IL 0.4/0.4; Dissolved LID/IBU 0/0.2; Suspended LID/IBU 0/0,
+record_c83676244c03,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_c8fc7bf629a1,10.1007/s11095-008-9785-y,mixed,rejected,rejected,rejected->rejected,amount_per_area,ug/cm2,~10 mg/ml (saturated solution),not_target_study_type
+record_c95b424beea8,10.1208/s12249-019-1481-1,table,unresolved,unresolved,unresolved->unresolved,percent,ug/cm^2,saturated,percent_only
+record_cec4df0c0c43,10.1016/j.ejpb.2020.05.013,figure,unresolved,unresolved,unresolved->unresolved,unknown,,5% w/w,missing_endpoint
+record_cff9534403d5,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_d16c057fc54f,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_d9b00c5445d1,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,ug/cm^2,5% w/w,source_context_inconsistent
+record_d9fc1e579464,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_dc0536190cb0,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_dd3d59a50f07,10.1248/cpb.c21-00033,mixed,unresolved,unresolved,unresolved->unresolved,jss,µmol/cm²/h,approximately 3× solubility in water; suspended (activity = 1.0),insufficient_evidence
+record_dfbf5976d73b,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_e0c6a4b1b913,10.1186/2050-6511-13-5,mixed,unresolved,unresolved,unresolved->unresolved,flux,μg/cm²/h,80% saturated solution,insufficient_evidence
+record_e1f74993640e,10.1208/s12249-019-1481-1,table,unresolved,unresolved,unresolved->unresolved,percent,ug/cm^2,saturated,percent_only
+record_eb5e98f7f8bb,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_edbd03003258,10.1016/j.ijpharm.2016.03.043,figure,unresolved,unresolved,unresolved->unresolved,amount_per_area,µg/cm²,5% w/w,source_context_inconsistent
+record_efda20e2468c,10.1248/cpb.c21-00033,mixed,unresolved,unresolved,unresolved->unresolved,jss,µmol/cm²/h,"molar fraction of ibuprofen = 0.5 (equimolar with lidocaine); 100% IL, no free ibuprofen",insufficient_evidence
+record_f014c92e4f9a,10.1208/s12249-013-9995-4,table,verified,verified,verified->verified,amount_total,μg,5% (w/v),
+record_f7c477c76555,10.1248/cpb.c21-00033,mixed,unresolved,verified,unresolved->verified,amount_total,mg,LID/IBU ratio 1.0/0 (at preparation); LID/IBU as IL 0/0; Dissolved LID/IBU 0/0; Suspended LID/IBU 1.0/0,
+record_f8d0d6249889,10.1186/2050-6511-13-5,mixed,unresolved,verified,unresolved->verified,amount_total,mg,80% saturated solution,

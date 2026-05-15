@@ -1,0 +1,16 @@
+{
+  "stage": "figure_extract",
+  "completed": 18,
+  "total": 18,
+  "detail": "records=19",
+  "input_count": 18,
+  "output_count": 19,
+  "output_paths": [
+    "outputs\\full_run_11_full\\figure_records.jsonl",
+    "outputs\\full_run_11_full\\figure_triage.jsonl",
+    "outputs\\full_run_11_full\\figure_curves.jsonl",
+    "outputs\\full_run_11_full\\figure_endpoints.jsonl",
+    "outputs\\full_run_11_full\\figure_curve_map.jsonl"
+  ],
+  "resume_signature_digest": "7dc6e7516de9a70a59648357de63260af81dfcad"
+}

@@ -1,0 +1,66 @@
+﻿record_id,doi,route,status,formulation_label,endpoint_value,endpoint_unit,endpoint_time,endpoint_time_unit,source_context_notes
+record_5d8638739de7,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,1.23,mg/cm²,3.0,D,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint; source_context_inconsistent:endpoint_value_time_context_mismatch
+record_8452491461ab,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,1.23,mg/cm²,0.5,hours,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint
+record_56905c334e84,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,1.23,mg/cm²,1.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_cf75fe70f7e7,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,2.34,mg/cm²,2.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_5a7c814731a3,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,3.45,mg/cm²,3.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_aeecd0d08d28,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,4.56,mg/cm²,4.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_5020cd3721bb,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,5.67,mg/cm²,5.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_161a7275a03e,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,6.78,mg/cm²,6.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_c3546a6dfa5f,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,7.89,mg/cm²,7.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_d9ccefdc9f5c,10.1016/j.ejpb.2020.05.013,figure,unresolved,5% w/w Ibuprofen gel,9.0,mg/cm²,8.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_5bc4d003491f,10.1016/j.ijpharm.2016.03.043,figure,unresolved,IBUGEL™ (Ibuprofen 5% w/w),90.0,ug/cm2,10.0,min,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint; source_context_inconsistent:endpoint_value_time_context_mismatch
+record_a28c8f99f0f6,10.1016/j.ijpharm.2016.03.043,figure,unresolved,IBULEVE™ Speed Relief 5% Spray,91.0,ug/cm2,10.0,min,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint; source_context_inconsistent:endpoint_value_time_context_mismatch
+record_dfe6c44e744a,10.1016/j.ijpharm.2016.03.043,figure,unresolved,Isopropyl alcohol solution (5% w/w),136.0,ug/cm2,10.0,min,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint; source_context_inconsistent:endpoint_value_time_context_mismatch
+record_22f2ed6c64d6,10.1016/j.ijpharm.2016.03.043,figure,unresolved,Propylene glycol solution (5% w/w),16.817726135253906,µg/cm²,10.0,min,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint; source_context_inconsistent:endpoint_value_time_context_mismatch
+record_6f4d81e453f5,10.1016/j.ijpharm.2016.03.043,figure,unresolved,IBUGEL™ (Ibuprofen 5% w/w),90.0,μg/cm²,6.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_8515317ce0a0,10.1016/j.ijpharm.2016.03.043,figure,unresolved,IBULEVE™ Speed Relief 5% Spray,91.0,μg/cm²,6.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_be6922d882d2,10.1016/j.ijpharm.2016.03.043,figure,unresolved,Isopropyl alcohol solution (5% w/w),136.0,μg/cm²,6.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_c36382dfd014,10.1021/acs.molpharmaceut.0c00720,figure,unresolved,N+-Ibuprofen,12.0,hours,72.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_4d624f430c6c,10.1021/acs.molpharmaceut.0c00720,figure,unresolved,P+-Ibuprofen,72.0,hours,72.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_54f0c77ecce9,10.1038/s41598-020-74885-1,figure,unresolved,12% PCL-IBU,4.0,mg,62.0,days,source_context_inconsistent:figure_route_table_endpoint
+record_3a3312bfab87,10.1038/s41598-020-74885-1,figure,unresolved,12% PCL-IBU,4.0,mg,0.0,days,source_context_inconsistent:figure_route_table_endpoint
+record_ccfbcf0f6bbe,10.1172/jci2614,figure,unresolved,500 µM Ibuprofen,0.4,mA/cm²,32.0,minutes,source_context_inconsistent:figure_route_table_endpoint
+record_b1d83a122415,10.1172/jci2614,figure,unresolved,500 µM Ibuprofen,0.5,mA/cm²,60.0,minutes,source_context_inconsistent:figure_route_table_endpoint
+record_ea6d3cf8e803,10.1172/jci2614,figure,unresolved,500 µM Ibuprofen,0.45,mA/cm²,90.0,minutes,source_context_inconsistent:figure_route_table_endpoint
+record_a1da113d2ef1,10.1208/s12249-019-1584-8,figure,unresolved,Ibuprofen Microemulsion,130.0,ug/cm2,4.0,h,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint
+record_0644080d4156,10.1208/s12249-019-1584-8,figure,unresolved,Ibuprofen Hydrogel,110.0,ug/cm2,4.0,h,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint
+record_24b33ca6e596,10.1208/s12249-019-1584-8,figure,unresolved,Ibuprofen Cream,60.0,ug/cm2,4.0,h,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint
+record_1d494691ecc1,10.1208/s12249-019-1584-8,figure,unresolved,Ibuprofen Microemulsion,130.0,µg/cm²,0.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_17d097c8eb40,10.1208/s12249-019-1584-8,figure,unresolved,Ibuprofen Hydrogel,110.0,µg/cm²,0.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_fb7946ffb370,10.1208/s12249-019-1584-8,figure,unresolved,Ibuprofen Cream,60.0,µg/cm²,0.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_5c419d7bef3a,10.1371/journal.pone.0118536,figure,unresolved,Ibuprofen 10 μM,0.5,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_5c91ad38b660,10.1371/journal.pone.0118536,figure,unresolved,Ibuprofen 100 μM,1.0,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_2c775db21521,10.1371/journal.pone.0118536,figure,unresolved,Ibuprofen 500 μM,1.5,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_bbed5ffe19a8,10.1371/journal.pone.0118536,figure,rejected,Y-27632 1 μM,0.4,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_217c1e06fdac,10.1371/journal.pone.0118536,figure,rejected,Y-27632 5 μM,0.6,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_8286a15b79b9,10.1371/journal.pone.0118536,figure,rejected,Y-27632 10 μM,0.8,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_8eaf064b8d83,10.1371/journal.pone.0118536,figure,rejected,Y-27632 50 μM,1.0,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_ed1043dd980c,10.1371/journal.pone.0118536,figure,rejected,Fasudil 1 μM,0.5,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_70e3e452fbe6,10.1371/journal.pone.0118536,figure,rejected,Fasudil 10 μM,0.7,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_0b97a6afd6c5,10.1371/journal.pone.0118536,figure,rejected,Fasudil 100 μM,0.9,μg/cm²,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_53de1fd970cc,10.1523/jneurosci.15-04-02768.1995,figure,rejected,Control (formalin),10.0,mg,0.0,min,source_context_inconsistent:figure_route_table_endpoint
+record_f478ed281906,10.1523/jneurosci.15-04-02768.1995,figure,rejected,Control (formalin),110.0,%,0.0,min,source_context_inconsistent:figure_route_table_endpoint
+record_08d8e7a055b8,10.1523/jneurosci.15-04-02768.1995,figure,rejected,"S(+) ibuprofen (10 mg/kg, i.p.)",-28.0,%,0.0,min,source_context_inconsistent:figure_route_table_endpoint
+record_72e99d415db4,10.1523/jneurosci.15-04-02768.1995,figure,rejected,"S(+) ibuprofen (1 mg/kg, i.p.)",60.0,%,0.0,min,source_context_inconsistent:figure_route_table_endpoint
+record_3687bb2add91,10.1523/jneurosci.15-04-02768.1995,figure,rejected,"R(-) ibuprofen (10 mg/kg, i.p.)",93.0,%,0.0,min,source_context_inconsistent:figure_route_table_endpoint
+record_0a56e7ea5527,10.1523/jneurosci.15-04-02768.1995,figure,rejected,Control (formalin),0.0,,0.0,,source_context_inconsistent:figure_route_table_endpoint
+record_28f2d35be22d,10.1593/neo.121890,figure,unresolved,Ibuprofen Treatment,2.5,mg,48.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_3ce2c5362afc,10.1593/neo.121890,figure,unresolved,Ibuprofen Treatment - Time Point 1,1.8,mg,24.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_db9e53b4e4c5,10.1593/neo.121890,figure,unresolved,Ibuprofen Treatment - Time Point 2,3.0,mg,72.0,hours,source_context_inconsistent:figure_route_table_endpoint
+record_50c67f819b5f,10.18433/j3160b,figure,rejected,NSV-IBU 1%,60.0,%,48.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_465f54a451d1,10.18433/j3160b,figure,rejected,NSV-IBU 1%,0.0,%,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_6536e275b856,10.18433/j3160b,figure,rejected,NSV-IBU 1%,0.0,%,8.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_ea936078e644,10.3389/fchem.2021.767923,figure,unresolved,CI1,5.0,mg,72.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_0bbb13628c42,10.3389/fchem.2021.767923,figure,unresolved,CI1,5.0,mg,72.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_e0f692cb7519,10.3389/fphar.2024.1355283,figure,unresolved,I-HA,20.0,mg,1.0,H,source_context_inconsistent:figure_route_table_endpoint
+record_a3142734cc9f,10.3389/fphar.2024.1355283,figure,unresolved,I-HA,20.0,mg,24.0,h,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint
+record_5a2901d16067,10.3389/fphar.2024.1355283,figure,unresolved,I-HA,20.0,mg,4.0,h,source_context_inconsistent:figure_route_table_endpoint; source_context_inconsistent:endpoint_value_from_shared_hint
+record_1fdbfc6e224e,10.3389/fphys.2016.00263,figure,rejected,Vehicle 1 + IH,15.0,mg,12.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_c5d101295c15,10.3389/fphys.2016.00263,figure,rejected,Vehicle 1 + IH,15.0,mg,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_6791b1578ec1,10.3389/fphys.2016.00263,figure,rejected,NAC + IH,15.0,mg,12.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_66049faea073,10.3389/fphys.2016.00263,figure,rejected,NAC + IH,15.0,mg,24.0,h,source_context_inconsistent:figure_route_table_endpoint
+record_72eaf44a4ef4,10.1016/j.ijpharm.2016.03.043,figure,unresolved,Isopropyl alcohol solution (5% w/w),9.315208435058594,µg/cm²,48.0,h,source_context_inconsistent:weak_figure_mapping_grounding
+record_795d5ea23996,10.1016/j.ijpharm.2016.03.043,figure,unresolved,Propylene glycol solution (5% w/w),16.817726135253906,µg/cm²,48.0,h,source_context_inconsistent:weak_figure_mapping_grounding
+record_fb64e8e3e022,10.1208/s12249-019-1584-8,figure,unresolved,Ibuprofen Microemulsion,267.96746826171875,µg/cm²,24.0,h,source_context_inconsistent:weak_figure_mapping_grounding
+record_61ffd65ceb45,10.1593/neo.121890,figure,unresolved,Ibuprofen Treatment,0.17857134342193604,arbitrary units,96.0,hours,source_context_inconsistent:weak_figure_mapping_grounding

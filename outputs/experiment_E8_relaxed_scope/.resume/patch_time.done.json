@@ -1,0 +1,12 @@
+{
+  "stage": "patch_time",
+  "completed": 74,
+  "total": 74,
+  "detail": "applied=20",
+  "input_count": 74,
+  "output_count": 74,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\patched_endpoint_time.jsonl"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "assembly",
+  "completed": 27,
+  "total": 27,
+  "detail": "assembled=26",
+  "input_count": 27,
+  "output_count": 26,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix4\\assembled_records.jsonl"
+  ],
+  "resume_signature_digest": "b2aa05a6f688c5fde476b0c9de55e7ff272e1b24"
+}

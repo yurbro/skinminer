@@ -1,0 +1,16 @@
+﻿stage,bucket,count
+figure_stage,digitization_no_output,0
+figure_stage,digitized_curves,0
+figure_stage,digitized_endpoints_failed,0
+figure_stage,digitized_endpoints_ok,0
+figure_stage,mapped_curves,0
+figure_stage,triage_artifacts,0
+figure_stage,triage_digitize_candidates,0
+figure_stage,triage_has_permeation_plot_true,0
+figure_stage,unmapped_curves,0
+figure_stage,vlm_readings_readable,0
+figure_stage,vlm_readings_total,0
+figure_stage,vlm_used_as_final,0
+figure_gate,routed_candidates,0
+figure_gate,after_gate,0
+verification_route:table,ambiguous_api_concentration,24

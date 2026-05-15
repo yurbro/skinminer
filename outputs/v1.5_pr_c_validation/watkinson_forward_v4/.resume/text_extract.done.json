@@ -1,0 +1,13 @@
+{
+  "stage": "text_extract",
+  "completed": 0,
+  "total": 0,
+  "detail": "records=0",
+  "input_count": 0,
+  "output_count": 0,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\watkinson_forward_v4\\text_records.jsonl",
+    "outputs\\v1.5_pr_c_validation\\watkinson_forward_v4\\text_raw.jsonl"
+  ],
+  "resume_signature_digest": "8fdc45372df26b721f9a1b793ad6b11d915f4954"
+}

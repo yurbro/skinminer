@@ -1,0 +1,13 @@
+{
+    "stage":  "text_extract",
+    "completed":  15,
+    "total":  15,
+    "detail":  "records=11",
+    "input_count":  15,
+    "output_count":  11,
+    "output_paths":  [
+                         "outputs\\\\experiment_E4_cv_only\\text_records.jsonl",
+                         "outputs\\\\experiment_E4_cv_only\\text_raw.jsonl"
+                     ],
+    "resume_signature_digest":  "045100982d6bea38bbe93bc78f89c363d1b17f63"
+}

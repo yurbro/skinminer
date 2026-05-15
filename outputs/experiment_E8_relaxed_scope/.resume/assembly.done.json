@@ -1,0 +1,12 @@
+{
+  "stage": "assembly",
+  "completed": 85,
+  "total": 85,
+  "detail": "assembled=74",
+  "input_count": 85,
+  "output_count": 74,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\assembled_records.jsonl"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

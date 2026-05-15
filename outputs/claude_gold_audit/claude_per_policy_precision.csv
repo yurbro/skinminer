@@ -1,0 +1,4 @@
+﻿policy,verified,tp,fp,uncertain,precision_pct,inherited_labels,new_annotations
+v2,24,24,0,0,100.0,24,0
+v3,38,24,14,0,63.1578947368421,24,14
+v4,47,28,19,0,59.57446808510638,25,22

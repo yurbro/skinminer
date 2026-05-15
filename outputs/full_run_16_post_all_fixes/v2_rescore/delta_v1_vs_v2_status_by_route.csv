@@ -1,0 +1,10 @@
+﻿route,status,v1_full_run_16,v2_rescore,delta
+figure,rejected,23,23,0
+figure,unresolved,49,49,0
+figure,verified,1,1,0
+mixed,rejected,20,20,0
+mixed,unresolved,65,65,0
+table,rejected,16,16,0
+table,unresolved,58,34,-24
+table,verified,0,24,24
+text,unresolved,7,7,0

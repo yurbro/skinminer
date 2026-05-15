@@ -1,0 +1,29 @@
+{
+  "method_1_log_linear_log_space": {
+    "rmse_logJ": 0.19884767029076517,
+    "mae_logJ": 0.143477352850879,
+    "spearman_rho": 0.7062937062937064,
+    "pearson_r": 0.7337540717563731,
+    "within_2x_count": 9
+  },
+  "method_2_linear_raw_space": {
+    "rmse_logJ": 0.23156861934253062,
+    "mae_logJ": 0.19697978766530735,
+    "spearman_rho": 0.7062937062937064,
+    "pearson_r": 0.7395548757923631,
+    "within_2x_count": 9
+  },
+  "method_3_quadratic_with_midpoint": {
+    "rmse_logJ": 0.20684829129868182,
+    "mae_logJ": 0.15640263725580514,
+    "spearman_rho": 0.7062937062937064,
+    "pearson_r": 0.7354601192577548,
+    "within_2x_count": 9
+  },
+  "spearman_rho_range": [
+    0.7062937062937064,
+    0.7062937062937064
+  ],
+  "passes_significance_threshold_all": true,
+  "summary": "Across the three solubility construction methods, zero-shot Spearman ρ varies from 0.706 to 0.706, all above the n=12 permutation-null significance threshold of 0.587."
+}

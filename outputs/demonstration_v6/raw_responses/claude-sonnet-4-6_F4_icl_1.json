@@ -1,0 +1,31 @@
+{
+  "provider": "anthropic",
+  "model": "claude-sonnet-4-6",
+  "parsed_success": true,
+  "parsed": {
+    "24h": 262.5,
+    "48h": 789.5,
+    "72h": 1350.5
+  },
+  "raw_response": "{\"24h\": 262.5, \"48h\": 789.5, \"72h\": 1350.5}",
+  "attempts": [
+    {
+      "attempt": 0,
+      "text": "{\"24h\": 262.5, \"48h\": 789.5, \"72h\": 1350.5}",
+      "parsed": {
+        "24h": 262.5,
+        "48h": 789.5,
+        "72h": 1350.5
+      },
+      "input_tokens": 1504,
+      "output_tokens": 77,
+      "total_tokens": 1581,
+      "error": null
+    }
+  ],
+  "input_tokens": 1504,
+  "output_tokens": 77,
+  "total_tokens": 1581,
+  "error": null,
+  "cost_usd_estimate": 0.005666999999999999
+}

@@ -1,0 +1,52 @@
+{
+  "input": "outputs\\full_run_15_schema_table_fix\\patched_area.jsonl",
+  "policy": "v2_accept_wv",
+  "records": 233,
+  "statuses": {
+    "unresolved": 137,
+    "rejected": 62,
+    "verified": 34
+  },
+  "route_status": {
+    "figure": {
+      "unresolved": 49,
+      "verified": 9,
+      "rejected": 13
+    },
+    "mixed": {
+      "unresolved": 49,
+      "verified": 1,
+      "rejected": 19
+    },
+    "table": {
+      "unresolved": 36,
+      "rejected": 29,
+      "verified": 24
+    },
+    "text": {
+      "unresolved": 3,
+      "rejected": 1
+    }
+  },
+  "failure_counts": {
+    "insufficient_evidence": 140,
+    "ambiguous_api_concentration": 78,
+    "missing_area": 44,
+    "not_target_api": 49,
+    "missing_endpoint": 20,
+    "figure_digitization_failed": 7,
+    "unit_normalization_failed": 13,
+    "not_target_api_concentration": 44,
+    "missing_api_concentration": 55,
+    "not_target_study_type": 20,
+    "not_target_device": 6,
+    "percent_only": 19
+  },
+  "transitions_from_v1": {
+    "unresolved->unresolved": 137,
+    "rejected->rejected": 62,
+    "unresolved->verified": 24,
+    "verified->verified": 10
+  },
+  "transition_csv": "outputs\\full_run_15_schema_table_fix\\v2_rescore\\v1_to_v2_status_transitions.csv"
+}

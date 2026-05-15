@@ -1,0 +1,422 @@
+{
+  "run_id": "run_66124c59c30d",
+  "model_name": "gpt-4o-mini",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-04-09T18:30:01.529899+00:00",
+  "run_profile": "balanced_full",
+  "query_profile": "ibuprofen_dermal_oa_v1",
+  "query_profile_version": "2026-03-28.v1",
+  "query_source": "profile:ibuprofen_dermal_oa_v1",
+  "stage_models": {
+    "llm_triage": "gpt-5.4-mini",
+    "routing": "gpt-5.4-mini",
+    "text_extract": "gpt-5.4-mini",
+    "table_extract": "gpt-5.4-mini",
+    "figure_triage": "gpt-5.4-mini",
+    "figure_vlm": "gpt-5.4",
+    "figure_map": "gpt-5.4-mini",
+    "llm_adjudicate": "gpt-5.4-mini"
+  },
+  "prompt_assets": {
+    "triage.abstract_relevance": "2026-03-28.v1",
+    "routing.structured_first": "2026-03-28.v1",
+    "extractors.text.structured_fields": "2026-03-28.v1",
+    "extractors.table.structured_tables": "2026-03-28.v1",
+    "extractors.figure.triage": "2026-04-06.v1",
+    "extractors.figure.vlm_digitize": "2026-04-08.v2",
+    "extractors.figure.curve_map": "2026-03-28.v1",
+    "verification.llm_adjudication": "2026-04-03.v1"
+  },
+  "module_counts": {
+    "table": 70,
+    "text": 7,
+    "figure": 4
+  },
+  "route_distribution": {
+    "unresolved": 238,
+    "mixed": 10,
+    "table": 6,
+    "text": 10,
+    "figure": 3
+  },
+  "extractor_output_counts": {
+    "table": 70,
+    "text": 7,
+    "figure": 4
+  },
+  "verification_outcome_counts": {
+    "unresolved": 47,
+    "rejected": 10,
+    "verified": 4
+  },
+  "scope_bucket_counts": {
+    "recoverable_unresolved": 46,
+    "out_of_scope": 7,
+    "useful_but_out_of_scope": 4,
+    "strict_in_scope": 4
+  },
+  "scope_tag_counts": {
+    "recoverable_unresolved": 46,
+    "recoverable_api_basis": 25,
+    "non_target_api": 7,
+    "useful_but_out_of_scope": 4,
+    "useful_study_type_out_of_scope": 3,
+    "recoverable_support_gap": 21,
+    "recoverable_endpoint": 3,
+    "recoverable_area": 14,
+    "recoverable_unit_normalization": 9,
+    "useful_api_concentration_out_of_scope": 1,
+    "useful_endpoint_out_of_scope": 1,
+    "recoverable_figure_digitization": 1,
+    "recoverable_mapping": 1
+  },
+  "failure_taxonomy_counts": {
+    "ambiguous_api_concentration": 23,
+    "not_target_api": 7,
+    "not_target_api_concentration": 3,
+    "not_target_study_type": 3,
+    "missing_area": 20,
+    "insufficient_evidence": 24,
+    "missing_endpoint": 3,
+    "unit_normalization_failed": 9,
+    "missing_api_concentration": 9,
+    "percent_only": 4,
+    "figure_digitization_failed": 1,
+    "ambiguous_mapping": 1
+  },
+  "failure_taxonomy_counts_by_route": {
+    "figure": {
+      "ambiguous_mapping": 1,
+      "ambiguous_api_concentration": 3,
+      "missing_area": 3
+    },
+    "mixed": {
+      "ambiguous_api_concentration": 15,
+      "not_target_api": 5,
+      "not_target_api_concentration": 3,
+      "insufficient_evidence": 20,
+      "missing_endpoint": 3,
+      "missing_area": 14,
+      "unit_normalization_failed": 9,
+      "missing_api_concentration": 1,
+      "percent_only": 3,
+      "figure_digitization_failed": 1
+    },
+    "table": {
+      "not_target_study_type": 3,
+      "ambiguous_api_concentration": 5,
+      "missing_area": 3,
+      "missing_api_concentration": 8,
+      "not_target_api": 2,
+      "insufficient_evidence": 2
+    },
+    "text": {
+      "insufficient_evidence": 2,
+      "percent_only": 1
+    }
+  },
+  "figure_verification_failure_taxonomy_counts": {
+    "ambiguous_mapping": 1,
+    "ambiguous_api_concentration": 3,
+    "missing_area": 3
+  },
+  "figure_stage_counts": {
+    "triage_artifacts": 7,
+    "triage_has_permeation_plot_true": 4,
+    "triage_digitize_candidates": 4,
+    "digitized_curves": 7,
+    "digitized_endpoints_ok": 7,
+    "digitized_endpoints_failed": 2,
+    "digitization_no_output": 2,
+    "mapped_curves": 7,
+    "unmapped_curves": 0,
+    "vlm_readings_total": 7,
+    "vlm_readings_readable": 7,
+    "vlm_used_as_final": 3
+  },
+  "figure_failure_counts": {
+    "triage_signals": {
+      "recommended_route:skip": 3,
+      "digitizable:no": 3,
+      "why_not_digitizable:calibration_curve_not_target": 2,
+      "endpoint_curve_present:no": 1,
+      "why_not_digitizable:selected_page_contains_fig_4_a_grouped_bar_chart_with_error_bars_rather_than_an_": 1
+    },
+    "digitization_failure_counts": {
+      "digitization_no_output": 2
+    },
+    "mapping_failure_counts": {}
+  },
+  "figure_gate_counts": {
+    "routed_candidates": 13,
+    "after_gate": 8,
+    "skipped": {
+      "missing_explicit_figure_signal": 4,
+      "low_route_confidence": 1
+    }
+  },
+  "figure_route_counts": {
+    "skip": 3,
+    "digitize": 4
+  },
+  "figure_digitization_status_counts": {
+    "ok": 7,
+    "digitization_no_output": 2
+  },
+  "figure_mapping_status_counts": {
+    "vision_mapped": 7
+  },
+  "llm_reliability": {},
+  "llm_adjudication_summary": {
+    "row_count": 28,
+    "candidate_reason_counts": {
+      "recoverable_unresolved:ambiguous_api_concentration": 16,
+      "recoverable_unresolved:missing_endpoint": 1,
+      "recoverable_unresolved:missing_area": 4,
+      "recoverable_unresolved:unit_normalization_failed": 7
+    },
+    "priority_bucket_counts": {
+      "high": 17,
+      "medium": 11
+    },
+    "review_focus_counts": {
+      "api_concentration_basis": 16,
+      "endpoint_value": 1,
+      "diffusion_area": 4,
+      "unit_normalization": 7
+    },
+    "recommended_status_counts": {
+      "unresolved": 2,
+      "rejected": 18,
+      "verified": 8
+    },
+    "should_keep_strict_counts": {
+      "uncertain": 2,
+      "no": 18,
+      "yes": 8
+    },
+    "disagreement_counts": {
+      "scope_bucket_disagreement": 28,
+      "status_disagreement": 26
+    },
+    "original_vs_recommended_counts": {
+      "unresolved->unresolved": 2,
+      "unresolved->rejected": 18,
+      "unresolved->verified": 8
+    }
+  },
+  "blockage_summary": {
+    "access_status_counts": {
+      "unresolved": 142,
+      "downloaded": 85,
+      "resolved": 40
+    },
+    "access_reason_counts": {},
+    "route_unresolved_reason_counts": {
+      "missing_structured_and_pdf_router_source": 147,
+      "cochrane_review_title_indicates_a_review_article_about_topical_agents_or_dressin": 1,
+      "only_the_title_header_snippet_was_supplied_paper_is_a_primary_experimental_percu": 1,
+      "the_supplied_text_is_only_front_matter_contents_for_a_book_chapter_and_does_not_": 1,
+      "only_europe_pmc_wrapper_landing_text_is_present_in_the_supplied_pdf_pages_no_art": 1,
+      "the_supplied_pdf_text_appears_to_contain_only_europe_pmc_wrapper_boilerplate_pag": 1,
+      "only_europe_pmc_landing_page_boilerplate_is_present_in_the_supplied_text_no_arti": 3,
+      "only_the_first_page_indicator_was_supplied_and_no_readable_article_text_was_incl": 1,
+      "only_europe_pmc_site_navigation_text_is_available_in_the_provided_pdf_pages_the_": 1,
+      "title_indicates_an_experimental_paper_on_polymer_ibuprofen_sodium_silica_gel_com": 1,
+      "only_the_title_page_was_supplied_the_title_strongly_indicates_an_in_vitro_permea": 1,
+      "only_europe_pmc_site_boilerplate_is_present_in_the_supplied_pdf_text_no_article_": 1,
+      "the_supplied_text_only_contains_europe_pmc_webpage_boilerplate_and_no_article_co": 1,
+      "only_europe_pmc_boilerplate_pages_are_present_in_the_supplied_text_no_article_co": 1,
+      "supplied_text_only_contains_europe_pmc_boilerplate_navigation_pages_not_the_arti": 1,
+      "only_europe_pmc_landing_page_boilerplate_was_supplied_no_article_content_methods": 1,
+      "only_the_europe_pmc_landing_page_text_is_visible_in_the_supplied_pdf_text_no_art": 1,
+      "title_indicates_a_review_style_article_about_cutaneous_administration_and_drug_d": 1,
+      "title_and_available_text_indicate_an_ibuprofen_materials_surface_morphology_pape": 1,
+      "the_supplied_text_is_only_europe_pmc_navigation_landing_page_content_not_the_art": 1,
+      "the_supplied_pdf_text_contains_only_europe_pmc_boilerplate_pages_and_no_article_": 1,
+      "only_europe_pmc_landing_page_text_was_supplied_not_the_article_content_no_extrac": 1,
+      "the_supplied_text_appears_to_be_europe_pmc_navigation_header_content_rather_than": 1,
+      "only_europe_pmc_boilerplate_navigation_was_provided_for_the_pdf_pages_no_article": 1,
+      "only_europe_pmc_landing_page_text_is_visible_in_the_supplied_pdf_extract_not_the": 1,
+      "the_title_indicates_a_synthesis_formulation_focused_article_on_ibuprofenates_but": 1,
+      "the_supplied_pdf_text_appears_to_contain_only_europe_pmc_webpage_boilerplate_for": 1,
+      "supplied_pdf_text_is_only_europe_pmc_navigation_landing_page_content_not_the_art": 1,
+      "missing_structured_and_pdf_router_source_blocked_html_remote_captcha": 31,
+      "supplied_text_contains_only_europe_pmc_navigation_notice_pages_and_no_article_co": 1,
+      "only_the_title_and_europe_pmc_boilerplate_are_visible_in_the_supplied_text_the_t": 1,
+      "the_supplied_text_is_only_europe_pmc_boilerplate_navigation_pages_not_the_articl": 1,
+      "the_supplied_pdf_text_appears_to_be_only_europe_pmc_header_navigation_pages_not_": 1,
+      "the_supplied_text_appears_to_be_only_europe_pmc_pdf_wrapper_pages_and_not_the_ar": 1,
+      "only_europe_pmc_wrapper_text_is_present_in_the_supplied_pdf_pages_the_article_co": 1,
+      "the_supplied_pdf_text_only_contains_europe_pmc_boilerplate_header_content_and_no": 1,
+      "the_supplied_pdf_text_appears_to_be_only_europe_pmc_landing_page_boilerplate_for": 1,
+      "the_supplied_pdf_text_is_only_europe_pmc_navigation_placeholder_content_from_pag": 1,
+      "only_europe_pmc_boilerplate_is_visible_in_the_supplied_pages_no_article_body_tab": 1,
+      "supplied_text_appears_to_be_only_europe_pmc_webpage_boilerplate_for_the_article_": 1,
+      "the_supplied_text_contains_only_europe_pmc_navigation_page_boilerplate_not_the_a": 1,
+      "the_supplied_pdf_text_only_contains_europe_pmc_interface_boilerplate_on_pages_1_": 1,
+      "supplied_pdf_text_appears_to_be_europe_pmc_landing_navigation_content_only_not_t": 1,
+      "the_supplied_pdf_text_is_only_europe_pmc_boilerplate_and_the_article_title_ibupr": 1,
+      "supplied_text_contains_only_europe_pmc_navigation_landing_page_content_and_no_ar": 1,
+      "the_supplied_pdf_text_is_just_europe_pmc_page_chrome_boilerplate_and_does_not_in": 1,
+      "the_supplied_text_is_only_europe_pmc_boilerplate_navigation_and_does_not_include": 1,
+      "the_supplied_pdf_text_appears_to_be_only_europe_pmc_boilerplate_navigation_pages": 1,
+      "supplied_pdf_text_is_only_europe_pmc_site_boilerplate_navigation_not_article_con": 1,
+      "only_front_matter_europe_pmc_navigation_text_was_supplied_no_abstract_methods_ta": 1,
+      "the_supplied_text_appears_to_be_only_europe_pmc_page_header_content_and_does_not": 1,
+      "only_europe_pmc_wrapper_text_was_supplied_not_the_article_content_ibuprofen_is_c": 1,
+      "title_explicitly_states_comparative_study_of_transmembrane_diffusion_and_permeat": 1,
+      "only_europe_pmc_landing_page_navigation_text_is_present_in_the_supplied_pdf_text": 1,
+      "only_front_matter_europe_pmc_boilerplate_is_visible_in_the_supplied_pages_so_ext": 1,
+      "the_supplied_text_is_only_europe_pmc_pdf_wrapper_pages_and_does_not_include_arti": 1,
+      "supplied_pdf_text_is_not_the_article_content_only_europe_pmc_boilerplate_navigat": 1,
+      "the_supplied_text_contains_only_europe_pmc_site_boilerplate_and_no_article_conte": 1,
+      "only_bibliographic_ethos_update_text_was_supplied_but_the_title_clearly_indicate": 1,
+      "the_supplied_html_is_only_an_ethos_catalog_update_page_not_the_thesis_content_no": 1
+    },
+    "route_note_counts": {
+      "missing_structured_and_pdf_router_source": 147,
+      "this_is_a_cochrane_review_not_a_primary_experiment_ibuprofen_is_clearly_mentione": 1,
+      "cochrane_review_title_indicates_a_review_article_about_topical_agents_or_dressin": 1,
+      "only_the_title_header_snippet_was_supplied_paper_is_a_primary_experimental_percu": 1,
+      "the_supplied_text_is_only_front_matter_contents_for_a_book_chapter_and_does_not_": 1,
+      "only_europe_pmc_wrapper_landing_text_is_present_in_the_supplied_pdf_pages_no_art": 1,
+      "primary_experimental_paper_on_microneedle_drug_delivery_ibuprofen_sodium_is_expl": 1,
+      "the_supplied_pdf_text_appears_to_contain_only_europe_pmc_wrapper_boilerplate_pag": 1,
+      "this_is_an_original_experimental_formulation_paper_focused_on_soluplus_nanomicel": 1,
+      "only_europe_pmc_landing_page_boilerplate_is_present_in_the_supplied_text_no_arti": 3,
+      "this_is_an_experimental_materials_drug_delivery_paper_not_a_skin_permeation_stud": 1,
+      "this_is_an_experimental_methods_engineering_paper_on_a_diffusion_cell_platform_i": 1,
+      "oa_article_appears_inaccessible_in_supplied_text_only_wrapper_pages_were_provide": 1,
+      "oa_primary_in_vitro_permeation_comparison_of_ibuprofen_across_human_porcine_skin": 1,
+      "only_the_first_page_indicator_was_supplied_and_no_readable_article_text_was_incl": 1,
+      "only_europe_pmc_site_navigation_text_is_available_in_the_provided_pdf_pages_the_": 1,
+      "oa_repository_record_with_abstract_only_clear_primary_in_vitro_skin_barrier_expe": 1,
+      "title_indicates_an_experimental_paper_on_polymer_ibuprofen_sodium_silica_gel_com": 1,
+      "this_is_a_primary_experimental_electrospinning_release_paper_no_evidence_of_skin": 1,
+      "only_the_title_page_was_supplied_the_title_strongly_indicates_an_in_vitro_permea": 1,
+      "only_europe_pmc_site_boilerplate_is_present_in_the_supplied_pdf_text_no_article_": 1,
+      "the_supplied_text_only_contains_europe_pmc_webpage_boilerplate_and_no_article_co": 1,
+      "this_is_an_experimental_paper_focused_on_photoswitchable_ibuprofen_ion_pairs_and": 1,
+      "only_europe_pmc_boilerplate_pages_are_present_in_the_supplied_text_no_article_co": 1,
+      "supplied_text_only_contains_europe_pmc_boilerplate_navigation_pages_not_the_arti": 1,
+      "only_europe_pmc_landing_page_boilerplate_was_supplied_no_article_content_methods": 1,
+      "only_the_europe_pmc_landing_page_text_is_visible_in_the_supplied_pdf_text_no_art": 1,
+      "title_indicates_a_review_style_article_about_cutaneous_administration_and_drug_d": 1,
+      "title_and_available_text_indicate_an_ibuprofen_materials_surface_morphology_pape": 1,
+      "oa_primary_experimental_engineering_transdermal_delivery_paper_no_diffusion_cell": 1,
+      "oa_scientific_reports_article_on_salicylic_acid_phenylethyl_ester_sape_not_an_ib": 1,
+      "the_supplied_text_is_only_europe_pmc_navigation_landing_page_content_not_the_art": 1,
+      "the_supplied_pdf_text_contains_only_europe_pmc_boilerplate_pages_and_no_article_": 1,
+      "only_europe_pmc_landing_page_text_was_supplied_not_the_article_content_no_extrac": 1,
+      "this_is_an_experimental_paper_on_ibuprofen_salts_derivatives_it_clearly_uses_fra": 1,
+      "the_supplied_text_appears_to_be_europe_pmc_navigation_header_content_rather_than": 1,
+      "only_europe_pmc_boilerplate_navigation_was_provided_for_the_pdf_pages_no_article": 1,
+      "only_europe_pmc_landing_page_text_is_visible_in_the_supplied_pdf_extract_not_the": 1,
+      "the_title_indicates_a_synthesis_formulation_focused_article_on_ibuprofenates_but": 1,
+      "the_supplied_pdf_text_appears_to_contain_only_europe_pmc_webpage_boilerplate_for": 1,
+      "supplied_pdf_text_is_only_europe_pmc_navigation_landing_page_content_not_the_art": 1,
+      "missing_structured_and_pdf_router_source_blocked_html_remote_captcha": 31,
+      "supplied_text_contains_only_europe_pmc_navigation_notice_pages_and_no_article_co": 1,
+      "oa_primary_in_vitro_permeation_study_using_microneedle_pretreated_skin_no_synthe": 1,
+      "this_is_an_in_vitro_release_intercalation_study_on_a_synthetic_ldh_carrier_not_a": 1,
+      "only_europe_pmc_boilerplate_is_visible_in_the_supplied_pdf_text_so_no_extractabl": 1,
+      "only_the_title_and_europe_pmc_boilerplate_are_visible_in_the_supplied_text_the_t": 1,
+      "oa_primary_experimental_paper_on_ibuprofen_nanosuspension_gels_for_dermal_permea": 1,
+      "oa_primary_experimental_paper_on_escitalopram_ion_pair_complexes_ibuprofen_is_ex": 1,
+      "oa_in_vitro_permeation_study_on_porcine_ear_skin_with_environmental_temperature_": 1,
+      "paper_is_a_primary_experimental_transdermal_delivery_study_of_ibuprofen_it_clear": 1,
+      "oa_paper_on_lidocaine_ibuprofen_ionic_liquid_permeation_best_routed_as_ivpt_with": 1,
+      "this_is_not_a_dermal_ivpt_ivrt_paper_it_is_primarily_an_environmental_materials_": 1,
+      "the_supplied_text_is_only_europe_pmc_boilerplate_navigation_pages_not_the_articl": 1,
+      "the_supplied_pdf_text_appears_to_be_only_europe_pmc_header_navigation_pages_not_": 1,
+      "this_is_a_topical_formulation_characterization_and_in_vitro_release_study_not_a_": 1,
+      "the_supplied_text_appears_to_be_only_europe_pmc_pdf_wrapper_pages_and_not_the_ar": 1,
+      "only_europe_pmc_wrapper_text_is_present_in_the_supplied_pdf_pages_the_article_co": 1,
+      "the_supplied_pdf_text_only_contains_europe_pmc_boilerplate_header_content_and_no": 1,
+      "the_supplied_pdf_text_appears_to_be_only_europe_pmc_landing_page_boilerplate_for": 1,
+      "the_supplied_pdf_text_is_only_europe_pmc_navigation_placeholder_content_from_pag": 1,
+      "this_is_an_original_research_paper_focused_on_an_ototherapeutic_ibuprofen_ha_con": 1,
+      "only_europe_pmc_landing_page_boilerplate_is_available_in_the_supplied_pdf_text_w": 1,
+      "only_europe_pmc_boilerplate_is_visible_in_the_supplied_pages_no_article_body_tab": 1,
+      "supplied_text_appears_to_be_only_europe_pmc_webpage_boilerplate_for_the_article_": 1,
+      "the_supplied_text_contains_only_europe_pmc_navigation_page_boilerplate_not_the_a": 1,
+      "the_supplied_pdf_text_only_contains_europe_pmc_interface_boilerplate_on_pages_1_": 1,
+      "supplied_pdf_text_appears_to_be_europe_pmc_landing_navigation_content_only_not_t": 1,
+      "the_supplied_pdf_text_is_only_europe_pmc_boilerplate_and_the_article_title_ibupr": 1,
+      "supplied_text_contains_only_europe_pmc_navigation_landing_page_content_and_no_ar": 1,
+      "the_supplied_pdf_text_is_just_europe_pmc_page_chrome_boilerplate_and_does_not_in": 1,
+      "the_supplied_text_is_only_europe_pmc_boilerplate_navigation_and_does_not_include": 1,
+      "the_supplied_pdf_text_appears_to_be_only_europe_pmc_boilerplate_navigation_pages": 1,
+      "the_supplied_document_text_only_contains_europe_pmc_interface_text_and_the_title": 1,
+      "supplied_pdf_text_is_only_europe_pmc_site_boilerplate_navigation_not_article_con": 1,
+      "only_front_matter_europe_pmc_navigation_text_was_supplied_no_abstract_methods_ta": 1,
+      "the_supplied_text_appears_to_be_only_europe_pmc_page_header_content_and_does_not": 1,
+      "only_europe_pmc_wrapper_text_was_supplied_not_the_article_content_ibuprofen_is_c": 1,
+      "title_explicitly_states_comparative_study_of_transmembrane_diffusion_and_permeat": 1,
+      "only_europe_pmc_landing_page_navigation_text_is_present_in_the_supplied_pdf_text": 1,
+      "only_front_matter_europe_pmc_boilerplate_is_visible_in_the_supplied_pages_so_ext": 1,
+      "the_supplied_text_is_only_europe_pmc_pdf_wrapper_pages_and_does_not_include_arti": 1,
+      "supplied_pdf_text_is_not_the_article_content_only_europe_pmc_boilerplate_navigat": 1,
+      "only_title_boilerplate_text_is_supplied_no_methods_tables_figures_or_supplement_": 1,
+      "the_supplied_pdf_text_only_contains_europe_pmc_site_boilerplate_not_the_article_": 1,
+      "the_supplied_text_contains_only_europe_pmc_site_boilerplate_and_no_article_conte": 1,
+      "ibuprofen_is_explicitly_part_of_the_gel_formulation_no_diffusion_cell_or_franz_c": 1,
+      "only_bibliographic_ethos_update_text_was_supplied_but_the_title_clearly_indicate": 1,
+      "the_supplied_html_is_only_an_ethos_catalog_update_page_not_the_thesis_content_no": 1
+    },
+    "extractor_blockages": {
+      "text": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      },
+      "table": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      }
+    },
+    "patch_status_counts": {
+      "patch_api_concentration": {
+        "skipped": 54
+      },
+      "patch_area": {
+        "skipped": 37,
+        "applied": 1
+      },
+      "patch_endpoint_time": {
+        "applied": 21
+      },
+      "patch_endpoint_value": {
+        "applied": 30,
+        "skipped": 30
+      }
+    },
+    "patch_reason_counts": {
+      "patch_api_concentration": {
+        "no_recoverable_concentration_fragment": 52,
+        "recovered_concentration_matches_existing_value": 2
+      },
+      "patch_area": {
+        "no_recoverable_area_fragment": 37
+      },
+      "patch_endpoint_value": {
+        "recovered_endpoint_matches_existing_value": 18,
+        "no_recoverable_endpoint_fragment": 12
+      }
+    }
+  },
+  "patch_success_counts": {
+    "patch_endpoint_value": 30,
+    "patch_endpoint_time": 21,
+    "patch_area": 1
+  },
+  "output_record_counts": {
+    "assembled": 61,
+    "final_records_evaluated": 61,
+    "actually_verified": 4,
+    "unresolved": 47,
+    "rejected": 10
+  }
+}

@@ -1,0 +1,48 @@
+record_id,paper_doi,source_table,barrier_normalized,occlusion_inferred,vehicle_signature,ethanol_vv,PG_vv,water_vv,MO_vv,MG_vv,composition_sum_check,composition_correctly_parsed,extracted_J_mean,reference_J_mean,J_relative_error_pct,J_within_2pct,extracted_J_sd,reference_J_sd,SD_relative_error_pct,SD_within_5pct,endpoint_unit,endpoint_kind,used_in_section
+record_2abb314c7b9a,10.1159/000183922,Table 3,silicone,occluded,0:0:100:0:0,0,0,100,0,0,100,True,186,186,0.00,True,11,11,0.00,True,μg/cm2/h,flux,"§3.5.1 train, §3.5.2, §3.5.3 train"
+record_c5c947facd5e,10.1159/000183922,Table 3,silicone,occluded,25:0:75:0:0,25,0,75,0,0,100,True,420,420,0.00,True,2.5,2.5,0.00,True,μg/cm2/h,flux,"§3.5.1 train, §3.5.2, §3.5.3 train"
+record_9d951ad8e97f,10.1159/000183922,Table 3,silicone,occluded,50:0:50:0:0,50,0,50,0,0,100,True,916,916,0.00,True,79,79,0.00,True,μg/cm2/h,flux,"§3.5.1 train, §3.5.2, §3.5.3 train"
+record_6addda23f9bf,10.1159/000183922,Table 3,silicone,occluded,75:0:25:0:0,75,0,25,0,0,100,True,945,945,0.00,True,61,61,0.00,True,μg/cm2/h,flux,"§3.5.1 train, §3.5.2, §3.5.3 train"
+record_3a82944abc56,10.1159/000183922,Table 3,silicone,occluded,100:0:0:0:0,100,0,0,0,0,100,True,1495,1495,0.00,True,116,116,0.00,True,μg/cm2/h,flux,"§3.5.1 train, §3.5.2, §3.5.3 train"
+record_a98d86faa525,10.1159/000183922,Table 4,silicone,pretreated,25:0:75:0:0,25,0,75,0,0,100,True,449,449,0.00,True,31.3,31.3,0.00,True,μg/cm2/h,flux,excluded (variant: pretreated)
+record_0479b8762ff7,10.1159/000183922,Table 4,silicone,pretreated,75:0:25:0:0,75,0,25,0,0,100,True,712,712,0.00,True,29,29.0,0.00,True,μg/cm2/h,flux,excluded (variant: pretreated)
+record_d64a87c207d1,10.1159/000183922,Table 4,silicone,pretreated,100:0:0:0:0,100,0,0,0,0,100,True,1681,1681,0.00,True,80,80,0.00,True,μg/cm2/h,flux,excluded (variant: pretreated)
+record_1bd68bcc4d72,10.1159/000183922,Table 5,human_epidermis,occluded,0:0:100:0:0,0,0,100,0,0,100,True,24,24,0.00,True,2.7,2.7,0.00,True,μg/cm2/h,flux,§3.5.2
+record_42e39d599287,10.1159/000183922,Table 5,human_epidermis,occluded,25:0:75:0:0,25,0,75,0,0,100,True,48,48,0.00,True,19,19,0.00,True,μg/cm2/h,flux,§3.5.2
+record_06c6fe15e023,10.1159/000183922,Table 5,human_epidermis,occluded,50:0:50:0:0,50,0,50,0,0,100,True,274,274,0.00,True,33,33,0.00,True,μg/cm2/h,flux,§3.5.2
+record_d28ec2f5bcb5,10.1159/000183922,Table 5,human_epidermis,occluded,75:0:25:0:0,75,0,25,0,0,100,True,293,293,0.00,True,24,24,0.00,True,μg/cm2/h,flux,§3.5.2
+record_1fbd0dd25b18,10.1159/000183922,Table 5,human_epidermis,occluded,100:0:0:0:0,100,0,0,0,0,100,True,60,60,0.00,True,24,24,0.00,True,μg/cm2/h,flux,§3.5.2
+record_b178d612dacc,10.1159/000231528,Table 2,silicone,occluded,0:0:100:0:0,0,0,100,0,0,100,True,185.58,185.5,0.04,True,10.94,10.94,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_50358ab6a9ca,10.1159/000231528,Table 2,silicone,occluded,0:10:90:0:0,0,10,90,0,0,100,True,225.48,225.4,0.04,True,31.47,31.47,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_fbbd43bde2f5,10.1159/000231528,Table 2,silicone,occluded,0:20:80:0:0,0,20,80,0,0,100,True,229.58,229.5,0.03,True,14.2,14.20,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_937d3e534888,10.1159/000231528,Table 2,silicone,occluded,0:30:70:0:0,0,30,70,0,0,100,True,216.08,216.0,0.04,True,22.47,22.47,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_9002f53353a8,10.1159/000231528,Table 2,silicone,occluded,0:40:60:0:0,0,40,60,0,0,100,True,277.18,277.1,0.03,True,31.22,31.22,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_3738ac92928d,10.1159/000231528,Table 2,silicone,occluded,0:60:40:0:0,0,60,40,0,0,100,True,355.48,355.4,0.02,True,36.34,36.34,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_bc629b7ee4f2,10.1159/000231528,Table 2,silicone,occluded,0:70:30:0:0,0,70,30,0,0,100,True,443.38,443.3,0.02,True,19.86,19.86,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_8308d93e2200,10.1159/000231528,Table 2,silicone,occluded,0:80:20:0:0,0,80,20,0,0,100,True,245.28,245.2,0.03,True,28.55,28.55,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_d1ff98d4c972,10.1159/000231528,Table 2,silicone,occluded,0:90:10:0:0,0,90,10,0,0,100,True,219.68,219.6,0.04,True,22.32,22.32,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_f34719333f70,10.1159/000231528,Table 2,silicone,occluded,0:100:0:0:0,0,100,0,0,0,100,True,297.18,297.1,0.03,True,29.43,29.43,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 train"
+record_6b4ab72b9a59,10.1159/000231528,Table 3,silicone,occluded,25:25:50:0:0,25,25,50,0,0,100,True,525.88,525.8,0.02,True,37.3,37.3,0.00,True,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 test"
+record_073219db157b,10.1159/000231528,Table 3,silicone,occluded,50:25:25:0:0,50,25,25,0,0,100,True,641.18,641.1,0.01,True,4.1,84.1,-95.12,False,μg/cm2/h,flux,"§3.5.1 test, §3.5.2, §3.5.3 test"
+record_af7d9fdf90d6,10.1159/000231528,Table 4,silicone,non_occluded,25:25:50:0:0,25,25,50,0,0,100,True,376.28,376.2,0.02,True,39.98,39.98,0.00,True,μg/cm2/h,flux,excluded (variant: non_occluded)
+record_eea14c396acf,10.1159/000231528,Table 4,silicone,non_occluded,50:25:25:0:0,50,25,25,0,0,100,True,558.28,558.2,0.01,True,48.94,48.94,0.00,True,μg/cm2/h,flux,excluded (variant: non_occluded)
+record_fb1e9524c1f2,10.1159/000231528,Table 5,human_epidermis,occluded,0:0:100:0:0,0,0,100,0,0,100,True,24.48,24.4,0.33,True,2.69,2.69,0.00,True,μg/cm2/h,flux,§3.5.2
+record_d56177853e9b,10.1159/000231528,Table 5,human_epidermis,occluded,0:25:75:0:0,0,25,75,0,0,100,True,35.58,35.5,0.23,True,9.77,9.77,0.00,True,μg/cm2/h,flux,§3.5.2
+record_0917c25edbf8,10.1159/000231528,Table 5,human_epidermis,occluded,0:50:50:0:0,0,50,50,0,0,100,True,99.18,99.1,0.08,True,22.77,22.77,0.00,True,μg/cm2/h,flux,§3.5.2
+record_ed550befcd82,10.1159/000231528,Table 5,human_epidermis,occluded,0:100:0:0:0,0,100,0,0,0,100,True,133.88,133.8,0.06,True,36.1,36.1,0.00,True,μg/cm2/h,flux,§3.5.2
+record_3e452eb93e69,10.1159/000231528,Table 6,human_epidermis,occluded,25:25:50:0:0,25,25,50,0,0,100,True,77.68,77.6,0.10,True,9.04,9.04,0.00,True,μg/cm2/h,flux,§3.5.2
+record_6c7b2e45db8e,10.1159/000231528,Table 6,human_epidermis,occluded,50:25:25:0:0,50,25,25,0,0,100,True,203.58,203.5,0.04,True,36.24,36.24,0.00,True,μg/cm2/h,flux,§3.5.2
+record_cb52be540c78,10.1159/000315139,Table 3,silicone,occluded,0:0:0:0:100,0,0,0,0,100,100,True,623.88,623.8,0.01,True,67.7,67.7,0.00,True,μg/cm2/h,flux,§3.5.2
+record_727c284f387d,10.1159/000315139,Table 3,silicone,occluded,0:0:0:10:90,0,0,0,10,90,100,True,439.98,439.9,0.02,True,23.9,23.9,0.00,True,μg/cm2/h,flux,§3.5.2
+record_d89ce76d4e73,10.1159/000315139,Table 3,silicone,occluded,0:0:0:20:80,0,0,0,20,80,100,True,569.68,569.6,0.01,True,63.5,63.5,0.00,True,μg/cm2/h,flux,§3.5.2
+record_fd14bfeef86b,10.1159/000315139,Table 3,silicone,occluded,0:0:0:30:70,0,0,0,30,70,100,True,573.58,573.5,0.01,True,55,55.0,0.00,True,μg/cm2/h,flux,§3.5.2
+record_251b349f4982,10.1159/000315139,Table 3,silicone,occluded,0:0:0:40:60,0,0,0,40,60,100,True,409.48,409.4,0.02,True,13.6,13.6,0.00,True,μg/cm2/h,flux,§3.5.2
+record_7c57e0a8f5f4,10.1159/000315139,Table 3,silicone,occluded,0:0:0:50:50,0,0,0,50,50,100,True,311.98,311.9,0.03,True,33.8,33.8,0.00,True,μg/cm2/h,flux,§3.5.2
+record_00cea63f02f2,10.1159/000315139,Table 3,silicone,occluded,0:0:0:60:40,0,0,0,60,40,100,True,675.18,675.1,0.01,True,66.8,66.8,0.00,True,μg/cm2/h,flux,§3.5.2
+record_5aa5cbaf50a8,10.1159/000315139,Table 3,silicone,occluded,0:0:0:70:30,0,0,0,70,30,100,True,646.98,646.9,0.01,True,9.9,9.9,0.00,True,μg/cm2/h,flux,§3.5.2
+record_7f58f7aeb93b,10.1159/000315139,Table 3,silicone,occluded,0:0:0:80:20,0,0,0,80,20,100,True,519.18,519.1,0.02,True,20.2,20.2,0.00,True,μg/cm2/h,flux,§3.5.2
+record_efe20315f4cc,10.1159/000315139,Table 3,silicone,occluded,0:0:0:90:10,0,0,0,90,10,100,True,457.08,457.0,0.02,True,53.5,53.5,0.00,True,μg/cm2/h,flux,§3.5.2
+record_0ae15e6cd56d,10.1159/000315139,Table 3,silicone,occluded,0:0:0:100:0,0,0,0,100,0,100,True,579.48,579.4,0.01,True,35.3,35.3,0.00,True,μg/cm2/h,flux,§3.5.2
+record_34054a56b952,10.1159/000315139,Table 4,human_epidermis,occluded,0:0:0:0:100,0,0,0,0,100,100,True,93.68,93.6,0.09,True,19.1,19.1,0.00,True,μg/cm2/h,flux,§3.5.2
+record_0b32573fac67,10.1159/000315139,Table 4,human_epidermis,occluded,0:0:0:50:50,0,0,0,50,50,100,True,64.58,64.5,0.12,True,15.2,15.2,0.00,True,μg/cm2/h,flux,§3.5.2
+record_5e114a7c7ff6,10.1159/000315139,Table 4,human_epidermis,occluded,0:0:0:100:0,0,0,0,100,0,100,True,83.18,83.1,0.10,True,9.2,9.2,0.00,True,μg/cm2/h,flux,§3.5.2

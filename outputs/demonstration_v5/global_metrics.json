@@ -1,0 +1,13 @@
+{
+  "n_predictions": 24,
+  "MAE": 259.17295928904576,
+  "RMSE": 297.96459483715057,
+  "R2": 0.5998318667370934,
+  "rMAE_pct": 33.362078497869184,
+  "mean_true_value_ug_cm2": 776.8489583333334,
+  "mean_predicted_std_ug_cm2": 117.39448725944287,
+  "mean_measurement_sd_ug_cm2": 130.22135416666666,
+  "median_predicted_std_ug_cm2": 119.98014118173637,
+  "median_measurement_sd_ug_cm2": 115.0,
+  "mean_pred_std_to_measurement_sd_ratio": 1.3981716549972711
+}

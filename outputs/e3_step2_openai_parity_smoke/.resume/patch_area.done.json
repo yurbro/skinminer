@@ -1,0 +1,12 @@
+{
+  "stage": "patch_area",
+  "completed": 24,
+  "total": 24,
+  "detail": "applied=0",
+  "input_count": 24,
+  "output_count": 24,
+  "output_paths": [
+    "outputs\\e3_step2_openai_parity_smoke\\patched_area.jsonl"
+  ],
+  "resume_signature_digest": "009441693465c187d15422ea272868aeadf93d6e"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "patch_endpoint",
+  "completed": 277,
+  "total": 277,
+  "detail": "applied=80",
+  "input_count": 277,
+  "output_count": 277,
+  "output_paths": [
+    "outputs\\reproducibility_run_16c\\patched_endpoint_value.jsonl"
+  ],
+  "resume_signature_digest": "065f35695776e8aa47ee86edcb8197798f4b4177"
+}

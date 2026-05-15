@@ -1,0 +1,31 @@
+﻿record_id,doi,formulation_label,source,api_concentration_pct,api_basis,membrane_type,membrane_source,endpoint_time_h,cumulative_amount_ug_cm2,device,dose_type,gold_value_confirmed
+record_e3375489a6c9,10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,B,5.0,w/w,silicone membrane,,12.0,2388.5350318471337,Franz diffusion cell,,near
+record_fb26829467a8,10.1186/2050-6511-13-5,Ibuprofen 200 um,B,,,bovine split skin,,6.0,368.69,Franz diffusion cell,,yes
+record_fb26829467a8,10.1186/2050-6511-13-5,Ibuprofen 200 μm,A,,,bovine split skin,,6.0,368.69,Franz diffusion cell,,yes
+record_dea378194778,10.1186/2050-6511-13-5,Ibuprofen 300 um,B,,,bovine split skin,,6.0,431.52,Franz diffusion cell,,yes
+record_dea378194778,10.1186/2050-6511-13-5,Ibuprofen 300 μm,A,,,bovine split skin,,6.0,431.52,Franz diffusion cell,,yes
+record_256fed3f4d2f,10.1186/2050-6511-13-5,Ibuprofen Control,B,,,bovine split skin,,6.0,167.78,Franz diffusion cell,,yes
+record_d16c057fc54f,10.1208/s12249-013-9995-4,F1,B,5.0,w/v,porcine skin,porcine,24.0,465.625,Franz diffusion cell,infinite,yes
+record_6ef7cb7d4ade,10.1208/s12249-013-9995-4,F2,B,5.0,w/v,porcine skin,porcine,24.0,243.59375,Franz diffusion cell,infinite,yes
+record_dc0536190cb0,10.1208/s12249-013-9995-4,F3,B,5.0,w/v,porcine skin,porcine,24.0,219.0625,Franz diffusion cell,infinite,yes
+record_59963ee27e78,10.1208/s12249-013-9995-4,F4,B,5.0,w/v,porcine skin,porcine,24.0,206.71875,Franz diffusion cell,infinite,yes
+record_83a3f9b0e06e,10.1208/s12249-013-9995-4,F5,B,5.0,w/v,porcine skin,porcine,24.0,487.96875,Franz diffusion cell,infinite,yes
+record_c83676244c03,10.1208/s12249-013-9995-4,F6,B,5.0,w/v,porcine skin,porcine,24.0,232.5,Franz diffusion cell,infinite,yes
+record_8451385f5434,10.1208/s12249-013-9995-4,F7,B,5.0,w/v,porcine skin,porcine,24.0,193.59375,Franz diffusion cell,infinite,yes
+record_f014c92e4f9a,10.1208/s12249-013-9995-4,F8,B,5.0,w/v,porcine skin,porcine,24.0,206.71875,Franz diffusion cell,infinite,yes
+record_453da10d1ec5,10.1208/s12249-013-9995-4,F1,B,5.0,w/v,porcine skin,porcine,48.0,838.28125,Franz diffusion cell,infinite,yes
+record_3672e05a60e6,10.1208/s12249-013-9995-4,F2,B,5.0,w/v,porcine skin,porcine,48.0,906.5625,Franz diffusion cell,infinite,yes
+record_94fdeacead82,10.1208/s12249-013-9995-4,F3,B,5.0,w/v,porcine skin,porcine,48.0,849.21875,Franz diffusion cell,infinite,yes
+record_eb5e98f7f8bb,10.1208/s12249-013-9995-4,F4,B,5.0,w/v,porcine skin,porcine,48.0,726.25,Franz diffusion cell,infinite,yes
+record_bbc291658e05,10.1208/s12249-013-9995-4,F5,B,5.0,w/v,porcine skin,porcine,48.0,847.65625,Franz diffusion cell,infinite,yes
+record_cff9534403d5,10.1208/s12249-013-9995-4,F6,B,5.0,w/v,porcine skin,porcine,48.0,861.25,Franz diffusion cell,infinite,yes
+record_771853ae9097,10.1208/s12249-013-9995-4,F7,B,5.0,w/v,porcine skin,porcine,48.0,406.40625,Franz diffusion cell,infinite,yes
+record_6a484a2ea1ad,10.1208/s12249-013-9995-4,F8,B,5.0,w/v,porcine skin,porcine,48.0,726.25,Franz diffusion cell,infinite,yes
+record_3ec6644ba612,10.1208/s12249-013-9995-4,F1,B,5.0,w/v,porcine skin,porcine,72.0,1785.0,Franz diffusion cell,infinite,yes
+record_7f1a8e76ddde,10.1208/s12249-013-9995-4,F2,B,5.0,w/v,porcine skin,porcine,72.0,1842.03125,Franz diffusion cell,infinite,yes
+record_a8b14ec9c84e,10.1208/s12249-013-9995-4,F3,B,5.0,w/v,porcine skin,porcine,72.0,1186.875,Franz diffusion cell,infinite,yes
+record_764e4aa71249,10.1208/s12249-013-9995-4,F4,B,5.0,w/v,porcine skin,porcine,72.0,1147.5,Franz diffusion cell,infinite,yes
+record_9424b5553135,10.1208/s12249-013-9995-4,F5,B,5.0,w/v,porcine skin,porcine,72.0,1249.21875,Franz diffusion cell,infinite,yes
+record_d9fc1e579464,10.1208/s12249-013-9995-4,F6,B,5.0,w/v,porcine skin,porcine,72.0,1262.5,Franz diffusion cell,infinite,yes
+record_1bf5e1e73737,10.1208/s12249-013-9995-4,F7,B,5.0,w/v,porcine skin,porcine,72.0,606.09375,Franz diffusion cell,infinite,yes
+record_6378b97946c2,10.1208/s12249-013-9995-4,F8,B,5.0,w/v,porcine skin,porcine,72.0,1147.5,Franz diffusion cell,infinite,yes

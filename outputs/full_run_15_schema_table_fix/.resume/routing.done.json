@@ -1,0 +1,12 @@
+{
+  "stage": "routing",
+  "completed": 531,
+  "total": 531,
+  "detail": "figure=13 mixed=8 table=16 text=11 unresolved=483",
+  "input_count": 531,
+  "output_count": 531,
+  "output_paths": [
+    "outputs\\full_run_15_schema_table_fix\\route_decisions.jsonl"
+  ],
+  "resume_signature_digest": "83519bfbbf95736ab9e75efa0e002417f2c45b20"
+}

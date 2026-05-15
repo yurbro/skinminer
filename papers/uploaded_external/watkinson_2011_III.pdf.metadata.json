@@ -1,0 +1,19 @@
+{
+  "doi": "10.1159/000315139",
+  "title": "Optimisation of Cosolvent Concentration for Topical Drug Delivery III – Influence of Lipophilic Vehicles on Ibuprofen Permeation",
+  "year": 2011,
+  "journal": "Skin Pharmacology and Physiology",
+  "authors": [
+    "R.M. Watkinson",
+    "R.H. Guy",
+    "G. Oliveira",
+    "J. Hadgraft",
+    "M.E. Lane"
+  ],
+  "abstract": "Previously, we have reported the effects of water, ethanol, propylene glycol and various binary and ternary mixtures of these solvents on the permeation of ibuprofen in model membranes and in skin. The present study investigates the influence of lipophilic vehicles on the transport of ibuprofen in silicone membrane and in human skin. The permeation of ibuprofen was measured from mineral oil (MO), Miglyol 812 (MG) and binary mixtures of MO and MG. The solubility of ibuprofen was 5-fold higher in MG than in MO, however, the permeation of ibuprofen from the pure vehicles and combinations of both was comparable in silicone membrane. Additionally, there were no significant differences in skin permeation for MO and MG vehicles. When the permeation of various hydrophilic and lipophilic vehicles is considered, a trend between flux values for the model membrane and skin is evident (r2 = 0.71). The findings suggest that silicone membrane may provide information on qualitative trends in skin permeation for vehicles of diverse solubility and partition characteristics.",
+  "source_pdf_path": "papers\\uploaded_external\\watkinson_2011_III.pdf",
+  "source_pdf_sha1": "5b44c007725bb42ecf35d67af08aad1c67dfd192",
+  "extraction_method": "llm",
+  "llm_model_used": "gpt-4o-mini",
+  "warnings": []
+}

@@ -6,7 +6,14 @@ from schemas.models import Record
 
 
 def _is_amount_endpoint(kind: str) -> bool:
-    return kind in {"amount_per_area", "amount_total"}
+    return kind == "cumulative_amount"
+
+
+def _amount_endpoint(record: Record):
+    for endpoint in record.endpoints:
+        if endpoint.kind == "cumulative_amount" and endpoint.mean is not None:
+            return endpoint
+    return None
 
 
 def _is_out_of_scope_endpoint(kind: str) -> bool:
@@ -66,13 +73,15 @@ class V1StrictIbuprofen5PctPolicy:
         return _concentration_scope_status(record)
 
     def endpoint_scope_status(self, record: Record) -> str:
-        if record.endpoint.value is None:
-            return "missing"
-        if _is_amount_endpoint(record.endpoint.kind):
+        amount_endpoint = _amount_endpoint(record)
+        if amount_endpoint is not None:
             return "ok"
-        if _is_out_of_scope_endpoint(record.endpoint.kind):
+        endpoint = record.primary_endpoint()
+        if endpoint is None or endpoint.mean is None:
+            return "missing"
+        if _is_out_of_scope_endpoint(endpoint.kind):
             return "out_of_scope"
-        if record.endpoint.kind in {"percent", "flux", "jss"}:
+        if endpoint.kind in {"permeated_fraction", "flux", "permeability_coefficient"}:
             return "ambiguous"
         return "ambiguous"
 
@@ -90,7 +99,7 @@ class V1StrictIbuprofen5PctPolicy:
         if endpoint_status != "ok":
             return False, "amount_endpoint_required"
 
-        if record.endpoint.time_value is None:
+        if record.conditions.duration_h is None:
             return False, "endpoint_time_required"
 
         concentration_status = self.concentration_scope_status(record)

@@ -1,0 +1,232 @@
+{
+  "run_id": "run_f48ca0ccefbf",
+  "model_name": "gpt-4o-mini",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-04-06T13:06:53.212927+00:00",
+  "run_profile": "balanced_full",
+  "query_profile": "ibuprofen_dermal_oa_v1",
+  "query_profile_version": "2026-03-28.v1",
+  "query_source": "profile:ibuprofen_dermal_oa_v1",
+  "stage_models": {
+    "llm_triage": "gpt-4o-mini",
+    "routing": "gpt-4o-mini",
+    "text_extract": "gpt-4o-mini",
+    "table_extract": "gpt-4o-mini",
+    "figure_triage": "gpt-4o-mini",
+    "figure_map": "gpt-4o-mini",
+    "llm_adjudicate": "gpt-4o-mini"
+  },
+  "prompt_assets": {
+    "triage.abstract_relevance": "2026-03-28.v1",
+    "routing.structured_first": "2026-03-28.v1",
+    "extractors.text.structured_fields": "2026-03-28.v1",
+    "extractors.table.structured_tables": "2026-03-28.v1",
+    "extractors.figure.triage": "2026-03-28.v1",
+    "extractors.figure.curve_map": "2026-03-28.v1",
+    "verification.llm_adjudication": "2026-04-03.v1"
+  },
+  "module_counts": {
+    "table": 19,
+    "text": 0,
+    "figure": 11
+  },
+  "route_distribution": {
+    "figure": 8,
+    "table": 2
+  },
+  "extractor_output_counts": {
+    "table": 19,
+    "text": 0,
+    "figure": 11
+  },
+  "verification_outcome_counts": {
+    "verified": 11,
+    "unresolved": 14,
+    "rejected": 3
+  },
+  "scope_bucket_counts": {
+    "strict_in_scope": 11,
+    "recoverable_unresolved": 10,
+    "useful_but_out_of_scope": 7
+  },
+  "scope_tag_counts": {
+    "recoverable_unresolved": 10,
+    "recoverable_api_basis": 6,
+    "useful_but_out_of_scope": 7,
+    "useful_api_concentration_out_of_scope": 6,
+    "recoverable_support_gap": 5,
+    "recoverable_unit_normalization": 1,
+    "useful_endpoint_out_of_scope": 1,
+    "useful_device_out_of_scope": 3
+  },
+  "failure_taxonomy_counts": {
+    "ambiguous_api_concentration": 7,
+    "not_target_api_concentration": 6,
+    "insufficient_evidence": 5,
+    "unit_normalization_failed": 1,
+    "not_target_device": 3,
+    "percent_only": 2,
+    "missing_area": 2
+  },
+  "failure_taxonomy_counts_by_route": {
+    "figure": {
+      "not_target_api_concentration": 6,
+      "insufficient_evidence": 5,
+      "ambiguous_api_concentration": 2,
+      "unit_normalization_failed": 1,
+      "not_target_device": 3,
+      "percent_only": 2,
+      "missing_area": 2
+    },
+    "table": {
+      "ambiguous_api_concentration": 5
+    }
+  },
+  "figure_verification_failure_taxonomy_counts": {
+    "not_target_api_concentration": 6,
+    "insufficient_evidence": 5,
+    "ambiguous_api_concentration": 2,
+    "unit_normalization_failed": 1,
+    "not_target_device": 3,
+    "percent_only": 2,
+    "missing_area": 2
+  },
+  "figure_stage_counts": {
+    "triage_artifacts": 8,
+    "triage_has_permeation_plot_true": 7,
+    "triage_digitize_candidates": 7,
+    "digitized_curves": 11,
+    "digitized_endpoints_ok": 11,
+    "digitized_endpoints_failed": 3,
+    "digitization_no_output": 3,
+    "mapped_curves": 11,
+    "unmapped_curves": 0
+  },
+  "figure_failure_counts": {
+    "triage_signals": {
+      "ticks_readable:uncertain": 2,
+      "endpoint_curve_present:no": 2,
+      "recommended_route:skip": 1,
+      "digitizable:no": 1,
+      "ticks_readable:no": 1,
+      "why_not_digitizable:figure_does_not_contain_endpoint_curves_suitable_for_digitization": 1
+    },
+    "digitization_failure_counts": {
+      "digitization_no_output": 3
+    },
+    "mapping_failure_counts": {}
+  },
+  "figure_gate_counts": {
+    "routed_candidates": 8,
+    "after_gate": 8,
+    "skipped": {}
+  },
+  "figure_route_counts": {
+    "digitize": 7,
+    "skip": 1
+  },
+  "figure_digitization_status_counts": {
+    "ok": 11,
+    "digitization_no_output": 3
+  },
+  "figure_mapping_status_counts": {
+    "vision_mapped": 11
+  },
+  "llm_reliability": {},
+  "llm_adjudication_summary": {
+    "row_count": 6,
+    "candidate_reason_counts": {
+      "recoverable_unresolved:ambiguous_api_concentration": 6
+    },
+    "priority_bucket_counts": {
+      "high": 6
+    },
+    "review_focus_counts": {
+      "api_concentration_basis": 6
+    },
+    "recommended_status_counts": {
+      "unresolved": 4,
+      "rejected": 2
+    },
+    "should_keep_strict_counts": {
+      "no": 6
+    },
+    "disagreement_counts": {
+      "status_disagreement": 2,
+      "scope_bucket_disagreement": 2
+    },
+    "original_vs_recommended_counts": {
+      "unresolved->unresolved": 4,
+      "unresolved->rejected": 2
+    }
+  },
+  "blockage_summary": {
+    "access_status_counts": {
+      "downloaded": 10
+    },
+    "access_reason_counts": {},
+    "route_unresolved_reason_counts": {},
+    "route_note_counts": {
+      "study_demonstrates_the_3d_printed_diffusion_cell_designed_for_real_time_uv_imagi": 1,
+      "the_paper_compares_ibuprofen_permeation_through_human_skin_porcine_skin_pampa_an": 1,
+      "the_study_explores_the_influence_of_various_formulation_factors_on_the_permeabil": 1,
+      "the_study_presents_a_detailed_formulation_composition_and_transdermal_delivery_e": 1,
+      "the_study_focuses_on_the_permeation_of_ibuprofen_and_lidocaine_through_silicone_": 1,
+      "focuses_on_the_effect_of_ibuprofen_and_various_rock_inhibitors_on_neurite_outgro": 1,
+      "the_study_evaluates_the_release_profiles_of_ibuprofen_from_a_vesicle_loaded_hydr": 1,
+      "the_research_presents_a_clear_methodology_for_evaluating_the_skin_permeation_and": 1,
+      "the_study_extensively_discusses_the_synthesis_and_evaluation_of_ibuprofen_conjug": 1
+    },
+    "extractor_blockages": {
+      "text": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      },
+      "table": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      }
+    },
+    "patch_status_counts": {
+      "patch_api_concentration": {
+        "skipped": 17
+      },
+      "patch_area": {
+        "skipped": 4
+      },
+      "patch_endpoint_time": {
+        "applied": 1
+      },
+      "patch_endpoint_value": {
+        "skipped": 9,
+        "applied": 9
+      }
+    },
+    "patch_reason_counts": {
+      "patch_api_concentration": {
+        "no_recoverable_concentration_fragment": 11,
+        "recovered_concentration_matches_existing_value": 6
+      },
+      "patch_area": {
+        "no_recoverable_area_fragment": 4
+      },
+      "patch_endpoint_value": {
+        "no_recoverable_endpoint_fragment": 1,
+        "recovered_endpoint_matches_existing_value": 8
+      }
+    }
+  },
+  "patch_success_counts": {
+    "patch_endpoint_value": 9,
+    "patch_endpoint_time": 1
+  },
+  "output_record_counts": {
+    "assembled": 28,
+    "final_records_evaluated": 28,
+    "actually_verified": 11,
+    "unresolved": 14,
+    "rejected": 3
+  }
+}

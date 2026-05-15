@@ -1,0 +1,12 @@
+{
+  "stage": "patch_endpoint",
+  "completed": 0,
+  "total": 0,
+  "detail": "applied=0",
+  "input_count": 0,
+  "output_count": 0,
+  "output_paths": [
+    "outputs\\_smoke_no_figure_vlm\\patched_endpoint_value.jsonl"
+  ],
+  "resume_signature_digest": "206b762452d5e3992fe133d341a26c560e95e108"
+}

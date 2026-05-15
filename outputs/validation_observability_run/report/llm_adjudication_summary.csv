@@ -1,0 +1,7 @@
+﻿stage,bucket,count
+llm_adjudication_candidate_reason,recoverable_unresolved:ambiguous_api_concentration,14
+llm_adjudication_priority_bucket,high,14
+llm_adjudication_review_focus,api_concentration_basis,14
+llm_adjudication_recommended_status,unresolved,14
+llm_adjudication_should_keep,no,14
+llm_adjudication_transition,unresolved->unresolved,14

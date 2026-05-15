@@ -1,0 +1,12 @@
+{
+  "stage": "assembly",
+  "completed": 24,
+  "total": 24,
+  "detail": "assembled=24",
+  "input_count": 24,
+  "output_count": 24,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_rerun4\\assembled_records.jsonl"
+  ],
+  "resume_signature_digest": "17824c1ffbe72f82b7b367d1a350dc237f74fdf5"
+}

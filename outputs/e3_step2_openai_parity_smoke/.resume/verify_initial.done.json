@@ -1,0 +1,12 @@
+{
+  "stage": "verify_initial",
+  "completed": 24,
+  "total": 24,
+  "detail": "unresolved=24",
+  "input_count": 24,
+  "output_count": 24,
+  "output_paths": [
+    "outputs\\e3_step2_openai_parity_smoke\\verified_initial.jsonl"
+  ],
+  "resume_signature_digest": "009441693465c187d15422ea272868aeadf93d6e"
+}

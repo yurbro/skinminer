@@ -1,0 +1,13 @@
+{
+  "stage": "rule_filter",
+  "completed": 1,
+  "total": 1,
+  "detail": "pass=1 fail=0",
+  "input_count": 1,
+  "output_count": 1,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_rerun3\\rule_pass.jsonl",
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_rerun3\\rule_fail.jsonl"
+  ],
+  "resume_signature_digest": "1ee669e34a285dd3112f21d7e756117ed80e190b"
+}

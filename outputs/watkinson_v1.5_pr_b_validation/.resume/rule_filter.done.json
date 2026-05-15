@@ -1,0 +1,13 @@
+{
+  "stage": "rule_filter",
+  "completed": 3,
+  "total": 3,
+  "detail": "pass=3 fail=0",
+  "input_count": 3,
+  "output_count": 3,
+  "output_paths": [
+    "outputs\\watkinson_v1.5_pr_b_validation\\rule_pass.jsonl",
+    "outputs\\watkinson_v1.5_pr_b_validation\\rule_fail.jsonl"
+  ],
+  "resume_signature_digest": "7d39ccc44bb2f8f38e986fec45cda6573ccb2930"
+}

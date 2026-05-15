@@ -1,0 +1,16 @@
+Corpus rows: 1828
+Route decisions: 536
+Table records: 68
+Text records: 7
+Figure records: 7
+Final records evaluated: 73
+Actually verified: 4
+Final unresolved: 47
+Final rejected: 22
+Run report: outputs\experiment_E7_no_promotion\report\run_report.md
+Failure taxonomy counts: {'not_target_device': 5, 'ambiguous_api_concentration': 38, 'insufficient_evidence': 51, 'not_target_study_type': 12, 'missing_area': 18, 'missing_endpoint': 7, 'unit_normalization_failed': 3, 'figure_digitization_failed': 2, 'not_target_api_concentration': 13, 'not_target_api': 6, 'percent_only': 4, 'missing_api_concentration': 2, 'missing_endpoint_time': 1}
+Figure failure counts: {'triage_signals': {'ticks_readable:uncertain': 5, 'recommended_route:skip': 1, 'digitizable:no': 1, 'why_not_digitizable:calibration_curve_not_target': 1, 'recommended_route:supp_needed': 1, 'endpoint_curve_present:uncertain': 2, 'digitizable:uncertain': 1, 'why_not_digitizable:low_clarity_and_complexity_of_data_representation_hinder_definitive_digitization': 1, 'endpoint_curve_present:no': 3}, 'digitization_failure_counts': {'digitization_no_output': 4, 'fail_missing_axis_range': 2}, 'mapping_failure_counts': {'underconstrained_label_space_5_curves_2_labels': 5, 'underconstrained_label_space_2_curves_1_labels': 4, 'underconstrained_label_space_4_curves_1_labels': 8, 'underconstrained_label_space_3_curves_2_labels': 3}}
+LLM adjudication rows: 27
+LLM adjudication summary: outputs\experiment_E7_no_promotion\report\llm_adjudication_summary.csv
+Long-run summary: outputs\experiment_E7_no_promotion\long_run\summary.json
+Long-run events: outputs\experiment_E7_no_promotion\long_run\events.jsonl

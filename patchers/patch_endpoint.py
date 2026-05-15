@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Iterable
 
 from patchers.common import append_patch, collect_source_fragments, collect_text_fragments, is_patchable
-from schemas.models import EvidenceItem, Record
+from schemas.models import EndpointMeasurement, EvidenceItem, Record, sorted_endpoints
 from utils.io import write_records_jsonl
 from utils.status_panel import ProgressCallback
 from utils.units import endpoint_unit_quality, parse_endpoint_amount, parse_endpoint_unit_hint
@@ -32,19 +32,63 @@ def _label_key(record: Record) -> str:
     return " ".join((record.formulation.label or "").strip().lower().split())
 
 
+def _coerce_endpoint_kind(kind: str) -> str:
+    lowered = (kind or "").strip().lower()
+    if lowered in {"amount_per_area", "amount_total"}:
+        return "cumulative_amount"
+    if lowered in {"percent", "percentage"}:
+        return "permeated_fraction"
+    if lowered in {"jss", "j_ss"}:
+        return "flux"
+    if lowered in {
+        "flux",
+        "cumulative_amount",
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter",
+        "lag_time",
+        "permeated_fraction",
+    }:
+        return lowered
+    return "unknown"
+
+
+def _primary_endpoint(record: Record) -> EndpointMeasurement | None:
+    return record.primary_endpoint()
+
+
+def _endpoint_signature(endpoint: EndpointMeasurement | None) -> tuple[float | None, str, str]:
+    if endpoint is None:
+        return None, "", "unknown"
+    return endpoint.mean, endpoint.unit, endpoint.kind
+
+
+def _set_primary_endpoint(candidate: Record, value: float, unit: str, kind: str) -> None:
+    endpoint = _primary_endpoint(candidate)
+    if endpoint is None:
+        candidate.endpoints.append(EndpointMeasurement(kind=_coerce_endpoint_kind(kind), mean=value, unit=unit))
+    else:
+        endpoint.mean = value
+        endpoint.unit = unit or endpoint.unit
+        if kind and kind != "unknown":
+            endpoint.kind = _coerce_endpoint_kind(kind)  # type: ignore[assignment]
+    candidate.endpoints = sorted_endpoints(candidate.endpoints)
+
+
 def _collect_endpoint_hints(
     records: list[Record],
 ) -> tuple[dict[tuple[str, str], tuple[float, str, str, str]], dict[str, tuple[float, str, str, str]]]:
     grouped_by_label: dict[tuple[str, str], list[tuple[float, str, str, str, int]]] = {}
     grouped_by_paper: dict[str, list[tuple[float, str, str, str, int]]] = {}
     for record in records:
-        if record.endpoint.value is None or not record.endpoint.unit:
+        endpoint = _primary_endpoint(record)
+        if endpoint is None or endpoint.mean is None or not endpoint.unit:
             continue
         support = next(
             (item.snippet for item in record.evidence_items if item.field_name == "endpoint" and item.snippet),
-            f"{record.endpoint.value:g} {record.endpoint.unit}".strip(),
+            f"{endpoint.mean:g} {endpoint.unit}".strip(),
         )
-        payload = (float(record.endpoint.value), record.endpoint.unit, record.endpoint.kind, support, endpoint_unit_quality(record.endpoint.unit))
+        payload = (float(endpoint.mean), endpoint.unit, endpoint.kind, support, endpoint_unit_quality(endpoint.unit))
         label_key = _label_key(record)
         if label_key:
             grouped_by_label.setdefault((record.paper_id, label_key), []).append(payload)
@@ -77,8 +121,9 @@ def _patch_endpoint_pass(
         if progress_callback:
             progress_callback(index - 1, record.paper_id, progress_prefix)
         candidate = record.model_copy(deep=True)
+        endpoint = _primary_endpoint(candidate)
         failure_codes = set(candidate.failure_reasons)
-        needs_recovery = candidate.endpoint.value is None or bool(
+        needs_recovery = endpoint is None or endpoint.mean is None or bool(
             failure_codes
             & {
                 "missing_endpoint",
@@ -93,11 +138,7 @@ def _patch_endpoint_pass(
                 progress_callback(index, record.paper_id, "skipped")
             continue
 
-        previous_signature = (
-            candidate.endpoint.value,
-            candidate.endpoint.unit,
-            candidate.endpoint.kind,
-        )
+        previous_signature = _endpoint_signature(endpoint)
         label_key = _label_key(candidate)
         shared_hint = None
         if label_key:
@@ -132,10 +173,11 @@ def _patch_endpoint_pass(
                     kind_hint = parsed_kind
                     if not matched_text:
                         matched_text = fragment
-        if matched_value is None and candidate.endpoint.value is not None and unit_hint:
-            matched_value = candidate.endpoint.value
+        current_endpoint = _primary_endpoint(candidate)
+        if matched_value is None and current_endpoint is not None and current_endpoint.mean is not None and unit_hint:
+            matched_value = current_endpoint.mean
             matched_unit = unit_hint
-            matched_kind = candidate.endpoint.kind if candidate.endpoint.kind != "unknown" else kind_hint
+            matched_kind = current_endpoint.kind if current_endpoint.kind != "unknown" else kind_hint
         if matched_value is None and shared_hint is not None:
             matched_value, matched_unit, matched_kind, matched_text = shared_hint
             if endpoint_unit_quality(matched_unit) <= 0 and unit_hint:
@@ -144,30 +186,31 @@ def _patch_endpoint_pass(
                     matched_kind = kind_hint
 
         if matched_value is None:
-            append_patch(candidate, "patch_endpoint_value", ["endpoint.value"], "skipped", notes="no recoverable endpoint fragment")
+            append_patch(candidate, "patch_endpoint_value", ["endpoints[0].mean"], "skipped", notes="no recoverable endpoint fragment")
             patched.append(candidate)
             if progress_callback:
                 progress_callback(index, record.paper_id, "skipped")
             continue
-        if previous_signature == (matched_value, matched_unit or candidate.endpoint.unit, matched_kind or candidate.endpoint.kind):
-            append_patch(candidate, "patch_endpoint_value", ["endpoint.value"], "skipped", notes="recovered endpoint matches existing value")
+        current_endpoint = _primary_endpoint(candidate)
+        current_unit = current_endpoint.unit if current_endpoint is not None else ""
+        current_kind = current_endpoint.kind if current_endpoint is not None else "unknown"
+        coerced_matched_kind = _coerce_endpoint_kind(matched_kind or current_kind)
+        if previous_signature == (matched_value, matched_unit or current_unit, coerced_matched_kind):
+            append_patch(candidate, "patch_endpoint_value", ["endpoints[0].mean"], "skipped", notes="recovered endpoint matches existing value")
             patched.append(candidate)
             if progress_callback:
                 progress_callback(index, record.paper_id, "skipped")
             continue
-        current_quality = endpoint_unit_quality(candidate.endpoint.unit)
-        new_quality = endpoint_unit_quality(matched_unit or candidate.endpoint.unit)
-        if candidate.endpoint.value is not None and matched_value == candidate.endpoint.value and new_quality < current_quality:
-            append_patch(candidate, "patch_endpoint_value", ["endpoint.value"], "skipped", notes="recovered endpoint unit is weaker than existing unit")
+        current_quality = endpoint_unit_quality(current_unit)
+        new_quality = endpoint_unit_quality(matched_unit or current_unit)
+        if current_endpoint is not None and current_endpoint.mean is not None and matched_value == current_endpoint.mean and new_quality < current_quality:
+            append_patch(candidate, "patch_endpoint_value", ["endpoints[0].mean"], "skipped", notes="recovered endpoint unit is weaker than existing unit")
             patched.append(candidate)
             if progress_callback:
                 progress_callback(index, record.paper_id, "skipped")
             continue
 
-        candidate.endpoint.value = matched_value
-        candidate.endpoint.unit = matched_unit or candidate.endpoint.unit
-        if matched_kind and matched_kind != "unknown":
-            candidate.endpoint.kind = matched_kind  # type: ignore[assignment]
+        _set_primary_endpoint(candidate, matched_value, matched_unit or current_unit, matched_kind or current_kind)
         evidence = EvidenceItem(
             field_name="endpoint",
             modality="metadata" if candidate.route == "unresolved" else candidate.route,  # type: ignore[arg-type]
@@ -179,7 +222,7 @@ def _patch_endpoint_pass(
         append_patch(
             candidate,
             "patch_endpoint_value",
-            ["endpoint.value", "endpoint.unit", "endpoint.kind"],
+            ["endpoints[0].mean", "endpoints[0].unit", "endpoints[0].kind"],
             "applied",
             [evidence],
             notes="Recovered endpoint value from shared hints." if shared_hint is not None else "Recovered endpoint value from evidence or source fragments.",

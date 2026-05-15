@@ -1,0 +1,60 @@
+# Record: record_d44a8caf44a3
+
+**Sample ID:** R2-066  
+**Tier:** tier2_gpt_v4_unresolved_stratified  
+**Source baseline:** gpt  
+**DOI:** 10.1002/14651858.cd001177.pub2  
+**Title:** Topical agents or dressings for pain in venous leg ulcers.  
+**Route:** table  
+**Policy first verified:** never  
+**Pipeline status (v4):** unresolved  
+**Failure reasons (v4):** insufficient_evidence
+
+## Formulation
+
+- Label: Ibuprofen Foam Dressing
+- API: Ibuprofen
+- Concentration: 0.5 mg/cm2 (Active ingredient)
+- Raw concentration: 0.5 mg/cm2
+- Dosage form: Foam
+
+## Components
+
+- Ibuprofen: 0.5 mg/cm2 Active ingredient; raw=
+
+## Endpoint
+
+- Value: 0.5 mg/cm2
+- Time: 0.0 days
+- Kind: amount_per_area
+- Normalized: 500.0 ug/cm^2
+
+## Conditions
+
+- Device: 
+- Study type: both
+- Barrier: venous leg ulcers
+- Membrane: venous leg ulcers (,  um)
+- Receptor: 
+- Dose: finite, 0.5 mg/cm2
+- Area: 10.0 cm2
+
+## Evidence Summary
+
+- formulation/table at Table 2; endpoint/table at Table 2; membrane_type/table at Table 2; dose_type/table at Table 2; dose_amount/table at Table 2; area/table at verify:area
+
+## Evidence Locators
+
+- formulation | table | Table 2 | p.47 | papers\pdf\10.1002_14651858.cd001177.pub2__f1d6f61f65.pdf
+- endpoint | table | Table 2 | p.47 | papers\pdf\10.1002_14651858.cd001177.pub2__f1d6f61f65.pdf
+- membrane_type | table | Table 2 | p.47 | papers\pdf\10.1002_14651858.cd001177.pub2__f1d6f61f65.pdf
+- dose_type | table | Table 2 | p.47 | papers\pdf\10.1002_14651858.cd001177.pub2__f1d6f61f65.pdf
+- dose_amount | table | Table 2 | p.47 | papers\pdf\10.1002_14651858.cd001177.pub2__f1d6f61f65.pdf
+- area | table | verify:area | 10.1002/14651858.cd001177.pub2
+- api_concentration | table | verify:api_concentration | 10.1002/14651858.cd001177.pub2
+- endpoint_time | table | verify:endpoint_time | 10.1002/14651858.cd001177.pub2
+
+## For Annotator
+
+- Paper link: https://doi.org/10.1002/14651858.cd001177.pub2
+- Key table/figure to check: Table 2; page(s): 3, 14, 17, 26, 47

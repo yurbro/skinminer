@@ -1,0 +1,12 @@
+{
+  "stage": "patch_area",
+  "completed": 26,
+  "total": 26,
+  "detail": "applied=0",
+  "input_count": 26,
+  "output_count": 26,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix4\\patched_area.jsonl"
+  ],
+  "resume_signature_digest": "b2aa05a6f688c5fde476b0c9de55e7ff272e1b24"
+}

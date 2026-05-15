@@ -1,0 +1,508 @@
+{
+  "prompt_asset_id": "extractors.table.structured_tables",
+  "prompt_version": "2026-05-10.pr-c",
+  "paper_id": "paper_a147e8c5cba7",
+  "doi": "10.1159/000231528",
+  "model_name": "gpt-4o-mini",
+  "source_format": "pdf",
+  "source_backend": "pdf_local",
+  "source_ref": "papers\\uploaded_external\\watkinson_2009_II.pdf",
+  "prompt_hash": "c60f3d4bedba",
+  "raw_input": [
+    "You extract formulation composition tables from OA scientific articles. Use ONLY the provided structured tables or PDF page text and optional page images. Do not guess concentrations or endpoint values. Preserve explicit table locators such as 'Table 2' when they are supplied.",
+    [
+      {
+        "type": "input_text",
+        "text": "Extract formulation composition tables relevant to ibuprofen in vitro permeation or release. Also capture endpoint measurements, endpoint times, units, SD values, replicate counts, and basis when they are explicitly tabulated. Return only structured output. Preserve explicit table identifiers in table_id.\n\nSTRICT ROW COMPLETENESS RULES:\n- You MUST extract every relevant data row in the provided tables. Do not skip, summarize, or return only representative rows.\n- If a table has 8 formulation rows and one endpoint column, return 8 records. If it has 8 formulation rows and 3 endpoint time columns, return 24 records.\n- For one-row/multiple-timepoint endpoint tables, emit one independent record for each formulation x each timepoint column, set endpoint_time_value/unit for that exact column, and put that column's measurement(s) in endpoints.\n- Do not copy a final-time endpoint mean into earlier timepoint records. Every endpoint mean must match the same table cell/time column named in endpoint_time_value.\n- The formulation_label for an endpoint record MUST come from the same table row as every endpoint mean. Do not substitute labels from another table by row order.\n- The endpoints field is a list. Add one item per distinct endpoint column explicitly present for that same row/timepoint.\n- Use endpoint kind exactly as one of: flux, cumulative_amount, permeability_coefficient, partition_parameter, diffusion_parameter, lag_time, permeated_fraction, unknown.\n- If cumulative amount and flux/Jss/permeability columns coexist for the same formulation row, include BOTH as separate endpoint list items. Do not overwrite one with the other.\n- Pair mean, SD, unit, and n_replicates from the same endpoint column or immediately associated adjacent column/footnote. Never use an SD, SE, CI, or range cell as the mean.\n- If a cell is reported as mean +/- SD, put the first number in mean and the second in sd. If only mean is given, leave sd null.\n- If ENDPOINT_TABLE_HINT is set, prioritize that table for endpoint records. Use other tables only to fill composition or shared context for matching labels.\n- Keep composition-only rows separate from endpoint rows unless the same formulation label explicitly links them. Do not copy endpoint values onto unrelated composition/stability rows.\n- Extract excipient/vehicle composition into components, including non-API ingredient names, concentrations, basis, and notes when available.\n- Extract condition context when explicitly present in the table, footnote, title, or experiment context: membrane_type, membrane_source, membrane_thickness_um, receptor_medium, dose_type, and dose_amount.\n- Use dose_type only as 'finite', 'infinite', or ''. Do not guess missing condition fields.\n\nDOI: 10.1159/000231528\nTITLE: Optimisation of Cosolvent Concentration for Topical Drug Delivery – II: Influence of Propylene Glycol on Ibuprofen Permeation\nSOURCE_FORMAT: pdf\nSOURCE_BACKEND: pdf_local\nSOURCE_REF: papers\\uploaded_external\\watkinson_2009_II.pdf\nLOCATOR_MODE: page\nSELECTED_LOCATORS: ['page 1', 'page 2', 'page 3', 'page 4', 'page 5']\nENDPOINT_TABLE_HINT: Table 6\nTABLE_TRUNCATED: True\nTRUNCATION_NOTES: ['PDF page text cap reached']\nCURVE_HINTS: \n\nCONTENT:\n--- PAGE 1 ---\nFax +41 61 306 12 34 E-Mail karger@karger.ch www.karger.com Original Paper Skin Pharmacol Physiol 2009;22:225–230 DOI: 10.1159/000231528 Optimisation of Cosolvent Concentration for Topical Drug Delivery – II: Influence of Propylene Glycol on Ibuprofen Permeation R.M. Watkinson a R.H. Guy b J. Hadgraft c M.E. Lane c a Aesop, Melbourne, Vic. , Australia; b Department of Pharmacy and Pharmacology, University of Bath, Bath , and c Department of Pharmaceutics, School of Pharmacy, University of London, London , UK anol:PG:water (50: 25: 25), demonstrated the greatest en- hancement. An analysis of the partition and diffusion param- eters for experiments conducted with skin confirmed that the influence of PG in the PG:water systems is primarily on the solubility and partitioning behaviour of ibuprofen. The ternary systems also appear to influence skin partition be- haviour rather than diffusivity when compared with the per- meation parameters of ibuprofen from saturated aqueous solutions. Copyright © 2009 S. Karger AG, Basel Introduction Propylene glycol (PG) is a colourless, viscous liquid which was described originally by Wurtz [1] in 1859. Its first recorded application in pharmaceutical prepara- tions was in 1932 and, currently, PG is widely used as a cosolvent for poorly soluble materials and/or to enhance drug permeation through skin from topical preparations [2–6] . Despite its long history of use, the precise role of PG in enhancing drug permeation remains to be clari- fied. The literature details conflicting reports concerning its effects on human and animal skin. Aguiar and Wei - ner [7] studied the effect of PG on chloramphenicol per- meation in hairless mouse skin and concluded that PG did not alter membrane properties. From studies on fluo- Key Words Ibuprofen \u0002 Propylene glycol \u0002 Silicone \u0002 Skin \u0002 Vehicle composition Abstract The influence of formulation components on drug thermo- dynamic activity and on membrane properties has not been extensively studied to date. Propylene glycol (PG) has a long history of use as a component of topical pharmaceutical and cosmetic preparations. In the present study we investigated the influence of PG on the solubility and membrane perme- ability characteristics of ibuprofen in silicone and skin using binary (PG:water) and ternary (ethanol:PG:water) solvent systems. Fluxes were maximum for 70: 30 PG:water systems in silicone membrane; however, for experiments conducted with skin, the flux of ibuprofen systematically increased with increasing amounts of PG. For silicone membrane, the flux values of ibuprofen from ternary ethanol:PG:water (25: 25: 50 and 50: 25: 25) systems were 1.2- and 1.5-fold higher than the highest values observed from the PG:water systems. A com- parison of the data from occluded versus non-occluded studies suggested that the ethanol content was the critical determinant of flux enhancement in these systems. For hu- man skin, a PG:water (50: 50) mixture enhanced ibuprofen flux to the same extent as the corresponding ethanol:PG: water (25: 25: 50) system. However, the ternary system, eth- Received: December 16, 2008 Accepted after revision: May 19, 2009 Published online: July 31, 2009 Majella E. Lane Department of Pharmaceutics School of Pharmacy, University of London London WC1N 1AX (UK) Tel. +44 207 753 5821, Fax +44 870 165 9275, E-Mail majella.lane@btinternet.com © 2009 S. Karger AG, Basel 1660–5527/09/0224–0225$26.00/0 Accessible online at: www.karger.com/spp\n\n--- PAGE 2 ---\nWatkinson /Guy /Hadgraft /Lane Skin Pharmacol Physiol 2009;22:225–230 226 cinolone acetonide permeability in human skin, Ostren- ga et al. [8] observed that pre-treatment of skin with pure PG caused the skin barrier to become less pliable and at- tributed this effect to dehydration. Zatz and Dalvi [9] in- vestigated benzocaine permeation in hairless mouse skin from a range of solvents and showed that, with water as a standard, interaction effects were not significant when PG was used as a solvent. Hoelgaard and Mollgaard [10] examined the effects of PG on metronidazole flux en- hancement in human skin and suggested a possible ‘car- rier-solvent’ effect. Kasting et al. [11] demonstrated sig- nificant permeation enhancement of triprolidine base from pure PG when compared with oil vehicles in human skin. These workers related this direct effect of PG on the membrane to solvent incorporation in the stratum cor- neum in a sufficient quantity to modify permeant solu- bility in the tissue. As demonstrated previously, topical presentations of agents like ibuprofen which are intended for subcutane- ous action cannot be assumed to be pharmaceutically and clinically equivalent or indeed interchangeable [12] . Moreover, although it is evident that different penetra- tion enhancers influence drug diffusion characteristics to different extents [13] , the complexity of most pharma- ceutical preparations makes it difficult to deconvolve the exact influence of specific enhancers on drug perme- ation. Recently we reported the results of a systematic in- vestigation of the influence of binary systems of ethanol and water on ibuprofen solubility and in vitro permeation characteristics in model membranes and human skin [14] . Analysis of the data confirmed that increasing etha- nol content enhanced the solubility of ibuprofen in both membranes as well as in the vehicle itself. The aim of this work was to extend these studies to explore the influence of PG on ibuprofen permeation and to investigate wheth- er specific effects on partition and diffusion parameters may be distinguished. A secondary goal of the study was to investigate the effects of ethanol in more complex ter- nary systems (PG:ethanol:water) on permeation in sili- cone and skin, as such mixtures are more representative of commercial formulations than simple binary sys- tems. Materials and Methods Materials Ibuprofen was a generous gift from Wyeth Consumer Health Care (Havant, UK). HPLC grade solvents were obtained from Fisher Scientific, UK. All other materials were of reagent grade and were obtained from VWR, UK. Solubility Determination Excess drug was added to each solvent or cosolvent mixture and stirred with a magnetic bar for 48 h in a water bath main- tained at 32 ° C. Solutions were centrifuged for 15 min at 10,000 rpm. The supernatant was then diluted and assayed either by HPLC or UV spectroscopy. For HPLC analysis, the sample was diluted in isopropanol, followed by appropriate dilution in meth- anol. The stationary phase was an Apex reverse-phase ODS 5- \u0002 m packed column (250 ! 4.6 mm) and a mobile phase of 65% ace- tonitrile and 35% phosphate buffer (adjusted to pH 3.2 using or- thophosphoric acid). UV detection was performed at 225 nm and a flow rate of 1.2 ml min –1 . The retention time was approximately 5 min, and calibration curves were constructed on the basis of peak area measurements using 1 5 standard solutions. Experi- ments were performed in triplicate and mean values with stan- dard deviation and coefficient of variation were calculated. Re- producibility was evaluated prior to injection of the samples and during analysis; coefficients of variation were ! 5% in all experi- ments. Permeation Studies in Silicone Membrane and Skin The silicone membranes used in this work were obtained from Samco (Nuneaton, UK) with a measured thickness of 400 \u0002 m. Full-thickness human skin from cosmetic surgery was obtained by informed consent and with appropriate institutional ethical approval. The epidermis was separated by immersing the skin in water maintained at 60 ° C for 1 min [15] . It was then pinned to a corkboard and the epidermis was carefully peeled away from the dermis. The epidermis was then immersed in cold water to aid mounting onto filter paper and stored in a freezer until required. Prior to the diffusion experiment the skin was defrosted and cut to appropriate size. Permeation experiments were conducted using saturated solu- tions of ibuprofen for each ...[truncated]\n\n--- PAGE 3 ---\nOptimisation of Cosolvent Concentration for Topical Drug Delivery Skin Pharmacol Physiol 2009;22:225–230 227 Results Solubility Studies Figure 1 shows the exponential increase in ibuprofen solubility with increasing PG content. Above 60% v/v PG there is a marked increase in the solubility of ibuprofen; the drug’s solubility in pure PG is \u0002 1,750 times greater than its aqueous solubility ( fig. 1 ). This exponential in- crease has also been reported by Manrique et al. [17] , who investigated the solubility of ibuprofen at several temper- atures in PG-water cosolvent mixtures. The solubilities of ibuprofen in the ethanol:PG:water systems studied are given in table 1 . These values are approximately 1,500- fold and 3,000-fold greater, for the 25: 25: 50 system and the 50: 25: 25 systems, respectively, than the aqueous solu- bility of ibuprofen (0.09 mg/ml) [14] . Permeation of Ibuprofen from Binary and Ternary Systems in Silicone The permeation of ibuprofen through silicone mem- brane from PG:water vehicles of varying composition was evaluated. Table 2 lists the fluxes, kinetic parameters (D/h 2 ), thermodynamic parameters (K ! h) and the per- meability coefficients obtained (k p ). The steady-state fluxes varied from \u0002 300 \u0002 g/cm 2 /h in pure PG to 185 \u0002 g/ cm 2 /h in water. At 60–70% PG (v/v) the flux was maximal and approximately double that of the drug from water. There are no clear trends for the kinetic and thermody- namic parameters, but permeability coefficients appear to decrease above 60% PG. The permeation of ibuprofen through silicone mem- brane, using ternary vehicles composed of ethanol, PG and water was further evaluated. Table 3 lists the kinetic parameters (D/h 2 ), thermodynamic parameters (Kh) and permeability coefficients (k p ). The fluxes of ibuprofen from ternary formulations are not significantly different. There are significant differences (p ! 0.05) in the ther- modynamic and kinetic parameters for the two formula- tions studied and the permeability coefficient was sig- nificantly lower for the formulation containing the great- er amount of ethanol. To simulate better how such formulations are used on skin, diffusion studies for the ternary vehicles were also conducted on silicone membrane under non-occluded conditions. As for the occluded studies, 1 ml of a saturat- ed solution of ibuprofen in the relevant formulation was applied. While the fluxes for these formulations were the same under occluded conditions, there was a significant increase (p ! 0.05) in flux for the formulation containing more ethanol under non-occluded conditions when com- pared with the system with lower ethanol. In addition, the flux from the system with lower ethanol content is sig- nificantly greater for occluded versus non-occluded con- ditions (p ! 0.05). The k p value for the non-occluded sys- tem with lower ethanol is significantly lower than the cor- responding k p value for the occluded system ( tables 3 , 4 ). No differences are seen in the k p values for the systems with higher ethanol content and fluxes for the formula- tions with the higher proportion of ethanol are statisti- cally the same whether occluded or non-occluded. Permeation of Ibuprofen from Binary and Ternary Systems in Skin As expected, the fluxes for ibuprofen permeating through human skin were considerably lower than for the corresponding formulations through silicone membrane ( tables 5 , 6 ). For the binary PG:water systems, as the amount of PG increased, so did the permeation rate. The flux increase is particularly noticeable between 25 and 50% PG. There was no significant difference in the ibu- profen fluxes from the PG:water 50: 50 mixture and from 0 Ibuprofen solubility (mg/ml) 20 40 60 80 100 120 140 160 180 200 0 50 100 Percent PG (v/v) Fig. 1. Solubility of ibuprofen in PG and water mixtures at 32 ° C (n = 3). Table 1. Solubility of ibuprofen in ethanol/PG/water mixtures Ethanol:PG:water Solubility, mg/ml 25:25:50 133825 50:25:25 29285\n\n--- PAGE 4 ---\nWatkinson /Guy /Hadgraft /Lane Skin Pharmacol Physiol 2009;22:225–230 228 Table 2. Steady-state fluxes, thermodynamic and kinetic parameters and permeability coefficients of ibuprofen through silicone membrane from saturated formulations containing PG and water (mean 8 SD, n = 4) PG:water (v/v) J, \u0002g/cm2/h K!h, \u0002m D/h2, h–1 kp, cm/h 0:100 185.5810.94 1.8380.35 1,3688684 2.0980.14 10:90 225.4831.47 2.1681.39 2,0528828 3.5580.86 20:80 229.5814.20 1.0380.44 8218115 2.0980.77 30:70 216.0822.47 1.0180.06 1,2788171 1.3580.13 40:60 277.1831.22 0.7680.35 8828260 0.5980.05 60:40 355.4836.34 0.0580.01 1,933.28543.6 0.1180.01 70:30 443.3819.86 15.1182.04 37.487.92 0.0480.01 80:20 245.2828.55 1.38!10–287.21!10–3 5048288 6.70!10–387.31!10–4 90:10 219.6822.32 0.3780.05 6.3084.32 2.31!10–382.35!10–4 100:0 297.1829.43 1.8581.1 1.0280.36 1.88!10–381.81!10–4 Table 3. Steady-state fluxes, thermodynamic and kinetic parameters and permeability coefficients of ibuprofen through silicone membrane from saturated formulations containing ethanol, PG and water (mean 8 SD, n = 4) EtOH:PG:water (v/v) J, \u0002g/cm2/h K!h, \u0002m D/h2, h–1 kp, cm/h 25:25:50 525.8837.3 8.9!10–381.5!10–3 421.280.7 3.7!10–383.3!10–8 50:25:25 641.1884.1 2.480.2* 0.9380.19* 2.2!10–388.7!10–5* * p < 0.05. Table 4. Steady-state fluxes, thermodynamic and kinetic parameters and permeability coefficients of ibuprofen through silicone membrane from saturated formulations containing ethanol, PG and water under non-occlud- ed conditions (mean 8 SD, n = 4) EtOH:PG:water (v/v) J, \u0002g/cm2/h K!h, \u0002m D/h2, h–1 kp, cm/h 25:25:50 376.2839.98 4.280.8 0.780.2 2.9!10–382.8!10–4 50:25:25 558.2848.94* 1.681.2* 1.180.1* 1.9!10–381.2!10–4* * p < 0.05. Table 5. Steady-state fluxes, thermodynamic and kinetic parameters and permeability coefficients of ibuprofen through human epidermis from saturated formulations containing PG and water (mean 8 SD, n = 5) PG:water (v/v) J, \u0002g/cm2/h K!h, \u0002m D/h2, h–1 kp, cm/h 0:100 24.482.69 1,1838503 0.2380.02 0.2780.03 25:75 35.589.77 4608260 0.780.3** 0.2680.08 50:50 99.1822.77* 2.580.2* 0.480.1** 9.58!10–484.86!10–5*** 100:0 133.8836.1* 1.3680.15* 0.680.4** 8.24!10–481.75!10–4*** * p < 0.05 (comparison to 0:100 and 25:75 systems); ** p < 0.05 (comparison to 0:100 system); *** p < 0.05 (comparison to 0:100 and 25:75 systems).\n\n--- PAGE 5 ---\nOptimisation of Cosolvent Concentration for Topical Drug Delivery Skin Pharmacol Physiol 2009;22:225–230 229 pure PG. The thermodynamic parameters derived for the formulations containing 0 and 25% PG are not signifi- cantly different, but there is a significant difference in these parameters compared with the 50% PG mixture and pure PG. The kinetic parameter does not alter sig- nificantly across the range of formulations used in the study. The results of permeation studies conducted using ternary solvent formulations applied to human skin are given in table 6 . In contrast to the silicone data, ibuprofen flux was almost threefold higher from the ethanol-rich formulation relative to that from the vehicle with less of the volatile solvent. The thermodynamic and kinetic pa- rameters are significantly different for the two vehicles (p ! 0.05). Discussion PG is a common component of many cosmetic and pharmaceutical formulations, but the mechanism under- lying its ability to modulate active permeation has not been explored in detail to date. A better understanding of precisely how PG influences active permeation should as- sist in the design of more effective vehicles for delivery to and through the skin. In this study, the influence of PG on ibuprofen solubility and the permeation of ibuprofen from binary and ternary solvent systems in silicone mem- brane and in skin were explored in order to gain insight into PG enhancement properties. The solubility of ibuprofen increased exponentially with PG in line with the results of Herkenne et al. [18] . Solute-solvent interactions are greater in the PG-rich co- solvent systems as noted by Herkenne et al. [18] and Man- rique et al. [17] . The observed solubilities were lower than those previously reported for ethanol:water systems [14] since PG is a more polar solvent than ethanol [19, 20] . The amount of PG in the PG/water mixtures clearly influenced ibuprofen delivery into silicone membrane and flux values were optimal for PG:water systems con- taining 70% PG. If PG enhances permeation by altering the solubility of the permeant in the membrane as pro- posed by Kasting et al. [11] , alterations in the thermody- namic parameter would be anticipated; however, no dis- tinct trends are apparent in the K ! h values for binary systems in silicone membrane. As for the permeation rate in silicone, as the amount of PG in the formulation increased, so did the permeation rate in skin for binary PG:water systems. The flux in- crease is particularly noticeable between 25 and 50% PG. Overall, flux values from PG:water are lower than from corresponding ethanol:water mixtures as reported previ- ously [14, 20] . The derived kinetic parameters are inde- pendent of the vehicle composition. In contrast, the ther- modynamic parameters derived for the formulations containing 90 and 25% PG are significantly different from those with 50 and 100% PG, and the values of k p reflect these differences too. Overall, the results are con- sistent with recently published in vivo data [18] , which showed that ibuprofen delivery into the stratum corneum increased with increasing percentage of PG in PG:water formulations and that the differences observed were be- cause of changes in the partition coefficient, not the drug’s diffusivity across the stratum corneum. In addi- tion, a clear decrease in K with increasing amounts of PG in the vehicle was also observed by these workers. The data from the non-occluded study with ternary vehicles and silicone suggests the formation of a super- saturated state for ibuprofen as ethanol evaporated from the vehicle. The flux from the system with lower ethanol content was significantly greater when there was no oc- clusion relative to occluded systems (p ! 0.05), which sug- gests further that changes in the ethanol content of this system impacted on the thermodynamic state of the drug. The k p value for the non-occluded system with lower ethanol is significantly higher than the corresponding k p value for the occluded system, and although no dif- Table 6. Steady-state fluxes, thermodynamic and kinetic parameters and permeability coefficients of ibuprofen through human epidermis from saturated formulations containing ethanol, PG and water through human epi- dermis (mean 8 SD, n = 5) EtOH:PG:water (v/v) J, \u0002g/cm2/h K!h, \u0002m D/h2, h–1 kp, cm/h 25:25:50 77.689.04 1.0780.94 0.6380.25 6.70!10–489.82!10–5 50:25:25 203.5836.24* 2.8380.30* 0.2580.02* 7.09!10–481.24!10–4 * p < 0.05."
+      }
+    ]
+  ],
+  "raw_output": {
+    "formulations": [
+      {
+        "formulation_label": "0:100 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "10:90 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "20:80 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "30:70 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "40:60 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "60:40 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "70:30 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "80:20 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "90:10 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "100:0 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "silicone",
+        "membrane_source": "",
+        "membrane_thickness_um": 400.0,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 2",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "25:25:50 EtOH:PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 3",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "50:25:25 EtOH:PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 3",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "0:100 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 6",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "25:75",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 6",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "50:50",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 6",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "100:0 PG:water",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 6",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 4"
+        ],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      }
+    ],
+    "formulation_table_found": "yes",
+    "formulation_table_in_image": "no",
+    "recommended_next": "ok",
+    "notes": ""
+  }
+}

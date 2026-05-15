@@ -1,0 +1,29 @@
+paper_doi,vehicle_signature,ethanol_vv,PG_vv,water_vv,MO_vv,MG_vv,solubility_mg_per_ml,log10_solubility,source,source_note
+10.1159/000183922,0:0:100:0:0,0,0,100,0,0,0.09,-1.045757491,PartI_Table1,Measured in Watkinson Part I Table 1.
+10.1159/000183922,100:0:0:0:0,100,0,0,0,0,500,2.698970004,PartI_Table1,Measured in Watkinson Part I Table 1.
+10.1159/000183922,25:0:75:0:0,25,0,75,0,0,343,2.53529412,PartI_Table1,Measured in Watkinson Part I Table 1.
+10.1159/000183922,50:0:50:0:0,50,0,50,0,0,453,2.656098202,PartI_Table1,Measured in Watkinson Part I Table 1.
+10.1159/000183922,75:0:25:0:0,75,0,25,0,0,489,2.689308859,PartI_Table1,Measured in Watkinson Part I Table 1.
+10.1159/000231528,0:0:100:0:0,0,0,100,0,0,0.08994975815,-1.046,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,0:100:0:0:0,0,100,0,0,0,157.3982864,2.197,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,0:10:90:0:0,0,10,90,0,0,0.1898016572,-0.7217,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,0:20:80:0:0,0,20,80,0,0,0.4004976757,-0.3974,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,0:30:70:0:0,0,30,70,0,0,0.8450842349,-0.0731,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,0:40:60:0:0,0,40,60,0,0,1.783199772,0.2512,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,0:60:40:0:0,0,60,40,0,0,7.939625173,0.8998,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,0:70:30:0:0,0,70,30,0,0,16.7532859,1.2241,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,0:80:20:0:0,0,80,20,0,0,35.35086134,1.5484,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,0:90:10:0:0,0,90,10,0,0,74.59333079,1.8727,PartII_PG_water_Manrique,"Estimated via log-linear cosolvent model (Yalkowsky 1999) interpolating Part II section 4.1 endpoints (water 0.09 mg/mL, pure PG 157.5 mg/mL)."
+10.1159/000231528,25:25:50:0:0,25,25,50,0,0,1338,3.126456113,PartII_Table1,Measured ternary solvent solubility in Watkinson Part II Table 1.
+10.1159/000231528,50:25:25:0:0,50,25,25,0,0,2928,3.466571072,PartII_Table1,Measured ternary solvent solubility in Watkinson Part II Table 1.
+10.1159/000315139,0:0:0:0:100,0,0,0,0,100,151.6,2.180699201,PartIII_Table1,Measured in Watkinson Part III Table 1.
+10.1159/000315139,0:0:0:100:0,0,0,0,100,0,31.99,1.50501424,PartIII_Table1,Measured in Watkinson Part III Table 1.
+10.1159/000315139,0:0:0:20:80,0,0,0,20,80,167.63,2.224351745,PartIII_Table1,Measured in Watkinson Part III Table 1.
+10.1159/000315139,0:0:0:30:70,0,0,0,30,70,125.12,2.097326736,PartIII_Table1,Measured in Watkinson Part III Table 1.
+10.1159/000315139,0:0:0:40:60,0,0,0,40,60,140.19,2.146717036,PartIII_Table1,Measured in Watkinson Part III Table 1.
+10.1159/000315139,0:0:0:60:40,0,0,0,60,40,115.73,2.063445953,PartIII_Table1,Measured in Watkinson Part III Table 1.
+10.1159/000315139,0:0:0:70:30,0,0,0,70,30,85.73,1.933132824,PartIII_Table1,Measured in Watkinson Part III Table 1.
+10.1159/000315139,0:0:0:80:20,0,0,0,80,20,53.61,1.729245807,PartIII_Table1,Measured in Watkinson Part III Table 1.
+10.1159/000315139,0:0:0:90:10,0,0,0,90,10,59.26,1.772761647,PartIII_Table1,Measured in Watkinson Part III Table 1.
+10.1159/000315139,0:0:0:10:90,0,0,0,10,90,159.4136381,2.202525473,PartIII_Table1_interpolated,Linear interpolation in log10 solubility space between adjacent Part III Table 1 vehicles.
+10.1159/000315139,0:0:0:50:50,0,0,0,50,50,127.3742074,2.105081494,PartIII_Table1_interpolated,Linear interpolation in log10 solubility space between adjacent Part III Table 1 vehicles.

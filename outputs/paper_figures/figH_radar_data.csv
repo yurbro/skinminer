@@ -1,0 +1,6 @@
+﻿metric,pipeline_score,sp3_score,definition
+TP coverage,100.0,96.0,Gold keep-record recovery
+Value recovery,96.0,100.0,Value-correct recovery on gold-positive rows
+Output purity,100.0,8.333333333333334,True positives divided by emitted output records
+Negative-space control,100.0,33.333333333333336,One minus gold-negative DOI with output rate
+Cost efficiency,100.0,70.02260119169918,"TP per USD, normalized to pipeline = 100"

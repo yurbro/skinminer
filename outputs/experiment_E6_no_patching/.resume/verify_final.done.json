@@ -1,0 +1,12 @@
+{
+  "stage": "verify_final",
+  "completed": 78,
+  "total": 78,
+  "detail": "rejected=23 unresolved=49 verified=6",
+  "input_count": 78,
+  "output_count": 78,
+  "output_paths": [
+    "outputs\\experiment_E6_no_patching\\verified_records.jsonl"
+  ],
+  "resume_signature_digest": "2d638b25cb536a6dab56ad15ad0d8a56165ce608"
+}

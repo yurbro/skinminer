@@ -1,0 +1,7 @@
+# Boundary Analysis: Descriptive Modelling vs Prescriptive EDMA
+
+The final demonstration supports a descriptive modelling claim. Using SkinMiner-extracted multi-timepoint data from one ibuprofen nanosuspension paper, the 4D LOGO-CV Gaussian process regression model achieved R2 = 0.60, RMSE = 298 ug/cm2, and MAE = 259 ug/cm2 across 24 held-out predictions. This shows that structured extraction of formulation factors, timepoints, endpoint values, and endpoint SD can support cross-formulation permeation prediction at moderate accuracy.
+
+The EDMA-style decision task remains a boundary case rather than a successful application. In v3, the Stop/Continue decision achieved 87.5% accuracy, but this was driven by class imbalance and a model that effectively stopped every formulation; predictive R2 was negative. In v4, the sample-complexity analysis showed that R2 > 0.5 was not reached even at N = 200 under the single-paper oracle. The bottleneck is therefore not simply record count, but formulation-space coverage and balanced representation of high-performing candidates.
+
+The methodological implication is that single-paper data can support descriptive modelling, but prescriptive decision-making requires cross-paper aggregation. SkinMiner's value is foundational: it converts dispersed literature records into structured data that can eventually support both descriptive and decision-oriented modelling once enough comparable formulation space has been accumulated.

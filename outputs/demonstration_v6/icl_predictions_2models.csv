@@ -1,0 +1,1009 @@
+model,model_label,provider,fold,condition,repeat,timepoint_h,true_value,pred_value,abs_error,raw_response,raw_response_path,parsed_success
+gpt-4o-mini,GPT-4o-mini,openai,F1,no_context,0,24,465.625,150.0,315.625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,no_context,0,48,838.28125,300.0,538.28125,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,no_context,0,72,1785.0,450.0,1335.0,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,no_context,1,24,465.625,150.0,315.625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,no_context,1,48,838.28125,300.0,538.28125,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,no_context,1,72,1785.0,450.0,1335.0,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,no_context,2,24,465.625,150.0,315.625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,no_context,2,48,838.28125,300.0,538.28125,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,no_context,2,72,1785.0,450.0,1335.0,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,general_context,0,24,465.625,500.0,34.375,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,general_context,0,48,838.28125,1200.0,361.71875,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,general_context,0,72,1785.0,1800.0,15.0,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,general_context,1,24,465.625,500.0,34.375,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,general_context,1,48,838.28125,1200.0,361.71875,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,general_context,1,72,1785.0,1800.0,15.0,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,general_context,2,24,465.625,300.0,165.625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,general_context,2,48,838.28125,800.0,38.28125,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,general_context,2,72,1785.0,1500.0,285.0,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,icl,0,24,465.625,244.0,221.625,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,icl,0,48,838.28125,907.0,68.71875,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,icl,0,72,1785.0,1262.0,523.0,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,icl,1,24,465.625,244.0,221.625,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,icl,1,48,838.28125,907.0,68.71875,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,icl,1,72,1785.0,1262.0,523.0,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,icl,2,24,465.625,244.0,221.625,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,icl,2,48,838.28125,907.0,68.71875,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,icl,2,72,1785.0,1842.0,57.0,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,permuted_icl,0,24,465.625,207.0,258.625,"```json
+{""24h"": 207.0, ""48h"": 907.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,permuted_icl,0,48,838.28125,907.0,68.71875,"```json
+{""24h"": 207.0, ""48h"": 907.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,permuted_icl,0,72,1785.0,1842.0,57.0,"```json
+{""24h"": 207.0, ""48h"": 907.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,permuted_icl,1,24,465.625,207.0,258.625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,permuted_icl,1,48,838.28125,726.0,112.28125,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,permuted_icl,1,72,1785.0,1148.0,637.0,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,permuted_icl,2,24,465.625,232.0,233.625,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,permuted_icl,2,48,838.28125,861.0,22.71875,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F1,permuted_icl,2,72,1785.0,1262.0,523.0,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F1_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,no_context,0,24,243.59375,150.0,93.59375,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,no_context,0,48,906.5625,300.0,606.5625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,no_context,0,72,1842.03125,450.0,1392.03125,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,no_context,1,24,243.59375,150.0,93.59375,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,no_context,1,48,906.5625,300.0,606.5625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,no_context,1,72,1842.03125,450.0,1392.03125,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,no_context,2,24,243.59375,150.0,93.59375,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,no_context,2,48,906.5625,300.0,606.5625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,no_context,2,72,1842.03125,450.0,1392.03125,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,general_context,0,24,243.59375,500.0,256.40625,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,general_context,0,48,906.5625,1200.0,293.4375,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,general_context,0,72,1842.03125,1800.0,42.03125,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,general_context,1,24,243.59375,500.0,256.40625,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,general_context,1,48,906.5625,1200.0,293.4375,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,general_context,1,72,1842.03125,1800.0,42.03125,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,general_context,2,24,243.59375,500.0,256.40625,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,general_context,2,48,906.5625,1200.0,293.4375,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,general_context,2,72,1842.03125,1800.0,42.03125,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,icl,0,24,243.59375,466.0,222.40625,"```json
+{""24h"": 466.0, ""48h"": 849.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,icl,0,48,906.5625,849.0,57.5625,"```json
+{""24h"": 466.0, ""48h"": 849.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,icl,0,72,1842.03125,1785.0,57.03125,"```json
+{""24h"": 466.0, ""48h"": 849.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,icl,1,24,243.59375,466.0,222.40625,"```json
+{""24h"": 466.0, ""48h"": 849.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,icl,1,48,906.5625,849.0,57.5625,"```json
+{""24h"": 466.0, ""48h"": 849.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,icl,1,72,1842.03125,1785.0,57.03125,"```json
+{""24h"": 466.0, ""48h"": 849.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,icl,2,24,243.59375,466.0,222.40625,"```json
+{""24h"": 466.0, ""48h"": 849.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,icl,2,48,906.5625,849.0,57.5625,"```json
+{""24h"": 466.0, ""48h"": 849.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,icl,2,72,1842.03125,1785.0,57.03125,"```json
+{""24h"": 466.0, ""48h"": 849.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,permuted_icl,0,24,243.59375,219.0,24.59375,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,permuted_icl,0,48,906.5625,849.0,57.5625,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,permuted_icl,0,72,1842.03125,1187.0,655.03125,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,permuted_icl,1,24,243.59375,466.0,222.40625,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,permuted_icl,1,48,906.5625,838.0,68.5625,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,permuted_icl,1,72,1842.03125,1785.0,57.03125,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,permuted_icl,2,24,243.59375,219.0,24.59375,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,permuted_icl,2,48,906.5625,849.0,57.5625,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F2,permuted_icl,2,72,1842.03125,1187.0,655.03125,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F2_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,no_context,0,24,219.0625,150.0,69.0625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,no_context,0,48,849.21875,300.0,549.21875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,no_context,0,72,1186.875,450.0,736.875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,no_context,1,24,219.0625,150.0,69.0625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,no_context,1,48,849.21875,300.0,549.21875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,no_context,1,72,1186.875,450.0,736.875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,no_context,2,24,219.0625,150.0,69.0625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,no_context,2,48,849.21875,300.0,549.21875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,no_context,2,72,1186.875,450.0,736.875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,general_context,0,24,219.0625,300.0,80.9375,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,general_context,0,48,849.21875,800.0,49.21875,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,general_context,0,72,1186.875,1500.0,313.125,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,general_context,1,24,219.0625,300.0,80.9375,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,general_context,1,48,849.21875,800.0,49.21875,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,general_context,1,72,1186.875,1500.0,313.125,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,general_context,2,24,219.0625,300.0,80.9375,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,general_context,2,48,849.21875,800.0,49.21875,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,general_context,2,72,1186.875,1500.0,313.125,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,icl,0,24,219.0625,232.0,12.9375,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,icl,0,48,849.21875,861.0,11.78125,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,icl,0,72,1186.875,1262.0,75.125,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,icl,1,24,219.0625,232.0,12.9375,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,icl,1,48,849.21875,861.0,11.78125,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,icl,1,72,1186.875,1262.0,75.125,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,icl,2,24,219.0625,232.0,12.9375,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,icl,2,48,849.21875,861.0,11.78125,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,icl,2,72,1186.875,1262.0,75.125,"```json
+{""24h"": 232.0, ""48h"": 861.0, ""72h"": 1262.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,permuted_icl,0,24,219.0625,466.0,246.9375,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,permuted_icl,0,48,849.21875,838.0,11.21875,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,permuted_icl,0,72,1186.875,1785.0,598.125,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,permuted_icl,1,24,219.0625,488.0,268.9375,"```json
+{""24h"": 488.0, ""48h"": 848.0, ""72h"": 1249.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,permuted_icl,1,48,849.21875,848.0,1.21875,"```json
+{""24h"": 488.0, ""48h"": 848.0, ""72h"": 1249.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,permuted_icl,1,72,1186.875,1249.0,62.125,"```json
+{""24h"": 488.0, ""48h"": 848.0, ""72h"": 1249.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,permuted_icl,2,24,219.0625,194.0,25.0625,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,permuted_icl,2,48,849.21875,406.0,443.21875,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F3,permuted_icl,2,72,1186.875,606.0,580.875,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F3_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,no_context,0,24,206.71875,15.5,191.21875,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,no_context,0,48,726.25,30.2,696.05,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,no_context,0,72,1147.5,45.0,1102.5,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,no_context,1,24,206.71875,150.0,56.71875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,no_context,1,48,726.25,300.0,426.25,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,no_context,1,72,1147.5,450.0,697.5,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,no_context,2,24,206.71875,15.0,191.71875,"```json
+{""24h"": 15.0, ""48h"": 30.0, ""72h"": 45.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,no_context,2,48,726.25,30.0,696.25,"```json
+{""24h"": 15.0, ""48h"": 30.0, ""72h"": 45.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,no_context,2,72,1147.5,45.0,1102.5,"```json
+{""24h"": 15.0, ""48h"": 30.0, ""72h"": 45.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,general_context,0,24,206.71875,500.0,293.28125,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,general_context,0,48,726.25,1200.0,473.75,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,general_context,0,72,1147.5,1800.0,652.5,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,general_context,1,24,206.71875,300.0,93.28125,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,general_context,1,48,726.25,800.0,73.75,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,general_context,1,72,1147.5,1500.0,352.5,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,general_context,2,24,206.71875,500.0,293.28125,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,general_context,2,48,726.25,1200.0,473.75,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,general_context,2,72,1147.5,1800.0,652.5,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,icl,0,24,206.71875,207.0,0.28125,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,icl,0,48,726.25,726.0,0.25,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,icl,0,72,1147.5,1148.0,0.5,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,icl,1,24,206.71875,194.0,12.71875,"```json
+{""24h"": 194.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,icl,1,48,726.25,726.0,0.25,"```json
+{""24h"": 194.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,icl,1,72,1147.5,1148.0,0.5,"```json
+{""24h"": 194.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,icl,2,24,206.71875,244.0,37.28125,"```json
+{""24h"": 244.0, ""48h"": 848.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,icl,2,48,726.25,848.0,121.75,"```json
+{""24h"": 244.0, ""48h"": 848.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,icl,2,72,1147.5,1842.0,694.5,"```json
+{""24h"": 244.0, ""48h"": 848.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,permuted_icl,0,24,206.71875,244.0,37.28125,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,permuted_icl,0,48,726.25,907.0,180.75,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,permuted_icl,0,72,1147.5,1842.0,694.5,"```json
+{""24h"": 244.0, ""48h"": 907.0, ""72h"": 1842.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,permuted_icl,1,24,206.71875,194.0,12.71875,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,permuted_icl,1,48,726.25,406.0,320.25,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,permuted_icl,1,72,1147.5,606.0,541.5,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,permuted_icl,2,24,206.71875,194.0,12.71875,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,permuted_icl,2,48,726.25,406.0,320.25,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F4,permuted_icl,2,72,1147.5,606.0,541.5,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F4_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,no_context,0,24,487.96875,150.0,337.96875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,no_context,0,48,847.65625,300.0,547.65625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,no_context,0,72,1249.21875,450.0,799.21875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,no_context,1,24,487.96875,15.5,472.46875,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,no_context,1,48,847.65625,30.2,817.45625,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,no_context,1,72,1249.21875,45.1,1204.11875,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,no_context,2,24,487.96875,150.0,337.96875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,no_context,2,48,847.65625,300.0,547.65625,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,no_context,2,72,1249.21875,450.0,799.21875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,general_context,0,24,487.96875,300.0,187.96875,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,general_context,0,48,847.65625,800.0,47.65625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,general_context,0,72,1249.21875,1500.0,250.78125,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,general_context,1,24,487.96875,300.0,187.96875,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,general_context,1,48,847.65625,800.0,47.65625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,general_context,1,72,1249.21875,1500.0,250.78125,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,general_context,2,24,487.96875,300.0,187.96875,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,general_context,2,48,847.65625,800.0,47.65625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,general_context,2,72,1249.21875,1500.0,250.78125,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,icl,0,24,487.96875,194.0,293.96875,"```json
+{""24h"": 194.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,icl,0,48,847.65625,726.0,121.65625,"```json
+{""24h"": 194.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,icl,0,72,1249.21875,1148.0,101.21875,"```json
+{""24h"": 194.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,icl,1,24,487.96875,194.0,293.96875,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,icl,1,48,847.65625,406.0,441.65625,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,icl,1,72,1249.21875,606.0,643.21875,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,icl,2,24,487.96875,194.0,293.96875,"```json
+{""24h"": 194.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,icl,2,48,847.65625,726.0,121.65625,"```json
+{""24h"": 194.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,icl,2,72,1249.21875,1148.0,101.21875,"```json
+{""24h"": 194.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,permuted_icl,0,24,487.96875,207.0,280.96875,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,permuted_icl,0,48,847.65625,726.0,121.65625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,permuted_icl,0,72,1249.21875,1148.0,101.21875,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,permuted_icl,1,24,487.96875,219.0,268.96875,"```json
+{""24h"": 219.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,permuted_icl,1,48,847.65625,726.0,121.65625,"```json
+{""24h"": 219.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,permuted_icl,1,72,1249.21875,1148.0,101.21875,"```json
+{""24h"": 219.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,permuted_icl,2,24,487.96875,219.0,268.96875,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,permuted_icl,2,48,847.65625,849.0,1.34375,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F5,permuted_icl,2,72,1249.21875,1187.0,62.21875,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F5_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,no_context,0,24,232.5,150.0,82.5,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,no_context,0,48,861.25,300.0,561.25,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,no_context,0,72,1262.5,450.0,812.5,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,no_context,1,24,232.5,150.0,82.5,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,no_context,1,48,861.25,300.0,561.25,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,no_context,1,72,1262.5,450.0,812.5,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,no_context,2,24,232.5,15.5,217.0,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,no_context,2,48,861.25,30.2,831.05,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,no_context,2,72,1262.5,45.1,1217.4,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,general_context,0,24,232.5,300.0,67.5,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,general_context,0,48,861.25,800.0,61.25,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,general_context,0,72,1262.5,1500.0,237.5,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,general_context,1,24,232.5,300.0,67.5,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,general_context,1,48,861.25,800.0,61.25,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,general_context,1,72,1262.5,1500.0,237.5,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,general_context,2,24,232.5,300.0,67.5,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,general_context,2,48,861.25,800.0,61.25,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,general_context,2,72,1262.5,1500.0,237.5,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,icl,0,24,232.5,219.0,13.5,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,icl,0,48,861.25,849.0,12.25,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,icl,0,72,1262.5,1187.0,75.5,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,icl,1,24,232.5,294.0,61.5,"```json
+{""24h"": 294.0, ""48h"": 817.0, ""72h"": 1367.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,icl,1,48,861.25,817.0,44.25,"```json
+{""24h"": 294.0, ""48h"": 817.0, ""72h"": 1367.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,icl,1,72,1262.5,1367.0,104.5,"```json
+{""24h"": 294.0, ""48h"": 817.0, ""72h"": 1367.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,icl,2,24,232.5,219.0,13.5,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,icl,2,48,861.25,849.0,12.25,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,icl,2,72,1262.5,1187.0,75.5,"```json
+{""24h"": 219.0, ""48h"": 849.0, ""72h"": 1187.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,permuted_icl,0,24,232.5,466.0,233.5,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,permuted_icl,0,48,861.25,838.0,23.25,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,permuted_icl,0,72,1262.5,1785.0,522.5,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,permuted_icl,1,24,232.5,207.0,25.5,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,permuted_icl,1,48,861.25,726.0,135.25,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,permuted_icl,1,72,1262.5,1148.0,114.5,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,permuted_icl,2,24,232.5,466.0,233.5,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,permuted_icl,2,48,861.25,838.0,23.25,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F6,permuted_icl,2,72,1262.5,1785.0,522.5,"```json
+{""24h"": 466.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F6_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,no_context,0,24,193.59375,15.5,178.09375,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,no_context,0,48,406.40625,30.2,376.20625,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,no_context,0,72,606.09375,45.1,560.99375,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,no_context,1,24,193.59375,15.0,178.59375,"```json
+{""24h"": 15.0, ""48h"": 30.0, ""72h"": 45.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,no_context,1,48,406.40625,30.0,376.40625,"```json
+{""24h"": 15.0, ""48h"": 30.0, ""72h"": 45.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,no_context,1,72,606.09375,45.0,561.09375,"```json
+{""24h"": 15.0, ""48h"": 30.0, ""72h"": 45.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,no_context,2,24,193.59375,15.5,178.09375,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,no_context,2,48,406.40625,30.2,376.20625,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,no_context,2,72,606.09375,45.1,560.99375,"```json
+{""24h"": 15.5, ""48h"": 30.2, ""72h"": 45.1}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,general_context,0,24,193.59375,300.0,106.40625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,general_context,0,48,406.40625,800.0,393.59375,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,general_context,0,72,606.09375,1500.0,893.90625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,general_context,1,24,193.59375,300.0,106.40625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,general_context,1,48,406.40625,800.0,393.59375,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,general_context,1,72,606.09375,1500.0,893.90625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,general_context,2,24,193.59375,300.0,106.40625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,general_context,2,48,406.40625,800.0,393.59375,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,general_context,2,72,606.09375,1500.0,893.90625,"{""24h"": 300.0, ""48h"": 800.0, ""72h"": 1500.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,icl,0,24,193.59375,207.0,13.40625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,icl,0,48,406.40625,726.0,319.59375,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,icl,0,72,606.09375,1148.0,541.90625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,icl,1,24,193.59375,207.0,13.40625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,icl,1,48,406.40625,726.0,319.59375,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,icl,1,72,606.09375,1148.0,541.90625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,icl,2,24,193.59375,207.0,13.40625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,icl,2,48,406.40625,726.0,319.59375,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,icl,2,72,606.09375,1148.0,541.90625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,permuted_icl,0,24,193.59375,207.0,13.40625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,permuted_icl,0,48,406.40625,726.0,319.59375,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,permuted_icl,0,72,606.09375,1148.0,541.90625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,permuted_icl,1,24,193.59375,207.0,13.40625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,permuted_icl,1,48,406.40625,726.0,319.59375,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,permuted_icl,1,72,606.09375,1148.0,541.90625,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,permuted_icl,2,24,193.59375,232.0,38.40625,"```json
+{""24h"": 232.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,permuted_icl,2,48,406.40625,838.0,431.59375,"```json
+{""24h"": 232.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F7,permuted_icl,2,72,606.09375,1785.0,1178.90625,"```json
+{""24h"": 232.0, ""48h"": 838.0, ""72h"": 1785.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F7_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,no_context,0,24,206.71875,150.0,56.71875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,no_context,0,48,726.25,300.0,426.25,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,no_context,0,72,1147.5,450.0,697.5,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_no_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,no_context,1,24,206.71875,150.0,56.71875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,no_context,1,48,726.25,300.0,426.25,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,no_context,1,72,1147.5,450.0,697.5,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_no_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,no_context,2,24,206.71875,150.0,56.71875,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,no_context,2,48,726.25,300.0,426.25,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,no_context,2,72,1147.5,450.0,697.5,"```json
+{""24h"": 150.0, ""48h"": 300.0, ""72h"": 450.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_no_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,general_context,0,24,206.71875,500.0,293.28125,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,general_context,0,48,726.25,1200.0,473.75,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,general_context,0,72,1147.5,1800.0,652.5,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_general_context_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,general_context,1,24,206.71875,500.0,293.28125,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,general_context,1,48,726.25,1200.0,473.75,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,general_context,1,72,1147.5,1800.0,652.5,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_general_context_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,general_context,2,24,206.71875,500.0,293.28125,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,general_context,2,48,726.25,1200.0,473.75,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,general_context,2,72,1147.5,1800.0,652.5,"{""24h"": 500.0, ""48h"": 1200.0, ""72h"": 1800.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_general_context_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,icl,0,24,206.71875,207.0,0.28125,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,icl,0,48,726.25,726.0,0.25,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,icl,0,72,1147.5,1148.0,0.5,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,icl,1,24,206.71875,207.0,0.28125,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,icl,1,48,726.25,726.0,0.25,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,icl,1,72,1147.5,1148.0,0.5,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,icl,2,24,206.71875,207.0,0.28125,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,icl,2,48,726.25,726.0,0.25,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,icl,2,72,1147.5,1148.0,0.5,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,permuted_icl,0,24,206.71875,194.0,12.71875,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,permuted_icl,0,48,726.25,406.0,320.25,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,permuted_icl,0,72,1147.5,606.0,541.5,"```json
+{""24h"": 194.0, ""48h"": 406.0, ""72h"": 606.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_permuted_icl_0.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,permuted_icl,1,24,206.71875,207.0,0.28125,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,permuted_icl,1,48,726.25,726.0,0.25,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,permuted_icl,1,72,1147.5,1148.0,0.5,"```json
+{""24h"": 207.0, ""48h"": 726.0, ""72h"": 1148.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_permuted_icl_1.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,permuted_icl,2,24,206.71875,466.0,259.28125,"```json
+{""24h"": 466.0, ""48h"": 848.0, ""72h"": 1249.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,permuted_icl,2,48,726.25,848.0,121.75,"```json
+{""24h"": 466.0, ""48h"": 848.0, ""72h"": 1249.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_permuted_icl_2.json,True
+gpt-4o-mini,GPT-4o-mini,openai,F8,permuted_icl,2,72,1147.5,1249.0,101.5,"```json
+{""24h"": 466.0, ""48h"": 848.0, ""72h"": 1249.0}
+```",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\gpt-4o-mini_F8_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,no_context,0,24,465.625,112.4,353.225,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,no_context,0,48,838.28125,198.7,639.58125,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,no_context,0,72,1785.0,267.3,1517.7,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,no_context,1,24,465.625,112.4,353.225,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,no_context,1,48,838.28125,198.7,639.58125,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,no_context,1,72,1785.0,267.3,1517.7,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,no_context,2,24,465.625,112.4,353.225,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,no_context,2,48,838.28125,198.7,639.58125,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,no_context,2,72,1785.0,267.3,1517.7,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,general_context,0,24,465.625,487.5,21.875,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,general_context,0,48,838.28125,923.8,85.51874999999995,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,general_context,0,72,1785.0,1342.6,442.4000000000001,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,general_context,1,24,465.625,487.5,21.875,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,general_context,1,48,838.28125,923.8,85.51874999999995,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,general_context,1,72,1785.0,1342.6,442.4000000000001,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,general_context,2,24,465.625,487.5,21.875,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,general_context,2,48,838.28125,923.8,85.51874999999995,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,general_context,2,72,1785.0,1342.6,442.4000000000001,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,icl,0,24,465.625,244.0,221.625,"{""24h"": 244, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,icl,0,48,838.28125,907.0,68.71875,"{""24h"": 244, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,icl,0,72,1785.0,1842.0,57.0,"{""24h"": 244, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,icl,1,24,465.625,244.0,221.625,"{""24h"": 244, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,icl,1,48,838.28125,907.0,68.71875,"{""24h"": 244, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,icl,1,72,1785.0,1842.0,57.0,"{""24h"": 244, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,icl,2,24,465.625,244.0,221.625,"{""24h"": 244, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,icl,2,48,838.28125,907.0,68.71875,"{""24h"": 244, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,icl,2,72,1785.0,1842.0,57.0,"{""24h"": 244, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,permuted_icl,0,24,465.625,232.0,233.625,"{""24h"": 232, ""48h"": 884, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,permuted_icl,0,48,838.28125,884.0,45.71875,"{""24h"": 232, ""48h"": 884, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,permuted_icl,0,72,1785.0,1552.0,233.0,"{""24h"": 232, ""48h"": 884, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,permuted_icl,1,24,465.625,194.0,271.625,"{""24h"": 194, ""48h"": 406, ""72h"": 606}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,permuted_icl,1,48,838.28125,406.0,432.28125,"{""24h"": 194, ""48h"": 406, ""72h"": 606}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,permuted_icl,1,72,1785.0,606.0,1179.0,"{""24h"": 194, ""48h"": 406, ""72h"": 606}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,permuted_icl,2,24,465.625,268.5,197.125,"{""24h"": 268.5, ""48h"": 934.5, ""72h"": 1862.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,permuted_icl,2,48,838.28125,934.5,96.21875,"{""24h"": 268.5, ""48h"": 934.5, ""72h"": 1862.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F1,permuted_icl,2,72,1785.0,1862.0,77.0,"{""24h"": 268.5, ""48h"": 934.5, ""72h"": 1862.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F1_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,no_context,0,24,243.59375,112.4,131.19375,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,no_context,0,48,906.5625,198.7,707.8625,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,no_context,0,72,1842.03125,267.3,1574.73125,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,no_context,1,24,243.59375,112.4,131.19375,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,no_context,1,48,906.5625,198.7,707.8625,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,no_context,1,72,1842.03125,267.3,1574.73125,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,no_context,2,24,243.59375,112.4,131.19375,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,no_context,2,48,906.5625,198.7,707.8625,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,no_context,2,72,1842.03125,267.3,1574.73125,"{""24h"": 112.4, ""48h"": 198.7, ""72h"": 267.3}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,general_context,0,24,243.59375,487.5,243.90625,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,general_context,0,48,906.5625,923.8,17.237499999999955,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,general_context,0,72,1842.03125,1342.6,499.4312500000001,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,general_context,1,24,243.59375,487.5,243.90625,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,general_context,1,48,906.5625,923.8,17.237499999999955,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,general_context,1,72,1842.03125,1342.6,499.4312500000001,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,general_context,2,24,243.59375,487.5,243.90625,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,general_context,2,48,906.5625,923.8,17.237499999999955,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,general_context,2,72,1842.03125,1342.6,499.4312500000001,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,icl,0,24,243.59375,380.5,136.90625,"{""24h"": 380.5, ""48h"": 782.0, ""72h"": 1466.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,icl,0,48,906.5625,782.0,124.5625,"{""24h"": 380.5, ""48h"": 782.0, ""72h"": 1466.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,icl,0,72,1842.03125,1466.5,375.53125,"{""24h"": 380.5, ""48h"": 782.0, ""72h"": 1466.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,icl,1,24,243.59375,380.0,136.40625,"{""24h"": 380, ""48h"": 782, ""72h"": 1560}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,icl,1,48,906.5625,782.0,124.5625,"{""24h"": 380, ""48h"": 782, ""72h"": 1560}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,icl,1,72,1842.03125,1560.0,282.03125,"{""24h"": 380, ""48h"": 782, ""72h"": 1560}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,icl,2,24,243.59375,380.0,136.40625,"{""24h"": 380, ""48h"": 810, ""72h"": 1520}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,icl,2,48,906.5625,810.0,96.5625,"{""24h"": 380, ""48h"": 810, ""72h"": 1520}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,icl,2,72,1842.03125,1520.0,322.03125,"{""24h"": 380, ""48h"": 810, ""72h"": 1520}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,permuted_icl,0,24,243.59375,301.0,57.40625,"{""24h"": 301, ""48h"": 677, ""72h"": 1047}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,permuted_icl,0,48,906.5625,677.0,229.5625,"{""24h"": 301, ""48h"": 677, ""72h"": 1047}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,permuted_icl,0,72,1842.03125,1047.0,795.03125,"{""24h"": 301, ""48h"": 677, ""72h"": 1047}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,permuted_icl,1,24,243.59375,380.0,136.40625,"{""24h"": 380, ""48h"": 720, ""72h"": 1320}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,permuted_icl,1,48,906.5625,720.0,186.5625,"{""24h"": 380, ""48h"": 720, ""72h"": 1320}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,permuted_icl,1,72,1842.03125,1320.0,522.03125,"{""24h"": 380, ""48h"": 720, ""72h"": 1320}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,permuted_icl,2,24,243.59375,207.0,36.59375,"{""24h"": 207, ""48h"": 726, ""72h"": 1148}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,permuted_icl,2,48,906.5625,726.0,180.5625,"{""24h"": 207, ""48h"": 726, ""72h"": 1148}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F2,permuted_icl,2,72,1842.03125,1148.0,694.03125,"{""24h"": 207, ""48h"": 726, ""72h"": 1148}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F2_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,no_context,0,24,219.0625,38.72,180.3425,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.31}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,no_context,0,48,849.21875,67.45,781.76875,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.31}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,no_context,0,72,1186.875,89.31,1097.565,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.31}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,no_context,1,24,219.0625,38.72,180.3425,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.48}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,no_context,1,48,849.21875,74.15,775.06875,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.48}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,no_context,1,72,1186.875,102.48,1084.395,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.48}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,no_context,2,24,219.0625,38.72,180.3425,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,no_context,2,48,849.21875,74.15,775.06875,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,no_context,2,72,1186.875,102.43,1084.445,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,general_context,0,24,219.0625,420.5,201.4375,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,general_context,0,48,849.21875,810.3,38.918750000000045,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,general_context,0,72,1186.875,1125.7,61.174999999999955,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,general_context,1,24,219.0625,420.5,201.4375,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,general_context,1,48,849.21875,810.3,38.918750000000045,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,general_context,1,72,1186.875,1125.7,61.174999999999955,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,general_context,2,24,219.0625,487.5,268.4375,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1312.4}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,general_context,2,48,849.21875,923.8,74.58124999999995,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1312.4}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,general_context,2,72,1186.875,1312.4,125.52500000000009,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1312.4}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,icl,0,24,219.0625,244.0,24.9375,"{""24h"": 244, ""48h"": 907, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,icl,0,48,849.21875,907.0,57.78125,"{""24h"": 244, ""48h"": 907, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,icl,0,72,1186.875,1552.0,365.125,"{""24h"": 244, ""48h"": 907, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,icl,1,24,219.0625,238.0,18.9375,"{""24h"": 238, ""48h"": 884, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,icl,1,48,849.21875,884.0,34.78125,"{""24h"": 238, ""48h"": 884, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,icl,1,72,1186.875,1552.0,365.125,"{""24h"": 238, ""48h"": 884, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,icl,2,24,219.0625,243.0,23.9375,"{""24h"": 243, ""48h"": 884, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,icl,2,48,849.21875,884.0,34.78125,"{""24h"": 243, ""48h"": 884, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,icl,2,72,1186.875,1552.0,365.125,"{""24h"": 243, ""48h"": 884, ""72h"": 1552}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,permuted_icl,0,24,219.0625,330.0,110.9375,"{""24h"": 330, ""48h"": 622, ""72h"": 1195}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,permuted_icl,0,48,849.21875,622.0,227.21875,"{""24h"": 330, ""48h"": 622, ""72h"": 1195}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,permuted_icl,0,72,1186.875,1195.0,8.125,"{""24h"": 330, ""48h"": 622, ""72h"": 1195}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,permuted_icl,1,24,219.0625,363.0,143.9375,"{""24h"": 363, ""48h"": 727, ""72h"": 1001}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,permuted_icl,1,48,849.21875,727.0,122.21875,"{""24h"": 363, ""48h"": 727, ""72h"": 1001}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,permuted_icl,1,72,1186.875,1001.0,185.875,"{""24h"": 363, ""48h"": 727, ""72h"": 1001}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,permuted_icl,2,24,219.0625,207.0,12.0625,"{""24h"": 207, ""48h"": 566, ""72h"": 877}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,permuted_icl,2,48,849.21875,566.0,283.21875,"{""24h"": 207, ""48h"": 566, ""72h"": 877}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F3,permuted_icl,2,72,1186.875,877.0,309.875,"{""24h"": 207, ""48h"": 566, ""72h"": 877}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F3_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,no_context,0,24,206.71875,38.72,167.99875,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,no_context,0,48,726.25,67.45,658.8,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,no_context,0,72,1147.5,89.13,1058.37,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,no_context,1,24,206.71875,38.72,167.99875,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,no_context,1,48,726.25,67.45,658.8,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,no_context,1,72,1147.5,89.13,1058.37,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,no_context,2,24,206.71875,38.72,167.99875,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,no_context,2,48,726.25,67.45,658.8,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,no_context,2,72,1147.5,89.13,1058.37,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,general_context,0,24,206.71875,312.5,105.78125,"{""24h"": 312.5, ""48h"": 685.4, ""72h"": 1124.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,general_context,0,48,726.25,685.4,40.85000000000002,"{""24h"": 312.5, ""48h"": 685.4, ""72h"": 1124.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,general_context,0,72,1147.5,1124.8,22.700000000000045,"{""24h"": 312.5, ""48h"": 685.4, ""72h"": 1124.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,general_context,1,24,206.71875,312.5,105.78125,"{""24h"": 312.5, ""48h"": 685.4, ""72h"": 1124.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,general_context,1,48,726.25,685.4,40.85000000000002,"{""24h"": 312.5, ""48h"": 685.4, ""72h"": 1124.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,general_context,1,72,1147.5,1124.8,22.700000000000045,"{""24h"": 312.5, ""48h"": 685.4, ""72h"": 1124.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,general_context,2,24,206.71875,312.5,105.78125,"{""24h"": 312.5, ""48h"": 685.4, ""72h"": 1024.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,general_context,2,48,726.25,685.4,40.85000000000002,"{""24h"": 312.5, ""48h"": 685.4, ""72h"": 1024.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,general_context,2,72,1147.5,1024.8,122.70000000000005,"{""24h"": 312.5, ""48h"": 685.4, ""72h"": 1024.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,icl,0,24,206.71875,262.5,55.78125,"{""24h"": 262.5, ""48h"": 784.5, ""72h"": 1348.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,icl,0,48,726.25,784.5,58.25,"{""24h"": 262.5, ""48h"": 784.5, ""72h"": 1348.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,icl,0,72,1147.5,1348.0,200.5,"{""24h"": 262.5, ""48h"": 784.5, ""72h"": 1348.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,icl,1,24,206.71875,262.5,55.78125,"{""24h"": 262.5, ""48h"": 789.5, ""72h"": 1350.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,icl,1,48,726.25,789.5,63.25,"{""24h"": 262.5, ""48h"": 789.5, ""72h"": 1350.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,icl,1,72,1147.5,1350.5,203.0,"{""24h"": 262.5, ""48h"": 789.5, ""72h"": 1350.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,icl,2,24,206.71875,262.5,55.78125,"{""24h"": 262.5, ""48h"": 816.5, ""72h"": 1468.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,icl,2,48,726.25,816.5,90.25,"{""24h"": 262.5, ""48h"": 816.5, ""72h"": 1468.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,icl,2,72,1147.5,1468.0,320.5,"{""24h"": 262.5, ""48h"": 816.5, ""72h"": 1468.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,permuted_icl,0,24,206.71875,262.0,55.28125,"{""24h"": 262, ""48h"": 916, ""72h"": 1560}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,permuted_icl,0,48,726.25,916.0,189.75,"{""24h"": 262, ""48h"": 916, ""72h"": 1560}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,permuted_icl,0,72,1147.5,1560.0,412.5,"{""24h"": 262, ""48h"": 916, ""72h"": 1560}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,permuted_icl,1,24,206.71875,312.5,105.78125,"{""24h"": 312.5, ""48h"": 627.0, ""72h"": 928.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,permuted_icl,1,48,726.25,627.0,99.25,"{""24h"": 312.5, ""48h"": 627.0, ""72h"": 928.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,permuted_icl,1,72,1147.5,928.0,219.5,"{""24h"": 312.5, ""48h"": 627.0, ""72h"": 928.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,permuted_icl,2,24,206.71875,163.5,43.21875,"{""24h"": 163.5, ""48h"": 487.5, ""72h"": 726.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,permuted_icl,2,48,726.25,487.5,238.75,"{""24h"": 163.5, ""48h"": 487.5, ""72h"": 726.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F4,permuted_icl,2,72,1147.5,726.5,421.0,"{""24h"": 163.5, ""48h"": 487.5, ""72h"": 726.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F4_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,no_context,0,24,487.96875,38.72,449.24875,"{""24h"": 38.72, ""48h"": 61.45, ""72h"": 79.18}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,no_context,0,48,847.65625,61.45,786.20625,"{""24h"": 38.72, ""48h"": 61.45, ""72h"": 79.18}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,no_context,0,72,1249.21875,79.18,1170.03875,"{""24h"": 38.72, ""48h"": 61.45, ""72h"": 79.18}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,no_context,1,24,487.96875,38.72,449.24875,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,no_context,1,48,847.65625,67.45,780.20625,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,no_context,1,72,1249.21875,89.13,1160.08875,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,no_context,2,24,487.96875,38.72,449.24875,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,no_context,2,48,847.65625,67.45,780.20625,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,no_context,2,72,1249.21875,89.13,1160.08875,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.13}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,general_context,0,24,487.96875,312.5,175.46875,"{""24h"": 312.5, ""48h"": 587.3, ""72h"": 843.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,general_context,0,48,847.65625,587.3,260.35625000000005,"{""24h"": 312.5, ""48h"": 587.3, ""72h"": 843.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,general_context,0,72,1249.21875,843.6,405.61875,"{""24h"": 312.5, ""48h"": 587.3, ""72h"": 843.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,general_context,1,24,487.96875,312.5,175.46875,"{""24h"": 312.5, ""48h"": 587.3, ""72h"": 843.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,general_context,1,48,847.65625,587.3,260.35625000000005,"{""24h"": 312.5, ""48h"": 587.3, ""72h"": 843.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,general_context,1,72,1249.21875,843.6,405.61875,"{""24h"": 312.5, ""48h"": 587.3, ""72h"": 843.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,general_context,2,24,487.96875,312.5,175.46875,"{""24h"": 312.5, ""48h"": 587.3, ""72h"": 843.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,general_context,2,48,847.65625,587.3,260.35625000000005,"{""24h"": 312.5, ""48h"": 587.3, ""72h"": 843.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,general_context,2,72,1249.21875,843.6,405.61875,"{""24h"": 312.5, ""48h"": 587.3, ""72h"": 843.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,icl,0,24,487.96875,193.0,294.96875,"{""24h"": 193, ""48h"": 406, ""72h"": 606}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,icl,0,48,847.65625,406.0,441.65625,"{""24h"": 193, ""48h"": 406, ""72h"": 606}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,icl,0,72,1249.21875,606.0,643.21875,"{""24h"": 193, ""48h"": 406, ""72h"": 606}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,icl,1,24,487.96875,190.0,297.96875,"{""24h"": 190, ""48h"": 420, ""72h"": 650}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,icl,1,48,847.65625,420.0,427.65625,"{""24h"": 190, ""48h"": 420, ""72h"": 650}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,icl,1,72,1249.21875,650.0,599.21875,"{""24h"": 190, ""48h"": 420, ""72h"": 650}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,icl,2,24,487.96875,181.0,306.96875,"{""24h"": 181, ""48h"": 362, ""72h"": 565}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,icl,2,48,847.65625,362.0,485.65625,"{""24h"": 181, ""48h"": 362, ""72h"": 565}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,icl,2,72,1249.21875,565.0,684.21875,"{""24h"": 181, ""48h"": 362, ""72h"": 565}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,permuted_icl,0,24,487.96875,220.0,267.96875,"{""24h"": 220, ""48h"": 788, ""72h"": 1214}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,permuted_icl,0,48,847.65625,788.0,59.65625,"{""24h"": 220, ""48h"": 788, ""72h"": 1214}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,permuted_icl,0,72,1249.21875,1214.0,35.21875,"{""24h"": 220, ""48h"": 788, ""72h"": 1214}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,permuted_icl,1,24,487.96875,309.5,178.46875,"{""24h"": 309.5, ""48h"": 726.5, ""72h"": 1192.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,permuted_icl,1,48,847.65625,726.5,121.15625,"{""24h"": 309.5, ""48h"": 726.5, ""72h"": 1192.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,permuted_icl,1,72,1249.21875,1192.5,56.71875,"{""24h"": 309.5, ""48h"": 726.5, ""72h"": 1192.5}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,permuted_icl,2,24,487.96875,232.0,255.96875,"{""24h"": 232, ""48h"": 878, ""72h"": 1393}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,permuted_icl,2,48,847.65625,878.0,30.34375,"{""24h"": 232, ""48h"": 878, ""72h"": 1393}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F5,permuted_icl,2,72,1249.21875,1393.0,143.78125,"{""24h"": 232, ""48h"": 878, ""72h"": 1393}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F5_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,no_context,0,24,232.5,38.72,193.78,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,no_context,0,48,861.25,74.15,787.1,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,no_context,0,72,1262.5,102.43,1160.07,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,no_context,1,24,232.5,38.72,193.78,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.48}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,no_context,1,48,861.25,74.15,787.1,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.48}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,no_context,1,72,1262.5,102.48,1160.02,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.48}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,no_context,2,24,232.5,38.72,193.78,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,no_context,2,48,861.25,74.15,787.1,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,no_context,2,72,1262.5,102.43,1160.07,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,general_context,0,24,232.5,487.5,255.0,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,general_context,0,48,861.25,923.8,62.549999999999955,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,general_context,0,72,1262.5,1342.6,80.09999999999991,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,general_context,1,24,232.5,487.5,255.0,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,general_context,1,48,861.25,923.8,62.549999999999955,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,general_context,1,72,1262.5,1342.6,80.09999999999991,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1342.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,general_context,2,24,232.5,487.5,255.0,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1312.4}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,general_context,2,48,861.25,923.8,62.549999999999955,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1312.4}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,general_context,2,72,1262.5,1312.4,49.90000000000009,"{""24h"": 487.5, ""48h"": 923.8, ""72h"": 1312.4}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,icl,0,24,232.5,319.0,86.5,"{""24h"": 319, ""48h"": 698, ""72h"": 1289}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,icl,0,48,861.25,698.0,163.25,"{""24h"": 319, ""48h"": 698, ""72h"": 1289}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,icl,0,72,1262.5,1289.0,26.5,"{""24h"": 319, ""48h"": 698, ""72h"": 1289}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,icl,1,24,232.5,319.0,86.5,"{""24h"": 319, ""48h"": 661, ""72h"": 1259}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,icl,1,48,861.25,661.0,200.25,"{""24h"": 319, ""48h"": 661, ""72h"": 1259}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,icl,1,72,1262.5,1259.0,3.5,"{""24h"": 319, ""48h"": 661, ""72h"": 1259}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,icl,2,24,232.5,285.0,52.5,"{""24h"": 285, ""48h"": 698, ""72h"": 1320}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,icl,2,48,861.25,698.0,163.25,"{""24h"": 285, ""48h"": 698, ""72h"": 1320}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,icl,2,72,1262.5,1320.0,57.5,"{""24h"": 285, ""48h"": 698, ""72h"": 1320}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,permuted_icl,0,24,232.5,488.0,255.5,"{""24h"": 488, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,permuted_icl,0,48,861.25,907.0,45.75,"{""24h"": 488, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,permuted_icl,0,72,1262.5,1842.0,579.5,"{""24h"": 488, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,permuted_icl,1,24,232.5,194.0,38.5,"{""24h"": 194, ""48h"": 567, ""72h"": 928}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,permuted_icl,1,48,861.25,567.0,294.25,"{""24h"": 194, ""48h"": 567, ""72h"": 928}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,permuted_icl,1,72,1262.5,928.0,334.5,"{""24h"": 194, ""48h"": 567, ""72h"": 928}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,permuted_icl,2,24,232.5,466.0,233.5,"{""24h"": 466, ""48h"": 893, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,permuted_icl,2,48,861.25,893.0,31.75,"{""24h"": 466, ""48h"": 893, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F6,permuted_icl,2,72,1262.5,1842.0,579.5,"{""24h"": 466, ""48h"": 893, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F6_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,no_context,0,24,193.59375,38.72,154.87375,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,no_context,0,48,406.40625,74.15,332.25625,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,no_context,0,72,606.09375,102.43,503.66375,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,no_context,1,24,193.59375,38.72,154.87375,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,no_context,1,48,406.40625,74.15,332.25625,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,no_context,1,72,606.09375,102.43,503.66375,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,no_context,2,24,193.59375,38.72,154.87375,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,no_context,2,48,406.40625,74.15,332.25625,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,no_context,2,72,606.09375,102.43,503.66375,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.43}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,general_context,0,24,193.59375,312.5,118.90625,"{""24h"": 312.5, ""48h"": 687.3, ""72h"": 1045.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,general_context,0,48,406.40625,687.3,280.89374999999995,"{""24h"": 312.5, ""48h"": 687.3, ""72h"": 1045.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,general_context,0,72,606.09375,1045.8,439.70624999999995,"{""24h"": 312.5, ""48h"": 687.3, ""72h"": 1045.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,general_context,1,24,193.59375,312.5,118.90625,"{""24h"": 312.5, ""48h"": 687.4, ""72h"": 1045.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,general_context,1,48,406.40625,687.4,280.99375,"{""24h"": 312.5, ""48h"": 687.4, ""72h"": 1045.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,general_context,1,72,606.09375,1045.8,439.70624999999995,"{""24h"": 312.5, ""48h"": 687.4, ""72h"": 1045.8}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,general_context,2,24,193.59375,312.5,118.90625,"{""24h"": 312.5, ""48h"": 685.0, ""72h"": 1050.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,general_context,2,48,406.40625,685.0,278.59375,"{""24h"": 312.5, ""48h"": 685.0, ""72h"": 1050.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,general_context,2,72,606.09375,1050.0,443.90625,"{""24h"": 312.5, ""48h"": 685.0, ""72h"": 1050.0}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,icl,0,24,193.59375,488.0,294.40625,"{""24h"": 488, ""48h"": 848, ""72h"": 1249}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,icl,0,48,406.40625,848.0,441.59375,"{""24h"": 488, ""48h"": 848, ""72h"": 1249}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,icl,0,72,606.09375,1249.0,642.90625,"{""24h"": 488, ""48h"": 848, ""72h"": 1249}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,icl,1,24,193.59375,488.0,294.40625,"{""24h"": 488, ""48h"": 848, ""72h"": 1249}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,icl,1,48,406.40625,848.0,441.59375,"{""24h"": 488, ""48h"": 848, ""72h"": 1249}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,icl,1,72,606.09375,1249.0,642.90625,"{""24h"": 488, ""48h"": 848, ""72h"": 1249}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,icl,2,24,193.59375,488.0,294.40625,"{""24h"": 488, ""48h"": 848, ""72h"": 1249}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,icl,2,48,406.40625,848.0,441.59375,"{""24h"": 488, ""48h"": 848, ""72h"": 1249}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,icl,2,72,606.09375,1249.0,642.90625,"{""24h"": 488, ""48h"": 848, ""72h"": 1249}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,permuted_icl,0,24,193.59375,232.0,38.40625,"{""24h"": 232, ""48h"": 726, ""72h"": 1148}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,permuted_icl,0,48,406.40625,726.0,319.59375,"{""24h"": 232, ""48h"": 726, ""72h"": 1148}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,permuted_icl,0,72,606.09375,1148.0,541.90625,"{""24h"": 232, ""48h"": 726, ""72h"": 1148}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,permuted_icl,1,24,193.59375,488.0,294.40625,"{""24h"": 488, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,permuted_icl,1,48,406.40625,907.0,500.59375,"{""24h"": 488, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,permuted_icl,1,72,606.09375,1842.0,1235.90625,"{""24h"": 488, ""48h"": 907, ""72h"": 1842}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,permuted_icl,2,24,193.59375,347.0,153.40625,"{""24h"": 347, ""48h"": 869, ""72h"": 1629}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,permuted_icl,2,48,406.40625,869.0,462.59375,"{""24h"": 347, ""48h"": 869, ""72h"": 1629}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F7,permuted_icl,2,72,606.09375,1629.0,1022.90625,"{""24h"": 347, ""48h"": 869, ""72h"": 1629}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F7_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,no_context,0,24,206.71875,38.72,167.99875,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.31}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,no_context,0,48,726.25,67.45,658.8,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.31}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,no_context,0,72,1147.5,89.31,1058.19,"{""24h"": 38.72, ""48h"": 67.45, ""72h"": 89.31}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_no_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,no_context,1,24,206.71875,38.7,168.01875,"{""24h"": 38.7, ""48h"": 72.4, ""72h"": 98.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,no_context,1,48,726.25,72.4,653.85,"{""24h"": 38.7, ""48h"": 72.4, ""72h"": 98.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,no_context,1,72,1147.5,98.6,1048.9,"{""24h"": 38.7, ""48h"": 72.4, ""72h"": 98.6}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_no_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,no_context,2,24,206.71875,38.72,167.99875,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.48}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,no_context,2,48,726.25,74.15,652.1,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.48}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,no_context,2,72,1147.5,102.48,1045.02,"{""24h"": 38.72, ""48h"": 74.15, ""72h"": 102.48}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_no_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,general_context,0,24,206.71875,420.5,213.78125,"{""24h"": 420.5, ""48h"": 875.3, ""72h"": 1284.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,general_context,0,48,726.25,875.3,149.04999999999995,"{""24h"": 420.5, ""48h"": 875.3, ""72h"": 1284.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,general_context,0,72,1147.5,1284.7,137.20000000000005,"{""24h"": 420.5, ""48h"": 875.3, ""72h"": 1284.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_general_context_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,general_context,1,24,206.71875,420.5,213.78125,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,general_context,1,48,726.25,810.3,84.04999999999995,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,general_context,1,72,1147.5,1125.7,21.799999999999955,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_general_context_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,general_context,2,24,206.71875,420.5,213.78125,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,general_context,2,48,726.25,810.3,84.04999999999995,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,general_context,2,72,1147.5,1125.7,21.799999999999955,"{""24h"": 420.5, ""48h"": 810.3, ""72h"": 1125.7}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_general_context_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,icl,0,24,206.71875,312.0,105.28125,"{""24h"": 312, ""48h"": 621, ""72h"": 1124}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,icl,0,48,726.25,621.0,105.25,"{""24h"": 312, ""48h"": 621, ""72h"": 1124}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,icl,0,72,1147.5,1124.0,23.5,"{""24h"": 312, ""48h"": 621, ""72h"": 1124}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,icl,1,24,206.71875,312.0,105.28125,"{""24h"": 312, ""48h"": 621, ""72h"": 1124}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,icl,1,48,726.25,621.0,105.25,"{""24h"": 312, ""48h"": 621, ""72h"": 1124}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,icl,1,72,1147.5,1124.0,23.5,"{""24h"": 312, ""48h"": 621, ""72h"": 1124}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,icl,2,24,206.71875,312.0,105.28125,"{""24h"": 312, ""48h"": 621, ""72h"": 1124}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,icl,2,48,726.25,621.0,105.25,"{""24h"": 312, ""48h"": 621, ""72h"": 1124}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,icl,2,72,1147.5,1124.0,23.5,"{""24h"": 312, ""48h"": 621, ""72h"": 1124}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,permuted_icl,0,24,206.71875,220.0,13.28125,"{""24h"": 220, ""48h"": 580, ""72h"": 950}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,permuted_icl,0,48,726.25,580.0,146.25,"{""24h"": 220, ""48h"": 580, ""72h"": 950}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,permuted_icl,0,72,1147.5,950.0,197.5,"{""24h"": 220, ""48h"": 580, ""72h"": 950}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_permuted_icl_0.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,permuted_icl,1,24,206.71875,262.0,55.28125,"{""24h"": 262, ""48h"": 628, ""72h"": 1050}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,permuted_icl,1,48,726.25,628.0,98.25,"{""24h"": 262, ""48h"": 628, ""72h"": 1050}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,permuted_icl,1,72,1147.5,1050.0,97.5,"{""24h"": 262, ""48h"": 628, ""72h"": 1050}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_permuted_icl_1.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,permuted_icl,2,24,206.71875,430.0,223.28125,"{""24h"": 430, ""48h"": 820, ""72h"": 1380}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,permuted_icl,2,48,726.25,820.0,93.75,"{""24h"": 430, ""48h"": 820, ""72h"": 1380}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_permuted_icl_2.json,True
+claude-sonnet-4-6,Claude Sonnet 4.6,anthropic,F8,permuted_icl,2,72,1147.5,1380.0,232.5,"{""24h"": 430, ""48h"": 820, ""72h"": 1380}",C:\Users\yz02380\OneDrive - University of Surrey\Science Research\Codes\SkinMiner\outputs\demonstration_v6\raw_responses\claude-sonnet-4-6_F8_permuted_icl_2.json,True

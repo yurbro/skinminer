@@ -1,0 +1,3 @@
+record_id,paper_doi,vehicle_signature,actual_log10_J,predicted_log10_J,residual_log10,ratio_predicted_to_actual,within_2x
+record_6b4ab72b9a59,10.1159/000231528,25:25:50:0:0,2.720886654,2.719060342,-0.001826311883,0.9958035911,True
+record_073219db157b,10.1159/000231528,50:25:25:0:0,2.806979967,2.89235643,0.08537646325,1.217240695,True

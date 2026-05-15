@@ -1,0 +1,12 @@
+{
+  "stage": "patch_time",
+  "completed": 33,
+  "total": 33,
+  "detail": "applied=12",
+  "input_count": 33,
+  "output_count": 33,
+  "output_paths": [
+    "outputs\\validation_observability_run\\patched_endpoint_time.jsonl"
+  ],
+  "resume_signature_digest": "f5b21e95200c840434dad134ecb3dde72e48ce82"
+}

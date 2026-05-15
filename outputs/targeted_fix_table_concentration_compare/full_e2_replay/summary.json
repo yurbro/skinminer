@@ -1,0 +1,238 @@
+{
+  "v1_strict_ibuprofen_5pct": {
+    "statuses": {
+      "unresolved": 47,
+      "rejected": 10,
+      "verified": 4
+    },
+    "failures": {
+      "insufficient_evidence": 24,
+      "missing_endpoint": 3,
+      "unit_normalization_failed": 9,
+      "ambiguous_api_concentration": 31,
+      "percent_only": 4,
+      "not_target_api": 7,
+      "not_target_api_concentration": 3,
+      "not_target_study_type": 3,
+      "missing_area": 20,
+      "missing_api_concentration": 1,
+      "ambiguous_mapping": 1
+    },
+    "target": [
+      {
+        "record_id": "record_ace3746b1600",
+        "label": "F1",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "unresolved",
+        "failure_reasons": [
+          "ambiguous_api_concentration"
+        ]
+      },
+      {
+        "record_id": "record_851ab860659f",
+        "label": "F2",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "unresolved",
+        "failure_reasons": [
+          "ambiguous_api_concentration"
+        ]
+      },
+      {
+        "record_id": "record_9d98bd27f9f7",
+        "label": "F3",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "unresolved",
+        "failure_reasons": [
+          "ambiguous_api_concentration"
+        ]
+      },
+      {
+        "record_id": "record_2578ce137ea3",
+        "label": "F4",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "unresolved",
+        "failure_reasons": [
+          "ambiguous_api_concentration"
+        ]
+      },
+      {
+        "record_id": "record_fb8b2beb150c",
+        "label": "F5",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "unresolved",
+        "failure_reasons": [
+          "ambiguous_api_concentration"
+        ]
+      },
+      {
+        "record_id": "record_58c983118f05",
+        "label": "F6",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "unresolved",
+        "failure_reasons": [
+          "ambiguous_api_concentration"
+        ]
+      },
+      {
+        "record_id": "record_7843cfa292ef",
+        "label": "F7",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "unresolved",
+        "failure_reasons": [
+          "ambiguous_api_concentration"
+        ]
+      },
+      {
+        "record_id": "record_0aa946056083",
+        "label": "F8",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "unresolved",
+        "failure_reasons": [
+          "ambiguous_api_concentration"
+        ]
+      }
+    ]
+  },
+  "v2_accept_wv": {
+    "statuses": {
+      "unresolved": 39,
+      "rejected": 10,
+      "verified": 12
+    },
+    "failures": {
+      "insufficient_evidence": 24,
+      "missing_endpoint": 3,
+      "unit_normalization_failed": 9,
+      "ambiguous_api_concentration": 23,
+      "percent_only": 4,
+      "not_target_api": 7,
+      "not_target_api_concentration": 3,
+      "not_target_study_type": 3,
+      "missing_area": 20,
+      "missing_api_concentration": 1,
+      "ambiguous_mapping": 1
+    },
+    "target": [
+      {
+        "record_id": "record_ace3746b1600",
+        "label": "F1",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "verified",
+        "failure_reasons": []
+      },
+      {
+        "record_id": "record_851ab860659f",
+        "label": "F2",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "verified",
+        "failure_reasons": []
+      },
+      {
+        "record_id": "record_9d98bd27f9f7",
+        "label": "F3",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "verified",
+        "failure_reasons": []
+      },
+      {
+        "record_id": "record_2578ce137ea3",
+        "label": "F4",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "verified",
+        "failure_reasons": []
+      },
+      {
+        "record_id": "record_fb8b2beb150c",
+        "label": "F5",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "verified",
+        "failure_reasons": []
+      },
+      {
+        "record_id": "record_58c983118f05",
+        "label": "F6",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "verified",
+        "failure_reasons": []
+      },
+      {
+        "record_id": "record_7843cfa292ef",
+        "label": "F7",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "verified",
+        "failure_reasons": []
+      },
+      {
+        "record_id": "record_0aa946056083",
+        "label": "F8",
+        "api": [
+          5.0,
+          "% w/v",
+          "w/v"
+        ],
+        "status": "verified",
+        "failure_reasons": []
+      }
+    ]
+  }
+}

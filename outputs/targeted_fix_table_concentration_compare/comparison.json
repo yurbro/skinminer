@@ -1,0 +1,82 @@
+[
+  {
+    "record_id": "record_0aa946056083",
+    "label": "F8",
+    "endpoint_value": 734.4,
+    "api": "5.0 % w/v w/v",
+    "v1_status": "unresolved",
+    "v1_failures": "ambiguous_api_concentration",
+    "v2_status": "verified",
+    "v2_failures": ""
+  },
+  {
+    "record_id": "record_2578ce137ea3",
+    "label": "F4",
+    "endpoint_value": 734.4,
+    "api": "5.0 % w/v w/v",
+    "v1_status": "unresolved",
+    "v1_failures": "ambiguous_api_concentration",
+    "v2_status": "verified",
+    "v2_failures": ""
+  },
+  {
+    "record_id": "record_58c983118f05",
+    "label": "F6",
+    "endpoint_value": 808.0,
+    "api": "5.0 % w/v w/v",
+    "v1_status": "unresolved",
+    "v1_failures": "ambiguous_api_concentration",
+    "v2_status": "verified",
+    "v2_failures": ""
+  },
+  {
+    "record_id": "record_7843cfa292ef",
+    "label": "F7",
+    "endpoint_value": 387.9,
+    "api": "5.0 % w/v w/v",
+    "v1_status": "unresolved",
+    "v1_failures": "ambiguous_api_concentration",
+    "v2_status": "verified",
+    "v2_failures": ""
+  },
+  {
+    "record_id": "record_851ab860659f",
+    "label": "F2",
+    "endpoint_value": 1178.9,
+    "api": "5.0 % w/v w/v",
+    "v1_status": "unresolved",
+    "v1_failures": "ambiguous_api_concentration",
+    "v2_status": "verified",
+    "v2_failures": ""
+  },
+  {
+    "record_id": "record_9d98bd27f9f7",
+    "label": "F3",
+    "endpoint_value": 759.6,
+    "api": "5.0 % w/v w/v",
+    "v1_status": "unresolved",
+    "v1_failures": "ambiguous_api_concentration",
+    "v2_status": "verified",
+    "v2_failures": ""
+  },
+  {
+    "record_id": "record_ace3746b1600",
+    "label": "F1",
+    "endpoint_value": 1142.4,
+    "api": "5.0 % w/v w/v",
+    "v1_status": "unresolved",
+    "v1_failures": "ambiguous_api_concentration",
+    "v2_status": "verified",
+    "v2_failures": ""
+  },
+  {
+    "record_id": "record_fb8b2beb150c",
+    "label": "F5",
+    "endpoint_value": 799.5,
+    "api": "5.0 % w/v w/v",
+    "v1_status": "unresolved",
+    "v1_failures": "ambiguous_api_concentration",
+    "v2_status": "verified",
+    "v2_failures": ""
+  }
+]

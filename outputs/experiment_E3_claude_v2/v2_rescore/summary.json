@@ -1,0 +1,16 @@
+{
+  "input_records": 93,
+  "policy": "v2_accept_wv",
+  "status_counts": {
+    "rejected": 10,
+    "unresolved": 59,
+    "verified": 24
+  },
+  "v1_status_counts": {
+    "rejected": 10,
+    "unresolved": 83
+  },
+  "v2_verified": 24,
+  "v2_table_verified": 24,
+  "v2_figure_verified": 0
+}

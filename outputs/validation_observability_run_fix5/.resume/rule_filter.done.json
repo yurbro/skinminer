@@ -1,0 +1,13 @@
+{
+  "stage": "rule_filter",
+  "completed": 10,
+  "total": 10,
+  "detail": "pass=10 fail=0",
+  "input_count": 10,
+  "output_count": 10,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix5\\rule_pass.jsonl",
+    "outputs\\validation_observability_run_fix5\\rule_fail.jsonl"
+  ],
+  "resume_signature_digest": "0b51dcfc8f4863c7d874c34d16af73c7a8bcbc1c"
+}

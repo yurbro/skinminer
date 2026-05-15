@@ -1,0 +1,13 @@
+﻿metric,full_run_13,full_run_16,delta
+corpus_rows,1828,1828,0
+triaged_rows,529,536,7
+route_decisions,529,536,7
+table_records,64,252,188
+text_records,11,10,-1
+figure_records,9,10,1
+assembled_records,79,239,160
+verified,4,1,-3
+unresolved,48,179,131
+rejected,27,59,32
+patch_count,220,572,352
+llm_adjudication_rows,33,90,57

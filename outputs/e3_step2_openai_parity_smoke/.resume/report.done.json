@@ -1,0 +1,13 @@
+{
+  "stage": "report",
+  "completed": null,
+  "total": null,
+  "detail": "path=outputs\\e3_step2_openai_parity_smoke\\report\\run_report.md",
+  "input_count": 24,
+  "output_count": null,
+  "output_paths": [
+    "outputs\\e3_step2_openai_parity_smoke\\report\\run_report.md",
+    "outputs\\e3_step2_openai_parity_smoke\\report\\run_report.json"
+  ],
+  "resume_signature_digest": "009441693465c187d15422ea272868aeadf93d6e"
+}

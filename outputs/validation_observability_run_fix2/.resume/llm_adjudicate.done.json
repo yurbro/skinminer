@@ -1,0 +1,12 @@
+{
+  "stage": "llm_adjudicate",
+  "completed": 11,
+  "total": 11,
+  "detail": "rows=11",
+  "input_count": 11,
+  "output_count": 11,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix2\\llm_adjudication.jsonl"
+  ],
+  "resume_signature_digest": "c058b1d9b297db2be4aedd574f602aede850b29b"
+}

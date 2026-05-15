@@ -1,0 +1,278 @@
+{
+  "run_id": "run_b775d86d9ba2",
+  "status": "completed",
+  "started_at_utc": "2026-04-16T19:16:31.188924+00:00",
+  "finished_at_utc": "2026-04-16T19:21:10.733910+00:00",
+  "elapsed_seconds": 279.545,
+  "active_stage": "",
+  "last_error": null,
+  "llm_usage": {
+    "triage.llm_triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 1,
+      "estimated_requests": 0,
+      "input_tokens": 607,
+      "output_tokens": 148,
+      "total_tokens": 755
+    },
+    "detection.router": {
+      "model_name": "gpt-4o-mini",
+      "requests": 1,
+      "estimated_requests": 0,
+      "input_tokens": 3763,
+      "output_tokens": 190,
+      "total_tokens": 3953
+    },
+    "extractors.table": {
+      "model_name": "gpt-4o-mini",
+      "requests": 1,
+      "estimated_requests": 0,
+      "input_tokens": 3836,
+      "output_tokens": 4825,
+      "total_tokens": 8661
+    }
+  },
+  "llm_reliability": {
+    "triage.llm_triage": {
+      "model_name": "gpt-4o-mini",
+      "requests": 1,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "detection.router": {
+      "model_name": "gpt-4o-mini",
+      "requests": 1,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "extractors.table": {
+      "model_name": "gpt-4o-mini",
+      "requests": 1,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    }
+  },
+  "stages": {
+    "corpus": {
+      "label": "Corpus",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:16:31.205262+00:00",
+      "finished_at_utc": "2026-04-16T19:16:31.228179+00:00",
+      "elapsed_seconds": 0.023,
+      "completed": 1,
+      "total": 1,
+      "current_item": "",
+      "detail": "rows=1"
+    },
+    "rule_filter": {
+      "label": "Rule Triage",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:16:31.231537+00:00",
+      "finished_at_utc": "2026-04-16T19:16:31.275487+00:00",
+      "elapsed_seconds": 0.044,
+      "completed": 1,
+      "total": 1,
+      "current_item": "",
+      "detail": "pass=1 fail=0"
+    },
+    "llm_triage": {
+      "label": "LLM Triage",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:16:31.278745+00:00",
+      "finished_at_utc": "2026-04-16T19:16:38.437408+00:00",
+      "elapsed_seconds": 7.159,
+      "completed": 1,
+      "total": 1,
+      "current_item": "",
+      "detail": "kept=1"
+    },
+    "access": {
+      "label": "Content Access",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:16:38.440365+00:00",
+      "finished_at_utc": "2026-04-16T19:16:38.916660+00:00",
+      "elapsed_seconds": 0.476,
+      "completed": 1,
+      "total": 1,
+      "current_item": "",
+      "detail": "resolved=0 downloaded=1 unresolved=0 error=0"
+    },
+    "routing": {
+      "label": "Evidence Routing",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:16:38.923386+00:00",
+      "finished_at_utc": "2026-04-16T19:16:45.012036+00:00",
+      "elapsed_seconds": 6.089,
+      "completed": 1,
+      "total": 1,
+      "current_item": "",
+      "detail": "table=1"
+    },
+    "table_extract": {
+      "label": "Table Extract",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:16:45.015635+00:00",
+      "finished_at_utc": "2026-04-16T19:21:09.172712+00:00",
+      "elapsed_seconds": 264.157,
+      "completed": 1,
+      "total": 1,
+      "current_item": "",
+      "detail": "records=24"
+    },
+    "text_extract": {
+      "label": "Text Extract",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:09.176910+00:00",
+      "finished_at_utc": "2026-04-16T19:21:09.185841+00:00",
+      "elapsed_seconds": 0.009,
+      "completed": 0,
+      "total": 0,
+      "current_item": "",
+      "detail": "records=0"
+    },
+    "figure_extract": {
+      "label": "Figure Extract",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:09.190040+00:00",
+      "finished_at_utc": "2026-04-16T19:21:09.201730+00:00",
+      "elapsed_seconds": 0.012,
+      "completed": 0,
+      "total": 0,
+      "current_item": "",
+      "detail": "records=0"
+    },
+    "assembly": {
+      "label": "Assembly",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:09.206442+00:00",
+      "finished_at_utc": "2026-04-16T19:21:09.318420+00:00",
+      "elapsed_seconds": 0.112,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "assembled=24"
+    },
+    "verify_initial": {
+      "label": "Verify Initial",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:09.322718+00:00",
+      "finished_at_utc": "2026-04-16T19:21:09.699644+00:00",
+      "elapsed_seconds": 0.377,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "unresolved=24"
+    },
+    "patch_api": {
+      "label": "Patch API Conc",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:09.705138+00:00",
+      "finished_at_utc": "2026-04-16T19:21:10.029590+00:00",
+      "elapsed_seconds": 0.324,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "patch_endpoint": {
+      "label": "Patch Endpoint",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:10.032749+00:00",
+      "finished_at_utc": "2026-04-16T19:21:10.166696+00:00",
+      "elapsed_seconds": 0.134,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "patch_time": {
+      "label": "Patch End Time",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:10.170081+00:00",
+      "finished_at_utc": "2026-04-16T19:21:10.240467+00:00",
+      "elapsed_seconds": 0.07,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "patch_area": {
+      "label": "Patch Area",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:10.243538+00:00",
+      "finished_at_utc": "2026-04-16T19:21:10.315633+00:00",
+      "elapsed_seconds": 0.072,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "applied=0"
+    },
+    "verify_final": {
+      "label": "Verify Final",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:10.319466+00:00",
+      "finished_at_utc": "2026-04-16T19:21:10.651332+00:00",
+      "elapsed_seconds": 0.332,
+      "completed": 24,
+      "total": 24,
+      "current_item": "",
+      "detail": "unresolved=24"
+    },
+    "llm_adjudicate": {
+      "label": "LLM Adjudicate",
+      "state": "skipped",
+      "started_at_utc": null,
+      "finished_at_utc": "2026-04-16T19:21:10.655795+00:00",
+      "elapsed_seconds": 0.0,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "disabled"
+    },
+    "report": {
+      "label": "Run Report",
+      "state": "done",
+      "started_at_utc": "2026-04-16T19:21:10.662358+00:00",
+      "finished_at_utc": "2026-04-16T19:21:10.730501+00:00",
+      "elapsed_seconds": 0.068,
+      "completed": 0,
+      "total": null,
+      "current_item": "",
+      "detail": "path=outputs\\e3_step2_openai_parity_smoke\\report\\run_report.md"
+    }
+  },
+  "command": "run_pipeline.py --input-csv outputs\\e3_step2_single_paper.csv --llm-provider openai --policy v1 --enable-figure --export-csv --long-run-mode --output-dir outputs\\e3_step2_openai_parity_smoke --progress-every 1 --access-checkpoint-every 1 --long-run-log-every 1 --no-status-panel"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "corpus",
+  "completed": 10,
+  "total": 10,
+  "detail": "rows=10",
+  "input_count": null,
+  "output_count": 10,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix4\\corpus.jsonl"
+  ],
+  "resume_signature_digest": "b2aa05a6f688c5fde476b0c9de55e7ff272e1b24"
+}

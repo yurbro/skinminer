@@ -1,0 +1,16 @@
+Corpus rows: 1828
+Route decisions: 529
+Table records: 247
+Text records: 11
+Figure records: 14
+Final records evaluated: 238
+Actually verified: 1
+Final unresolved: 178
+Final rejected: 59
+Run report: outputs\reproducibility_run_16b\report\run_report.md
+Failure taxonomy counts: {'not_target_study_type': 16, 'insufficient_evidence': 126, 'ambiguous_api_concentration': 97, 'missing_api_concentration': 67, 'source_context_inconsistent': 75, 'missing_area': 54, 'not_target_device': 25, 'missing_endpoint': 32, 'figure_digitization_failed': 20, 'percent_only': 22, 'missing_endpoint_time': 5, 'not_target_api_concentration': 31, 'not_target_api': 23, 'unit_normalization_failed': 20}
+Figure failure counts: {'triage_signals': {'endpoint_curve_present:no': 1, 'ticks_readable:uncertain': 1, 'ticks_readable:no': 1}, 'digitization_failure_counts': {'digitization_no_output': 8}, 'mapping_failure_counts': {'underconstrained_label_space_6_curves_5_labels': 6, 'underconstrained_label_space_4_curves_2_labels': 4, 'underconstrained_label_space_6_curves_1_labels': 6}}
+LLM adjudication rows: 106
+LLM adjudication summary: outputs\reproducibility_run_16b\report\llm_adjudication_summary.csv
+Long-run summary: outputs\reproducibility_run_16b\long_run\summary.json
+Long-run events: outputs\reproducibility_run_16b\long_run\events.jsonl

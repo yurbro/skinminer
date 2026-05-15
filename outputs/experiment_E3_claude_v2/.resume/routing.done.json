@@ -1,0 +1,12 @@
+{
+  "stage": "routing",
+  "completed": 220,
+  "total": 220,
+  "detail": "figure=7 mixed=5 table=2 text=3 unresolved=203",
+  "input_count": 220,
+  "output_count": 220,
+  "output_paths": [
+    "outputs\\experiment_E3_claude_v2\\route_decisions.jsonl"
+  ],
+  "resume_signature_digest": "36d8876cffbddb4840a0bfacff145e1227e13a56"
+}

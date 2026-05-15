@@ -1,0 +1,12 @@
+{
+  "stage": "routing",
+  "completed": 3,
+  "total": 3,
+  "detail": "table=3",
+  "input_count": 3,
+  "output_count": 3,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\watkinson_forward_v4_det\\route_decisions.jsonl"
+  ],
+  "resume_signature_digest": "443174283a0919335315089468154c70d4a3f172"
+}

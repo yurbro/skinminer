@@ -1,0 +1,13 @@
+{
+  "stage": "report",
+  "completed": null,
+  "total": null,
+  "detail": "path=outputs\\validation_observability_run_vlm1\\report\\run_report.md",
+  "input_count": 15,
+  "output_count": null,
+  "output_paths": [
+    "outputs\\validation_observability_run_vlm1\\report\\run_report.md",
+    "outputs\\validation_observability_run_vlm1\\report\\run_report.json"
+  ],
+  "resume_signature_digest": "48fff93dc9984cc55f338b9ad2abec951b0f658f"
+}

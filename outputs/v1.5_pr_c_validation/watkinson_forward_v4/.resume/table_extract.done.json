@@ -1,0 +1,13 @@
+{
+  "stage": "table_extract",
+  "completed": 3,
+  "total": 3,
+  "detail": "records=30",
+  "input_count": 3,
+  "output_count": 30,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\watkinson_forward_v4\\table_records.jsonl",
+    "outputs\\v1.5_pr_c_validation\\watkinson_forward_v4\\table_raw.jsonl"
+  ],
+  "resume_signature_digest": "8fdc45372df26b721f9a1b793ad6b11d915f4954"
+}

@@ -1,0 +1,13 @@
+{
+  "stage": "report",
+  "completed": null,
+  "total": null,
+  "detail": "path=outputs\\v1.5_pr_c_validation\\kallakunta_pdf_rerun3\\report\\run_report.md",
+  "input_count": 7,
+  "output_count": null,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_rerun3\\report\\run_report.md",
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_rerun3\\report\\run_report.json"
+  ],
+  "resume_signature_digest": "1ee669e34a285dd3112f21d7e756117ed80e190b"
+}

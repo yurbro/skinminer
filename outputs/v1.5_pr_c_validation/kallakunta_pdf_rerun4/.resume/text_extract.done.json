@@ -1,0 +1,13 @@
+{
+  "stage": "text_extract",
+  "completed": 0,
+  "total": 0,
+  "detail": "records=0",
+  "input_count": 0,
+  "output_count": 0,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_rerun4\\text_records.jsonl",
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_rerun4\\text_raw.jsonl"
+  ],
+  "resume_signature_digest": "17824c1ffbe72f82b7b367d1a350dc237f74fdf5"
+}

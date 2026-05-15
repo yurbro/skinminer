@@ -1,0 +1,13 @@
+{
+  "stage": "table_extract",
+  "completed": 44,
+  "total": 44,
+  "detail": "records=65",
+  "input_count": 44,
+  "output_count": 65,
+  "output_paths": [
+    "outputs\\reproducibility_run_13b\\table_records.jsonl",
+    "outputs\\reproducibility_run_13b\\table_raw.jsonl"
+  ],
+  "resume_signature_digest": "cec10203692928f42894731eef3ebaf3510b26ff"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "routing",
+  "completed": 10,
+  "total": 10,
+  "detail": "figure=8 table=2",
+  "input_count": 10,
+  "output_count": 10,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix1\\route_decisions.jsonl"
+  ],
+  "resume_signature_digest": "f5b21e95200c840434dad134ecb3dde72e48ce82"
+}

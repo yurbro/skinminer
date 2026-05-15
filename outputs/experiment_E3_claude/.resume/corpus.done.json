@@ -1,0 +1,12 @@
+{
+  "stage": "corpus",
+  "completed": 1769,
+  "total": 1769,
+  "detail": "rows=1769",
+  "input_count": null,
+  "output_count": 1769,
+  "output_paths": [
+    "outputs\\experiment_E3_claude\\corpus.jsonl"
+  ],
+  "resume_signature_digest": "a1a849689fb856eac1d6aefcb5dcc1d2e7844db6"
+}

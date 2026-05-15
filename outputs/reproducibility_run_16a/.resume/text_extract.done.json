@@ -1,0 +1,13 @@
+{
+  "stage": "text_extract",
+  "completed": 17,
+  "total": 17,
+  "detail": "records=13",
+  "input_count": 17,
+  "output_count": 13,
+  "output_paths": [
+    "outputs\\reproducibility_run_16a\\text_records.jsonl",
+    "outputs\\reproducibility_run_16a\\text_raw.jsonl"
+  ],
+  "resume_signature_digest": "065f35695776e8aa47ee86edcb8197798f4b4177"
+}

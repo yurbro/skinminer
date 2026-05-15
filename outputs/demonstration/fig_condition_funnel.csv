@@ -1,0 +1,5 @@
+﻿level,criteria,count
+Level 1,Exact match,0
+Level 2,Same excipient system,0
+Level 3,Partial excipient overlap,26
+Level 4,Same API + device,80

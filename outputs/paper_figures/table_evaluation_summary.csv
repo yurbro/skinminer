@@ -1,0 +1,12 @@
+﻿metric,value,source
+Corpus rows,1828,reports/baseline_definition.md
+Rule-pass rows,749,reports/baseline_definition.md
+GPT assembled records,239,reports/baseline_definition.md
+Claude assembled records,93,reports/baseline_definition.md
+GPT verified under extended policy,25,reports/policy_sensitivity_analysis.md
+Claude verified under extended policy,24,reports/policy_sensitivity_analysis.md
+Round 2 annotation rows,130,reports/gold_evaluation_round2.md
+Extended-policy keep-record precision (%),100.0,reports/gold_evaluation_round2.md
+Extended-policy end-to-end precision (%),96.0,reports/gold_evaluation_round2.md
+Unresolved false negatives,0/44,reports/gold_evaluation_round2.md
+Correct rejections,12/12,reports/gold_evaluation_round2.md

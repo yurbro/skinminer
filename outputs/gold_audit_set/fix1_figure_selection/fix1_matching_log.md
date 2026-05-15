@@ -1,0 +1,40 @@
+# Fix1 Matching Log
+
+| gold_record_id | mode | mapped_record_id | note |
+|---|---|---|---|
+| `record_2578ce137ea3` | exact_record_id | `record_2578ce137ea3` | doi=10.1208/s12249-013-9995-4 |
+| `record_851ab860659f` | exact_record_id | `record_851ab860659f` | doi=10.1208/s12249-013-9995-4 |
+| `record_9d98bd27f9f7` | exact_record_id | `record_9d98bd27f9f7` | doi=10.1208/s12249-013-9995-4 |
+| `record_ace3746b1600` | exact_record_id | `record_ace3746b1600` | doi=10.1208/s12249-013-9995-4 |
+| `record_17cdf372e8e8` | conservative_keep | `` | doi=10.1039/d0ra00100g |
+| `record_47710103a12d` | manual_fix1_mapping | `record_4fcf67b3f8a8` | doi=10.1016/j.ejpb.2020.05.013 |
+| `record_cc84e1bf6e4e` | manual_fix1_mapping | `record_5d8638739de7` | doi=10.1016/j.ejpb.2020.05.013 |
+| `record_e04ec91b3e26` | manual_fix1_mapping | `record_5d8638739de7` | doi=10.1016/j.ejpb.2020.05.013 |
+| `record_1d882e0e9090` | manual_fix1_mapping | `record_75822b868901` | doi=10.1016/j.ijpharm.2016.03.043 |
+| `record_339f642dd0cd` | exact_record_id | `record_339f642dd0cd` | doi=10.1016/j.ijpharm.2016.03.043 |
+| `record_437e38b169f5` | manual_fix1_mapping | `record_af2bc3931fdb` | doi=10.1016/j.ijpharm.2016.03.043 |
+| `record_982332825448` | exact_record_id | `record_982332825448` | doi=10.1016/j.ijpharm.2016.03.043 |
+| `record_a28c8f99f0f6` | exact_record_id | `record_a28c8f99f0f6` | doi=10.1016/j.ijpharm.2016.03.043 |
+| `record_ca0291b430fe` | manual_fix1_mapping | `record_339f642dd0cd` | doi=10.1016/j.ijpharm.2016.03.043 |
+| `record_e5a5cd848fa6` | exact_record_id | `record_e5a5cd848fa6` | doi=10.1016/j.ijpharm.2016.03.043 |
+| `record_62962b5f0280` | manual_fix1_mapping | `record_a082cdfb8d59` | doi=10.1208/s12249-019-1584-8 |
+| `record_96e92dcd41dd` | manual_fix1_mapping | `record_91229292869f` | doi=10.1208/s12249-019-1584-8 |
+| `record_c3fdc7aafe21` | manual_fix1_mapping | `record_f0359ab9e58a` | doi=10.1208/s12249-019-1584-8 |
+| `record_c846ed69a806` | manual_fix1_mapping | `record_21f5c1d577fe` | doi=10.1208/s12249-019-1584-8 |
+| `record_3756495eb520` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_3d0adefd8d76` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_3f010c7e63c3` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_46eb58696d42` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_5f7a6dc5d170` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_66c595f609f5` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_7d4b4c3f9112` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_80dc0c1bef05` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_8263508e53c5` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_a15daa52e1ef` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_b808765948d6` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_d4f5bca2e39d` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_d646fe3f3b40` | conservative_keep | `` | doi=10.1248/cpb.c21-00033 |
+| `record_227806162423` | conservative_keep | `` | doi=10.1371/journal.pone.0118536 |
+| `record_3dfbef172d21` | exact_record_id | `record_3dfbef172d21` | doi=10.3389/fchem.2021.767923 |
+| `record_90197b7e9614` | conservative_keep | `` | doi=10.3389/fchem.2021.767923 |
+| `record_dd652eab8499` | conservative_keep | `` | doi=10.3389/fchem.2021.767923 |

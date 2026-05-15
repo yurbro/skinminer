@@ -1,0 +1,12 @@
+{
+  "stage": "verify_initial",
+  "completed": 238,
+  "total": 238,
+  "detail": "rejected=59 unresolved=178 verified=1",
+  "input_count": 238,
+  "output_count": 238,
+  "output_paths": [
+    "outputs\\reproducibility_run_16b\\verified_initial.jsonl"
+  ],
+  "resume_signature_digest": "065f35695776e8aa47ee86edcb8197798f4b4177"
+}

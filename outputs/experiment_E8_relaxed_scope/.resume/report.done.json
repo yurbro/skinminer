@@ -1,0 +1,13 @@
+{
+  "stage": "report",
+  "completed": null,
+  "total": null,
+  "detail": "path=outputs\\experiment_E8_relaxed_scope\\report\\run_report.md",
+  "input_count": 74,
+  "output_count": null,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\report\\run_report.md",
+    "outputs\\experiment_E8_relaxed_scope\\report\\run_report.json"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

@@ -1,0 +1,7 @@
+﻿step,detail,verified,delta_from_previous,run_dir
+Baseline,starting point,10,0,validation_observability_run
+Fix 1,tiered search,11,1,validation_observability_run_fix1
+Fix 2,calibration gate,10,-1,validation_observability_run_fix2
+Fix 3a,subplot contract,12,2,validation_observability_run_fix3a
+Fix 4,mapping gate,8,-4,validation_observability_run_fix4
+Fix 5,VLM grounding,6,-2,validation_observability_run_fix5

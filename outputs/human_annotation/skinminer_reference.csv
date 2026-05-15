@@ -1,0 +1,76 @@
+﻿doi,formulation_label,api_name,api_concentration,api_concentration_unit,endpoint_type,endpoint_value,endpoint_unit,endpoint_time,endpoint_time_unit,device,membrane_type,membrane_source,receptor_medium,dose_type,dose_amount,source_evidence,pipeline_verification_status
+10.1007/s11095-008-9785-y,Ibuprofen 750 μg/cm²,Ibuprofen,750.0,ug/cm2,amount_per_area,0.77,μg/cm²,0.5,hours,diffusion cell,stratum corneum,,,,,Table 2 (p.12); page 12; page 5,unresolved
+10.1007/s11095-008-9785-y,Ibuprofen 750 μg/cm²,Ibuprofen,750.0,ug/cm2,amount_per_area,0.75,μg/cm²,1.0,hours,diffusion cell,stratum corneum,,,,,Table 2 (p.12); page 12; page 5,unresolved
+10.1007/s11095-008-9785-y,Ibuprofen 750 μg/cm²,Ibuprofen,750.0,ug/cm2,amount_per_area,0.74,μg/cm²,2.0,hours,diffusion cell,stratum corneum,,,,,Table 2 (p.12); page 12; page 5,unresolved
+10.1007/s11095-008-9785-y,Ibuprofen 750 μg/cm²,Ibuprofen,750.0,ug/cm2,amount_per_area,0.73,μg/cm²,3.0,hours,diffusion cell,stratum corneum,,,,,Table 2 (p.12); page 12; page 5,unresolved
+10.1007/s11095-008-9785-y,Ibuprofen 750 μg/cm²,Ibuprofen,750.0,ug/cm2,amount_per_area,0.72,μg/cm²,4.0,hours,diffusion cell,stratum corneum,,,,,Table 2 (p.12); page 12; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,unknown,,,,,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,unknown,,,0.5,hours,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,amount_per_area,1.23,mg/cm²,1.0,hours,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,amount_per_area,2.34,mg/cm²,2.0,hours,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,amount_per_area,3.45,mg/cm²,3.0,hours,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,amount_per_area,4.56,mg/cm²,4.0,hours,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,amount_per_area,5.67,mg/cm²,5.0,hours,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,amount_per_area,6.78,mg/cm²,6.0,hours,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,amount_per_area,7.89,mg/cm²,7.0,hours,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,amount_per_area,9.0,mg/cm²,8.0,hours,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); page 9; page 5,unresolved
+10.1016/j.ijpharm.2016.03.043,IBUGEL™ (Ibuprofen 5% w/w),ibuprofen,5.0,% w/w,unknown,,,,,Franz diffusion cell,"human skin, porcine skin, silicone membrane, PAMPA",,,,,Table 1 (p.11); page 11; page 2,unresolved
+10.1016/j.ijpharm.2016.03.043,IBULEVE™ Speed Relief 5% Spray,ibuprofen,5.0,% w/w,unknown,,,,,Franz diffusion cell,"human skin, porcine skin, silicone membrane, PAMPA",,,,,Table 1 (p.11); page 11; page 2,unresolved
+10.1016/j.ijpharm.2016.03.043,Isopropyl alcohol solution (5% w/w),ibuprofen,5.0,% w/w,unknown,,,,,Franz diffusion cell,"human skin, porcine skin, silicone membrane, PAMPA",,,,,Table 1 (p.11); page 11; page 2,unresolved
+10.1016/j.ijpharm.2016.03.043,Propylene glycol solution (5% w/w),ibuprofen,5.0,% w/w,unknown,,,,,Franz diffusion cell,"human skin, porcine skin, silicone membrane, PAMPA",,,,,Table 1 (p.11); Table 2 (p.12); page 12,unresolved
+10.1016/j.ijpharm.2016.03.043,IBUGEL™ (Ibuprofen 5% w/w),ibuprofen,5.0,% w/w,amount_per_area,90.0,μg/cm²,6.0,h,Franz diffusion cell,"human skin, porcine skin, silicone membrane, PAMPA",,,,,Table 2 (p.12); page 12; page 2,unresolved
+10.1016/j.ijpharm.2016.03.043,IBULEVE™ Speed Relief 5% Spray,ibuprofen,5.0,% w/w,amount_per_area,91.0,μg/cm²,6.0,h,Franz diffusion cell,"human skin, porcine skin, silicone membrane, PAMPA",,,,,Table 2 (p.12); page 12; page 2,unresolved
+10.1016/j.ijpharm.2016.03.043,Isopropyl alcohol solution (5% w/w),ibuprofen,5.0,% w/w,amount_per_area,136.0,μg/cm²,6.0,h,Franz diffusion cell,"human skin, porcine skin, silicone membrane, PAMPA",,,,,Table 2 (p.12); page 12; page 2,unresolved
+10.1039/d0ra00100g,rac-IBU,Ibuprofen,,,amount_total,302.84,mg IBU cm²,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 5 (p.10); page 10; page 8,unresolved
+10.1039/d0ra00100g,[ValOEt][IBU],Ibuprofen ethyl ester,,,amount_total,215.19,mg IBU cm²,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 5 (p.10); page 10; page 8,rejected
+10.1039/d0ra00100g,[ValOiPr][IBU],Ibuprofen isopropyl ester,,,amount_total,341.2,mg IBU cm²,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 5 (p.10); page 10; page 8,rejected
+10.1039/d0ra00100g,[ValOPr][IBU],Ibuprofen propyl ester,,,amount_total,382.35,mg IBU cm²,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 5 (p.10); page 10; page 8,rejected
+10.1039/d0ra00100g,[ValOBu][IBU],Ibuprofen butyl ester,,,amount_total,289.74,mg IBU cm²,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 5 (p.10); page 10; page 8,rejected
+10.1039/d0ra00100g,[ValOAm][IBU],Ibuprofen amyl ester,,,amount_total,308.96,mg IBU cm²,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 5 (p.10); page 10; page 8,rejected
+10.1039/d0ra00100g,[ValOHex][IBU],Ibuprofen hexyl ester,,,amount_total,249.46,mg IBU cm²,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 5 (p.10); page 10; page 8,rejected
+10.1186/2050-6511-13-5,Ibuprofen Control,Ibuprofen,,,amount_per_area,167.78,μg/cm²/h,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 200 μm,Ibuprofen,,,amount_per_area,368.69,μg/cm²/h,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 300 μm,Ibuprofen,,,amount_per_area,431.52,μg/cm²/h,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen Control,Ibuprofen,,,unknown,1.92,cm/s,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 200 μm,Ibuprofen,,,unknown,4.21,cm/s,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 300 μm,Ibuprofen,,,unknown,5.27,cm/s,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen Control,Ibuprofen,,,unknown,0.12,cm/s,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 200 μm,Ibuprofen,,,unknown,0.28,cm/s,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 300 μm,Ibuprofen,,,unknown,0.35,cm/s,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen Control,Ibuprofen,,,unknown,0.49,%,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 200 μm,Ibuprofen,,,unknown,11.15,%,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 300 μm,Ibuprofen,,,unknown,17.75,%,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen Control,Ibuprofen,,,unknown,0.3,%,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 200 μm,Ibuprofen,,,unknown,0.76,%,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 300 μm,Ibuprofen,,,unknown,0.96,%,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen Control,Ibuprofen,,,unknown,0.14,%,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 200 μm,Ibuprofen,,,unknown,0.55,%,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1186/2050-6511-13-5,Ibuprofen 300 μm,Ibuprofen,,,unknown,1.06,%,,,Franz diffusion cell,bovine split skin,,,,,Table 1 (p.4); page 4; page 2,unresolved
+10.1208/s12249-013-9995-4,F1,Ibuprofen,5.0,% w/v,amount_total,298.0,μg,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F1,Ibuprofen,5.0,% w/v,amount_total,536.5,μg,48.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F1,Ibuprofen,5.0,% w/v,amount_total,1142.4,μg,72.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F2,Ibuprofen,5.0,% w/v,amount_total,155.9,μg,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F2,Ibuprofen,5.0,% w/v,amount_total,580.2,μg,48.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F2,Ibuprofen,5.0,% w/v,amount_total,1178.9,μg,72.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F3,Ibuprofen,5.0,% w/v,amount_total,140.2,μg,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F3,Ibuprofen,5.0,% w/v,amount_total,543.5,μg,48.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F3,Ibuprofen,5.0,% w/v,amount_total,759.6,μg,72.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F4,Ibuprofen,5.0,% w/v,amount_total,132.3,μg,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F4,Ibuprofen,5.0,% w/v,amount_total,464.8,μg,48.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F4,Ibuprofen,5.0,% w/v,amount_total,734.4,μg,72.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F5,Ibuprofen,5.0,% w/v,amount_total,312.3,μg,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F5,Ibuprofen,5.0,% w/v,amount_total,542.5,μg,48.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F5,Ibuprofen,5.0,% w/v,amount_total,799.5,μg,72.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F6,Ibuprofen,5.0,% w/v,amount_total,148.8,μg,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F6,Ibuprofen,5.0,% w/v,amount_total,551.2,μg,48.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F6,Ibuprofen,5.0,% w/v,amount_total,808.0,μg,72.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F7,Ibuprofen,5.0,% w/v,amount_total,123.9,μg,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F7,Ibuprofen,5.0,% w/v,amount_total,260.1,μg,48.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F7,Ibuprofen,5.0,% w/v,amount_total,387.9,μg,72.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F8,Ibuprofen,5.0,% w/v,amount_total,132.3,μg,24.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F8,Ibuprofen,5.0,% w/v,amount_total,464.8,μg,48.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1208/s12249-013-9995-4,F8,Ibuprofen,5.0,% w/v,amount_total,734.4,μg,72.0,h,Franz diffusion cell,porcine skin,,,,,Table 2; Table 3; Table 1,verified
+10.1007/s11095-008-9785-y,text_1,ibuprofen,10.0,mg/ml,jss,2.99,-,0.5,hr,Franz diffusion cell,stratum corneum,,,,,Table II; page 3; page 11,unresolved
+10.1016/j.ejpb.2020.05.013,5% w/w Ibuprofen gel,Ibuprofen,5.0,% w/w,amount_total,250.0,µg/mL,720.0,min,Franz diffusion cell,silicone membrane,,,,,Table 1 (p.5); figure 11 p.16 (p.16),verified
+10.1016/j.ijpharm.2016.03.043,Isopropyl alcohol solution (5% w/w),ibuprofen,5.0,% w/w,amount_per_area,9.315208435058594,µg/cm²,48.0,h,Franz diffusion cell,"human skin, porcine skin, silicone membrane, PAMPA",,,,,Table 2 (p.12); 1 p.7 (p.7),unresolved
+10.1016/j.ijpharm.2016.03.043,Propylene glycol solution (5% w/w),ibuprofen,5.0,% w/w,amount_per_area,16.817726135253906,µg/cm²,48.0,h,Franz diffusion cell,"human skin, porcine skin, silicone membrane, PAMPA",,,,,Table 2 (p.12); 1 p.7 (p.7),unresolved

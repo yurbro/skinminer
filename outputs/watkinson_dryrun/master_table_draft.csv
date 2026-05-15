@@ -1,0 +1,40 @@
+﻿paper_id,paper_year,doi,domain,barrier,occlusion,vehicle_raw_string,ethanol_vv,PG_vv,water_vv,MO_vv,MG_vv,J_mean,J_sd,J_unit,replicates,kp_mean,kp_sd,kp_unit,include_in_main_task
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,silicone,,0:100,0.0,,100.0,,,2.7,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,silicone,,25:75,25.0,,75.0,,,19.0,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,silicone,,50:50,50.0,,50.0,,,82.0,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,silicone,,75:25,75.0,,25.0,,,861.0,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,silicone,,100:0,100.0,,0.0,,,116.0,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,0:100 (Skin),0.0,,100.0,,,2.7,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,25:75 (Skin),25.0,,75.0,,,19.0,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,50:50 (Skin),50.0,,50.0,,,83.0,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,75:25 (Skin),75.0,,25.0,,,82.0,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,100:0 (Skin),100.0,,0.0,,,84.0,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,text_1,,,,,,2.48,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,text_2,,,,,,4.88,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,text_3,,,,,,27.48,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,text_4,,,,,,29.38,,ug/cm2/h,,,,,False
+Watkinson_2009_I,2009,10.1159/000183922,hydrophilic_cosolvent,human_epidermis,,text_5,,,,,,60.82,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,0:100,,0.0,100.0,,,24.48,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,25:75,,25.0,75.0,,,35.58,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,50:50,,50.0,50.0,,,99.18,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,100:0,,100.0,0.0,,,133.88,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,10:90,,10.0,90.0,,,225.48,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,20:80,,20.0,80.0,,,229.58,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,30:70,,30.0,70.0,,,216.08,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,40:60,,40.0,60.0,,,277.18,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,60:40,,60.0,40.0,,,355.48,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,70:30,,70.0,30.0,,,443.38,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,80:20,,80.0,20.0,,,245.28,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,90:10,,90.0,10.0,,,219.68,,ug/cm2/h,,,,,False
+Watkinson_2009_II,2009,10.1159/000231528,hydrophilic_cosolvent,silicone,,100:0,,100.0,0.0,,,297.18,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,0/100,,,,100.0,100.0,93.68,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,50/50,,,,50.0,50.0,64.58,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,10/90,,,,10.0,90.0,93.68,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,30/70,,,,30.0,70.0,64.58,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,20/80,,,,20.0,80.0,93.68,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,40/60,,,,40.0,60.0,64.58,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,70/30,,,,70.0,30.0,64.58,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,60/40,,,,60.0,40.0,64.58,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,80/20,,,,80.0,20.0,64.58,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,90/10,,,,90.0,10.0,64.58,,ug/cm2/h,,,,,False
+Watkinson_2011_III,2011,10.1159/000315139,lipophilic_vehicle,human_epidermis,,100/0,,,,100.0,100.0,579.48,,ug/cm2/h,,,,,False

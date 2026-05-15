@@ -1,0 +1,17 @@
+{
+  "stage": "figure_extract",
+  "completed": 0,
+  "total": 0,
+  "detail": "records=0",
+  "input_count": 0,
+  "output_count": 0,
+  "output_paths": [
+    "outputs\\_smoke_no_figure_vlm\\figure_records.jsonl",
+    "outputs\\_smoke_no_figure_vlm\\figure_triage.jsonl",
+    "outputs\\_smoke_no_figure_vlm\\figure_curves.jsonl",
+    "outputs\\_smoke_no_figure_vlm\\figure_endpoints.jsonl",
+    "outputs\\_smoke_no_figure_vlm\\figure_vlm_readings.jsonl",
+    "outputs\\_smoke_no_figure_vlm\\figure_curve_map.jsonl"
+  ],
+  "resume_signature_digest": "206b762452d5e3992fe133d341a26c560e95e108"
+}

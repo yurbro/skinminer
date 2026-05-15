@@ -1,0 +1,12 @@
+{
+  "stage": "verify_initial",
+  "completed": 32,
+  "total": 32,
+  "detail": "rejected=3 unresolved=24 verified=5",
+  "input_count": 32,
+  "output_count": 32,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix3a\\verified_initial.jsonl"
+  ],
+  "resume_signature_digest": "ce832a5aaf7ef2796e367487d476c5857715ce82"
+}

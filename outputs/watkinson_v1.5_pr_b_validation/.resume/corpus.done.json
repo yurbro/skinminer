@@ -1,0 +1,12 @@
+{
+  "stage": "corpus",
+  "completed": 3,
+  "total": 3,
+  "detail": "rows=3",
+  "input_count": null,
+  "output_count": 3,
+  "output_paths": [
+    "outputs\\watkinson_v1.5_pr_b_validation\\corpus.jsonl"
+  ],
+  "resume_signature_digest": "7d39ccc44bb2f8f38e986fec45cda6573ccb2930"
+}

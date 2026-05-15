@@ -1,0 +1,9 @@
+metric,value
+mean_predicted_std,117.39448725944287
+mean_measurement_sd,130.22135416666666
+mean_pred_std_to_measurement_sd_ratio,1.3981716549972711
+corr_abs_error_predicted_std,-0.0302470302429824
+coverage_within_1_pred_std,0.25
+coverage_within_2_pred_std,0.5
+coverage_within_1_measurement_sd,0.16666666666666666
+coverage_within_2_measurement_sd,0.4583333333333333

@@ -1,0 +1,12 @@
+{
+  "stage": "llm_adjudicate",
+  "completed": 9,
+  "total": 9,
+  "detail": "rows=9",
+  "input_count": 9,
+  "output_count": 9,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\llm_adjudication.jsonl"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

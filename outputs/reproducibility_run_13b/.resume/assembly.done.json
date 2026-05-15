@@ -1,0 +1,12 @@
+{
+  "stage": "assembly",
+  "completed": 95,
+  "total": 95,
+  "detail": "assembled=90",
+  "input_count": 95,
+  "output_count": 90,
+  "output_paths": [
+    "outputs\\reproducibility_run_13b\\assembled_records.jsonl"
+  ],
+  "resume_signature_digest": "cec10203692928f42894731eef3ebaf3510b26ff"
+}

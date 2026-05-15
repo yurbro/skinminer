@@ -1,0 +1,12 @@
+{
+  "stage": "access",
+  "completed": 10,
+  "total": 10,
+  "detail": "resolved=0 downloaded=10 unresolved=0 error=0",
+  "input_count": 10,
+  "output_count": 10,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix1\\content_access.jsonl"
+  ],
+  "resume_signature_digest": "f5b21e95200c840434dad134ecb3dde72e48ce82"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "assembly",
+  "completed": 80,
+  "total": 80,
+  "detail": "assembled=72",
+  "input_count": 80,
+  "output_count": 72,
+  "output_paths": [
+    "outputs\\experiment_E3_claude\\assembled_records.jsonl"
+  ],
+  "resume_signature_digest": "a1a849689fb856eac1d6aefcb5dcc1d2e7844db6"
+}

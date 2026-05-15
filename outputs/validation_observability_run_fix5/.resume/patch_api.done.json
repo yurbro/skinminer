@@ -1,0 +1,12 @@
+{
+  "stage": "patch_api",
+  "completed": 23,
+  "total": 23,
+  "detail": "applied=0",
+  "input_count": 23,
+  "output_count": 23,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix5\\patched_api_concentration.jsonl"
+  ],
+  "resume_signature_digest": "0b51dcfc8f4863c7d874c34d16af73c7a8bcbc1c"
+}

@@ -1,0 +1,109 @@
+{
+  "feature_space_diagnostics": {
+    "all_have_log10_solubility": true,
+    "correlation_note": "Correlations for constant predictors are undefined and are reported as 0.0 for baseline comparison.",
+    "test_log10_J_mean_range": [
+      2.494126753736251,
+      2.829419569254029
+    ],
+    "test_log10_solubility_range": [
+      1.5050142400841071,
+      2.224351745013417
+    ],
+    "test_rows": 11,
+    "test_source_table_counts": {
+      "10.1159/000315139 Table 3": 11
+    },
+    "test_total_apolar_vv_range": [
+      100.0,
+      100.0
+    ],
+    "test_total_polar_vv_range": [
+      0.0,
+      0.0
+    ],
+    "train_log10_J_mean_range": [
+      2.2685311703868227,
+      3.1746411926604483
+    ],
+    "train_log10_solubility_range": [
+      -1.046,
+      3.4665710723863543
+    ],
+    "train_rows": 17,
+    "train_source_table_counts": {
+      "10.1159/000183922 Table 3": 5,
+      "10.1159/000231528 Table 2": 10,
+      "10.1159/000231528 Table 3": 2
+    },
+    "train_test_log10_solubility_overlap": true,
+    "train_total_apolar_vv_range": [
+      0.0,
+      0.0
+    ],
+    "train_total_polar_vv_range": [
+      100.0,
+      100.0
+    ]
+  },
+  "improvement_over_baseline": {
+    "delta_RMSE_logJ": 0.06538966666859528,
+    "delta_within_2x": 0
+  },
+  "models": {
+    "mean_baseline": {
+      "MAE_logJ": 0.15609846213348486,
+      "Pearson_r": 0.0,
+      "RMSE_logJ": 0.17177863058693854,
+      "Spearman_rho": 0.0,
+      "within_2x_count": 11,
+      "within_2x_ratio": "11/11"
+    },
+    "ridge": {
+      "MAE_logJ": 0.09316792038966853,
+      "Pearson_r": -0.15093734273360562,
+      "RMSE_logJ": 0.10638896391834327,
+      "Spearman_rho": -0.26363636363636367,
+      "alpha_cv_scores": {
+        "0.01": 0.10004718174118539,
+        "0.1": 0.0999787873261772,
+        "1.0": 0.09984940619496054,
+        "10.0": 0.11815648407397676,
+        "100.0": 0.22500915196297183
+      },
+      "alpha_selected": 1.0,
+      "feature_coefficients_standardized": {
+        "MG_vv": 0.0,
+        "MO_vv": 0.0,
+        "PG_vv": -0.06093493882676961,
+        "ethanol_vv": 0.1332558954355206,
+        "log10_solubility": 0.07627637988835476,
+        "total_apolar_vv": 0.0,
+        "total_polar_vv": 0.0,
+        "water_vv": -0.061224248674009524
+      },
+      "within_2x_count": 11,
+      "within_2x_ratio": "11/11"
+    }
+  },
+  "overall_status": "FAIL",
+  "pass_criteria_checklist": {
+    "ridge_RMSE_logJ_le_0.5": true,
+    "ridge_Spearman_rho_ge_0.6": false,
+    "ridge_beats_baseline_RMSE_and_Spearman": false,
+    "ridge_within_2x_ge_7_of_11": true
+  },
+  "solubility_table": {
+    "by_source": {
+      "PartIII_Table1": 9,
+      "PartIII_Table1_interpolated": 2,
+      "PartII_PG_water_Manrique": 10,
+      "PartII_Table1": 2,
+      "PartI_Table1": 5
+    },
+    "coverage_of_master_table_F2_records": "28/28",
+    "missing_solubility_count": 0,
+    "total_entries": 28
+  },
+  "verdict": "RED"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "patch_area",
+  "completed": 239,
+  "total": 239,
+  "detail": "applied=20",
+  "input_count": 239,
+  "output_count": 239,
+  "output_paths": [
+    "outputs\\full_run_16_post_all_fixes\\patched_area.jsonl"
+  ],
+  "resume_signature_digest": "1d8a0416f18d4338cff29605107dbd449885391f"
+}

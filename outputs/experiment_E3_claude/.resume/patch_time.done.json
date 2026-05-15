@@ -1,0 +1,12 @@
+{
+  "stage": "patch_time",
+  "completed": 72,
+  "total": 72,
+  "detail": "applied=21",
+  "input_count": 72,
+  "output_count": 72,
+  "output_paths": [
+    "outputs\\experiment_E3_claude\\patched_endpoint_time.jsonl"
+  ],
+  "resume_signature_digest": "a1a849689fb856eac1d6aefcb5dcc1d2e7844db6"
+}

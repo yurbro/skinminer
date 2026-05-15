@@ -24,27 +24,10 @@ def patch_endpoint_time(
         if progress_callback:
             progress_callback(index - 1, record.paper_id, "patching endpoint time")
         candidate = record.model_copy(deep=True)
-        if not is_patchable(candidate) or candidate.endpoint.time_value is not None:
+        if not is_patchable(candidate) or candidate.conditions.duration_h is not None:
             patched.append(candidate)
             if progress_callback:
                 progress_callback(index, record.paper_id, "skipped")
-            continue
-
-        if candidate.conditions.duration_h is not None:
-            candidate.endpoint.time_value = candidate.conditions.duration_h
-            candidate.endpoint.time_unit = "hours"
-            evidence = EvidenceItem(
-                field_name="endpoint_time",
-                modality="metadata" if candidate.route == "unresolved" else candidate.route,  # type: ignore[arg-type]
-                locator="patcher:patch_endpoint_time",
-                snippet=f"duration_h={candidate.conditions.duration_h}",
-                source_ref=candidate.doi or candidate.paper_id,
-                confidence=0.6,
-            )
-            append_patch(candidate, "patch_endpoint_time", ["endpoint.time"], "applied", [evidence], notes="Recovered endpoint time from normalized duration.")
-            patched.append(candidate)
-            if progress_callback:
-                progress_callback(index, record.paper_id, "applied")
             continue
 
         matched_text = ""
@@ -66,14 +49,21 @@ def patch_endpoint_time(
                 break
 
         if matched_value is None:
-            append_patch(candidate, "patch_endpoint_time", ["endpoint.time"], "skipped", notes="no recoverable endpoint-time fragment")
+            append_patch(candidate, "patch_endpoint_time", ["conditions.duration_h"], "skipped", notes="no recoverable endpoint-time fragment")
             patched.append(candidate)
             if progress_callback:
                 progress_callback(index, record.paper_id, "skipped")
             continue
 
-        candidate.endpoint.time_value = matched_value
-        candidate.endpoint.time_unit = matched_unit
+        normalized_duration = normalize_time_to_hours(matched_value, matched_unit)
+        if normalized_duration is None:
+            append_patch(candidate, "patch_endpoint_time", ["conditions.duration_h"], "skipped", notes="unrecognized endpoint-time unit")
+            patched.append(candidate)
+            if progress_callback:
+                progress_callback(index, record.paper_id, "skipped")
+            continue
+
+        candidate.conditions.duration_h = normalized_duration
         evidence = EvidenceItem(
             field_name="endpoint_time",
             modality="metadata" if candidate.route == "unresolved" else candidate.route,  # type: ignore[arg-type]
@@ -82,7 +72,7 @@ def patch_endpoint_time(
             source_ref=candidate.doi or candidate.paper_id,
             confidence=0.65,
         )
-        append_patch(candidate, "patch_endpoint_time", ["endpoint.time"], "applied", [evidence], notes="Recovered endpoint time from evidence fragments.")
+        append_patch(candidate, "patch_endpoint_time", ["conditions.duration_h"], "applied", [evidence], notes="Recovered endpoint time from evidence fragments.")
         patched.append(candidate)
         if progress_callback:
             progress_callback(index, record.paper_id, "applied")

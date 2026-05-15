@@ -1,0 +1,16 @@
+Corpus rows: 1828
+Route decisions: 530
+Table records: 279
+Text records: 16
+Figure records: 14
+Final records evaluated: 279
+Actually verified: 9
+Final unresolved: 171
+Final rejected: 99
+Run report: outputs\reproducibility_run_16d\report\run_report.md
+Failure taxonomy counts: {'not_target_study_type': 46, 'insufficient_evidence': 162, 'ambiguous_api_concentration': 106, 'source_context_inconsistent': 88, 'missing_area': 61, 'missing_endpoint': 37, 'not_target_api': 44, 'not_target_api_concentration': 51, 'missing_api_concentration': 66, 'unit_normalization_failed': 22, 'not_target_device': 34, 'percent_only': 23, 'figure_digitization_failed': 5, 'missing_endpoint_time': 1}
+Figure failure counts: {'triage_signals': {'recommended_route:skip': 4, 'endpoint_curve_present:no': 5, 'digitizable:no': 3, 'ticks_readable:no': 3, 'why_not_digitizable:figure_does_not_contain_any_curves_or_endpoints_related_to_ibuprofen': 1, 'why_not_digitizable:no_relevant_figure_or_data_provided_in_the_input_image': 1, 'ticks_readable:uncertain': 5, 'why_not_digitizable:the_plot_lacks_clear_axis_labels_and_numerical_values_preventing_precise_digitiz': 1}, 'digitization_failure_counts': {'digitization_no_output': 4, 'fail_missing_axis_range': 2}, 'mapping_failure_counts': {'underconstrained_label_space_5_curves_1_labels': 5, 'underconstrained_label_space_6_curves_3_labels': 6}}
+LLM adjudication rows: 97
+LLM adjudication summary: outputs\reproducibility_run_16d\report\llm_adjudication_summary.csv
+Long-run summary: outputs\reproducibility_run_16d\long_run\summary.json
+Long-run events: outputs\reproducibility_run_16d\long_run\events.jsonl

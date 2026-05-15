@@ -1,0 +1,471 @@
+{
+  "entry_point": {
+    "manual_corpus_workaround": true,
+    "description": "No run_pipeline.py --pdf/--input-pdf flag exists. The dry-run constructed ContentAccess objects with local_paths.pdf pointing at papers/uploaded_external/*.pdf and invoked SkinMiner router/extractor/assembly/patch/verification modules from the router stage.",
+    "policy": "v4_accept_flux",
+    "llm_provider": "openai",
+    "model": "gpt-4o-mini"
+  },
+  "per_paper": {
+    "Watkinson_2009_I": {
+      "doi": "10.1159/000183922",
+      "expected_permeation_records": 13,
+      "route": "mixed",
+      "route_raw_labels": {
+        "paper_type": "primary_experiment",
+        "mentions_ibuprofen": "yes",
+        "mentions_diffusion_cell": "yes",
+        "franz_confirmed": "yes",
+        "where_diffusion_cell": "Permeation Studies in Silicone Membrane and Skin section",
+        "where_franz": "Permeation Studies in Silicone Membrane and Skin section",
+        "study_type": "IVPT",
+        "barrier_category": "skin",
+        "barrier_name_raw": "human skin",
+        "endpoint_found": "yes",
+        "endpoint_time_found": "uncertain",
+        "where_endpoint": "Conclusions section",
+        "endpoint_carrier": "narrative",
+        "endpoint_carrier_snippet": "the composition of the vehicles can have a significant impact on the percutaneous penetration of the drug",
+        "formulation_carrier": "table_text",
+        "formulation_carrier_snippet": "Table 5. Steady-state fluxes, thermodynamic and kinetic parameters, and permeability coefficients for the permeation of ibuprofen",
+        "endpoint_likely_in_supp": "no",
+        "formulation_table_missing": "no",
+        "notes": "The study provides extensive data on ibuprofen permeation through skin, indicating the influence of ethanol in formulations.",
+        "router_source_backend": "pdf_local",
+        "router_source_ref": "C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\papers\\uploaded_external\\watkinson_2009_I.pdf",
+        "router_source_diagnostics": [],
+        "router_heuristic_signals": {}
+      },
+      "stage_counts": {
+        "table_records": 10,
+        "text_records": 5,
+        "figure_records": 0,
+        "assembled_records": 15,
+        "verified_records": 15,
+        "verified_status_counts": {
+          "verified": 15
+        }
+      },
+      "unique_units": [
+        "ug/cm2/h"
+      ],
+      "unique_endpoint_kinds": [
+        "amount_per_area",
+        "flux"
+      ],
+      "unique_devices": [
+        "Franz diffusion cell"
+      ],
+      "unique_membrane_types": [
+        "Silicone Membrane",
+        "Skin",
+        "epidermis"
+      ],
+      "unique_temperatures": [
+        "MISSING"
+      ],
+      "unique_receptor_media": [
+        "pH 7.4 phosphate-buffered saline"
+      ],
+      "unique_receptor_volumes": [
+        "2.5"
+      ],
+      "unique_replicates": [
+        "MISSING"
+      ],
+      "api_state_or_concentration": [
+        "ethanol-water formulations|0.0|mg/ml|0 mg/ml",
+        "|None||"
+      ],
+      "composition_parsed_to_columns_in_skinminer_schema": false,
+      "composition_anchor_results": [
+        {
+          "table": "Table 3",
+          "vehicle": "0:100",
+          "expected": {
+            "ethanol_vv": 0,
+            "water_vv": 100
+          },
+          "extracted_record_id": "record_abc4d817d2a3",
+          "parsed": {
+            "ethanol_vv": 0.0,
+            "PG_vv": null,
+            "water_vv": 100.0,
+            "MO_vv": null,
+            "MG_vv": null
+          },
+          "correct": true
+        },
+        {
+          "table": "Table 3",
+          "vehicle": "100:0",
+          "expected": {
+            "ethanol_vv": 100,
+            "water_vv": 0
+          },
+          "extracted_record_id": "record_d11a5c8c2530",
+          "parsed": {
+            "ethanol_vv": 100.0,
+            "PG_vv": null,
+            "water_vv": 0.0,
+            "MO_vv": null,
+            "MG_vv": null
+          },
+          "correct": true
+        }
+      ],
+      "numeric_anchor_results": [
+        {
+          "table": "Table 3",
+          "vehicle": "0:100",
+          "expected_barrier": "silicone",
+          "extracted_barrier": "silicone",
+          "expected_J": 186.0,
+          "expected_SD": 11.0,
+          "extracted_J": 2.7,
+          "extracted_SD": null,
+          "ratio": 0.014516129032258065,
+          "within_1pct": false,
+          "record_id": "record_abc4d817d2a3"
+        },
+        {
+          "table": "Table 3",
+          "vehicle": "100:0",
+          "expected_barrier": "silicone",
+          "extracted_barrier": "silicone",
+          "expected_J": 1495.0,
+          "expected_SD": 116.0,
+          "extracted_J": 116.0,
+          "extracted_SD": null,
+          "ratio": 0.07759197324414716,
+          "within_1pct": false,
+          "record_id": "record_d11a5c8c2530"
+        },
+        {
+          "table": "Table 5",
+          "vehicle": "0:100",
+          "expected_barrier": "human_epidermis",
+          "extracted_barrier": "human_epidermis",
+          "expected_J": 24.0,
+          "expected_SD": 2.7,
+          "extracted_J": 2.7,
+          "extracted_SD": null,
+          "ratio": 0.1125,
+          "within_1pct": false,
+          "record_id": "record_c04f6407efcb"
+        }
+      ],
+      "protocol_modifier_capture": {
+        "structured_occlusion_field_present": false,
+        "structured_pretreatment_field_present": false,
+        "occlusion_or_pretreatment_only_in_free_text_evidence": true
+      }
+    },
+    "Watkinson_2009_II": {
+      "doi": "10.1159/000231528",
+      "expected_permeation_records": 20,
+      "route": "table",
+      "route_raw_labels": {
+        "paper_type": "primary_experiment",
+        "mentions_ibuprofen": "yes",
+        "mentions_diffusion_cell": "yes",
+        "franz_confirmed": "yes",
+        "where_diffusion_cell": "Materials and Methods",
+        "where_franz": "Permeation Studies in Silicone Membrane and Skin",
+        "study_type": "IVPT",
+        "barrier_category": "both",
+        "barrier_name_raw": "silicone and skin",
+        "endpoint_found": "yes",
+        "endpoint_time_found": "yes",
+        "where_endpoint": "Results",
+        "endpoint_carrier": "table_text",
+        "endpoint_carrier_snippet": "Table 2, Table 3, Table 5, Table 6",
+        "formulation_carrier": "table_text",
+        "formulation_carrier_snippet": "Table 1, Table 2, Table 3",
+        "endpoint_likely_in_supp": "no",
+        "formulation_table_missing": "no",
+        "notes": "Contains detailed results on ibuprofen solubility and permeation through both silicone membranes and human skin.",
+        "router_source_backend": "pdf_local",
+        "router_source_ref": "C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\papers\\uploaded_external\\watkinson_2009_II.pdf",
+        "router_source_diagnostics": [],
+        "router_heuristic_signals": {}
+      },
+      "stage_counts": {
+        "table_records": 13,
+        "text_records": 0,
+        "figure_records": 0,
+        "assembled_records": 13,
+        "verified_records": 13,
+        "verified_status_counts": {
+          "verified": 13
+        }
+      },
+      "unique_units": [
+        "ug/cm2/h"
+      ],
+      "unique_endpoint_kinds": [
+        "amount_per_area"
+      ],
+      "unique_devices": [
+        "Franz diffusion cell"
+      ],
+      "unique_membrane_types": [
+        "silicone"
+      ],
+      "unique_temperatures": [
+        "MISSING"
+      ],
+      "unique_receptor_media": [
+        "MISSING"
+      ],
+      "unique_receptor_volumes": [
+        "2.5"
+      ],
+      "unique_replicates": [
+        "MISSING"
+      ],
+      "api_state_or_concentration": [
+        "|None||"
+      ],
+      "composition_parsed_to_columns_in_skinminer_schema": false,
+      "composition_anchor_results": [
+        {
+          "table": "Table 2",
+          "vehicle": "70:30",
+          "expected": {
+            "PG_vv": 70,
+            "water_vv": 30
+          },
+          "extracted_record_id": "record_3f3d207c6b22",
+          "parsed": {
+            "ethanol_vv": null,
+            "PG_vv": 70.0,
+            "water_vv": 30.0,
+            "MO_vv": null,
+            "MG_vv": null
+          },
+          "correct": true
+        },
+        {
+          "table": "Table 3",
+          "vehicle": "25:25:50",
+          "expected": {
+            "ethanol_vv": 25,
+            "PG_vv": 25,
+            "water_vv": 50
+          },
+          "extracted_record_id": null,
+          "parsed": null,
+          "correct": false
+        },
+        {
+          "table": "Table 3",
+          "vehicle": "50:25:25",
+          "expected": {
+            "ethanol_vv": 50,
+            "PG_vv": 25,
+            "water_vv": 25
+          },
+          "extracted_record_id": null,
+          "parsed": null,
+          "correct": false
+        }
+      ],
+      "numeric_anchor_results": [
+        {
+          "table": "Table 2",
+          "vehicle": "50:50",
+          "expected_barrier": "silicone",
+          "extracted_barrier": null,
+          "expected_J": 277.1,
+          "expected_SD": 31.22,
+          "extracted_J": null,
+          "extracted_SD": null,
+          "ratio": null,
+          "within_1pct": false,
+          "record_id": null
+        },
+        {
+          "table": "Table 2",
+          "vehicle": "70:30",
+          "expected_barrier": "silicone",
+          "extracted_barrier": "silicone",
+          "expected_J": 443.3,
+          "expected_SD": 19.86,
+          "extracted_J": 443.38,
+          "extracted_SD": null,
+          "ratio": 1.0001804646965937,
+          "within_1pct": true,
+          "record_id": "record_3f3d207c6b22"
+        },
+        {
+          "table": "Table 3",
+          "vehicle": "25:25:50",
+          "expected_barrier": "silicone",
+          "extracted_barrier": null,
+          "expected_J": 525.8,
+          "expected_SD": 37.3,
+          "extracted_J": null,
+          "extracted_SD": null,
+          "ratio": null,
+          "within_1pct": false,
+          "record_id": null
+        },
+        {
+          "table": "Table 5",
+          "vehicle": "100:0",
+          "expected_barrier": "human_epidermis",
+          "extracted_barrier": "silicone",
+          "expected_J": 133.8,
+          "expected_SD": 36.1,
+          "extracted_J": 133.88,
+          "extracted_SD": null,
+          "ratio": 1.0005979073243647,
+          "within_1pct": true,
+          "record_id": "record_3d597be2c17f"
+        }
+      ],
+      "protocol_modifier_capture": {
+        "structured_occlusion_field_present": false,
+        "structured_pretreatment_field_present": false,
+        "occlusion_or_pretreatment_only_in_free_text_evidence": true
+      }
+    },
+    "Watkinson_2011_III": {
+      "doi": "10.1159/000315139",
+      "expected_permeation_records": 14,
+      "route": "table",
+      "route_raw_labels": {
+        "paper_type": "primary_experiment",
+        "mentions_ibuprofen": "yes",
+        "mentions_diffusion_cell": "yes",
+        "franz_confirmed": "yes",
+        "where_diffusion_cell": "Methods",
+        "where_franz": "Methods",
+        "study_type": "IVPT",
+        "barrier_category": "skin",
+        "barrier_name_raw": "human skin",
+        "endpoint_found": "yes",
+        "endpoint_time_found": "no",
+        "where_endpoint": "Results and Discussion",
+        "endpoint_carrier": "table_text",
+        "endpoint_carrier_snippet": "Table 4. Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis (mean ± SD, n = 5)",
+        "formulation_carrier": "table_text",
+        "formulation_carrier_snippet": "Table 3. Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and/or MG through silicone membrane (mean ± SD, n = 4)",
+        "endpoint_likely_in_supp": "no",
+        "formulation_table_missing": "no",
+        "notes": "The study investigates the effect of lipophilic vehicles, specifically Mineral Oil (MO) and Miglyol 812 (MG), on ibuprofen skin permeation using Franz diffusion cells.",
+        "router_source_backend": "pdf_local",
+        "router_source_ref": "C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\papers\\uploaded_external\\watkinson_2011_III.pdf",
+        "router_source_diagnostics": [],
+        "router_heuristic_signals": {}
+      },
+      "stage_counts": {
+        "table_records": 11,
+        "text_records": 0,
+        "figure_records": 0,
+        "assembled_records": 11,
+        "verified_records": 11,
+        "verified_status_counts": {
+          "verified": 11
+        }
+      },
+      "unique_units": [
+        "ug/cm2/h"
+      ],
+      "unique_endpoint_kinds": [
+        "amount_per_area"
+      ],
+      "unique_devices": [
+        "Franz diffusion cell"
+      ],
+      "unique_membrane_types": [
+        "human epidermis"
+      ],
+      "unique_temperatures": [
+        "MISSING"
+      ],
+      "unique_receptor_media": [
+        "phosphate-buffered saline"
+      ],
+      "unique_receptor_volumes": [
+        "MISSING"
+      ],
+      "unique_replicates": [
+        "MISSING"
+      ],
+      "api_state_or_concentration": [
+        "saturated solution|None||"
+      ],
+      "composition_parsed_to_columns_in_skinminer_schema": false,
+      "composition_anchor_results": [
+        {
+          "table": "Table 3",
+          "vehicle": "60/40",
+          "expected": {
+            "MO_vv": 60,
+            "MG_vv": 40
+          },
+          "extracted_record_id": null,
+          "parsed": null,
+          "correct": false
+        }
+      ],
+      "numeric_anchor_results": [
+        {
+          "table": "Table 3",
+          "vehicle": "0/100",
+          "expected_barrier": "silicone",
+          "extracted_barrier": null,
+          "expected_J": 623.8,
+          "expected_SD": 67.7,
+          "extracted_J": null,
+          "extracted_SD": null,
+          "ratio": null,
+          "within_1pct": false,
+          "record_id": null
+        },
+        {
+          "table": "Table 3",
+          "vehicle": "100/0",
+          "expected_barrier": "silicone",
+          "extracted_barrier": null,
+          "expected_J": 579.4,
+          "expected_SD": 35.3,
+          "extracted_J": null,
+          "extracted_SD": null,
+          "ratio": null,
+          "within_1pct": false,
+          "record_id": null
+        },
+        {
+          "table": "Table 4",
+          "vehicle": "100/0",
+          "expected_barrier": "human_epidermis",
+          "extracted_barrier": "human_epidermis",
+          "expected_J": 83.1,
+          "expected_SD": 9.2,
+          "extracted_J": 579.48,
+          "extracted_SD": null,
+          "ratio": 6.973285198555957,
+          "within_1pct": false,
+          "record_id": "record_c0494eca3907"
+        }
+      ],
+      "protocol_modifier_capture": {
+        "structured_occlusion_field_present": false,
+        "structured_pretreatment_field_present": false,
+        "occlusion_or_pretreatment_only_in_free_text_evidence": true
+      }
+    }
+  },
+  "master_summary": {
+    "n_total_extracted_permeation_records": 39,
+    "n_silicone_occluded_main_task": 0,
+    "n_with_complete_main_task_fields": 0,
+    "coverage_ratio": 0.0,
+    "decision": "RED",
+    "composition_anchor_accuracy": "3/6",
+    "numerical_anchor_accuracy": "2/10"
+  }
+}

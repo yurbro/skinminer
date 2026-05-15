@@ -1,0 +1,12 @@
+{
+  "stage": "corpus",
+  "completed": 1828,
+  "total": 1828,
+  "detail": "rows=1828",
+  "input_count": null,
+  "output_count": 1828,
+  "output_paths": [
+    "outputs\\experiment_E7_no_promotion\\corpus.jsonl"
+  ],
+  "resume_signature_digest": "56d643623d891e7fdd361cb29579b3c11204b57f"
+}

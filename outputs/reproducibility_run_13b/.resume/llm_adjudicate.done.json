@@ -1,0 +1,12 @@
+{
+  "stage": "llm_adjudicate",
+  "completed": 33,
+  "total": 33,
+  "detail": "rows=33",
+  "input_count": 33,
+  "output_count": 33,
+  "output_paths": [
+    "outputs\\reproducibility_run_13b\\llm_adjudication.jsonl"
+  ],
+  "resume_signature_digest": "cec10203692928f42894731eef3ebaf3510b26ff"
+}

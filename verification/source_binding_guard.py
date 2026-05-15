@@ -63,6 +63,11 @@ def _has_endpoint_time_patch(record: Record) -> bool:
     return "patcher:patch_endpoint_time" in _evidence_text(record, "endpoint_time")
 
 
+def _has_endpoint_value(record: Record) -> bool:
+    endpoint = record.primary_endpoint()
+    return endpoint is not None and endpoint.mean is not None
+
+
 def _has_figure_endpoint_context(record: Record) -> bool:
     endpoint_text = _evidence_text(record, "endpoint")
     note_text = _compact(" | ".join(record.source_notes))
@@ -128,7 +133,7 @@ def source_context_inconsistency_reasons(record: Record) -> list[str]:
 
     if (
         extractor_name != "figure"
-        and record.endpoint.value is not None
+        and _has_endpoint_value(record)
         and (_has_figure_endpoint_context(record) or _route_raw_endpoint_carrier(record) == "figure")
     ):
         reasons.append("figure_route_table_endpoint")

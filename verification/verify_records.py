@@ -8,18 +8,16 @@ from typing import Iterable
 from extractors.common import device_label_strength, find_device_support_fragment, infer_device_label, infer_study_type_label
 from patchers.common import collect_source_fragments
 from policies.v1_strict_ibuprofen_5pct import V1StrictIbuprofen5PctPolicy
-from schemas.models import EvidenceItem, Record
+from schemas.models import EndpointMeasurement, EvidenceItem, Record, sorted_endpoints
 from utils.io import write_records_csv, write_records_jsonl
 from utils.status_panel import ProgressCallback
 from utils.units import (
     api_concentration_quality,
     amount_total_or_receiver_concentration_to_ug_per_cm2,
-    coerce_endpoint_kind_from_unit,
     infer_api_concentration_from_fragments,
     is_strict_api_concentration_hint,
     normalize_amount_per_area,
     normalize_api_concentration_fields,
-    normalize_time_to_hours,
     parse_area_cm2,
     parse_receptor_volume_ml,
 )
@@ -41,6 +39,53 @@ RECOVERABLE_SCOPE_TAGS = {
     FailureCode.SOURCE_CONTEXT_INCONSISTENT.value: "recoverable_source_context",
     FailureCode.UNRESOLVED_ROUTE.value: "recoverable_routing",
 }
+
+
+def _primary_endpoint(record: Record) -> EndpointMeasurement | None:
+    return record.primary_endpoint()
+
+
+def _has_endpoint_value(record: Record) -> bool:
+    endpoint = _primary_endpoint(record)
+    return endpoint is not None and endpoint.mean is not None
+
+
+def _endpoint_for_kind(record: Record, kind: str) -> EndpointMeasurement | None:
+    for endpoint in record.endpoints:
+        if endpoint.kind == kind and endpoint.mean is not None:
+            return endpoint
+    return _primary_endpoint(record)
+
+
+def _is_amount_per_area_unit(unit: str) -> bool:
+    lowered = (unit or "").strip().lower().replace(" ", "")
+    return any(token in lowered for token in ("mg/cm2", "mg/cm^2", "ug/cm2", "ug/cm^2", "ng/cm2", "ng/cm^2"))
+
+
+def _normalize_endpoint_measurement(endpoint: EndpointMeasurement, record: Record) -> EndpointMeasurement:
+    if endpoint.kind != "cumulative_amount" or endpoint.normalized_mean is not None:
+        return endpoint
+    if _is_amount_per_area_unit(endpoint.unit):
+        value, unit = normalize_amount_per_area(endpoint.mean, endpoint.unit)
+    else:
+        value, unit = amount_total_or_receiver_concentration_to_ug_per_cm2(
+            endpoint.mean,
+            endpoint.unit,
+            record.conditions.diffusion_area_cm2,
+            record.conditions.receptor_volume_ml,
+        )
+    return endpoint.model_copy(update={"normalized_mean": value, "normalized_unit": unit})
+
+
+def _effective_endpoint_kind(record: Record, policy: V1StrictIbuprofen5PctPolicy) -> tuple[str, str | None]:
+    resolver = getattr(policy, "effective_endpoint_kind", None)
+    if callable(resolver):
+        return resolver(record)
+    for endpoint in record.endpoints:
+        if endpoint.kind == "cumulative_amount" and endpoint.mean is not None:
+            return endpoint.kind, None
+    endpoint = _primary_endpoint(record)
+    return (endpoint.kind if endpoint is not None else "unknown"), None
 
 
 def _field_supported(record: Record, field_name: str) -> bool:
@@ -69,8 +114,8 @@ def _verification_support_rate(record: Record) -> float:
         ("device", bool(record.device)),
         ("formulation", bool(record.formulation.api_name)),
         ("api_concentration", record.formulation.api_concentration_value is not None or bool(record.formulation.api_concentration_raw)),
-        ("endpoint", record.endpoint.value is not None),
-        ("endpoint_time", record.endpoint.time_value is not None),
+        ("endpoint", _has_endpoint_value(record)),
+        ("endpoint_time", record.conditions.duration_h is not None),
     ]:
         checks += 1
         if has_value and (_field_supported(record, field_name) or field_name == "formulation"):
@@ -336,16 +381,19 @@ def _best_support_fragment(
 
 
 def _endpoint_support_fragment(record: Record, support_fragments: list[str]) -> str:
+    endpoint = _primary_endpoint(record)
+    if endpoint is None:
+        return ""
     preferred_terms = ["endpoint", "amount", "permeat", "release", "cumulative", "after"]
-    if record.endpoint.kind == "flux":
+    if endpoint.kind == "flux":
         preferred_terms = ["flux", "steady state", "jss"]
-    elif record.endpoint.kind == "percent":
+    elif endpoint.kind == "permeated_fraction":
         preferred_terms = ["%", "percent", "release"]
     return _best_support_fragment(
         support_fragments,
         preferred_terms=preferred_terms,
-        value=record.endpoint.value,
-        unit=record.endpoint.unit,
+        value=endpoint.mean,
+        unit=endpoint.unit,
     )
 
 
@@ -456,7 +504,7 @@ def _normalize_record_fields(
 ) -> None:
     route_anchor_items = _route_anchor_items(candidate)
     route_label_fragments = _route_raw_label_fragments(candidate)
-    candidate.endpoint.kind = coerce_endpoint_kind_from_unit(candidate.endpoint.kind, candidate.endpoint.unit)
+    candidate.endpoints = sorted_endpoints([endpoint for endpoint in candidate.endpoints if endpoint.mean is not None])
     source_fragments = collect_source_fragments(
         candidate,
         keywords=[
@@ -568,15 +616,6 @@ def _normalize_record_fields(
         formulation_fragment = _formulation_support_fragment(candidate, support_fragments)
         if formulation_fragment:
             _append_support_evidence(candidate, "formulation", formulation_fragment, confidence=0.56)
-
-    normalized_endpoint_time_h = None
-    if candidate.endpoint.time_value is not None:
-        normalized_endpoint_time_h = normalize_time_to_hours(candidate.endpoint.time_value, candidate.endpoint.time_unit)
-    if candidate.conditions.duration_h is None and normalized_endpoint_time_h is not None:
-        candidate.conditions.duration_h = normalized_endpoint_time_h
-    if candidate.conditions.duration_h is not None and normalized_endpoint_time_h is None:
-        candidate.endpoint.time_value = candidate.conditions.duration_h
-        candidate.endpoint.time_unit = "hours"
 
     if candidate.conditions.diffusion_area_cm2 is None:
         for fragment in [
@@ -692,32 +731,18 @@ def _normalize_record_fields(
         if api_fragment:
             _append_support_evidence(candidate, "api_concentration", api_fragment, confidence=0.56)
 
-    if candidate.endpoint.time_value is not None and not _field_supported(candidate, "endpoint_time"):
+    if candidate.conditions.duration_h is not None and not _field_supported(candidate, "endpoint_time"):
         for fragment in [*route_label_fragments, *candidate.source_notes, *source_fragments, *(item.snippet for item in candidate.evidence_items)]:
-            if normalize_time_to_hours(candidate.endpoint.time_value, candidate.endpoint.time_unit) is not None and any(
-                token in fragment.lower() for token in ("hour", "hr", "min", "day", "after", " at ")
-            ):
+            if any(token in fragment.lower() for token in ("hour", "hr", "min", "day", "after", " at ")):
                 _append_support_evidence(candidate, "endpoint_time", fragment)
                 break
 
-    if candidate.endpoint.value is not None and not _field_supported(candidate, "endpoint"):
+    if _has_endpoint_value(candidate) and not _field_supported(candidate, "endpoint"):
         endpoint_fragment = _endpoint_support_fragment(candidate, support_fragments)
         if endpoint_fragment:
             _append_support_evidence(candidate, "endpoint", endpoint_fragment, confidence=0.56)
 
-    if candidate.endpoint.kind == "amount_per_area" and candidate.endpoint.normalized_value is None:
-        value, unit = normalize_amount_per_area(candidate.endpoint.value, candidate.endpoint.unit)
-        candidate.endpoint.normalized_value = value
-        candidate.endpoint.normalized_unit = unit
-    elif candidate.endpoint.kind == "amount_total" and candidate.endpoint.normalized_value is None:
-        value, unit = amount_total_or_receiver_concentration_to_ug_per_cm2(
-            candidate.endpoint.value,
-            candidate.endpoint.unit,
-            candidate.conditions.diffusion_area_cm2,
-            candidate.conditions.receptor_volume_ml,
-        )
-        candidate.endpoint.normalized_value = value
-        candidate.endpoint.normalized_unit = unit
+    candidate.endpoints = sorted_endpoints([_normalize_endpoint_measurement(endpoint, candidate) for endpoint in candidate.endpoints])
 
 
 def _route_specific_support_threshold(route: str) -> float:
@@ -752,7 +777,7 @@ def _route_specific_failure_codes(record: Record) -> list[str]:
             codes.append(FailureCode.INSUFFICIENT_EVIDENCE.value)
 
     if record.route == "figure":
-        if record.endpoint.value is None and not _has_figure_endpoint_evidence(record):
+        if not _has_endpoint_value(record) and not _has_figure_endpoint_evidence(record):
             codes.append(FailureCode.FIGURE_DIGITIZATION_FAILED.value)
         if not record.formulation.label:
             codes.append(FailureCode.AMBIGUOUS_MAPPING.value)
@@ -849,6 +874,8 @@ def _collect_failure_codes(record: Record, policy: V1StrictIbuprofen5PctPolicy) 
 
     has_endpoint_support = _field_supported(record, "endpoint")
     endpoint_status = policy.endpoint_scope_status(record)
+    effective_kind, _ = _effective_endpoint_kind(record, policy)
+    endpoint = _endpoint_for_kind(record, effective_kind)
     if endpoint_status == "missing":
         codes.append(FailureCode.MISSING_ENDPOINT.value)
     elif endpoint_status == "out_of_scope":
@@ -856,7 +883,7 @@ def _collect_failure_codes(record: Record, policy: V1StrictIbuprofen5PctPolicy) 
             codes.append(FailureCode.NOT_TARGET_ENDPOINT.value)
         else:
             codes.append(FailureCode.INSUFFICIENT_EVIDENCE.value)
-    elif record.endpoint.kind == "percent":
+    elif effective_kind == "permeated_fraction":
         if has_endpoint_support or record.route == "table":
             codes.append(FailureCode.PERCENT_ONLY.value)
         else:
@@ -864,14 +891,19 @@ def _collect_failure_codes(record: Record, policy: V1StrictIbuprofen5PctPolicy) 
     elif endpoint_status == "ambiguous":
         codes.append(FailureCode.INSUFFICIENT_EVIDENCE.value)
 
-    if record.endpoint.time_value is None:
+    if record.conditions.duration_h is None:
         codes.append(FailureCode.MISSING_ENDPOINT_TIME.value)
 
-    if record.endpoint.kind == "amount_total" and record.conditions.diffusion_area_cm2 is None:
+    cumulative_total_needs_area = (
+        endpoint is not None
+        and effective_kind == "cumulative_amount"
+        and not _is_amount_per_area_unit(endpoint.unit)
+    )
+    if cumulative_total_needs_area and record.conditions.diffusion_area_cm2 is None:
         codes.append(FailureCode.MISSING_AREA.value)
 
-    if record.endpoint.kind in {"amount_per_area", "amount_total"} and record.endpoint.normalized_value is None:
-        if record.endpoint.kind == "amount_total" and record.conditions.diffusion_area_cm2 is None:
+    if endpoint is not None and effective_kind == "cumulative_amount" and endpoint.normalized_mean is None:
+        if cumulative_total_needs_area and record.conditions.diffusion_area_cm2 is None:
             pass
         else:
             codes.append(FailureCode.UNIT_NORMALIZATION_FAILED.value)
@@ -879,10 +911,10 @@ def _collect_failure_codes(record: Record, policy: V1StrictIbuprofen5PctPolicy) 
     if record.route == "figure" and (not record.formulation.label or (record.mapping_confidence is not None and record.mapping_confidence < 0.5)):
         codes.append(FailureCode.AMBIGUOUS_MAPPING.value)
 
-    has_figure_endpoint = _has_figure_endpoint_evidence(record) and record.endpoint.value is not None
-    if record.endpoint.value is None and not has_figure_endpoint and any(note.startswith("figure_plot_context_missing") for note in record.source_notes):
+    has_figure_endpoint = _has_figure_endpoint_evidence(record) and _has_endpoint_value(record)
+    if not _has_endpoint_value(record) and not has_figure_endpoint and any(note.startswith("figure_plot_context_missing") for note in record.source_notes):
         codes.append(FailureCode.FIGURE_PLOT_CONTEXT_MISSING.value)
-    elif record.endpoint.value is None and not has_figure_endpoint and any(
+    elif not _has_endpoint_value(record) and not has_figure_endpoint and any(
         note.startswith("figure_digitization_failure:")
         or note.startswith("figure_no_digitized_endpoint")
         or note.startswith("figure_mapping_unresolved")
@@ -930,6 +962,10 @@ def verify_records(
             label_api_hint=api_hints_by_label.get((candidate.paper_id, _normalize_label_key(candidate.formulation.label))),
             paper_api_hint=api_hints_by_paper.get(candidate.paper_id),
         )
+        effective_kind, reclassification_reason = _effective_endpoint_kind(candidate, active_policy)
+        if reclassification_reason:
+            candidate.provenance.metadata["verification_effective_kind"] = effective_kind
+            candidate.provenance.metadata["verification_reclassification_reason"] = reclassification_reason
         candidate.verification_support_rate = _verification_support_rate(candidate)
         candidate.failure_reasons = _collect_failure_codes(candidate, active_policy)
         candidate.failure_reason = candidate.failure_reasons[0] if candidate.failure_reasons else None

@@ -153,6 +153,7 @@ def select_adjudication_candidates(records: Iterable[Record], limit: int | None 
 
 
 def _build_evidence_packet(record: Record, max_fragments: int = 8) -> str:
+    endpoint = record.primary_endpoint()
     evidence_lines: list[str] = []
     for item in record.evidence_items[:10]:
         locator = item.locator or "no_locator"
@@ -197,11 +198,12 @@ def _build_evidence_packet(record: Record, max_fragments: int = 8) -> str:
             f"- api_concentration_unit={record.formulation.api_concentration_unit}",
             f"- api_basis={record.formulation.api_basis}",
             f"- api_concentration_raw={record.formulation.api_concentration_raw}",
-            f"- endpoint_kind={record.endpoint.kind}",
-            f"- endpoint_value={record.endpoint.value}",
-            f"- endpoint_unit={record.endpoint.unit}",
-            f"- endpoint_time_value={record.endpoint.time_value}",
-            f"- endpoint_time_unit={record.endpoint.time_unit}",
+            f"- endpoint_kind={endpoint.kind if endpoint is not None else 'unknown'}",
+            f"- endpoint_mean={endpoint.mean if endpoint is not None else None}",
+            f"- endpoint_sd={endpoint.sd if endpoint is not None else None}",
+            f"- endpoint_unit={endpoint.unit if endpoint is not None else ''}",
+            f"- endpoint_n_replicates={endpoint.n_replicates if endpoint is not None else None}",
+            f"- endpoint_time_h={record.conditions.duration_h}",
             f"- diffusion_area_cm2={record.conditions.diffusion_area_cm2}",
             f"- failure_reasons={record.failure_reasons}",
             "",

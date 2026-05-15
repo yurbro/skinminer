@@ -1,0 +1,9 @@
+record_id,doi,route,formulation_label,api_concentration,api_basis,endpoint,endpoint_time,existing_gold_record_id,existing_gold_keep_record,policy_gain,supplemental_reason
+record_851ab860659f,10.1208/s12249-013-9995-4,table,F2,5 % w/v,w/v,1178.9 μg,48 h,yes,no,yes,present_in_gold_but_v1_label_not_v2_applicable
+record_8ad9e33e54f0,10.1016/j.ijpharm.2016.03.043,figure,IBULEVE™ Speed Relief 5% Spray,5 % w/w,w/w,42 μg/cm²,48 hours,no,,no,not_in_gold_run_churn
+record_8b2e8239ff2b,10.1208/s12249-013-9995-4,table,N2,5 % w/v,w/v,1178.9 μg,72 h,no,,yes,not_in_gold_policy_gain
+record_8b7dd5d8bd7f,10.1016/j.ijpharm.2016.03.043,figure,IBUGEL™,5 % w/w,w/w,3 μg/cm²,48 hours,no,,no,not_in_gold_run_churn
+record_9d98bd27f9f7,10.1208/s12249-013-9995-4,table,F3,5 % w/v,w/v,759.6 μg,72 h,yes,no,yes,present_in_gold_but_v1_label_not_v2_applicable
+record_ace3746b1600,10.1208/s12249-013-9995-4,table,F1,5 % w/v,w/v,1142.4 μg,24 h,yes,no,yes,present_in_gold_but_v1_label_not_v2_applicable
+record_e8222f4e4c6c,10.1208/s12249-013-9995-4,table,N1,5 % w/v,w/v,1142.4 μg,72 h,no,,yes,not_in_gold_policy_gain
+record_f4fb84fa1eb7,10.1208/s12249-013-9995-4,table,N3,5 % w/v,w/v,759.6 μg,72 h,no,,yes,not_in_gold_policy_gain

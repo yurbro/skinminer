@@ -1,0 +1,4 @@
+sample_id,doi,formulation_label,endpoint_time,single_pass_record_id,single_pass_endpoint_value,single_pass_endpoint_unit,gold_notes
+R2-009,10.1039/d0ra00100g,rac-IBU,24.0,10.1039/d0ra00100g::sp0004,302.84,mg IBU cm2,"concentration was not extracted, it states 0.01 g/L; dose type is infinite dose."
+R2-075,10.1007/s13346-022-01182-x,SNM-IBU1,24.0,10.1007/s13346-022-01182-x::sp0002,74.0,%,"In this article, the focus is not on the transdermal absorption of ibuprofen (IBU)."
+R2-077,10.1038/s41598-020-74885-1,12% PCL-IBU,62.0,10.1038/s41598-020-74885-1::sp0009,86.08,%,This study focuses on using ibuprofen as a model drug to develop a novel wound dressing or tissue engineering scaffold capable of **prolonged sustained drug release without dangerous “sudden release”**. This is outside the scope of our study.

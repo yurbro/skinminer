@@ -1,0 +1,7 @@
+## Application: LLM-Driven In-Context Prediction
+
+To complement the Gaussian process regression demonstration, we evaluated whether SkinMiner-extracted records can be used directly as structured in-context examples for LLM-driven numerical prediction. Using the same ibuprofen nanosuspension data set, we performed leave-one-formulation-out evaluation across four prompt conditions: no context, general domain context, in-context learning with the other seven formulations, and a permuted in-context control in which formulation factors were paired with incorrect permeation profiles. The updated comparison covers GPT-4o-mini, Claude Sonnet 4.6, and GPT-5.4, with three repeats per fold.
+
+The best overall condition was GPT-4o-mini with ICL, reaching R2 = 0.83, RMSE = 193 ug/cm2, and MAE = 128 ug/cm2. The V5 GPR baseline achieved R2 = 0.60. Across the three models, GPT-5.4 reached R2 = 0.72 in the ICL condition, but its ICL-vs-permuted diagnostic did not reach p < 0.05 (p = 0.527). This supports a cautious interpretation: the structured records help constrain numerical ranges, but do not by themselves prove robust example-based formulation-response learning.
+
+This experiment should be interpreted as ICL, not RAG. It is based on one paper and a small formulation set. The result therefore supports a limited downstream-utility claim: SkinMiner outputs can provide structured demonstrations for LLM scientific reasoning in a constrained setting. Full retrieval-augmented modelling over the SkinMiner corpus remains future work.

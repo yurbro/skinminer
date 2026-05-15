@@ -1,0 +1,16 @@
+doi,n_records_total,pct_records_with_numeric_composition,pct_records_with_components_list,n_distinct_numeric_component_values,provenance_mix,re_extraction_potential,expected_lift_class,est_llm_input_tokens
+10.1186/2050-6511-13-5,27,0.0,0.0,0,mixed=27,65,high,20000
+10.4103/jomfp.jomfp_253_19,19,0.0,100.0,0,table=19,65,high,8000
+10.1016/j.ejpb.2020.05.013,12,100.0,100.0,2,mixed=12,65,high,29000
+10.1038/s41598-024-57883-5,10,0.0,100.0,0,mixed=10,65,high,20000
+10.1208/s12249-013-9995-4,24,100.0,100.0,3,mixed=24,55,medium,8000
+10.1016/j.ijpharm.2016.03.043,27,33.3,100.0,1,mixed=27,50,medium,29000
+10.1007/s11095-008-9785-y,12,91.7,100.0,4,table=6; mixed=5; text=1,50,medium,62000
+10.1208/s12249-019-1481-1,10,100.0,100.0,16,mixed=10,50,medium,20000
+10.1208/s12249-019-1584-8,10,30.0,60.0,5,mixed=10,50,medium,23000
+10.1523/jneurosci.15-04-02768.1995,9,11.1,11.1,9,mixed=9,45,medium,20000
+10.1039/d0ra00100g,8,0.0,0.0,0,table=6; mixed=1; text=1,45,medium,26000
+10.1248/cpb.c21-00033,14,78.6,100.0,45,table=12; mixed=2,40,medium,26000
+10.1021/acs.molpharmaceut.0c00720,7,0.0,100.0,0,mixed=7,35,low,20000
+10.1523/jneurosci.5741-07.2008,5,0.0,100.0,0,text=5,35,low,12000
+10.1371/journal.pone.0156931,8,37.5,100.0,2,mixed=8,20,low,20000

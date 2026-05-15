@@ -1,0 +1,12 @@
+{
+  "stage": "assembly",
+  "completed": 8,
+  "total": 8,
+  "detail": "assembled=7",
+  "input_count": 8,
+  "output_count": 7,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_rerun3\\assembled_records.jsonl"
+  ],
+  "resume_signature_digest": "1ee669e34a285dd3112f21d7e756117ed80e190b"
+}

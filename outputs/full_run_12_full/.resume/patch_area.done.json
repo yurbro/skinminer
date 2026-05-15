@@ -1,0 +1,12 @@
+{
+  "stage": "patch_area",
+  "completed": 95,
+  "total": 95,
+  "detail": "applied=7",
+  "input_count": 95,
+  "output_count": 95,
+  "output_paths": [
+    "outputs\\full_run_12_full\\patched_area.jsonl"
+  ],
+  "resume_signature_digest": "ab5603a383603bae3c9810fe673d964b2d3ace62"
+}

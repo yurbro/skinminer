@@ -1,0 +1,17 @@
+{
+  "stage": "figure_extract",
+  "completed": 18,
+  "total": 18,
+  "detail": "records=7",
+  "input_count": 18,
+  "output_count": 7,
+  "output_paths": [
+    "outputs\\experiment_E7_no_promotion\\figure_records.jsonl",
+    "outputs\\experiment_E7_no_promotion\\figure_triage.jsonl",
+    "outputs\\experiment_E7_no_promotion\\figure_curves.jsonl",
+    "outputs\\experiment_E7_no_promotion\\figure_endpoints.jsonl",
+    "outputs\\experiment_E7_no_promotion\\figure_vlm_readings.jsonl",
+    "outputs\\experiment_E7_no_promotion\\figure_curve_map.jsonl"
+  ],
+  "resume_signature_digest": "56d643623d891e7fdd361cb29579b3c11204b57f"
+}

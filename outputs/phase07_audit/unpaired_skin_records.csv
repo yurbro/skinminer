@@ -1,0 +1,3 @@
+record_id,doi,source_table,vehicle_raw_string,vehicle_signature,pair_id,reason
+record_d56177853e9b,10.1159/000231528,Table 5,25:75 PG:water,0:25:75:0:0,231528_0:25:75:0:0,no matching F3 silicone record with same doi and vehicle composition
+record_0917c25edbf8,10.1159/000231528,Table 5,50:50 PG:water,0:50:50:0:0,231528_0:50:50:0:0,no matching F3 silicone record with same doi and vehicle composition

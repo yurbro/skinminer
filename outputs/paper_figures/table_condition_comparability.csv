@@ -1,0 +1,8 @@
+﻿dimension,paper1,literature,match_symbol,match_label,extracted
+API,Ibuprofen 5% w/w,Ibuprofen 5% w/v,≈,Partial,Yes
+Device,Franz cell,Franz diffusion cell,✓,Match,Yes
+Membrane,Strat-M synthetic membrane,Porcine skin,×,Mismatch,Yes
+Excipient,Poloxamer 407 / Ethanol / Propylene glycol gel,Vit. E TPGS / HPMC nanosuspension,×,Mismatch,Yes
+Dose,"Finite dose, 300 mg",Infinite dose,×,Mismatch,Yes
+Receptor,PBS,PBS (pH 7.4),✓,Match,Yes
+Area,Not encoded in spreadsheet,0.64 cm2,≈,Partial,Yes

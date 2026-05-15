@@ -1,0 +1,251 @@
+{
+  "run_id": "run_a1e9ae25e17f",
+  "model_name": "gpt-4o-mini",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-04-06T14:17:27.985913+00:00",
+  "run_profile": "balanced_full",
+  "query_profile": "ibuprofen_dermal_oa_v1",
+  "query_profile_version": "2026-03-28.v1",
+  "query_source": "profile:ibuprofen_dermal_oa_v1",
+  "stage_models": {
+    "llm_triage": "gpt-4o-mini",
+    "routing": "gpt-4o-mini",
+    "text_extract": "gpt-4o-mini",
+    "table_extract": "gpt-4o-mini",
+    "figure_triage": "gpt-4o-mini",
+    "figure_map": "gpt-4o-mini",
+    "llm_adjudicate": "gpt-4o-mini"
+  },
+  "prompt_assets": {
+    "triage.abstract_relevance": "2026-03-28.v1",
+    "routing.structured_first": "2026-03-28.v1",
+    "extractors.text.structured_fields": "2026-03-28.v1",
+    "extractors.table.structured_tables": "2026-03-28.v1",
+    "extractors.figure.triage": "2026-03-28.v1",
+    "extractors.figure.curve_map": "2026-03-28.v1",
+    "verification.llm_adjudication": "2026-04-03.v1"
+  },
+  "module_counts": {
+    "table": 17,
+    "text": 0,
+    "figure": 13
+  },
+  "route_distribution": {
+    "figure": 8,
+    "mixed": 1,
+    "table": 1
+  },
+  "extractor_output_counts": {
+    "table": 17,
+    "text": 0,
+    "figure": 13
+  },
+  "verification_outcome_counts": {
+    "unresolved": 16,
+    "verified": 10,
+    "rejected": 2
+  },
+  "scope_bucket_counts": {
+    "recoverable_unresolved": 16,
+    "strict_in_scope": 10,
+    "useful_but_out_of_scope": 2
+  },
+  "scope_tag_counts": {
+    "recoverable_unresolved": 16,
+    "recoverable_endpoint": 1,
+    "recoverable_unit_normalization": 4,
+    "recoverable_figure_digitization": 1,
+    "recoverable_support_gap": 11,
+    "recoverable_api_basis": 7,
+    "useful_but_out_of_scope": 2,
+    "useful_study_type_out_of_scope": 1,
+    "recoverable_area": 1,
+    "useful_api_concentration_out_of_scope": 1,
+    "useful_device_out_of_scope": 1
+  },
+  "failure_taxonomy_counts": {
+    "missing_endpoint": 2,
+    "unit_normalization_failed": 4,
+    "figure_digitization_failed": 2,
+    "insufficient_evidence": 12,
+    "ambiguous_api_concentration": 8,
+    "not_target_study_type": 1,
+    "missing_area": 2,
+    "percent_only": 2,
+    "not_target_device": 1,
+    "not_target_api_concentration": 1
+  },
+  "failure_taxonomy_counts_by_route": {
+    "figure": {
+      "missing_endpoint": 2,
+      "unit_normalization_failed": 3,
+      "figure_digitization_failed": 2,
+      "ambiguous_api_concentration": 6,
+      "insufficient_evidence": 10,
+      "not_target_study_type": 1,
+      "missing_area": 2,
+      "percent_only": 2,
+      "not_target_device": 1,
+      "not_target_api_concentration": 1
+    },
+    "mixed": {
+      "insufficient_evidence": 2,
+      "unit_normalization_failed": 1
+    },
+    "table": {
+      "ambiguous_api_concentration": 2
+    }
+  },
+  "figure_verification_failure_taxonomy_counts": {
+    "missing_endpoint": 2,
+    "unit_normalization_failed": 3,
+    "figure_digitization_failed": 2,
+    "ambiguous_api_concentration": 6,
+    "insufficient_evidence": 10,
+    "not_target_study_type": 1,
+    "missing_area": 2,
+    "percent_only": 2,
+    "not_target_device": 1,
+    "not_target_api_concentration": 1
+  },
+  "figure_stage_counts": {
+    "triage_artifacts": 9,
+    "triage_has_permeation_plot_true": 7,
+    "triage_digitize_candidates": 7,
+    "digitized_curves": 15,
+    "digitized_endpoints_ok": 15,
+    "digitized_endpoints_failed": 3,
+    "digitization_no_output": 3,
+    "mapped_curves": 15,
+    "unmapped_curves": 0
+  },
+  "figure_failure_counts": {
+    "triage_signals": {
+      "recommended_route:skip": 2,
+      "digitizable:no": 2,
+      "why_not_digitizable:calibration_curve_not_target": 1,
+      "ticks_readable:uncertain": 2,
+      "endpoint_curve_present:no": 1,
+      "why_not_digitizable:the_figures_do_not_show_clear_endpoint_curves_for_ibuprofen_they_focus_on_variou": 1
+    },
+    "digitization_failure_counts": {
+      "digitization_no_output": 3
+    },
+    "mapping_failure_counts": {}
+  },
+  "figure_gate_counts": {
+    "routed_candidates": 9,
+    "after_gate": 9,
+    "skipped": {}
+  },
+  "figure_route_counts": {
+    "skip": 2,
+    "digitize": 7
+  },
+  "figure_digitization_status_counts": {
+    "ok": 15,
+    "digitization_no_output": 3
+  },
+  "figure_mapping_status_counts": {
+    "vision_mapped": 15
+  },
+  "llm_reliability": {},
+  "llm_adjudication_summary": {
+    "row_count": 11,
+    "candidate_reason_counts": {
+      "recoverable_unresolved:ambiguous_api_concentration": 7,
+      "recoverable_unresolved:missing_endpoint": 1,
+      "recoverable_unresolved:unit_normalization_failed": 3
+    },
+    "priority_bucket_counts": {
+      "high": 10,
+      "medium": 1
+    },
+    "review_focus_counts": {
+      "api_concentration_basis": 7,
+      "endpoint_value": 1,
+      "unit_normalization": 3
+    },
+    "recommended_status_counts": {
+      "unresolved": 10,
+      "rejected": 1
+    },
+    "should_keep_strict_counts": {
+      "no": 11
+    },
+    "disagreement_counts": {
+      "status_disagreement": 1,
+      "scope_bucket_disagreement": 1
+    },
+    "original_vs_recommended_counts": {
+      "unresolved->unresolved": 10,
+      "unresolved->rejected": 1
+    }
+  },
+  "blockage_summary": {
+    "access_status_counts": {
+      "downloaded": 10
+    },
+    "access_reason_counts": {},
+    "route_unresolved_reason_counts": {},
+    "route_note_counts": {
+      "the_study_uses_innovative_3d_printed_diffusion_cells_akin_to_franz_cells_to_asse": 1,
+      "study_focuses_on_ibuprofen_nanosuspension_formulations_relevant_formulations_are": 1,
+      "the_study_shows_improved_transdermal_delivery_of_ibuprofen_via_a_microemulsion_i": 1,
+      "the_paper_explores_the_permeation_rates_of_ibuprofen_and_lidocaine_through_a_sil": 1,
+      "includes_experimental_data_on_the_effects_of_ibuprofen_on_neurite_outgrowth": 1,
+      "the_study_focuses_on_the_release_characteristics_of_ibuprofen_from_a_hydrogel_sy": 1,
+      "study_focuses_on_the_development_of_chitosan_ibuprofen_aerogels_for_transdermal_": 1,
+      "the_paper_primarily_discusses_ibuprofen_ha_conjugates_and_their_effects_on_cochl": 1
+    },
+    "extractor_blockages": {
+      "text": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      },
+      "table": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      }
+    },
+    "patch_status_counts": {
+      "patch_api_concentration": {
+        "skipped": 17
+      },
+      "patch_area": {
+        "applied": 6,
+        "skipped": 3
+      },
+      "patch_endpoint_value": {
+        "skipped": 15,
+        "applied": 11
+      }
+    },
+    "patch_reason_counts": {
+      "patch_api_concentration": {
+        "no_recoverable_concentration_fragment": 16,
+        "recovered_concentration_is_not_stronger_than_existing_value": 1
+      },
+      "patch_area": {
+        "no_recoverable_area_fragment": 3
+      },
+      "patch_endpoint_value": {
+        "no_recoverable_endpoint_fragment": 6,
+        "recovered_endpoint_matches_existing_value": 9
+      }
+    }
+  },
+  "patch_success_counts": {
+    "patch_endpoint_value": 11,
+    "patch_area": 6
+  },
+  "output_record_counts": {
+    "assembled": 28,
+    "final_records_evaluated": 28,
+    "actually_verified": 10,
+    "unresolved": 16,
+    "rejected": 2
+  }
+}

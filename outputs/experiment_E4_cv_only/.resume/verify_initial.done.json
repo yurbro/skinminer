@@ -1,0 +1,12 @@
+{
+  "stage": "verify_initial",
+  "completed": 80,
+  "total": 80,
+  "detail": "rejected=29 unresolved=47 verified=4",
+  "input_count": 80,
+  "output_count": 80,
+  "output_paths": [
+    "outputs\\experiment_E4_cv_only\\verified_initial.jsonl"
+  ],
+  "resume_signature_digest": "045100982d6bea38bbe93bc78f89c363d1b17f63"
+}

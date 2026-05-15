@@ -1,0 +1,16 @@
+{
+  "stage": "figure_extract",
+  "completed": 9,
+  "total": 9,
+  "detail": "records=13",
+  "input_count": 9,
+  "output_count": 13,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix2\\figure_records.jsonl",
+    "outputs\\validation_observability_run_fix2\\figure_triage.jsonl",
+    "outputs\\validation_observability_run_fix2\\figure_curves.jsonl",
+    "outputs\\validation_observability_run_fix2\\figure_endpoints.jsonl",
+    "outputs\\validation_observability_run_fix2\\figure_curve_map.jsonl"
+  ],
+  "resume_signature_digest": "c058b1d9b297db2be4aedd574f602aede850b29b"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "assembly",
+  "completed": 81,
+  "total": 81,
+  "detail": "assembled=61",
+  "input_count": 81,
+  "output_count": 61,
+  "output_paths": [
+    "outputs\\experiment_E2_gpt54\\assembled_records.jsonl"
+  ],
+  "resume_signature_digest": "1fdae1eb3b77082da290ec83e9badfbbbc552ef0"
+}

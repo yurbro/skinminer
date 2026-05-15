@@ -1,0 +1,12 @@
+{
+  "stage": "llm_adjudicate",
+  "completed": 0,
+  "total": 0,
+  "detail": "rows=0",
+  "input_count": 0,
+  "output_count": 0,
+  "output_paths": [
+    "outputs\\_smoke_no_figure_vlm\\llm_adjudication.jsonl"
+  ],
+  "resume_signature_digest": "206b762452d5e3992fe133d341a26c560e95e108"
+}

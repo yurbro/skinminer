@@ -1,0 +1,60 @@
+# Record: record_bb1cbf1d5f0b
+
+**Sample ID:** R2-112  
+**Tier:** tier4_claude_only_v4_verified  
+**Source baseline:** claude  
+**DOI:** 10.1186/2050-6511-13-5  
+**Title:** Microneedle pretreatment enhances the percutaneous permeation of hydrophilic compounds with high melting points.  
+**Route:** mixed  
+**Policy first verified:** v4  
+**Pipeline status (v4):** verified  
+**Failure reasons (v4):** 
+
+## Formulation
+
+- Label: Ibuprofen - 300 um microneedle
+- API: ibuprofen
+- Concentration:   ()
+- Raw concentration: 80% saturated solution
+- Dosage form: solution
+
+## Components
+
+- No component list recorded.
+
+## Endpoint
+
+- Value: 5.27 10-6 cm/s
+- Time: 6.0 hours
+- Kind: flux
+- Normalized:  
+
+## Conditions
+
+- Device: Franz diffusion cell
+- Study type: IVPT
+- Barrier: bovine udder split skin (600 um 50 um thick, Holstein Friesian cows)
+- Membrane: bovine split skin, pretreated with 300 um microneedle roller (bovine udder (Holstein Friesian), 600.0 um)
+- Receptor: phosphate buffered saline (PBS)
+- Dose: infinite, infinite dose
+- Area: 1.77 cm2
+
+## Evidence Summary
+
+- formulation/table at Table 1; endpoint/table at Table 1; membrane_type/table at Table 1; membrane_source/table at Table 1; membrane_thickness_um/table at Table 1; receptor_medium/table at Table 1
+
+## Evidence Locators
+
+- formulation | table | Table 1 | p.4 | papers\pdf\10.1186_2050-6511-13-5__be67543fcb.pdf
+- endpoint | table | Table 1 | p.4 | papers\pdf\10.1186_2050-6511-13-5__be67543fcb.pdf
+- membrane_type | table | Table 1 | p.4 | papers\pdf\10.1186_2050-6511-13-5__be67543fcb.pdf
+- membrane_source | table | Table 1 | p.4 | papers\pdf\10.1186_2050-6511-13-5__be67543fcb.pdf
+- membrane_thickness_um | table | Table 1 | p.4 | papers\pdf\10.1186_2050-6511-13-5__be67543fcb.pdf
+- receptor_medium | table | Table 1 | p.4 | papers\pdf\10.1186_2050-6511-13-5__be67543fcb.pdf
+- dose_type | table | Table 1 | p.4 | papers\pdf\10.1186_2050-6511-13-5__be67543fcb.pdf
+- dose_amount | table | Table 1 | p.4 | papers\pdf\10.1186_2050-6511-13-5__be67543fcb.pdf
+
+## For Annotator
+
+- Paper link: https://doi.org/10.1186/2050-6511-13-5
+- Key table/figure to check: Table 1; Page 2 Methods (In-vitro permeation section): 'Franz-type diffusion cells obtained from PermeGear (Riegelsville, PA, USA) with a receptor chamber of approximately 12 ml and a diffusion area of approximately 1.77 cm2'; page(s): 2, 3, 4, 5, 6

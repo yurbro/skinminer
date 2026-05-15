@@ -1,0 +1,12 @@
+{
+  "stage": "verify_final",
+  "completed": 95,
+  "total": 95,
+  "detail": "rejected=21 unresolved=66 verified=8",
+  "input_count": 95,
+  "output_count": 95,
+  "output_paths": [
+    "outputs\\full_run_12_full\\verified_records.jsonl"
+  ],
+  "resume_signature_digest": "ab5603a383603bae3c9810fe673d964b2d3ace62"
+}

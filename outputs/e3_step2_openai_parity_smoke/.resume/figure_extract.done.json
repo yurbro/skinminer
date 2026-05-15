@@ -1,0 +1,17 @@
+{
+  "stage": "figure_extract",
+  "completed": 0,
+  "total": 0,
+  "detail": "records=0",
+  "input_count": 0,
+  "output_count": 0,
+  "output_paths": [
+    "outputs\\e3_step2_openai_parity_smoke\\figure_records.jsonl",
+    "outputs\\e3_step2_openai_parity_smoke\\figure_triage.jsonl",
+    "outputs\\e3_step2_openai_parity_smoke\\figure_curves.jsonl",
+    "outputs\\e3_step2_openai_parity_smoke\\figure_endpoints.jsonl",
+    "outputs\\e3_step2_openai_parity_smoke\\figure_vlm_readings.jsonl",
+    "outputs\\e3_step2_openai_parity_smoke\\figure_curve_map.jsonl"
+  ],
+  "resume_signature_digest": "009441693465c187d15422ea272868aeadf93d6e"
+}

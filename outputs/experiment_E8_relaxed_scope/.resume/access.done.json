@@ -1,0 +1,12 @@
+{
+  "stage": "access",
+  "completed": 552,
+  "total": 552,
+  "detail": "resolved=79 downloaded=243 unresolved=229 error=1",
+  "input_count": 552,
+  "output_count": 552,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\content_access.jsonl"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

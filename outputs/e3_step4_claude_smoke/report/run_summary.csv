@@ -1,0 +1,10 @@
+﻿route,count,module,verification_status,scope_bucket,scope_tag,failure_code
+table,1,,,,,
+,0,figure,,,,
+,24,table,,,,
+,0,text,,,,
+,24,,unresolved,,,
+,24,,,recoverable_unresolved,,
+,24,,,,recoverable_api_basis,
+,24,,,,recoverable_unresolved,
+,24,,,,,ambiguous_api_concentration

@@ -1,0 +1,13 @@
+pair_id,paper_doi,vehicle_class,vehicle_signature,silicone_record_id,silicone_J_mean,silicone_J_sd,skin_record_id,skin_J_mean,skin_J_sd,silicone_skin_ratio,is_pure_ethanol_system,include_in_V3
+183922_0:0:100:0:0,10.1159/000183922,hydrophilic,0:0:100:0:0,record_2abb314c7b9a,186,11,record_1bd68bcc4d72,24,2.7,0.129032,False,True
+183922_25:0:75:0:0,10.1159/000183922,hydrophilic,25:0:75:0:0,record_c5c947facd5e,420,2.5,record_42e39d599287,48,19,0.114286,False,True
+183922_50:0:50:0:0,10.1159/000183922,hydrophilic,50:0:50:0:0,record_9d951ad8e97f,916,79,record_06c6fe15e023,274,33,0.299127,False,True
+183922_75:0:25:0:0,10.1159/000183922,hydrophilic,75:0:25:0:0,record_6addda23f9bf,945,61,record_d28ec2f5bcb5,293,24,0.310053,False,True
+183922_100:0:0:0:0,10.1159/000183922,hydrophilic,100:0:0:0:0,record_3a82944abc56,1495,116,record_1fbd0dd25b18,60,24,0.040134,True,False
+231528_0:0:100:0:0,10.1159/000231528,hydrophilic,0:0:100:0:0,record_b178d612dacc,185.58,10.94,record_fb1e9524c1f2,24.48,2.69,0.131911,False,True
+231528_0:100:0:0:0,10.1159/000231528,hydrophilic,0:100:0:0:0,record_f34719333f70,297.18,29.43,record_ed550befcd82,133.88,36.1,0.450501,False,True
+231528_25:25:50:0:0,10.1159/000231528,hydrophilic,25:25:50:0:0,record_6b4ab72b9a59,525.88,37.3,record_3e452eb93e69,77.68,9.04,0.147714,False,True
+231528_50:25:25:0:0,10.1159/000231528,hydrophilic,50:25:25:0:0,record_073219db157b,641.18,4.1,record_6c7b2e45db8e,203.58,36.24,0.317508,False,True
+315139_0:0:0:0:100,10.1159/000315139,lipophilic,0:0:0:0:100,record_cb52be540c78,623.88,67.7,record_34054a56b952,93.68,19.1,0.150157,False,True
+315139_0:0:0:50:50,10.1159/000315139,lipophilic,0:0:0:50:50,record_7c57e0a8f5f4,311.98,33.8,record_0b32573fac67,64.58,15.2,0.207000,False,True
+315139_0:0:0:100:0,10.1159/000315139,lipophilic,0:0:0:100:0,record_0ae15e6cd56d,579.48,35.3,record_5e114a7c7ff6,83.18,9.2,0.143542,False,True

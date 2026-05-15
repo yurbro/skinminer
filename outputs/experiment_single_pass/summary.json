@@ -1,0 +1,39 @@
+{
+  "papers": 29,
+  "status_counts": {
+    "ok": 27,
+    "source_poor_empty": 2
+  },
+  "single_pass_records": 151,
+  "gold_tp": 25,
+  "covered_gold_tp": 7,
+  "value_anchor_total": 24,
+  "value_correct": 7,
+  "annotated_fp_matches": 9,
+  "extra_records": 134,
+  "usage": {
+    "input_tokens": 408547,
+    "output_tokens": 39608,
+    "total_tokens": 448155
+  },
+  "estimated_actual_cost_usd": 0.08504685,
+  "gold_negative_dois_with_output": [
+    "10.1007/s11095-008-9785-y",
+    "10.1007/s11095-020-02887-9",
+    "10.1007/s13346-022-01182-x",
+    "10.1016/j.ijpharm.2016.03.043",
+    "10.1021/acs.molpharmaceut.0c00720",
+    "10.1038/s41598-020-74885-1",
+    "10.1038/s41598-024-57883-5",
+    "10.1039/d0ra00100g",
+    "10.1186/2050-6511-13-5",
+    "10.1208/s12249-015-0474-y",
+    "10.1208/s12249-019-1481-1",
+    "10.1248/bpb.b19-00221",
+    "10.1248/cpb.c21-00033",
+    "10.1523/jneurosci.15-04-02768.1995",
+    "10.18433/j3160b",
+    "10.21203/rs.3.rs-3773667/v1",
+    "10.3390/membranes13030355"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "stage": "text_extract",
+  "completed": 0,
+  "total": 0,
+  "detail": "records=0",
+  "input_count": 0,
+  "output_count": 0,
+  "output_paths": [
+    "outputs\\validation_observability_run_vlm1\\text_records.jsonl",
+    "outputs\\validation_observability_run_vlm1\\text_raw.jsonl"
+  ],
+  "resume_signature_digest": "48fff93dc9984cc55f338b9ad2abec951b0f658f"
+}

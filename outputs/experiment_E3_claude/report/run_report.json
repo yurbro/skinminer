@@ -1,0 +1,384 @@
+{
+  "run_id": "run_7944dad21a76",
+  "model_name": "claude-sonnet-4-6",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-04-16T21:39:07.551080+00:00",
+  "run_profile": "balanced_full",
+  "query_profile": "ibuprofen_dermal_oa_v1",
+  "query_profile_version": "2026-03-28.v1",
+  "query_source": "profile:ibuprofen_dermal_oa_v1",
+  "stage_models": {
+    "llm_triage": "claude-sonnet-4-6",
+    "routing": "claude-sonnet-4-6",
+    "text_extract": "claude-sonnet-4-6",
+    "table_extract": "claude-sonnet-4-6",
+    "figure_triage": "claude-sonnet-4-6",
+    "figure_vlm": "claude-sonnet-4-6",
+    "figure_map": "claude-sonnet-4-6",
+    "llm_adjudicate": "claude-sonnet-4-6"
+  },
+  "prompt_assets": {
+    "triage.abstract_relevance": "2026-03-28.v1",
+    "routing.structured_first": "2026-03-28.v1",
+    "extractors.text.structured_fields": "2026-04-11.v1",
+    "extractors.table.structured_tables": "2026-04-11.v1",
+    "extractors.figure.triage": "2026-04-06.v1",
+    "extractors.figure.vlm_digitize": "2026-04-11.v1",
+    "extractors.figure.curve_map": "2026-03-28.v1",
+    "verification.llm_adjudication": "2026-04-03.v1"
+  },
+  "module_counts": {
+    "table": 77,
+    "text": 1,
+    "figure": 2
+  },
+  "route_distribution": {
+    "unresolved": 201,
+    "mixed": 3,
+    "figure": 8,
+    "text": 2,
+    "table": 2
+  },
+  "extractor_output_counts": {
+    "table": 77,
+    "text": 1,
+    "figure": 2
+  },
+  "verification_outcome_counts": {
+    "rejected": 10,
+    "unresolved": 62
+  },
+  "scope_bucket_counts": {
+    "useful_but_out_of_scope": 12,
+    "recoverable_unresolved": 60
+  },
+  "scope_tag_counts": {
+    "useful_but_out_of_scope": 12,
+    "useful_study_type_out_of_scope": 7,
+    "useful_api_concentration_out_of_scope": 2,
+    "recoverable_unresolved": 60,
+    "recoverable_source_context": 21,
+    "recoverable_api_basis": 41,
+    "recoverable_endpoint": 6,
+    "recoverable_figure_digitization": 6,
+    "recoverable_area": 1,
+    "recoverable_support_gap": 9,
+    "recoverable_unit_normalization": 3,
+    "useful_endpoint_out_of_scope": 3,
+    "useful_device_out_of_scope": 3,
+    "recoverable_mapping": 2
+  },
+  "failure_taxonomy_counts": {
+    "not_target_study_type": 7,
+    "ambiguous_api_concentration": 49,
+    "not_target_api_concentration": 2,
+    "source_context_inconsistent": 24,
+    "missing_endpoint": 6,
+    "figure_digitization_failed": 6,
+    "missing_api_concentration": 2,
+    "insufficient_evidence": 9,
+    "missing_area": 1,
+    "percent_only": 7,
+    "unit_normalization_failed": 3,
+    "not_target_device": 3,
+    "ambiguous_mapping": 2
+  },
+  "failure_taxonomy_counts_by_route": {
+    "figure": {
+      "source_context_inconsistent": 24,
+      "ambiguous_api_concentration": 14,
+      "missing_endpoint": 6,
+      "figure_digitization_failed": 6,
+      "missing_api_concentration": 2,
+      "insufficient_evidence": 6,
+      "missing_area": 1,
+      "unit_normalization_failed": 3,
+      "not_target_device": 3,
+      "percent_only": 3,
+      "ambiguous_mapping": 2
+    },
+    "mixed": {
+      "not_target_study_type": 7,
+      "ambiguous_api_concentration": 7,
+      "not_target_api_concentration": 2,
+      "insufficient_evidence": 3
+    },
+    "table": {
+      "ambiguous_api_concentration": 28,
+      "percent_only": 4
+    }
+  },
+  "figure_verification_failure_taxonomy_counts": {
+    "source_context_inconsistent": 24,
+    "ambiguous_api_concentration": 14,
+    "missing_endpoint": 6,
+    "figure_digitization_failed": 6,
+    "missing_api_concentration": 2,
+    "insufficient_evidence": 6,
+    "missing_area": 1,
+    "unit_normalization_failed": 3,
+    "not_target_device": 3,
+    "percent_only": 3,
+    "ambiguous_mapping": 2
+  },
+  "figure_stage_counts": {
+    "triage_artifacts": 9,
+    "triage_has_permeation_plot_true": 2,
+    "triage_digitize_candidates": 2,
+    "digitized_curves": 4,
+    "digitized_endpoints_ok": 4,
+    "digitized_endpoints_failed": 0,
+    "digitization_no_output": 0,
+    "mapped_curves": 4,
+    "unmapped_curves": 0,
+    "vlm_readings_total": 4,
+    "vlm_readings_readable": 4,
+    "vlm_used_as_final": 0
+  },
+  "figure_failure_counts": {
+    "triage_signals": {
+      "recommended_route:skip": 7,
+      "endpoint_curve_present:no": 7,
+      "digitizable:no": 7,
+      "ticks_readable:no": 6,
+      "why_not_digitizable:page_23_figure_1_is_a_schematic_flow_diagram_showing_study_design_timelines_form": 1,
+      "why_not_digitizable:page_6_fig_1_contains_only_cad_microscopy_images_of_3d_printed_microneedle_struc": 1,
+      "digitizable:uncertain": 1,
+      "why_not_digitizable:page_3_contains_only_schematic_illustrations_figure_1_and_figure_2_depicting_mic": 1,
+      "why_not_digitizable:figure_1_contains_only_photographs_of_microneedle_roller_equipment_and_applicati": 1,
+      "why_not_digitizable:page_2_contains_characterization_figures_chemical_structure_particle_size_distri": 1,
+      "why_not_digitizable:page_contains_only_chemical_structure_diagrams_and_a_physicochemical_parameters_": 1,
+      "why_not_digitizable:page_contains_only_text_and_chemical_structure_diagrams_figure_1_repeating_units": 1
+    },
+    "digitization_failure_counts": {},
+    "mapping_failure_counts": {}
+  },
+  "figure_gate_counts": {
+    "routed_candidates": 11,
+    "after_gate": 11,
+    "skipped": {}
+  },
+  "figure_route_counts": {
+    "skip": 7,
+    "digitize": 2
+  },
+  "figure_digitization_status_counts": {
+    "ok": 4
+  },
+  "figure_mapping_status_counts": {
+    "vision_mapped": 4
+  },
+  "llm_reliability": {
+    "triage.llm_triage": {
+      "model_name": "claude-sonnet-4-6",
+      "requests": 726,
+      "retries_attempted": 20,
+      "retried_requests": 1,
+      "retry_successes": 1,
+      "final_failures": 3,
+      "attempt_failures": 23,
+      "schema_validation_failures": 23,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "detection.router": {
+      "model_name": "claude-sonnet-4-6",
+      "requests": 55,
+      "retries_attempted": 0,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 0,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 0,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    },
+    "extractors.table": {
+      "model_name": "claude-sonnet-4-6",
+      "requests": 8,
+      "retries_attempted": 1,
+      "retried_requests": 0,
+      "retry_successes": 0,
+      "final_failures": 0,
+      "attempt_failures": 1,
+      "schema_validation_failures": 0,
+      "malformed_output_failures": 0,
+      "rate_limit_failures": 0,
+      "timeout_failures": 1,
+      "auth_failures": 0,
+      "transport_failures": 0,
+      "api_failures": 0,
+      "other_failures": 0
+    }
+  },
+  "llm_adjudication_summary": {
+    "row_count": 0,
+    "candidate_reason_counts": {},
+    "priority_bucket_counts": {},
+    "review_focus_counts": {},
+    "recommended_status_counts": {},
+    "should_keep_strict_counts": {},
+    "disagreement_counts": {},
+    "original_vs_recommended_counts": {}
+  },
+  "blockage_summary": {
+    "access_status_counts": {
+      "unresolved": 127,
+      "downloaded": 52,
+      "resolved": 37
+    },
+    "access_reason_counts": {},
+    "route_unresolved_reason_counts": {
+      "missing_structured_and_pdf_router_source": 132,
+      "document_appears_to_be_a_book_chapter_on_microneedle_iontophoresis_combinations_": 1,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_no_scientific_c": 2,
+      "the_document_text_retrieved_is_only_the_europe_pmc_navigation_header_pages_and_d": 1,
+      "document_text_is_only_the_europe_pmc_navigation_ui_pages_with_no_actual_paper_co": 1,
+      "document_text_is_only_europe_pmc_navigation_ui_boilerplate_with_no_paper_content": 1,
+      "only_page_1_placeholder_was_provided_no_substantive_text_extracted_title_mention": 1,
+      "the_supplied_document_text_contains_only_europe_pmc_navigation_ui_boilerplate_an": 2,
+      "document_text_not_supplied_beyond_page_1_placeholder_title_indicates_comparison_": 1,
+      "document_content_is_only_europe_pmc_navigation_ui_text_with_no_actual_paper_body": 1,
+      "the_document_text_only_contains_europe_pmc_navigation_ui_elements_and_no_actual_": 4,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_with_no_actual_": 1,
+      "document_text_appears_to_be_only_a_europe_pmc_navigation_interface_page_with_no_": 1,
+      "the_supplied_document_text_contains_only_europe_pmc_navigation_ui_boilerplate_ac": 2,
+      "document_text_is_only_europe_pmc_navigation_header_pages_with_no_scientific_cont": 1,
+      "missing_structured_and_pdf_router_source_blocked_html_remote_captcha": 29,
+      "only_europe_pmc_navigation_landing_page_content_was_retrieved_no_actual_paper_bo": 1,
+      "document_text_is_almost_entirely_a_europe_pmc_navigation_ui_page_with_no_article": 1,
+      "document_failed_to_load_only_a_hhs_vulnerability_disclosure_page_was_returned_th": 1,
+      "the_pdf_only_rendered_europe_pmc_navigation_interface_pages_pages_1_2_no_actual_": 1,
+      "only_europe_pmc_navigation_pages_were_retrieved_no_actual_paper_content_is_avail": 1,
+      "the_pdf_appears_to_have_only_rendered_the_europe_pmc_navigation_ui_pages_rather_": 1,
+      "the_document_text_only_contains_europe_pmc_navigation_ui_boilerplate_and_does_no": 1,
+      "document_text_is_only_europe_pmc_navigation_ui_pages_with_no_actual_paper_conten": 1,
+      "document_text_is_only_europe_pmc_navigation_interface_pages_with_no_actual_paper": 1,
+      "document_text_is_truncated_to_only_europe_pmc_navigation_ui_pages_pages_1_2_no_a": 1,
+      "document_text_is_only_a_europe_pmc_navigation_interface_page_with_no_scientific_": 1,
+      "document_text_is_only_the_europe_pmc_navigation_header_page_with_no_article_cont": 1,
+      "full_paper_text_not_retrieved_only_europe_pmc_navigation_pages_were_supplied_pap": 1,
+      "document_text_is_almost_entirely_europe_pmc_navigation_ui_boilerplate_the_title_": 1,
+      "document_text_is_truncated_to_only_the_europe_pmc_navigation_header_pages_no_act": 1,
+      "only_europe_pmc_navigation_pages_were_supplied_the_actual_article_body_was_not_r": 1,
+      "document_text_is_only_the_europe_pmc_navigation_header_pages_with_no_actual_pape": 1,
+      "document_text_is_incomplete_only_europe_pmc_navigation_menu_pages_were_captured_": 1,
+      "only_ethos_landing_page_content_retrieved_full_thesis_text_unavailable_due_to_po": 1,
+      "the_document_content_is_inaccessible_only_the_ethos_portal_landing_page_is_retur": 1
+    },
+    "route_note_counts": {
+      "missing_structured_and_pdf_router_source": 132,
+      "document_appears_to_be_a_book_chapter_on_microneedle_iontophoresis_combinations_": 1,
+      "in_vivo_dpk_tape_stripping_study_no_diffusion_cell_used_ibuprofen_applied_topica": 1,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_no_scientific_c": 2,
+      "ibuprofen_sodium_ibu_na_used_as_model_drug_in_ivpt_through_dermatomed_porcine_sk": 1,
+      "the_document_text_retrieved_is_only_the_europe_pmc_navigation_header_pages_and_d": 1,
+      "document_text_is_only_the_europe_pmc_navigation_ui_pages_with_no_actual_paper_co": 1,
+      "novel_3d_printed_franz_cell_like_diffusion_cell_with_uv_imaging_capability_uses_": 1,
+      "document_text_is_only_europe_pmc_navigation_ui_boilerplate_with_no_paper_content": 1,
+      "comparative_ivpt_study_using_franz_cells_with_human_epidermis_porcine_full_thick": 1,
+      "only_page_1_placeholder_was_provided_no_substantive_text_extracted_title_mention": 1,
+      "the_supplied_document_text_contains_only_europe_pmc_navigation_ui_boilerplate_an": 2,
+      "only_abstract_level_metadata_is_available_in_the_html_landing_page_the_full_arti": 1,
+      "ivrt_study_using_electrospun_peo_ec_fiber_mats_loaded_with_30_ibp_release_measur": 1,
+      "document_text_not_supplied_beyond_page_1_placeholder_title_indicates_comparison_": 1,
+      "franz_cell_assays_mentioned_in_author_contributions_strat_m_synthetic_membranes_": 1,
+      "document_content_is_only_europe_pmc_navigation_ui_text_with_no_actual_paper_body": 1,
+      "the_document_text_only_contains_europe_pmc_navigation_ui_elements_and_no_actual_": 4,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_with_no_actual_": 1,
+      "document_text_appears_to_be_only_a_europe_pmc_navigation_interface_page_with_no_": 1,
+      "no_franz_diffusion_cell_used_in_vitro_release_performed_in_petri_dishes_with_dpb": 1,
+      "ivpt_study_using_franz_diffusion_cells_with_porcine_skin_six_ibuprofen_salts_wit": 1,
+      "the_supplied_document_text_contains_only_europe_pmc_navigation_ui_boilerplate_ac": 2,
+      "document_text_is_only_europe_pmc_navigation_header_pages_with_no_scientific_cont": 1,
+      "missing_structured_and_pdf_router_source_blocked_html_remote_captcha": 29,
+      "only_europe_pmc_navigation_landing_page_content_was_retrieved_no_actual_paper_bo": 1,
+      "document_text_is_almost_entirely_a_europe_pmc_navigation_ui_page_with_no_article": 1,
+      "clear_ivpt_study_using_franz_type_diffusion_cells_with_bovine_udder_split_skin_i": 1,
+      "document_failed_to_load_only_a_hhs_vulnerability_disclosure_page_was_returned_th": 1,
+      "the_pdf_only_rendered_europe_pmc_navigation_interface_pages_pages_1_2_no_actual_": 1,
+      "only_europe_pmc_navigation_pages_were_retrieved_no_actual_paper_content_is_avail": 1,
+      "study_uses_ibuprofen_as_model_drug_in_nanosuspension_gel_formulations_tested_acr": 1,
+      "the_pdf_appears_to_have_only_rendered_the_europe_pmc_navigation_ui_pages_rather_": 1,
+      "ibuprofen_ip_log_ko_w_3_94_is_one_of_four_model_drugs_saturated_donor_solutions_": 1,
+      "franz_diffusion_cell_ivpt_study_using_excised_rat_abdominal_skin_three_formulati": 1,
+      "ivrt_study_using_a_horizontal_two_chamber_diffusion_cell_not_franz_with_a_75_m_s": 1,
+      "no_diffusion_cell_used_release_setup_is_a_beaker_with_200_cm3_hepes_at_32_c_with": 1,
+      "the_document_text_only_contains_europe_pmc_navigation_ui_boilerplate_and_does_no": 1,
+      "document_text_is_only_europe_pmc_navigation_ui_pages_with_no_actual_paper_conten": 1,
+      "document_text_is_only_europe_pmc_navigation_interface_pages_with_no_actual_paper": 1,
+      "document_text_is_truncated_to_only_europe_pmc_navigation_ui_pages_pages_1_2_no_a": 1,
+      "document_text_is_only_a_europe_pmc_navigation_interface_page_with_no_scientific_": 1,
+      "document_text_is_only_the_europe_pmc_navigation_header_page_with_no_article_cont": 1,
+      "full_paper_text_not_retrieved_only_europe_pmc_navigation_pages_were_supplied_pap": 1,
+      "document_text_is_almost_entirely_europe_pmc_navigation_ui_boilerplate_the_title_": 1,
+      "document_text_is_truncated_to_only_the_europe_pmc_navigation_header_pages_no_act": 1,
+      "only_europe_pmc_navigation_pages_were_supplied_the_actual_article_body_was_not_r": 1,
+      "document_text_is_only_the_europe_pmc_navigation_header_pages_with_no_actual_pape": 1,
+      "document_text_is_incomplete_only_europe_pmc_navigation_menu_pages_were_captured_": 1,
+      "only_ethos_landing_page_content_retrieved_full_thesis_text_unavailable_due_to_po": 1,
+      "the_document_content_is_inaccessible_only_the_ethos_portal_landing_page_is_retur": 1
+    },
+    "extractor_blockages": {
+      "text": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      },
+      "table": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      }
+    },
+    "patch_status_counts": {
+      "patch_api_concentration": {
+        "skipped": 62
+      },
+      "patch_area": {
+        "skipped": 7
+      },
+      "patch_endpoint_time": {
+        "applied": 21
+      },
+      "patch_endpoint_value": {
+        "applied": 43,
+        "skipped": 39
+      }
+    },
+    "patch_reason_counts": {
+      "patch_api_concentration": {
+        "no_recoverable_concentration_fragment": 60,
+        "recovered_concentration_matches_existing_value": 2
+      },
+      "patch_area": {
+        "no_recoverable_area_fragment": 7
+      },
+      "patch_endpoint_value": {
+        "recovered_endpoint_matches_existing_value": 25,
+        "no_recoverable_endpoint_fragment": 14
+      }
+    }
+  },
+  "patch_success_counts": {
+    "patch_endpoint_value": 43,
+    "patch_endpoint_time": 21
+  },
+  "output_record_counts": {
+    "assembled": 72,
+    "final_records_evaluated": 72,
+    "actually_verified": 0,
+    "unresolved": 62,
+    "rejected": 10
+  }
+}

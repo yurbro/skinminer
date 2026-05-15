@@ -6,15 +6,13 @@ from pathlib import Path
 from typing import Any
 from typing import Iterable
 
-from schemas.models import EvidenceItem, Record
+from schemas.models import EndpointMeasurement, EvidenceItem, Record, sorted_endpoints
 from utils.io import write_records_csv, write_records_jsonl
 from utils.status_panel import ProgressCallback
 from utils.units import (
-    coerce_endpoint_kind_from_unit,
     amount_total_to_ug_per_cm2,
     normalize_amount_per_area,
     normalize_api_concentration_fields,
-    normalize_time_to_hours,
     parse_api_concentration,
 )
 
@@ -31,6 +29,34 @@ def _normalize_api_key(api_name: str) -> str:
     return " ".join((api_name or "").strip().lower().split())
 
 
+def _primary_endpoint(record: Record) -> EndpointMeasurement | None:
+    return record.primary_endpoint()
+
+
+def _has_endpoint_value(record: Record) -> bool:
+    endpoint = _primary_endpoint(record)
+    return endpoint is not None and endpoint.mean is not None
+
+
+def _is_amount_per_area_unit(unit: str) -> bool:
+    lowered = (unit or "").strip().lower().replace(" ", "")
+    return any(token in lowered for token in ("mg/cm2", "mg/cm^2", "ug/cm2", "ug/cm^2", "ng/cm2", "ng/cm^2"))
+
+
+def _normalize_endpoint_measurement(endpoint: EndpointMeasurement, record: Record) -> EndpointMeasurement:
+    if endpoint.kind != "cumulative_amount" or endpoint.normalized_mean is not None:
+        return endpoint
+    if _is_amount_per_area_unit(endpoint.unit):
+        value, unit = normalize_amount_per_area(endpoint.mean, endpoint.unit)
+    else:
+        value, unit = amount_total_to_ug_per_cm2(
+            endpoint.mean,
+            endpoint.unit,
+            record.conditions.diffusion_area_cm2,
+        )
+    return endpoint.model_copy(update={"normalized_mean": value, "normalized_unit": unit})
+
+
 def _table_support_score(record: Record) -> float:
     score = 0.0
     if record.route == "table":
@@ -43,9 +69,9 @@ def _table_support_score(record: Record) -> float:
         score += 1.5
     if record.conditions.receptor_volume_ml is not None:
         score += 1.0
-    if record.endpoint.time_value is not None:
+    if record.conditions.duration_h is not None:
         score += 1.0
-    if record.endpoint.value is not None:
+    if _has_endpoint_value(record):
         score += 0.5
     score += min(3.0, len(record.evidence_items) * 0.2)
     return score
@@ -53,9 +79,6 @@ def _table_support_score(record: Record) -> float:
 
 def _normalize_record(candidate: Record) -> Record:
     normalized = candidate.model_copy(deep=True)
-    normalized.endpoint.kind = coerce_endpoint_kind_from_unit(normalized.endpoint.kind, normalized.endpoint.unit)
-    if normalized.conditions.duration_h is None and normalized.endpoint.time_value is not None:
-        normalized.conditions.duration_h = normalize_time_to_hours(normalized.endpoint.time_value, normalized.endpoint.time_unit)
     if normalized.formulation.api_concentration_value is None and normalized.formulation.api_concentration_raw:
         value, unit, basis = parse_api_concentration(normalized.formulation.api_concentration_raw)
         normalized.formulation.api_concentration_value = value
@@ -71,18 +94,9 @@ def _normalize_record(candidate: Record) -> Record:
         normalized.formulation.api_basis,
         normalized.formulation.api_concentration_raw,
     )
-    if normalized.endpoint.kind == "amount_per_area" and normalized.endpoint.normalized_value is None:
-        value, unit = normalize_amount_per_area(normalized.endpoint.value, normalized.endpoint.unit)
-        normalized.endpoint.normalized_value = value
-        normalized.endpoint.normalized_unit = unit
-    elif normalized.endpoint.kind == "amount_total" and normalized.endpoint.normalized_value is None:
-        value, unit = amount_total_to_ug_per_cm2(
-            normalized.endpoint.value,
-            normalized.endpoint.unit,
-            normalized.conditions.diffusion_area_cm2,
-        )
-        normalized.endpoint.normalized_value = value
-        normalized.endpoint.normalized_unit = unit
+    normalized.endpoints = sorted_endpoints(
+        [_normalize_endpoint_measurement(endpoint, normalized) for endpoint in normalized.endpoints if endpoint.mean is not None]
+    )
     return normalized
 
 
@@ -122,11 +136,18 @@ def _merge_in_place(target: Record, incoming: Record) -> Record:
     if not merged.formulation.api_concentration_raw and incoming.formulation.api_concentration_raw:
         merged.formulation.api_concentration_raw = incoming.formulation.api_concentration_raw
 
-    if merged.endpoint.value is None and incoming.endpoint.value is not None:
-        merged.endpoint = incoming.endpoint
-    elif merged.endpoint.time_value is None and incoming.endpoint.time_value is not None:
-        merged.endpoint.time_value = incoming.endpoint.time_value
-        merged.endpoint.time_unit = incoming.endpoint.time_unit
+    if not merged.endpoints and incoming.endpoints:
+        merged.endpoints = list(incoming.endpoints)
+    else:
+        seen_endpoints = {(endpoint.kind, endpoint.mean, endpoint.unit) for endpoint in merged.endpoints}
+        for endpoint in incoming.endpoints:
+            key = (endpoint.kind, endpoint.mean, endpoint.unit)
+            if key not in seen_endpoints:
+                merged.endpoints.append(endpoint)
+                seen_endpoints.add(key)
+    merged.endpoints = sorted_endpoints(merged.endpoints)
+    if merged.conditions.duration_h is None and incoming.conditions.duration_h is not None:
+        merged.conditions.duration_h = incoming.conditions.duration_h
     if merged.conditions.diffusion_area_cm2 is None and incoming.conditions.diffusion_area_cm2 is not None:
         merged.conditions.diffusion_area_cm2 = incoming.conditions.diffusion_area_cm2
     if merged.conditions.receptor_volume_ml is None and incoming.conditions.receptor_volume_ml is not None:
@@ -151,12 +172,13 @@ def _merge_in_place(target: Record, incoming: Record) -> Record:
 
 
 def _record_key(record: Record) -> tuple[str, str, str, float | None, float | None]:
+    endpoint = _primary_endpoint(record)
     return (
         record.doi,
         record.formulation.label,
-        record.endpoint.kind,
-        record.endpoint.time_value,
-        record.endpoint.value,
+        endpoint.kind if endpoint is not None else "none",
+        record.conditions.duration_h,
+        endpoint.mean if endpoint is not None else None,
     )
 
 
@@ -195,7 +217,7 @@ def _build_table_api_support_hints(records: list[Record]) -> dict[tuple[str, str
 
     grouped: dict[tuple[str, str], list[Record]] = {}
     for record in records:
-        if record.route != "table" or record.endpoint.value is not None:
+        if record.route != "table" or _has_endpoint_value(record):
             continue
         if _api_concentration_signature(record) is None:
             continue
@@ -361,16 +383,16 @@ def assemble_records(
             for note in figure_failures_by_paper.get(record.paper_id, []):
                 if note and note not in record.source_notes:
                     record.source_notes.append(note)
-        if record.route == "table" and record.endpoint.value is None:
+        if record.route == "table" and not _has_endpoint_value(record):
             table_partials_by_doi.setdefault(record.doi, []).append(record)
 
     for index, record in enumerate(all_records, start=1):
-        if record.route == "table" and record.endpoint.value is None and not include_table_partials:
+        if record.route == "table" and not _has_endpoint_value(record) and not include_table_partials:
             if progress_callback:
                 progress_callback(index, record.paper_id, "skip table partial")
             continue
 
-        if record.route == "table" and record.endpoint.value is not None and record.formulation.api_concentration_value is None:
+        if record.route == "table" and _has_endpoint_value(record) and record.formulation.api_concentration_value is None:
             api_key = _normalize_api_key(record.formulation.api_name)
             support_record = table_api_support_by_paper_api.get((record.paper_id, api_key))
             if support_record is not None:

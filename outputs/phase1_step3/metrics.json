@@ -1,0 +1,113 @@
+{
+  "binary_to_ternary": {
+    "MAE_logJ": 0.04360138756558274,
+    "RMSE_logJ": 0.06038408686020839,
+    "both_within_2x": true,
+    "max_residual_log10": 0.08537646324830339,
+    "n_test": 2,
+    "n_train": 15,
+    "predictions": [
+      {
+        "actual_log10": 2.7208866542612524,
+        "predicted_log10": 2.7190603423783903,
+        "residual": -0.0018263118828620861,
+        "vehicle": "25:25:50:0:0",
+        "within_2x": true
+      },
+      {
+        "actual_log10": 2.8069799671675972,
+        "predicted_log10": 2.8923564304159006,
+        "residual": 0.08537646324830339,
+        "vehicle": "50:25:25:0:0",
+        "within_2x": true
+      }
+    ],
+    "sample_size_caveat": "n=2 ternary test does not support rank correlation or significance inference; reported as directional observation only.",
+    "status": "directional_positive"
+  },
+  "overall_status": "PASS",
+  "reproducibility": {
+    "file_hashes_sha256": {
+      "outputs/phase1_step3/binary_to_ternary_dataset.csv": "f51a2369e26c4b717bbca6595f0c964f32f4cce5d20ca36b95393fa1f7138d14",
+      "outputs/phase1_step3/binary_to_ternary_predictions.csv": "aceda08d9cc1fe9a62f07d4023dc32f5d630e8d9807f563f44dfee2b8a597c05",
+      "outputs/phase1_step3/silicone_skin_paired_dataset.csv": "e2f354cc11497fa8979dd44f5bb3956ee11f709328003e866b3a34a730a4fa0a",
+      "outputs/phase1_step3/silicone_skin_regression.csv": "25457f9d2a1cc3fb8531338a072d2d1f00c00e0d4887baf54046df3ab7dc2bcd"
+    },
+    "matplotlib_version": "3.10.3",
+    "numpy_version": "2.2.6",
+    "random_state": 42,
+    "scipy_version": "1.15.3",
+    "sklearn_version": "1.7.0"
+  },
+  "silicone_skin_replication": {
+    "V3_status": "GREEN",
+    "pair_counts_by_paper": {
+      "10.1159/000183922": 5,
+      "10.1159/000231528": 4,
+      "10.1159/000315139": 3
+    },
+    "pure_ethanol_pair_count": 1,
+    "pure_ethanol_record_count": 2,
+    "record_pair_count_note": "Two pure-ethanol records form one silicone-skin pair_id; V3 excludes the pair_id, yielding n=11.",
+    "regressions": [
+      {
+        "R2": 0.08620043397009569,
+        "RMSE_J": 84.85661869020994,
+        "adjusted_R2": -0.005179522632894784,
+        "intercept": 0.0,
+        "model": "forced_through_origin",
+        "n": 12,
+        "pearson_r": 0.42727202997532227,
+        "slope": 0.1694578271404759,
+        "spearman_rho": 0.6153846153846154,
+        "subset": "all_12_pairs",
+        "variant_id": "V1"
+      },
+      {
+        "R2": 0.18256138759923268,
+        "RMSE_J": 80.25790566917422,
+        "adjusted_R2": 0.10081752635915586,
+        "intercept": 52.88104521552925,
+        "model": "free_intercept",
+        "n": 12,
+        "pearson_r": 0.42727202997532227,
+        "slope": 0.10459810884190188,
+        "spearman_rho": 0.6153846153846154,
+        "subset": "all_12_pairs",
+        "variant_id": "V2"
+      },
+      {
+        "R2": 0.7187783403203412,
+        "RMSE_J": 48.30186299825396,
+        "adjusted_R2": 0.6875314892448234,
+        "intercept": 0.0,
+        "model": "forced_through_origin",
+        "n": 11,
+        "pearson_r": 0.8718422907271641,
+        "slope": 0.2502896675762506,
+        "spearman_rho": 0.8454545454545455,
+        "subset": "non_pure_ethanol_pair_ids",
+        "variant_id": "V3"
+      },
+      {
+        "R2": 0.7601089799003891,
+        "RMSE_J": 44.611465881308234,
+        "adjusted_R2": 0.7334544221115433,
+        "intercept": -42.09013153070392,
+        "model": "free_intercept",
+        "n": 11,
+        "pearson_r": 0.8718422907271641,
+        "slope": 0.3165839476928467,
+        "spearman_rho": 0.8454545454545455,
+        "subset": "non_pure_ethanol_pair_ids",
+        "variant_id": "V4"
+      }
+    ],
+    "total_pair_ids": 12,
+    "watkinson_reported_R2": 0.71
+  },
+  "step2_figure_typo_fix": {
+    "backup_dir": "_v1_backup_step3_20260510_222443",
+    "regenerated": true
+  }
+}

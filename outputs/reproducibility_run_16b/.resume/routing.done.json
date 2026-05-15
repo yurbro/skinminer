@@ -1,0 +1,12 @@
+{
+  "stage": "routing",
+  "completed": 529,
+  "total": 529,
+  "detail": "figure=19 mixed=7 table=14 text=10 unresolved=479",
+  "input_count": 529,
+  "output_count": 529,
+  "output_paths": [
+    "outputs\\reproducibility_run_16b\\route_decisions.jsonl"
+  ],
+  "resume_signature_digest": "065f35695776e8aa47ee86edcb8197798f4b4177"
+}

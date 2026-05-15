@@ -1,0 +1,12 @@
+{
+  "stage": "patch_endpoint",
+  "completed": 93,
+  "total": 93,
+  "detail": "applied=47",
+  "input_count": 93,
+  "output_count": 93,
+  "output_paths": [
+    "outputs\\experiment_E3_claude_v2\\patched_endpoint_value.jsonl"
+  ],
+  "resume_signature_digest": "36d8876cffbddb4840a0bfacff145e1227e13a56"
+}

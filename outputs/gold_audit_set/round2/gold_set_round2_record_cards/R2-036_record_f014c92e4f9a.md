@@ -1,0 +1,62 @@
+# Record: record_f014c92e4f9a
+
+**Sample ID:** R2-036  
+**Tier:** tier1_gpt_v4_verified_all  
+**Source baseline:** gpt  
+**DOI:** 10.1208/s12249-013-9995-4  
+**Title:** Influence of critical parameters of nanosuspension formulation on the permeability of a poorly soluble drug through the skin--a case study.  
+**Route:** table  
+**Policy first verified:** v2  
+**Pipeline status (v4):** verified  
+**Failure reasons (v4):** 
+
+## Formulation
+
+- Label: F8
+- API: Ibuprofen
+- Concentration: 5.0 % w/v (w/v)
+- Raw concentration: 5% (w/v)
+- Dosage form: 
+
+## Components
+
+- Vit. E TPGS level: 1.0 coded level ; raw=
+- HPMC K100 level: 1.0 coded level ; raw=
+- particle size factor: 1.0 nm ; raw=
+
+## Endpoint
+
+- Value: 132.3 ug
+- Time: 24.0 h
+- Kind: amount_total
+- Normalized: 206.71875 ug/cm^2
+
+## Conditions
+
+- Device: Franz diffusion cell
+- Study type: both
+- Barrier: porcine skin
+- Membrane: porcine skin (porcine,  um)
+- Receptor: PBS (pH 7.4)
+- Dose: infinite, infinite dose
+- Area: 0.64 cm2
+
+## Evidence Summary
+
+- formulation/table at Table 2; endpoint/table at Table 2; membrane_type/table at Table 2; membrane_source/table at Table 2; receptor_medium/table at Table 2; dose_type/table at Table 2
+
+## Evidence Locators
+
+- formulation | table | Table 2 | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3755145
+- endpoint | table | Table 2 | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3755145
+- membrane_type | table | Table 2 | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3755145
+- membrane_source | table | Table 2 | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3755145
+- receptor_medium | table | Table 2 | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3755145
+- dose_type | table | Table 2 | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3755145
+- dose_amount | table | Table 2 | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3755145
+- device | text | BLOCK 64 | 10.1208/s12249-013-9995-4
+
+## For Annotator
+
+- Paper link: https://doi.org/10.1208/s12249-013-9995-4
+- Key table/figure to check: Table 2

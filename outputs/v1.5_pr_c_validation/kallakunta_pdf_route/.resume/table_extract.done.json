@@ -1,0 +1,13 @@
+{
+  "stage": "table_extract",
+  "completed": 1,
+  "total": 1,
+  "detail": "records=3",
+  "input_count": 1,
+  "output_count": 3,
+  "output_paths": [
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_route\\table_records.jsonl",
+    "outputs\\v1.5_pr_c_validation\\kallakunta_pdf_route\\table_raw.jsonl"
+  ],
+  "resume_signature_digest": "9f82c7c592e021911b14df01f8ea1bf13e3d5b0d"
+}

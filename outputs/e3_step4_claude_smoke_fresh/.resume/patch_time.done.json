@@ -1,0 +1,12 @@
+{
+  "stage": "patch_time",
+  "completed": 24,
+  "total": 24,
+  "detail": "applied=0",
+  "input_count": 24,
+  "output_count": 24,
+  "output_paths": [
+    "outputs\\e3_step4_claude_smoke_fresh\\patched_endpoint_time.jsonl"
+  ],
+  "resume_signature_digest": "638fcdc11df6ff5d884f1ed0fe6864215305d5d9"
+}

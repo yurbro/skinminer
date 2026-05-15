@@ -1,0 +1,12 @@
+{
+  "stage": "llm_adjudicate",
+  "completed": 90,
+  "total": 90,
+  "detail": "rows=90",
+  "input_count": 90,
+  "output_count": 90,
+  "output_paths": [
+    "outputs\\full_run_16_post_all_fixes\\llm_adjudication.jsonl"
+  ],
+  "resume_signature_digest": "1d8a0416f18d4338cff29605107dbd449885391f"
+}

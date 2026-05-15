@@ -1,0 +1,14 @@
+﻿failure_reason,full_run_13_post_fix5_v1,full_run_14_v2_policy,full_run_15_schema_table_fix_v1,full_run_15_schema_table_fix_v2_rescore,delta_15_v1_vs_13,delta_15_v1_vs_14,delta_15_v2_rescore_vs_14,delta_15_v2_rescore_vs_15_v1
+ambiguous_api_concentration,42,26,102,78,60,76,52,-24
+figure_digitization_failed,8,5,7,7,-1,2,2,0
+insufficient_evidence,54,54,140,140,86,86,86,0
+missing_api_concentration,1,1,55,55,54,54,54,0
+missing_area,14,17,44,44,30,27,27,0
+missing_endpoint,11,9,20,20,9,11,11,0
+missing_endpoint_time,2,0,0,0,-2,0,0,0
+not_target_api,16,11,49,49,33,38,38,0
+not_target_api_concentration,10,10,44,44,34,34,34,0
+not_target_device,3,5,6,6,3,1,1,0
+not_target_study_type,12,9,20,20,8,11,11,0
+percent_only,6,2,19,19,13,17,17,0
+unit_normalization_failed,3,1,13,13,10,12,12,0

@@ -1,0 +1,17 @@
+{
+  "stage": "figure_extract",
+  "completed": 18,
+  "total": 18,
+  "detail": "records=7",
+  "input_count": 18,
+  "output_count": 7,
+  "output_paths": [
+    "outputs\\full_run_14_v2_policy\\figure_records.jsonl",
+    "outputs\\full_run_14_v2_policy\\figure_triage.jsonl",
+    "outputs\\full_run_14_v2_policy\\figure_curves.jsonl",
+    "outputs\\full_run_14_v2_policy\\figure_endpoints.jsonl",
+    "outputs\\full_run_14_v2_policy\\figure_vlm_readings.jsonl",
+    "outputs\\full_run_14_v2_policy\\figure_curve_map.jsonl"
+  ],
+  "resume_signature_digest": "da0114121f9d486f7a7df646670d6c4928db53fa"
+}

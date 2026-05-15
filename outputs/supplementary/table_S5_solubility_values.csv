@@ -1,0 +1,18 @@
+vehicle_composition_string,ethanol_vv,PG_vv,water_vv,solubility_source,log10_solubility,solubility_mg_per_mL
+0% PG (pure water),0,0,100,PartII_Table1 (aqueous anchor),-1.046,0.09
+10% PG,0,10,90,Manrique log-linear estimate,-0.722,0.19
+20% PG,0,20,80,Manrique log-linear estimate,-0.397,0.401
+30% PG,0,30,70,Manrique log-linear estimate,-0.073,0.846
+40% PG,0,40,60,Manrique log-linear estimate,0.251,1.785
+60% PG,0,60,40,Manrique log-linear estimate,0.9,7.943
+70% PG,0,70,30,Manrique log-linear estimate,1.224,16.745
+80% PG,0,80,20,Manrique log-linear estimate,1.548,35.319
+90% PG,0,90,10,Manrique log-linear estimate,1.873,74.473
+100% PG (pure PG),0,100,0,PartII §4.1 (1750× aqueous),2.197,157.5
+0% EtOH,0,0,100,PartI_Table1,-1.046,0.09
+25% EtOH,25,0,75,PartI_Table1,2.535,343
+50% EtOH,50,0,50,PartI_Table1,2.656,453
+75% EtOH,75,0,25,PartI_Table1,2.689,489
+100% EtOH,100,0,0,PartI_Table1,2.699,500
+25:25:50 EtOH:PG:water,25,25,50,PartII_Table1,3.126,1338
+50:25:25 EtOH:PG:water,50,25,25,PartII_Table1,3.467,2928

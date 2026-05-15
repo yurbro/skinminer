@@ -1,0 +1,13 @@
+{
+  "stage": "table_extract",
+  "completed": 9,
+  "total": 9,
+  "detail": "records=17",
+  "input_count": 9,
+  "output_count": 17,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix5\\table_records.jsonl",
+    "outputs\\validation_observability_run_fix5\\table_raw.jsonl"
+  ],
+  "resume_signature_digest": "0b51dcfc8f4863c7d874c34d16af73c7a8bcbc1c"
+}

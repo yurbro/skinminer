@@ -1,0 +1,539 @@
+{
+  "prompt_asset_id": "extractors.table.structured_tables",
+  "prompt_version": "2026-05-10.pr-c",
+  "paper_id": "paper_48cbfe0b170b",
+  "doi": "10.1208/s12249-013-9995-4",
+  "model_name": "gpt-4o-mini",
+  "source_format": "pdf",
+  "source_backend": "pdf_local",
+  "source_ref": "C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\papers\\pdf\\10.1208_s12249-013-9995-4_manual.pdf",
+  "prompt_hash": "a29f60fcb719",
+  "raw_input": [
+    "You extract formulation composition tables from OA scientific articles. Use ONLY the provided structured tables or PDF page text and optional page images. Do not guess concentrations or endpoint values. Preserve explicit table locators such as 'Table 2' when they are supplied.",
+    [
+      {
+        "type": "input_text",
+        "text": "Extract formulation composition tables relevant to ibuprofen in vitro permeation or release. Also capture endpoint measurements, endpoint times, units, SD values, replicate counts, and basis when they are explicitly tabulated. Return only structured output. Preserve explicit table identifiers in table_id.\n\nSTRICT ROW COMPLETENESS RULES:\n- You MUST extract every relevant data row in the provided tables. Do not skip, summarize, or return only representative rows.\n- If a table has 8 formulation rows and one endpoint column, return 8 records. If it has 8 formulation rows and 3 endpoint time columns, return 24 records.\n- For one-row/multiple-timepoint endpoint tables, emit one independent record for each formulation x each timepoint column, set endpoint_time_value/unit for that exact column, and put that column's measurement(s) in endpoints.\n- Do not copy a final-time endpoint mean into earlier timepoint records. Every endpoint mean must match the same table cell/time column named in endpoint_time_value.\n- The formulation_label for an endpoint record MUST come from the same table row as every endpoint mean. Do not substitute labels from another table by row order.\n- The endpoints field is a list. Add one item per distinct endpoint column explicitly present for that same row/timepoint.\n- Use endpoint kind exactly as one of: flux, cumulative_amount, permeability_coefficient, partition_parameter, diffusion_parameter, lag_time, permeated_fraction, unknown.\n- If cumulative amount and flux/Jss/permeability columns coexist for the same formulation row, include BOTH as separate endpoint list items. Do not overwrite one with the other.\n- Pair mean, SD, unit, and n_replicates from the same endpoint column or immediately associated adjacent column/footnote. Never use an SD, SE, CI, or range cell as the mean.\n- If a cell is reported as mean +/- SD, put the first number in mean and the second in sd. If only mean is given, leave sd null.\n- If ENDPOINT_TABLE_HINT is set, prioritize that table for endpoint records. Use other tables only to fill composition or shared context for matching labels.\n- Keep composition-only rows separate from endpoint rows unless the same formulation label explicitly links them. Do not copy endpoint values onto unrelated composition/stability rows.\n- Extract excipient/vehicle composition into components, including non-API ingredient names, concentrations, basis, and notes when available.\n- Extract condition context when explicitly present in the table, footnote, title, or experiment context: membrane_type, membrane_source, membrane_thickness_um, receptor_medium, dose_type, and dose_amount.\n- Use dose_type only as 'finite', 'infinite', or ''. Do not guess missing condition fields.\n\nDOI: 10.1208/s12249-013-9995-4\nTITLE: Influence of critical parameters of nanosuspension formulation on the permeability of a poorly soluble drug through the skin--a case study.\nSOURCE_FORMAT: pdf\nSOURCE_BACKEND: pdf_local\nSOURCE_REF: C:\\Users\\yz02380\\OneDrive - University of Surrey\\Science Research\\Codes\\SkinMiner\\papers\\pdf\\10.1208_s12249-013-9995-4_manual.pdf\nLOCATOR_MODE: page\nSELECTED_LOCATORS: ['page 2', 'page 3', 'page 4', 'page 6', 'page 9']\nENDPOINT_TABLE_HINT: \nTABLE_TRUNCATED: True\nTRUNCATION_NOTES: ['PDF page text cap reached']\nCURVE_HINTS: \n\nCONTENT:\n--- PAGE 2 ---\nshown that when the particle size was higher than 5 μm, almost no permeation was observed through the stratum corneum, however particles with a diameter of about 750 nm demonstrat- ed better permeation into the hair follicle of the human skin (11). One of the approaches studied recently, was to reduce the size of crystals by the wet media milling approach for poorly soluble drug compounds (12,13). This helped to improve the rate of release of drug substance by increasing the surface area of the crystals during the milling process. Once the particle size was decreased, probably to the nano range, the saturation solubility increased. This increase promoted the enhancement of the permeation rate through the skin due to an increased concentration gradient. One of the challenges during this approach is the abrasion of grinding media. The risk of con- tamination of bead to the product has been minimized by process optimization (14). In this current study, an evaluation of a nanosuspension was performed to enhance the permeability of a poorly solu- ble drug through the skin. D-a-Tocopheryl polyethylene glycol 1000 succinate (known as Vitamin E TPGS or TPGS) and hydroxylpropyl methylcellulose—lower viscosity grade (HPMC K4) were used as the basic components in this for- mulation. In a separate study, the authors evaluated the sig- nificance of these compounds in the topical formulation (15). Vitamin E TPGS was used in to enhance the permeability of the poorly soluble drug. Also, it was used to stabilize the system by hydrophobic interactions. HPMC K4 was used as a steric stabilizer to inhibit crystal growth of the drug in the formulation. This manuscript is divided into three main sections. The first section deals with the design and assessment of gel for- mulation. Gel forming polymers such as hydroxypropyl methylcellulose—higher viscosity grade (HPMC K100), sodi- um carboxy methyl cellulose (Na-CMC) and polaxamer (Pluronic F127) were used in order to optimize the final variant, which was tested for permeability study using porcine skin. In the second section of the research, a factorial design study was conducted to evaluate the individual effects from the three critical components (particle size of drug crystals, concentration of Vitamin E TPGS and concentration of gel forming polymer) on the permeation rate of drug through porcine skin. In the third or final part of the study, the optimal formulation was tested on human skin to confirm the perme- ability assessment. Ibuprofen was used as the model drug for this study. It is a potent NSAID often used for the treatment of acute and chronic arthritic conditions. Although topical delivery is the preferred approach to overcome the challenges of gastric complications occurring with oral delivery of this drug (16,17), the drug mol- ecule exhibits poor aqueous solubility and also has a high ten- dency of crystal growth in the high energized system. MATERIALS AND METHODS Materials Ibuprofen, an anti-inflammatory drug from Doctors Or- ganic Chemical Limited (Tanaku, AP, India), was used as a model drug in this study. The free base form of this drug is poorly water soluble with an equilibrium water solubility of 0.02 mg/ml and molecular weight of 206.28 g/mol. The excip- ients used in this study include, vitamin E TPGS from East- man Chemical. Co. (Kingsport, TN, USA), Pluronic F-127 from BASF (Florham Park, NJ, USA), HPMC K4 and HPMC K100 from Dow Chemical Company (Midland, MI, USA), Sodium-carboxymethylcellulose/Na-CMC from Hercules (Wilmington, DE, USA). Deionized water was used as disper- sion media. Preparation of Gel Formulations from Nanosuspension During this process, Vitamin E TPGS was dissolved in water at 70–80°C to produce a 1%w/v solution. The stabilizer (HPMC K4) was dissolved in the solution (2%w/v). The drug substance (5%w/v) was dispersed into the system and the resulting suspension was wet milled with the grinding media (0.2 mm diameter) using a conventional planetary mill, Model PM400, Retsch GmbH, Germany, equipped with beaker with a chamber volume of 50 ml. The agitation rate was maintained at 400 rpm. High shear force generated during collision of the milling media with the solid drug provided the energy to fracture drug crystals into smaller particles. Due to the colli- sion of the drug crystals with the beads and with the wall of the grinding chamber, smaller crystals at sub-micron or nano size range were produced. Once the desired nanosuspension was formed, ...[truncated]\n\n--- PAGE 3 ---\nstability and the crystal growth/increase of particle size was monitored. The formulations were stored at 2–8°C and sam- ples were collected at different time points from 0 to 6 weeks for particle size analysis. Particle Size Analysis The growth of crystals in the nanosuspension gel system was detected by Photon Correlation Spectroscopy. Photon Correlation Spectroscopy determines velocity distribution of particle movement, by measuring dynamic fluctuations of in- tensity of scattered light. The suspensions were characterized by intensity-weighted particle size using photon correlation spectroscopy (PCS) particle size analyzer (Beckman Coulter, Jersey City, NJ, USA). Once the required intensity reached, analysis was performed to obtain the mean particle size and polydispersity index (PI). Analysis was performed in triplicate (angle—90°, diluent—water, temp.—25°C, run time—200 s.). Solubility Study Solubility studies were performed by mixing excess amount of drug into water containing various concentrations of vitamin E TPGS and kept at 37°C with constant shaking until 72 h. After that, the solution was centrifuged (CT422, Jouan Inc., Winchester, VA, USA) at 3,000 rpm; the superna- tant liquid was collected and the concentration of drug dissolved was analyzed using HPLC (as described below). Permeation Study Permeation rates were determined using porcine and human skin. Dermatomed (∼500 μm) porcine (pig) skin was obtained from the abdominal regions of young Yorkshire pigs (26.5–28 kg, UMDNJ, Newark, NJ). Human skin was obtained from NY firefighters (New York, NY) and was also dermatomed to 500 μm. The human skin was collected from right posterior leg of a 40-year-old female Hispanic donor. The skin was stored at −80°C. Prior to each permeation experiment; the skins were allowed to thaw at room temper- ature. After washing and equilibration with PBS, the skin was mounted on static vertical Franz Diffusion cells—Permegear Inc., Bethlehem, PA (receptor volume 5.1 ml, donor area 0.64 cm2) by clamping them between the donor and receptor compartments. The receptor compartment was filled with PBS (pH 7.4) and maintained at 37±0.5°C with constant stirring at 600 RPM. Formulations were added to the donor compartment as an infinite dose to completely cover the membrane surface. Receptor samples were collected at predetermined time points and then replaced with equivalent amount of buffer. The drug content in the samples was analyzed by HPLC. Statistical Analysis A statistical analysis was performed with nanosuspension gel formulations in order to evaluate the effect of individual components and the interaction between these parameters. A 23 factorial design with three critical parameters at two different levels (high and low) was executed. Three replicates were used for each formulation during permeation study. The concentration of HPMC K4 and drug substance was kept constant during this study. The overall study design is shown in Table II. The Pareto chart (from factorial design analysis) was used as a statistical tool to analyze the effect and magnitude of the above parameters. The objective for this statistical analysis was to investigate the change of permeability profile from each of the following components: & Size of drug crystals & Vitamin E TPGS concentration & Concentration of gel forming polymer MVDA Modeling of Nanosuspension Gel Formulations Besides the Factorial design analysis using Pareto chart approach, multi variant data analysis (MVDA) modeling was performed to study the influence of different components of nanosuspension gel formulations on the permeation rate of the drug through pig skin. SIMCA P + (version 11.5) software was used for this analysis. MVDA is an important modeling tool for very large data set. In research, this model helps to identify the influential formulation parameters and to establish the correla- tion pattern among these parameters. This model is established based on the equation: y=f(x)+e, where, f(x)=the part explained by the model and e=noise (the remaining unexplained part of the data). Table I. Compositions of Ibuprofen Nanosuspension Formulations Code Vit. E TPGS % (w/v) HPMC K4 % (w/v) Drug % (w/v) HPMC K100 % (w/v) Na-CMC % (w/v) Pluronic F127 % (w/v) Assay (%) Mean PS (nm) PDI N1 1 2 5 1 96.5 396.8 0.212 N2 1 2 5 2.5 98.1 320.7 0.236 N3 1 2 5 5 99.1 344.6 0.245 N4 1 2 5 1 95.8 582.3 0.299 N5 1 2 5 2.5 98.1 480.6 0.312 N6 1 2 5 5 96.5 466.2 0.221 N7 1 2 5 10 98.6 756.3 0.300 N8 1 ...[truncated]\n\n--- PAGE 4 ---\nHPLC Analysis The assay was determined by using a gradient HPLC (Waters 2695 HPLC system) equipped with UV–Vis detector (Waters 2487, Dual I Absorbance Detector) and a C18 column detection (X Terra column, Waters, Ireland, analytical C18 column, 5 μm particle size, 4.6×150 mm). The mobile phase consists of a mixture of acetonitrile and phosphate buffer (pH 3.5) with a ratio of 60/40 (v/v). The detection wavelength used was 230 nm with a flow rate of 1.2 ml/min and run time of 6 min. The precision and linearity was established for concen- tration ranged from 5–500 μg/ml. All the test samples were within these ranges. RESULTS AND DISCUSSIONS Formulation Design of Gel System Produced from Nanosuspension As shown in Table I, several formulations were evaluated using nanosuspensions. The nanosuspensions were prepared by the wet milling process using 5% drug, 1% vitamin E TPGS, and 2% HPMC K4 polymer. The advantages of using the top down media milling approach for the formation of nanosuspensions included high drug loading capacity, elimina- tion of organic solvent and easy scale-up. In a separate study, a detailed evaluation was conducted in order to optimize the vitamin E TPGS and HPMC K4 polymer concentrations based upon the success of producing nanocrystals during the milling process. Since we intend to develop these formulations for dermal application, therefore gel forming polymers were added for better application and adherence on the skin. We used different types of gel forming polymers at three different concentrations (Table I). Mean particle size and assay values were recorded for the different formulations. Particle Size Analysis of Nanosuspension Gel System One of the most important characterization studies of nanosuspension was the particle sizing of the drug crystals. The three popular analytical techniques used for size measurement of nanoparticles are PCS by dynamic light scattering (DLS), laser diffraction (LD) by static light scattering technique and microscopy (18). Among these techniques microscopic study is a visible method which gave qualitative information of the particles. However, this method does not provide any statistical data analysis. On the other hand, PCS produces accurate results of particles size measurement between 50 nm to about 2 μm and sometimes even up to 5 μm. Also, this technique requires a small amount of sample (a few milliliters) with less dilution and thus minimizes the probability of dissolution of the smaller particles. However, it is not possible to detect larger particles (more than 6 μm) by using the PCS technique (19). The LD technique is a very robust technique for measuring the size of particles; however, it can only analyze larger particles (more than 400 nm). Based on the above facts, during the preliminary phase of this research, we used both, PCS and LD techniques to detect the size of drug crystals formed during the process and also during storage. However, crystals were not de- tected accurately by LD method due to lower intensity of particles in the sample. Thus, PCS technique was selected as the suitable technique for particle size analysis. Also during the analytical method development, in order to study the effect of any possible dissolution on drug crys- tals during particle size analysis, a study was performed by diluting the nanosuspension with unsaturated, partially saturated and completely saturated dispersion media. No difference in the results was observed between these experiments. An increase of particle size during (a) gel formation process and (b) during storage was identified as the most important quality attribute during the initial screening experiments. As shown in Table I, the size of drug crystals increased during the preparation of the gel from the nanosuspension. The size of drug crystals increased signif- icantly in presence of Pluronic F127. However, the in- crease in size of drug crystal was comparatively lower for HPMC K100 and Na-CMC. One of the reasons that can be stated to explain this kind of observation is that, unlike Pluronic F127, the other two polymers did not change the solubility of the drug. Based on these data, Pluronic F127 was ruled out for further screening experi- ments. For HPMC K100, almost no particle size increase was observed. The reason for the low particle size in- crease for HPMC K100 can be explained by the fact that HPMC possessed a hydrophobic interaction with the drug crys- tals, resulted to inhibition of cry ...[truncated]\n\n--- PAGE 6 ---\nof ibuprofen. These parameters were adjusted in a facto- rial design analysis in order to evaluate their significance in determining the flux. The different particle size of ibuprofen crystals were obtained by optimizing the milling time. The permeation study was conducted using dermatomed porcine skin. The Franz cell receptor samples were collected at predetermined time points (4, 8, 12, 24, 36, 48, 72 h) and ana- lyzed using HPLC. During the DOE analysis the study was extended until 72 h in order to rule out any significant precipi- tation/crystal growth of drug in the nanosuspension gel system during its contact with skin surface which is rough or gritty in nature. However, during the permeation study, we did not ob- serve significant decrease in the rate of drug release even up to 72 h. This may be explained by the shorter duration of permeation experiments to initiate significant crystal growth. From the permeation experiment, no change of the perme- ation rate was observed for 72 h, which confirmed that su- persaturation was maintained during the study. The plot showing the drug permeated for different formulations is presented in Fig. 2. The cumulative amount of drug permeated through the skin after 24, 48, and 72 h is shown in Table II. The initial drug content in the gel formulations used for the DOE study was incorporated in Table II. The drug content for all the formula- tions were 96–100%. If we correlate the drug content with the cumulative amount of drug permeated after 72 h no change of conclusion was confirmed. Also the saturation solubility of ibu- profen at pH 7.4 PBS (+37°C) was determined to be 1.6 mg/mL (1,600 μg/ml). Therefore, the sink condition was very well maintained. The flux was determined for each formulation in order to identify the significance of the variables. The following sections summarized the results of these studies and the signif- icance of the findings. Flux values were determined for each permeation study (Table II) and these values were used as response factors in the factorial design. The absolute values of effects were used for rank ordering between the factors and the p value (from un- paired Student’s t test) was used to determine the significance of different parameters. The results from the permeation studies demonstrated a rank order in correlation between the formula- tion parameters and drug permeability through the skin. From the Puerto chart (Fig. 3a), concentration of vitamin E TPGS seemed to be the most significant parameter (p value<0.005). The magnitude of effect was positive (+) which indicated that increase in vitamin E TPGS concentration influenced the drug solubility and also the permeability of the drug through the skin. Additionally, we had performed some separate studies in order to co-relate the solubility of the drug in the formulation and the permeability rate. It was observed that the solubility of the drug in 0.5, 1, and 2.5% TPGS solution was 258.66, 262.26, and 423.3 μg/ml, respectively. If we relate the solubility trend with the data obtained from the factorial design analysis, it was observed that the flux of the drug through the skin was significantly higher for for- mulation F2 (flux—29.7 μg/cm2/h.) as compared to F4 (flux −19.3 μg/cm2/h.) due to higher amount of TPGS used in the formulation. A similar result was also obtained for formulations F1 and F8. Although, the polymers used in this research did not produce any significant influence on the solubility of the drug; however, they probably improved the stability of the systems, which was explained in the later section. The particle size of drug crystals was the second most significant parameter (p value<0.005). The magnitude of ef- fect was negative (−). The decrease of crystal size influenced the drug dissolution rate and hence the drug fluxes through the skin. The influence of particle size on the permeability can be explained by the larger surface area and potentially higher dissolution velocity of the nanosuspension system. The phe- nomenon can be explained by the following Ostwald– Freundlich’s equation: ln S=S0 ¼ 2Mγ=ρrRT; ð4Þ where S is the solubility, S0 is the solubility of a flat sheet (r=∞), M is the molecular weight of the solid, γ is the interfacial tension, R is the gas constant, T is the absolute temperature, r is the radius and ρ is the density of the solid. As can be seen from this equation, the solubility of a certain material is inversely correlated to the particle size. ...[truncated]\n\n--- PAGE 9 ---\nh (SD-0.7; n=3) compared to 14.1 μg/cm2/h (SD-0.6; n=3) for control formulation (Fig. 4). The major contribution to the enhanced permeation of a poorly soluble drug like ibuprofen can be explained by Noyes–Whitney Eq. 1. dC=dt ¼ DA Cs−C ð Þ=h ð1Þ where dC/dt is the rate of dissolution of the drug particles, D is the diffusion coefficient of the drug in the formulation matrix, h is the thickness of the diffusion layer around each drug particle, Cs is the saturation solubility of the drug in solution in the diffusion layer, and C is the concentration of the drug in the gel. This equation was described to explain the effect of particle size reduction of drug crystals on dissolution of the drug in the gel matrix. In summary, several hypotheses may be generated to explain the experimental findings during the research. & Increase of total area (A) of the particles due to size reduction; & Decrease in the thickness (h) of the diffusion layer sur- rounding the particles; In the present study, the increase of drug solubility occurred due to the addition of surface active agent (Vitamin E TPGS in this case). In a separate study, the unique property of vitamin E TPGS has been evaluated on the permeability enhancement of the drug through the skin. TGPS may contribute the level of lipophilicity in the skin. More detailed investigations on the mech- anism of skin permeation of ibuprofen at the nanosuspension state and the influence of Vitamin E TPGS will possibly shed some light on the observed effects. The control gel formulation (as stated in the “MATERIALS AND METHODS” section) was selected from our previous study (15). This system had shown promising permeation results through the skin. The nanosuspension gel formula- tion had actually demonstrated superior result as com- pared to our control. This can be explained due to the fact that the control system used in this study is a meta stable system, where the concentration of the drug was probably above the equilibrium solubility which leads to the thermodynamic instability of the system as a function of time. Although the polymer used in this system helped to inhibit the nucleation process and also the rate of crystal growth, however might not be sufficient enough to sustain the stability during the permeation study through the skin (8,9,28). On the other hand, the superior permeation results obtained from the gel system produced from nanosuspension can be explained due to the influ- ence from the solubilizers as well the particle size of the drug crystals. These factors resulted in higher drug release due to the formation of supersaturated solution around the crystals and thus a high concentration gradient was produced between the drug crystals and skin surface (29,30). The depletion of the dissolved drug due to any precipitation was immediately replaced by the dissolution of nanoparticles (due to the presence of higher surface area of drug particles) and thus equilibrium state was maintained in the system. Therefore, fast replacement of diffused molecules occurred due to fast and continuous dissolution from the new crystal surface (12,31) and thus drug release became continuous or zero order. CONCLUSIONS In conclusion, this study demonstrated a clear corre- lation between the vitamin E TPGS and particle size of nanocrystals with the permeation rate (flux) of ibuprofen through the skin. The explanation for the high permeation rate through the skin was mainly because of high surface area created in the formulation system that resulted in a high and continual drug release from the formulation to the external phase as a result of a constant driving force. In addition, the components used in the system also influenced the drug delivery potential from the formula- tion that improved the wettability of the poorly soluble drug and thus affected the mobility parameters through the skin. The formulation developed with vitamin E TPGS and HPMC 3cps provided hydrophobic interactions that resulted in the stabilization of nanocrystals. In conclusion, a number of factors including the particle size of the drug crystals, surface properties of the carrier, interaction of drug molecule with the stabilizer needed to be considered while designing a suitable dermal formulation for the poorly soluble compound. In summary, for BCS II com- pounds like ibuprofen, nanosuspension gel formulations seem to be an attractive approach for improving the drug permeability through the skin. ACKNOWLEDGMENTS The  ...[truncated]"
+      }
+    ]
+  ],
+  "raw_output": {
+    "formulations": [
+      {
+        "formulation_label": "N1",
+        "dosage_form": "Nanosuspension Gel",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": 5.0,
+        "api_concentration_unit": "w/v",
+        "api_basis": "w/v",
+        "api_concentration_raw": "5% w/v",
+        "components": [
+          {
+            "name_raw": "Vitamin E TPGS",
+            "concentration_value": 1.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K4",
+            "concentration_value": 2.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K100",
+            "concentration_value": 1.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Na-CMC",
+            "concentration_value": 96.5,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Pluronic F127",
+            "concentration_value": 0.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": 24.0,
+        "endpoint_time_unit": "h",
+        "endpoints": [
+          {
+            "kind": "cumulative_amount",
+            "mean": 29.7,
+            "sd": 0.7,
+            "unit": "μg/cm²",
+            "n_replicates": 3
+          }
+        ],
+        "membrane_type": "porcine skin",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "PBS (pH 7.4)",
+        "dose_type": "infinite",
+        "dose_amount": "as needed",
+        "water_qs_or_balance": "yes",
+        "table_id": "Table II",
+        "source_pages": [
+          3,
+          9
+        ],
+        "source_locators": [],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "N2",
+        "dosage_form": "Nanosuspension Gel",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": 5.0,
+        "api_concentration_unit": "w/v",
+        "api_basis": "w/v",
+        "api_concentration_raw": "5% w/v",
+        "components": [
+          {
+            "name_raw": "Vitamin E TPGS",
+            "concentration_value": 1.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K4",
+            "concentration_value": 2.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K100",
+            "concentration_value": 2.5,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Na-CMC",
+            "concentration_value": 98.1,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Pluronic F127",
+            "concentration_value": 0.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": 24.0,
+        "endpoint_time_unit": "h",
+        "endpoints": [
+          {
+            "kind": "cumulative_amount",
+            "mean": 32.2,
+            "sd": null,
+            "unit": "μg/cm²",
+            "n_replicates": 3
+          }
+        ],
+        "membrane_type": "porcine skin",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "PBS (pH 7.4)",
+        "dose_type": "infinite",
+        "dose_amount": "as needed",
+        "water_qs_or_balance": "yes",
+        "table_id": "Table II",
+        "source_pages": [
+          3,
+          9
+        ],
+        "source_locators": [],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "N3",
+        "dosage_form": "Nanosuspension Gel",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": 5.0,
+        "api_concentration_unit": "w/v",
+        "api_basis": "w/v",
+        "api_concentration_raw": "5% w/v",
+        "components": [
+          {
+            "name_raw": "Vitamin E TPGS",
+            "concentration_value": 1.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K4",
+            "concentration_value": 2.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K100",
+            "concentration_value": 5.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Na-CMC",
+            "concentration_value": 99.1,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Pluronic F127",
+            "concentration_value": 0.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": 24.0,
+        "endpoint_time_unit": "h",
+        "endpoints": [
+          {
+            "kind": "cumulative_amount",
+            "mean": 33.5,
+            "sd": 0.5,
+            "unit": "μg/cm²",
+            "n_replicates": 3
+          }
+        ],
+        "membrane_type": "porcine skin",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "PBS (pH 7.4)",
+        "dose_type": "infinite",
+        "dose_amount": "as needed",
+        "water_qs_or_balance": "yes",
+        "table_id": "Table II",
+        "source_pages": [
+          3,
+          9
+        ],
+        "source_locators": [],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "N4",
+        "dosage_form": "Nanosuspension Gel",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": 5.0,
+        "api_concentration_unit": "w/v",
+        "api_basis": "w/v",
+        "api_concentration_raw": "5% w/v",
+        "components": [
+          {
+            "name_raw": "Vitamin E TPGS",
+            "concentration_value": 1.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K4",
+            "concentration_value": 2.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K100",
+            "concentration_value": 1.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Na-CMC",
+            "concentration_value": 95.8,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Pluronic F127",
+            "concentration_value": 0.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": 24.0,
+        "endpoint_time_unit": "h",
+        "endpoints": [
+          {
+            "kind": "cumulative_amount",
+            "mean": 25.4,
+            "sd": null,
+            "unit": "μg/cm²",
+            "n_replicates": 3
+          }
+        ],
+        "membrane_type": "porcine skin",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "PBS (pH 7.4)",
+        "dose_type": "infinite",
+        "dose_amount": "as needed",
+        "water_qs_or_balance": "yes",
+        "table_id": "Table II",
+        "source_pages": [
+          3,
+          9
+        ],
+        "source_locators": [],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "N5",
+        "dosage_form": "Nanosuspension Gel",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": 5.0,
+        "api_concentration_unit": "w/v",
+        "api_basis": "w/v",
+        "api_concentration_raw": "5% w/v",
+        "components": [
+          {
+            "name_raw": "Vitamin E TPGS",
+            "concentration_value": 1.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K4",
+            "concentration_value": 2.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K100",
+            "concentration_value": 2.5,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Na-CMC",
+            "concentration_value": 98.1,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Pluronic F127",
+            "concentration_value": 0.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": 24.0,
+        "endpoint_time_unit": "h",
+        "endpoints": [
+          {
+            "kind": "cumulative_amount",
+            "mean": 27.8,
+            "sd": 0.2,
+            "unit": "μg/cm²",
+            "n_replicates": 3
+          }
+        ],
+        "membrane_type": "porcine skin",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "PBS (pH 7.4)",
+        "dose_type": "infinite",
+        "dose_amount": "as needed",
+        "water_qs_or_balance": "yes",
+        "table_id": "Table II",
+        "source_pages": [
+          3,
+          9
+        ],
+        "source_locators": [],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "N6",
+        "dosage_form": "Nanosuspension Gel",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": 5.0,
+        "api_concentration_unit": "w/v",
+        "api_basis": "w/v",
+        "api_concentration_raw": "5% w/v",
+        "components": [
+          {
+            "name_raw": "Vitamin E TPGS",
+            "concentration_value": 1.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K4",
+            "concentration_value": 2.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K100",
+            "concentration_value": 5.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Na-CMC",
+            "concentration_value": 96.5,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Pluronic F127",
+            "concentration_value": 0.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": 24.0,
+        "endpoint_time_unit": "h",
+        "endpoints": [
+          {
+            "kind": "cumulative_amount",
+            "mean": 30.1,
+            "sd": 0.4,
+            "unit": "μg/cm²",
+            "n_replicates": 3
+          }
+        ],
+        "membrane_type": "porcine skin",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "PBS (pH 7.4)",
+        "dose_type": "infinite",
+        "dose_amount": "as needed",
+        "water_qs_or_balance": "yes",
+        "table_id": "Table II",
+        "source_pages": [
+          3,
+          9
+        ],
+        "source_locators": [],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "N7",
+        "dosage_form": "Nanosuspension Gel",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": 5.0,
+        "api_concentration_unit": "w/v",
+        "api_basis": "w/v",
+        "api_concentration_raw": "5% w/v",
+        "components": [
+          {
+            "name_raw": "Vitamin E TPGS",
+            "concentration_value": 1.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K4",
+            "concentration_value": 2.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "HPMC K100",
+            "concentration_value": 10.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Na-CMC",
+            "concentration_value": 98.6,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          },
+          {
+            "name_raw": "Pluronic F127",
+            "concentration_value": 0.0,
+            "concentration_unit": "w/v",
+            "basis": "w/v",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": 24.0,
+        "endpoint_time_unit": "h",
+        "endpoints": [
+          {
+            "kind": "cumulative_amount",
+            "mean": 28.9,
+            "sd": 0.3,
+            "unit": "μg/cm²",
+            "n_replicates": 3
+          }
+        ],
+        "membrane_type": "porcine skin",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "PBS (pH 7.4)",
+        "dose_type": "infinite",
+        "dose_amount": "as needed",
+        "water_qs_or_balance": "yes",
+        "table_id": "Table II",
+        "source_pages": [
+          3,
+          9
+        ],
+        "source_locators": [],
+        "evidence_snippet": "",
+        "confidence": 1.0,
+        "notes": ""
+      }
+    ],
+    "formulation_table_found": "yes",
+    "formulation_table_in_image": "no",
+    "recommended_next": "ok",
+    "notes": ""
+  }
+}

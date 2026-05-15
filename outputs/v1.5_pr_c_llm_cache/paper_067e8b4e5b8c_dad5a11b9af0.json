@@ -1,0 +1,554 @@
+{
+  "prompt_asset_id": "extractors.table.structured_tables",
+  "prompt_version": "2026-05-10.pr-c",
+  "paper_id": "paper_067e8b4e5b8c",
+  "doi": "10.1159/000315139",
+  "model_name": "gpt-4o-mini",
+  "source_format": "pdf",
+  "source_backend": "pdf_local",
+  "source_ref": "papers\\uploaded_external\\watkinson_2011_III.pdf",
+  "prompt_hash": "dad5a11b9af0",
+  "raw_input": [
+    "You extract formulation composition tables from OA scientific articles. Use ONLY the provided structured tables or PDF page text and optional page images. Do not guess concentrations or endpoint values. Preserve explicit table locators such as 'Table 2' when they are supplied.",
+    [
+      {
+        "type": "input_text",
+        "text": "Extract formulation composition tables relevant to ibuprofen in vitro permeation or release. Also capture endpoint measurements, endpoint times, units, SD values, replicate counts, and basis when they are explicitly tabulated. Return only structured output. Preserve explicit table identifiers in table_id.\n\nSTRICT ROW COMPLETENESS RULES:\n- You MUST extract every relevant data row in the provided tables. Do not skip, summarize, or return only representative rows.\n- If a table has 8 formulation rows and one endpoint column, return 8 records. If it has 8 formulation rows and 3 endpoint time columns, return 24 records.\n- For one-row/multiple-timepoint endpoint tables, emit one independent record for each formulation x each timepoint column, set endpoint_time_value/unit for that exact column, and put that column's measurement(s) in endpoints.\n- Do not copy a final-time endpoint mean into earlier timepoint records. Every endpoint mean must match the same table cell/time column named in endpoint_time_value.\n- The formulation_label for an endpoint record MUST come from the same table row as every endpoint mean. Do not substitute labels from another table by row order.\n- The endpoints field is a list. Add one item per distinct endpoint column explicitly present for that same row/timepoint.\n- Use endpoint kind exactly as one of: flux, cumulative_amount, permeability_coefficient, partition_parameter, diffusion_parameter, lag_time, permeated_fraction, unknown.\n- If cumulative amount and flux/Jss/permeability columns coexist for the same formulation row, include BOTH as separate endpoint list items. Do not overwrite one with the other.\n- Pair mean, SD, unit, and n_replicates from the same endpoint column or immediately associated adjacent column/footnote. Never use an SD, SE, CI, or range cell as the mean.\n- If a cell is reported as mean +/- SD, put the first number in mean and the second in sd. If only mean is given, leave sd null.\n- If ENDPOINT_TABLE_HINT is set, prioritize that table for endpoint records. Use other tables only to fill composition or shared context for matching labels.\n- Keep composition-only rows separate from endpoint rows unless the same formulation label explicitly links them. Do not copy endpoint values onto unrelated composition/stability rows.\n- Extract excipient/vehicle composition into components, including non-API ingredient names, concentrations, basis, and notes when available.\n- Extract condition context when explicitly present in the table, footnote, title, or experiment context: membrane_type, membrane_source, membrane_thickness_um, receptor_medium, dose_type, and dose_amount.\n- Use dose_type only as 'finite', 'infinite', or ''. Do not guess missing condition fields.\n\nDOI: 10.1159/000315139\nTITLE: Optimisation of Cosolvent Concentration for Topical Drug Delivery III – Influence of Lipophilic Vehicles on Ibuprofen Permeation\nSOURCE_FORMAT: pdf\nSOURCE_BACKEND: pdf_local\nSOURCE_REF: papers\\uploaded_external\\watkinson_2011_III.pdf\nLOCATOR_MODE: page\nSELECTED_LOCATORS: ['page 1', 'page 2', 'page 3', 'page 4', 'page 5']\nENDPOINT_TABLE_HINT: Table 4\nTABLE_TRUNCATED: True\nTRUNCATION_NOTES: ['PDF page text cap reached']\nCURVE_HINTS: \n\nCONTENT:\n--- PAGE 1 ---\nFax +41 61 306 12 34 E-Mail karger@karger.ch www.karger.com Original Paper Skin Pharmacol Physiol 2011;24:22–26 DOI: 10.1159/000315139 Optimisation of Cosolvent Concentration for Topical Drug Delivery III – Influence of Lipophilic Vehicles on Ibuprofen Permeation R.M. Watkinson a R.H. Guy b G. Oliveira c J. Hadgraft c M.E. Lane c a Aesop, Melbourne, Vic. , Australia; b Department of Pharmacy and Pharmacology, University of Bath, Bath , and c Department of Pharmaceutics, School of Pharmacy, University of London, London , UK Introduction The importance of excipients in determining the rate and extent of topical or transdermal delivery of actives is not widely reported in the literature. This is surprising as previous work has shown that formulation components clearly influence drug permeation [1–3] . Previously, we have investigated the influence of binary and ternary sys- tems of hydrophilic solvents [water, ethanol and propyl- ene glycol (PG)] on ibuprofen transport in silicone mem- branes and in skin [4, 5] . The influence of these solvents on the permeation of ibuprofen was studied and specific effects on diffusion and/or partition parameters were ex- amined. For PG, enhanced permeation appears to be achieved via increased solubility and partitioning of ibu- profen into silicone or skin, while ethanol enhances ibu- profen transport chiefly by promoting drug solubility in the membranes. The present work extends these studies to lipophilic vehicles, specifically, light mineral oil (MO) and fraction- ated coconut oil [Miglyol © 812 (MG)]. Light MO is a mix- ture of refined liquid saturated hydrocarbons obtained from petroleum which is used topically as an emollient, solvent or oleaginous vehicle [6] . As well as possessing moisture-occlusive properties [7] , it has been reported as Key Words Ibuprofen \u0002 Mineral oil \u0002 Miglyol © 812 \u0002 Permeation \u0002 Silicone Abstract Previously, we have reported the effects of water, ethanol, propylene glycol and various binary and ternary mixtures of these solvents on the permeation of ibuprofen in model membranes and in skin. The present study investigates the influence of lipophilic vehicles on the transport of ibuprofen in silicone membrane and in human skin. The permeation of ibuprofen was measured from mineral oil (MO), Miglyol \u0002 812 (MG) and binary mixtures of MO and MG. The solubility of ibuprofen was 5-fold higher in MG than in MO, however, the permeation of ibuprofen from the pure vehicles and combi- nations of both was comparable in silicone membrane. Ad- ditionally, there were no significant differences in skin per- meation for MO and MG vehicles. When the permeation of various hydrophilic and lipophilic vehicles is considered, a trend between flux values for the model membrane and skin is evident (r 2 = 0.71). The findings suggest that silicone mem- brane may provide information on qualitative trends in skin permeation for vehicles of diverse solubility and partition characteristics. Copyright © 2010 S. Karger AG, Basel Received: March 9, 2010 Accepted after revision: May 17, 2010 Published online: July 9, 2010 Majella E. Lane Department of Pharmaceutics, School of Pharmacy, University of London London WC1N 1AX (UK) Tel. +44 207 753 5821, Fax +44 870 165 9275 E-Mail majella.lane @ btinternet.com © 2010 S. Karger AG, Basel 1660–5527/11/0241–0022$38.00/0 Accessible online at: www.karger.com/spp\n\n--- PAGE 2 ---\nOptimisation of Cosolvent Concentration for Topical Drug Delivery Skin Pharmacol Physiol 2011;24:22–26 23 an inert, nonpenetrating and noninteractive solvent [8, 9] . More recent studies suggest that it is absorbed into the upper layers of the skin [10] . MG is composed of mixed triglycerides of fractionated C 8 –C 10 fatty acids derived from coconut oil. This compound has a wide variety of cosmetic and pharmaceutical applications [11, 12] but its effects on skin permeation are difficult to elucidate as it is typically employed in multicomponent preparations. To our knowledge, there is only one report in the litera- ture concerning the effects of medium chain triglycerides on skin permeation of a model hydrophilic drug [13] . A secondary aim of the present study was to investigate any correlation between ibuprofen transport in silicone and skin for the range of solvents studied to date. Materials and Methods Materials Ibuprofen was a generous gift from Wyeth Consumer Health Care (Havant, UK). HPLC grade solvents were obtained from Fisher Scientific, UK. MO was obtained from Sigma-Aldrich (UK) and MG from Sasol (Witten, Germany). The silicone mem- branes were obtained from Samco (Nuneaton, UK) with a mea- sured thickness of 400 \u0002 m. All other materials were of reagent grade and were from VWR (Lutterworth, UK). Methods Solvent Uptake Studies Full-thickness human skin from cosmetic surgery was ob- tained by informed consent and with appropriate institutional ethical approval. The epidermis was separated as reported previ- ously [4] and stored in a freezer until required. The uptake of ve- hicles into silicone membrane and skin (dried for 24 h to dry weight over silica before use) was experimentally determined by a gravimetric method. The membrane was cut to an appropriate size (–1 cm 2 samples) and weighed using a balance (Sartorius, Ep- som, UK). The samples were then soaked in the vehicle for 24 h. The membranes were blotted dry with tissue paper and reweighed. Experiments were performed in triplicate, at room temperature. The amount of solvent taken up by the membrane was expressed as a weight percent. Solubility parameters for the selected vehicles were calculated using Hansen’s approach [14] . Solubility Determination Excess drug was added to each solvent or cosolvent mixture and stirred with a magnetic bar for 48 h in a water bath main- tained at 32 ° C. Solutions were centrifuged at 10,000 rpm and an- alysed for drug content by HPLC or UV spectroscopy as described previously [4] . Experiments were performed in triplicate and mean values with standard deviation and coefficient of variation were calculated. Reproducibility was evaluated prior to injection of the samples and during analysis; the CV values were ! 5% in all experiments. Permeation Studies in Silicone Membrane and Skin Prior to the diffusion experiment the skin was defrosted and cut to the appropriate size. Permeation experiments were con- ducted with saturated solutions of ibuprofen for each vehicle us- ing Franz diffusion cells with dimensions previously reported [4] . For all permeation experiments the receptor fluid was pH 7.4 phosphate-buffered saline and sink conditions were maintained at all time points. The diffusion experiments were performed at 32 ° C under occluded conditions by sealing the donor compart- ment with microscope cover slips. The number of replicates was at least 4. Flux values were calculated by monitoring the cumulative amount (Q) of drug diffused as a function of time (t). The perme- ability coefficient (k p ) was derived from the linear portion of this profile when steady-state transport had been achieved. Partition ( \u0003 = Kh) and diffusion parameters ( \u0004 = D/h 2 ) were derived by fit- ting the entire Q versus t profile to equation 1 [15] . 2 2 2 2 1 1 1 2 exp 6 v n Q c t n t h \u0003 \u0004 \u0005 \u0004 \u0005 d ¯ \u000e ¡ ° \u000e \u000e ¡ ° ¡ ° ¢ ±  (1) where K is the membrane-vehicle partition coefficient of the drug, D is its diffusivity in the membrane of thickness h, \u0003 represents Kh, and \u0004 represents D/h 2 . Differences between all values were evaluated using ANOVA with the level of significance set at p ^ 0.05. Results and Discussion Solubility Table 1 illustrates the solubility of ibuprofen in MO, MG and various binary mixtures of the solvents. The higher solubility of ibuprofen in MG relative to MO ( fig. 1 ) reflects the similarity in their respective solubility parameters ( table 2 ); the calculated values are 9.4 (cal/ cm 3 ) 1/2 for MG, 7.1 (cal/cm  ...[truncated]\n\n--- PAGE 3 ---\nWatkinson /Guy /Oliveira /Hadgraft /Lane Skin Pharmacol Physiol 2011;24:22–26 24 the skin is thought to be close to 10 (cal/cm 3 ) 1/2 [18] . While there are no significant differences in the extent to which MO, MO/MG and MG are taken up by skin, it is interest- ing to note that the weight of skin is almost doubled after water uptake. The extent of water uptake is also signifi- cantly greater than for the other solvents into skin. The homogeneous nature of silicone when compared to skin a priori dictates that it will be a more sensitive discrimi- nator of solvent/membrane interaction. Permeation Studies in Silicone Membrane The permeation of ibuprofen through silicone mem- brane, using MO and MG vehicles of varying composi- tion, is reported in table 3 . The highest permeation rates ( 1 600 \u0002 g/cm 2 /h) were observed for 60/40, 70/30 MO/ MG, pure MO and pure MG formulations. The flux val- ues for these formulations were significantly higher than for water (185.5 \u0002 g/cm 2 /h), pure PG (297.1 \u0002 g/cm 2 /h), 60/40 PG/water (355.4 \u0002 g/cm 2 /h) and 70/30 PG/water systems (443.3 \u0002 g/cm 2 /h) which were previously report- ed [5] . Partition and diffusion parameters did not show any distinct trends (data not shown). The corresponding k p values ( table 3 ) do not change significantly, with the exception being the pure MO vehicle. The results suggest that it is the uptake of MO which is dictating the more favourable flux values. For MG, it is likely that the en- hanced solubility of ibuprofen in the vehicle compensates for the lower uptake of the MG, resulting in flux values comparable with the MO vehicle. 0 350 Flux in skin (µg/cm ) 2 0 50 100 150 200 250 300 y = 0.2513x R = 0.7144 2 200 400 600 800 1,000 1,200 Flux in silicone (µg/cm ) 2 Fig. 1. Relationship between flux through silicone membrane and human skin at 32 ° C. Table 1. Solubility of ibuprofen in MO and MG vehicles at 32° C (mean 8 SD, n) Mineral oil in vehicle (v/v), % Solubility, mg/ml 0 151.60817.69 20 167.6380.43 30 125.12825.73 40 140.19833.76 60 115.73815.22 70 85.7386.26 80 53.61822.14 90 59.2687.33 100 31.9983.44 Table 2. Vehicle solubility parameter and uptake by silicone mem- brane and skin at 32° C (mean 8 SD, n = 3) Vehicle Solubility parameter (cal/cm3)1/2 S olvent uptake, % (w/w) si licone skin MO 7.1 9.580.6* 20.585.9 MO/MG (50/50) 8.3 9.681.1* 14.189.8 MG 9.4 2.380.3 21.984.4 Water 23.4 1.680.8 89.8822.6 * p ≤ 0.05: significantly different from MG and water.\n\n--- PAGE 4 ---\nOptimisation of Cosolvent Concentration for Topical Drug Delivery Skin Pharmacol Physiol 2011;24:22–26 25 Permeation Studies in Skin There were no significant differences between the per- meation rates of ibuprofen through human skin for pure MO, 50: 50 MO/MG and pure MG ( table 4 ). The flux val- ues are much lower than for the corresponding systems through silicone membrane, as observed for permeation of other formulations of ibuprofen in silicone and skin [4, 5] . The skin permeation of ibuprofen in these lipophilic vehicles is comparable to that from PG or PG/water for- mulations [5] but lower than that from ethanol-rich for- mulations [4] . As for the silicone data, the k p value for MO is significantly greater than that observed for the MG ve- hicle. There were no significant differences for the re- spective vehicle uptake into skin ( table 2 ), suggesting that the increased solubility (MG 1 MO) of the ibuprofen in the solvent taken up by the stratum corneum largely ex- plains the permeation enhancement. Silicone and Skin Permeation Considering the findings for all single, binary and ter- nary hydrophilic and lipophilic vehicles reported to date [4, 5] and excluding the pure ethanol system, linear re- gression of silicone and skin permeation data ( fig. 1 ) gives a correlation coefficient of 0.71. Correlations between transport in silicone membranes and skin for simple aqueous solutions or solutions with small proportions of ethanol have previously been reported [19, 20] . More complex systems were investigated by Iervolino et al. [21] , who analyzed the relationship between silicone and skin permeation for a range of saturated and supersaturated solutions of ibuprofen in PG/water vehicles. A correlation coefficient of 0.96 was noted. These authors also noted that the flux in silicone was approximately 2.3 times that in skin. Figure 1 indicates that the flux in silicone is ap- proximately 4 times that in human skin. However, it is important to note that the vehicles investigated to date [4, 5] encompass solvents with a much wider spectrum of physicochemical properties than those previously inves- tigated for silicone – skin permeation. The relationship observed suggests that silicone membranes may be used to probe the activities of solvents and solvent mixtures with considerable diversity in solubility and partition characteristics. It is important to note that silicone is not proposed as an alternative to other models of the stratum corneum which contain structured lipids [22] . For the li- pophilic vehicles, drug permeation through solvent-en- riched silicone membranes appears to mirror drug per- meation through solvent-enriched skin epidermal mem- branes. Silicone membranes are far less complex than other theoretical models of human skin. Conclusions Saturated solutions of ibuprofen in the lipophilic ve- hicles studied resulted in relatively high flux values in silicone compared to PG vehicles, but these values are considerably lower than those observed for ethanol and ethanol-rich vehicles. In skin, ibuprofen permeation from MO, MG or a mixture of both was also comparable to ibuprofen skin permeation from PG or mixed PG/water vehicles but lower when compared to ethanol/water for- mulations, where the proportion of ethanol was 6 50%. The ability of MG to enhance drug solubility likely ex- plains the permeation enhancement in silicone, whereas the greater MO uptake is responsible for similar ibupro- fen permeation values. In skin, the similar permeation values are in line with the solvent uptake for both vehi- cles, suggesting that permeation enhancement is dictated Table 3. Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations con- taining MO and/or MG through silicone membrane (mean 8 SD, n = 4) MO/MG (v/v) kp, cm/h ! 102 J, \u0002g/cm2/h 0/100 0.4180.05 623.8867.7 10/90 0.3980.15 439.9823.9 20/80 0.3480.14 569.6863.5 30/70 0.4580.08 573.5855.0 40/60 0.2980.11 409.4813.6 50/50 – 311.9833.8 60/40 0.5880.06 675.1866.8 70/30 0.7580.07 646.989.9 80/20 0.9780.21 519.1820.2 90/10 0.7780.31 457.0853.5 100/0 1.8180.28* 579.4835.3 * p < 0.05: significantly different from all other vehicles. Table 4. Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations con- taining MO and MG 812 through human epidermis (mean 8 SD, n = 5) MO/MG (v/v) kp, cm/h ! 102 J, \u0002g/cm2/h 0/100 0.0680.01 93.6819.1 50/50 – 64.5815. ...[truncated]\n\n--- PAGE 5 ---\nWatkinson /Guy /Oliveira /Hadgraft /Lane Skin Pharmacol Physiol 2011;24:22–26 26 by the vehicle uptake in skin. A linear correlation is ob- tained from analysis of the model membrane and skin permeation data for the range of hydrophilic and lipo- philic vehicles studied to date. The findings confirm the utility of silicone membrane in evaluating the influence of vehicle activity on drug permeation as a precursor to conducting such studies in skin. Acknowledgement We thank Leo Pharmaceutical Products (Denmark) for finan- cial support. References 1 Wotton PK, Mollgaard B, Hadgraft J, Hoel- gaard A: Vehicle effect on topical drug deliv- ery. III. Effect of azone on the cutaneous per- meation of metronidazole and propylene glycol. Int J Pharm 1985; 24: 19–26. 2 Trottet L, Merly C, Mirza M, Hadgraft J, Da- vis AF: Effect of finite doses of propylene gly- col on enhancement of in vitro percutaneous permeation of loperamide hydrochloride. Int J Pharm 2004; 274: 213–219. 3 Otto A, Wiechers JW, Kelly CL, Hadgraft J, du Plessis J: Effect of penetration modifiers on the dermal and transdermal delivery of drugs and cosmetic active ingredients. Skin Pharmacol Physiol 2008; 21: 326–334. 4 Watkinson RM, Herkenne C, Guy RH, Had- graft J, Oliveira G, Lane ME: Influence of ethanol on the solubility, ionisation and per- meation characteristics of ibuprofen in sili- cone and human skin. Skin Pharmacol Physiol 2009; 22: 15–21. 5 Watkinson RM, Guy RH, Hadgraft J, Lane ME: Optimisation of cosolvent concentra- tion for topical drug delivery. II. Influence of propylene glycol on ibuprofen permeation. Skin Pharmacol Physiol 2009; 22: 225–230. 6 Abramowitz R, O’Donoghue D: Mineral oil, light; in Rowe RC, Sheskey PJ, Weller PJ (eds): Handbook of Pharmaceutical Excipi- ents, ed 4. Washington, Pharmaceutical Press and American Pharmaceutical Asso- ciation, 2003, pp 398–399. 7 Tranner F, Berube G: Mineral oil and petro- latum – reliable moisturizers. Cosmet Toilet- ries 1978; 93: 81. 8 Roberts MS, Anderson RA: The percutane- ous absorption of phenolic compounds: the effect of vehicle on the penetration of phenol. J Pharm Pharmacol 1975; 27: 599–605. 9 Evans JR, Hughes C: In vitro methodology for investigating quantitative relationships between skin permeation and compound structure. J Pharm Pharmacol 1986; 38: 68P. 10 Backhouse L, Dias M, Gorce JP, Hadgraft J, McDonald PJ, Wiechers JW: GARField mag- netic resonance profiling of the ingress of model skin-care product ingredients into human skin in vitro. J Pharm Sci 2004; 93: 2274–2283. 11 Iannuccelli V, Coppi G, Sergi G, Mezzena M, Scalia S: In vivo and in vitro skin permeation of butyl methoxydibenzoylmethane from li- pospheres. Skin Pharmacol Physiol 2008; 21: 30–38. 12 Pouton CW, Porter CJH: Formulation of lip- id-based delivery systems for oral adminis- tration: materials, methods and strategies. Adv Drug Deliv Rev 2008; 60: 625–637. 13 Cornwell PA, Tubek J, van Gompel HAHP, Little CJ, Wiechers JW: Glyceryl monocapry- late/caprate as a moderate skin penetration enhancer. Int J Pharm 1998; 171: 243–251. 14 Hansen CM: Hansen Solubility Parameters. A User’s Handbook. Boca Raton, CRC Press, 2000. 15 Diez-Sales O, Watkinson AC, Herraez- Dominguez M, Javaloyes C, Hadgraft J: A mechanistic investigation of the in vitro hu- man skin permeation enhancing effect of Azone \u0002 . Int J Pharm 1996; 129: 33–40. 16 Bustamante P, Pena MA, Barra J: The modi- fied extended Hansen method to determine partial solubility parameters of drugs con- taining a single hydrogen bonding group and their sodium derivatives: benzoic acid/Na and ibuprofen/Na. Int J Pharm 2000; 194: 117–124. 17 Most CF: Co-permeant enhancement of drug transmission rates through silicone rubber. J Biomed Mater Res 1972; 6: 3–14. 18 Liron Z, Cohen S: Percutaneous absorption of alkanoic acids. I. A study of operational conditions. J Pharm Sci 1984; 73: 534–537. 19 Ginoz S, Rey S, Boss G, Bunge AL, Guy RH, Carrupt P-A, Reist M, Testa B: Quantitative structure-permeation relationships for sol- ute transport across silicone membranes. Pharm Res 2002; 19: 1622–1629. 20 Wasdo SC, Juntunen J, Devarajan H, Sloan KB: A correlation of flux through a silicone membrane with flux through hairless mouse skin and human skin in vitro. Int J Pharm 2009; 373: 62–67. 21 Iervolino M, Cappello B, Raghavan SL, Had- graft J: Penetration enhancement of ibupro- fen from supersaturated solutions through human skin. Int J Pharm 2001; 212: 131–141. 22 Kessner D, Ruettinger A, ...[truncated]"
+      }
+    ]
+  ],
+  "raw_output": {
+    "formulations": [
+      {
+        "formulation_label": "0/100",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [
+          {
+            "name_raw": "Mineral Oil",
+            "concentration_value": 100.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 93.68,
+            "sd": 19.1,
+            "unit": "µg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.068,
+            "sd": 0.01,
+            "unit": "cm/h",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "Human epidermis",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 4",
+        "source_pages": [
+          5
+        ],
+        "source_locators": [
+          "page 5"
+        ],
+        "evidence_snippet": "Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis.",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "50/50",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [
+          {
+            "name_raw": "Mineral Oil",
+            "concentration_value": 50.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          },
+          {
+            "name_raw": "Miglyol 812",
+            "concentration_value": 50.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 64.58,
+            "sd": 15.1,
+            "unit": "µg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.068,
+            "sd": 0.01,
+            "unit": "cm/h",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "Human epidermis",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 4",
+        "source_pages": [
+          5
+        ],
+        "source_locators": [
+          "page 5"
+        ],
+        "evidence_snippet": "Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis.",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "100/0",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [
+          {
+            "name_raw": "Miglyol 812",
+            "concentration_value": 100.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 579.48,
+            "sd": 35.3,
+            "unit": "µg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 1.818,
+            "sd": 0.28,
+            "unit": "cm/h",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "Human epidermis",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 4",
+        "source_pages": [
+          5
+        ],
+        "source_locators": [
+          "page 5"
+        ],
+        "evidence_snippet": "Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis.",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "10/90",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [
+          {
+            "name_raw": "Mineral Oil",
+            "concentration_value": 10.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          },
+          {
+            "name_raw": "Miglyol 812",
+            "concentration_value": 90.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 439.98,
+            "sd": 23.9,
+            "unit": "µg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.398,
+            "sd": 0.15,
+            "unit": "cm/h",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "Human epidermis",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 4",
+        "source_pages": [
+          5
+        ],
+        "source_locators": [
+          "page 5"
+        ],
+        "evidence_snippet": "Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis.",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "20/80",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [
+          {
+            "name_raw": "Mineral Oil",
+            "concentration_value": 20.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          },
+          {
+            "name_raw": "Miglyol 812",
+            "concentration_value": 80.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 569.68,
+            "sd": 63.5,
+            "unit": "µg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.348,
+            "sd": 0.14,
+            "unit": "cm/h",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "Human epidermis",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 4",
+        "source_pages": [
+          5
+        ],
+        "source_locators": [
+          "page 5"
+        ],
+        "evidence_snippet": "Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis.",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "30/70",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [
+          {
+            "name_raw": "Mineral Oil",
+            "concentration_value": 30.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          },
+          {
+            "name_raw": "Miglyol 812",
+            "concentration_value": 70.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 573.58,
+            "sd": 55.0,
+            "unit": "µg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.458,
+            "sd": 0.08,
+            "unit": "cm/h",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "Human epidermis",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 4",
+        "source_pages": [
+          5
+        ],
+        "source_locators": [
+          "page 5"
+        ],
+        "evidence_snippet": "Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis.",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "40/60",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [
+          {
+            "name_raw": "Mineral Oil",
+            "concentration_value": 40.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          },
+          {
+            "name_raw": "Miglyol 812",
+            "concentration_value": 60.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 409.48,
+            "sd": 13.6,
+            "unit": "µg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.298,
+            "sd": 0.11,
+            "unit": "cm/h",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "Human epidermis",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 4",
+        "source_pages": [
+          5
+        ],
+        "source_locators": [
+          "page 5"
+        ],
+        "evidence_snippet": "Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis.",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "60/40",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [
+          {
+            "name_raw": "Mineral Oil",
+            "concentration_value": 60.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          },
+          {
+            "name_raw": "Miglyol 812",
+            "concentration_value": 40.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 675.18,
+            "sd": 66.8,
+            "unit": "µg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.588,
+            "sd": 0.06,
+            "unit": "cm/h",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "Human epidermis",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 4",
+        "source_pages": [
+          5
+        ],
+        "source_locators": [
+          "page 5"
+        ],
+        "evidence_snippet": "Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis.",
+        "confidence": 1.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "70/30",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [
+          {
+            "name_raw": "Mineral Oil",
+            "concentration_value": 70.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          },
+          {
+            "name_raw": "Miglyol 812",
+            "concentration_value": 30.0,
+            "concentration_unit": "% (v/v)",
+            "basis": "Vehicle",
+            "remark": ""
+          }
+        ],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 646.98,
+            "sd": 89.9,
+            "unit": "µg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.758,
+            "sd": 0.07,
+            "unit": "cm/h",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "Human epidermis",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 4",
+        "source_pages": [
+          5
+        ],
+        "source_locators": [
+          "page 5"
+        ],
+        "evidence_snippet": "Steady-state flux values and permeability coefficients for the permeation of ibuprofen from saturated formulations containing MO and MG 812 through human epidermis.",
+        "confidence": 1.0,
+        "notes": ""
+      }
+    ],
+    "formulation_table_found": "yes",
+    "formulation_table_in_image": "yes",
+    "recommended_next": "ok",
+    "notes": ""
+  }
+}

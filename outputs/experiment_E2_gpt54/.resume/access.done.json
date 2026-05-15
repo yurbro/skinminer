@@ -1,0 +1,12 @@
+{
+  "stage": "access",
+  "completed": 267,
+  "total": 267,
+  "detail": "resolved=40 downloaded=85 unresolved=142 error=0",
+  "input_count": 267,
+  "output_count": 267,
+  "output_paths": [
+    "outputs\\experiment_E2_gpt54\\content_access.jsonl"
+  ],
+  "resume_signature_digest": "1fdae1eb3b77082da290ec83e9badfbbbc552ef0"
+}

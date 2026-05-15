@@ -1,0 +1,12 @@
+{
+  "stage": "access",
+  "completed": 536,
+  "total": 536,
+  "detail": "resolved=89 downloaded=227 unresolved=219 error=1",
+  "input_count": 536,
+  "output_count": 536,
+  "output_paths": [
+    "outputs\\experiment_E7_no_promotion\\content_access.jsonl"
+  ],
+  "resume_signature_digest": "56d643623d891e7fdd361cb29579b3c11204b57f"
+}

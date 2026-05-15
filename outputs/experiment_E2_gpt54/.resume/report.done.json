@@ -1,0 +1,13 @@
+{
+  "stage": "report",
+  "completed": null,
+  "total": null,
+  "detail": "path=outputs\\experiment_E2_gpt54\\report\\run_report.md",
+  "input_count": 61,
+  "output_count": null,
+  "output_paths": [
+    "outputs\\experiment_E2_gpt54\\report\\run_report.md",
+    "outputs\\experiment_E2_gpt54\\report\\run_report.json"
+  ],
+  "resume_signature_digest": "1fdae1eb3b77082da290ec83e9badfbbbc552ef0"
+}

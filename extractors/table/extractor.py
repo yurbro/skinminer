@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import base64
 from collections import defaultdict
+import hashlib
 import json
 import logging
 import random
@@ -18,7 +19,18 @@ import fitz
 from pydantic import BaseModel, Field
 
 from extractors.common import build_provenance, infer_device_label, require_pdf_path, resolve_stage_model, route_device_hint
-from schemas.models import ConditionSpec, ContentAccess, EndpointSpec, EvidenceItem, ExtractorRunContext, FormulationComponent, FormulationSpec, Record, RouteDecision
+from schemas.models import (
+    ConditionSpec,
+    ContentAccess,
+    EndpointMeasurement,
+    EvidenceItem,
+    ExtractorRunContext,
+    FormulationComponent,
+    FormulationSpec,
+    Record,
+    RouteDecision,
+    sorted_endpoints,
+)
 from utils.io import make_record_id, write_jsonl, write_records_csv, write_records_jsonl
 from utils.llm_client import parse_structured, resolve_provider_from_context
 from utils.long_run import record_openai_attempt_failure, record_openai_usage
@@ -39,7 +51,7 @@ from utils.units import (
 TABLE_SOURCE_USER_AGENT = {"User-Agent": "SkinMiner/table-extractor"}
 LOGGER = logging.getLogger("skinminer.extractors.table")
 TABLE_EXTRACTION_PROMPT_ASSET_ID = "extractors.table.structured_tables"
-TABLE_EXTRACTION_PROMPT_VERSION = "2026-04-11.v1"
+TABLE_EXTRACTION_PROMPT_VERSION = "2026-05-10.pr-c"
 
 SYSTEM_PROMPT = (
     "You extract formulation composition tables from OA scientific articles. "
@@ -80,6 +92,25 @@ class Component(BaseModel):
     remark: str = ""
 
 
+class ExtractedEndpoint(BaseModel):
+    """One endpoint measurement extracted from a table row."""
+
+    kind: Literal[
+        "flux",
+        "cumulative_amount",
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter",
+        "lag_time",
+        "permeated_fraction",
+        "unknown",
+    ] = "unknown"
+    mean: float | None = None
+    sd: float | None = None
+    unit: str = ""
+    n_replicates: int | None = None
+
+
 class FormulationRow(BaseModel):
     """A formulation row extracted from a composition table."""
 
@@ -91,11 +122,9 @@ class FormulationRow(BaseModel):
     api_basis: str = ""
     api_concentration_raw: str = ""
     components: list[Component] = Field(default_factory=list)
-    endpoint_value: float | None = None
-    endpoint_unit: str = ""
     endpoint_time_value: float | None = None
     endpoint_time_unit: str = ""
-    endpoint_kind: Literal["amount_per_area", "amount_total", "percent", "flux", "jss", "unknown"] = "unknown"
+    endpoints: list[ExtractedEndpoint] = Field(default_factory=list)
     membrane_type: str = ""
     membrane_source: str = ""
     membrane_thickness_um: float | None = None
@@ -609,16 +638,20 @@ def _build_prompt(
     ) or ""
     return (
         "Extract formulation composition tables relevant to ibuprofen in vitro permeation or release. "
-        "Also capture endpoint summary values, endpoint times, units, and basis when they are explicitly tabulated. "
+        "Also capture endpoint measurements, endpoint times, units, SD values, replicate counts, and basis when they are explicitly tabulated. "
         "Return only structured output. Preserve explicit table identifiers in table_id.\n\n"
         "STRICT ROW COMPLETENESS RULES:\n"
         "- You MUST extract every relevant data row in the provided tables. Do not skip, summarize, or return only representative rows.\n"
         "- If a table has 8 formulation rows and one endpoint column, return 8 records. If it has 8 formulation rows and 3 endpoint time columns, return 24 records.\n"
-        "- For one-row/multiple-timepoint endpoint tables, emit one independent record for each formulation x each timepoint column, and set endpoint_time_value/unit for that exact column.\n"
-        "- Do not copy a final-time endpoint value into earlier timepoint records. The endpoint_value must match the same time column named in endpoint_time_value.\n"
-        "- The formulation_label for an endpoint record MUST come from the same table row as endpoint_value. Do not substitute labels from another table by row order.\n"
+        "- For one-row/multiple-timepoint endpoint tables, emit one independent record for each formulation x each timepoint column, set endpoint_time_value/unit for that exact column, and put that column's measurement(s) in endpoints.\n"
+        "- Do not copy a final-time endpoint mean into earlier timepoint records. Every endpoint mean must match the same table cell/time column named in endpoint_time_value.\n"
+        "- The formulation_label for an endpoint record MUST come from the same table row as every endpoint mean. Do not substitute labels from another table by row order.\n"
+        "- The endpoints field is a list. Add one item per distinct endpoint column explicitly present for that same row/timepoint.\n"
+        "- Use endpoint kind exactly as one of: flux, cumulative_amount, permeability_coefficient, partition_parameter, diffusion_parameter, lag_time, permeated_fraction, unknown.\n"
+        "- If cumulative amount and flux/Jss/permeability columns coexist for the same formulation row, include BOTH as separate endpoint list items. Do not overwrite one with the other.\n"
+        "- Pair mean, SD, unit, and n_replicates from the same endpoint column or immediately associated adjacent column/footnote. Never use an SD, SE, CI, or range cell as the mean.\n"
+        "- If a cell is reported as mean +/- SD, put the first number in mean and the second in sd. If only mean is given, leave sd null.\n"
         "- If ENDPOINT_TABLE_HINT is set, prioritize that table for endpoint records. Use other tables only to fill composition or shared context for matching labels.\n"
-        "- When cumulative amount columns and flux/Jss columns are both present, prefer cumulative amount columns as endpoint records and do not substitute flux for amount.\n"
         "- Keep composition-only rows separate from endpoint rows unless the same formulation label explicitly links them. Do not copy endpoint values onto unrelated composition/stability rows.\n"
         "- Extract excipient/vehicle composition into components, including non-API ingredient names, concentrations, basis, and notes when available.\n"
         "- Extract condition context when explicitly present in the table, footnote, title, or experiment context: membrane_type, membrane_source, membrane_thickness_um, receptor_medium, dose_type, and dose_amount.\n"
@@ -636,6 +669,38 @@ def _build_prompt(
         f"CURVE_HINTS: {curve_hints}\n\n"
         f"CONTENT:\n{window.content_text}"
     )
+
+
+def _cache_table_prompt_io(
+    content_handle: ContentAccess,
+    model_name: str,
+    window: TableEvidenceWindow,
+    prompt_payload: object,
+    output_payload: object,
+) -> None:
+    cache_dir = Path("outputs/v1.5_pr_c_llm_cache")
+    prompt_text = json.dumps(prompt_payload, ensure_ascii=False, sort_keys=True, default=str)
+    prompt_hash = hashlib.sha1(prompt_text.encode("utf-8")).hexdigest()[:12]
+    safe_paper_id = re.sub(r"[^A-Za-z0-9_.-]+", "_", content_handle.paper_id or content_handle.doi or "paper").strip("._")
+    out_path = cache_dir / f"{safe_paper_id or 'paper'}_{prompt_hash}.json"
+    payload = {
+        "prompt_asset_id": TABLE_EXTRACTION_PROMPT_ASSET_ID,
+        "prompt_version": TABLE_EXTRACTION_PROMPT_VERSION,
+        "paper_id": content_handle.paper_id,
+        "doi": content_handle.doi,
+        "model_name": model_name,
+        "source_format": window.source_format,
+        "source_backend": window.source_backend,
+        "source_ref": window.source_ref,
+        "prompt_hash": prompt_hash,
+        "raw_input": prompt_payload,
+        "raw_output": output_payload,
+    }
+    try:
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+    except OSError as exc:
+        LOGGER.warning("Could not cache table prompt I/O for %s: %s", content_handle.paper_id, exc)
 
 
 def _run_table_prompt(
@@ -670,16 +735,19 @@ def _run_table_prompt(
                 text_format=TableExtractionResult,
                 timeout=90,
             )
+            prompt_payload = [SYSTEM_PROMPT, user_content]
+            output_payload = response.output_parsed.model_dump(mode="json")
             record_openai_usage(
                 run_context.shared_state.get("long_run_monitor"),
                 module_name="extractors.table",
                 model_name=model_name,
                 response=response,
-                prompt_payload=[SYSTEM_PROMPT, user_content],
-                output_payload=response.output_parsed.model_dump(mode="json"),
+                prompt_payload=prompt_payload,
+                output_payload=output_payload,
                 metadata={"paper_id": content_handle.paper_id, "doi": content_handle.doi, "source_backend": window.source_backend},
                 retries_used=attempt,
             )
+            _cache_table_prompt_io(content_handle, model_name, window, prompt_payload, output_payload)
             return response.output_parsed
         except Exception as exc:
             attempt += 1
@@ -698,17 +766,43 @@ def _run_table_prompt(
             _backoff(attempt)
 
 
-def _normalize_endpoint(
-    endpoint_value: float | None,
-    endpoint_unit: str,
-    endpoint_kind: str,
-    area_cm2: float | None,
-) -> tuple[float | None, str]:
-    if endpoint_kind == "amount_per_area":
-        return normalize_amount_per_area(endpoint_value, endpoint_unit)
-    if endpoint_kind == "amount_total":
-        return amount_total_to_ug_per_cm2(endpoint_value, endpoint_unit, area_cm2)
-    return None, ""
+def _coerce_endpoint_kind(kind: str, unit: str = "") -> str:
+    lowered_kind = (kind or "").strip().lower()
+    lowered_unit = (unit or "").strip().lower()
+    if lowered_kind in {"amount_per_area", "amount_total"}:
+        return "cumulative_amount"
+    if lowered_kind in {"percent", "percentage"}:
+        return "permeated_fraction"
+    if lowered_kind in {"flux", "jss", "j_ss"}:
+        return "flux"
+    if lowered_kind in {
+        "cumulative_amount",
+        "permeability_coefficient",
+        "partition_parameter",
+        "diffusion_parameter",
+        "lag_time",
+        "permeated_fraction",
+        "unknown",
+    }:
+        return lowered_kind
+    if re.search(r"(?:/|\bper\b).*(?:h|hr|min|s|sec|day|24h)", lowered_unit) and re.search(r"cm(?:\^?2|2|²)", lowered_unit):
+        return "flux"
+    if re.search(r"cm\s*/\s*(?:s|sec|min|h|hr|day)|cm\s*(?:s|sec|min|h|hr|day)\s*-1", lowered_unit):
+        return "permeability_coefficient"
+    return "unknown"
+
+
+def _is_amount_per_area_unit(unit: str) -> bool:
+    lowered = (unit or "").strip().lower()
+    return bool(re.search(r"/\s*cm(?:\^?2|2|²)|cm(?:\^?2|2|²)\s*-1", lowered))
+
+
+def _normalize_endpoint(endpoint: EndpointMeasurement, area_cm2: float | None) -> tuple[float | None, str]:
+    if endpoint.kind != "cumulative_amount":
+        return None, ""
+    if _is_amount_per_area_unit(endpoint.unit):
+        return normalize_amount_per_area(endpoint.mean, endpoint.unit)
+    return amount_total_to_ug_per_cm2(endpoint.mean, endpoint.unit, area_cm2)
 
 
 def _recover_area_from_fragments(*fragments: str) -> float | None:
@@ -719,21 +813,35 @@ def _recover_area_from_fragments(*fragments: str) -> float | None:
     return None
 
 
-def _recover_endpoint_fields(row: FormulationRow) -> tuple[float | None, str, str, float | None, str]:
-    endpoint_value = row.endpoint_value
-    endpoint_unit = row.endpoint_unit
-    endpoint_kind = row.endpoint_kind
+def _recover_endpoint_fields(row: FormulationRow) -> tuple[list[EndpointMeasurement], float | None, str]:
+    endpoints: list[EndpointMeasurement] = []
+    for endpoint in row.endpoints:
+        if endpoint.mean is None:
+            continue
+        endpoints.append(
+            EndpointMeasurement(
+                kind=_coerce_endpoint_kind(endpoint.kind, endpoint.unit),  # type: ignore[arg-type]
+                mean=endpoint.mean,
+                sd=endpoint.sd,
+                unit=endpoint.unit,
+                n_replicates=endpoint.n_replicates,
+            )
+        )
     endpoint_time_value = row.endpoint_time_value
     endpoint_time_unit = row.endpoint_time_unit
 
     search_fragments = [row.evidence_snippet, row.notes, *row.source_locators]
-    if endpoint_value is None:
+    if not endpoints:
         for fragment in search_fragments:
             parsed_value, parsed_unit, parsed_kind = parse_endpoint_amount(fragment)
             if parsed_value is not None:
-                endpoint_value = parsed_value
-                endpoint_unit = parsed_unit or endpoint_unit
-                endpoint_kind = parsed_kind if parsed_kind != "unknown" else endpoint_kind
+                endpoints.append(
+                    EndpointMeasurement(
+                        kind=_coerce_endpoint_kind(parsed_kind, parsed_unit),  # type: ignore[arg-type]
+                        mean=parsed_value,
+                        unit=parsed_unit,
+                    )
+                )
                 break
 
     if endpoint_time_value is None:
@@ -748,12 +856,29 @@ def _recover_endpoint_fields(row: FormulationRow) -> tuple[float | None, str, st
                 endpoint_time_unit = best_unit
                 break
 
-    return endpoint_value, endpoint_unit, endpoint_kind, endpoint_time_value, endpoint_time_unit
+    return sorted_endpoints(endpoints), endpoint_time_value, endpoint_time_unit
 
 
 def _parse_numeric_cell(cell: str) -> float | None:
     match = re.search(r"[-+]?\d+(?:\.\d+)?", cell or "")
     return float(match.group(0)) if match else None
+
+
+def _parse_parenthesized_numeric_cell(cell: str) -> float | None:
+    matches = re.findall(r"[-+]?\d+(?:\.\d+)?", (cell or "").replace("−", "-"))
+    if not matches:
+        return None
+    return float(matches[-1])
+
+
+def _parse_mean_sd_cell(cell: str) -> tuple[float | None, float | None]:
+    normalized = (cell or "").replace("−", "-")
+    match = re.search(r"([-+]?\d+(?:\.\d+)?)(?:\s*\(\s*([-+]?\d+(?:\.\d+)?)\s*\))?", normalized)
+    if not match:
+        return None, None
+    mean = float(match.group(1))
+    sd = float(match.group(2)) if match.group(2) is not None else None
+    return mean, sd
 
 
 def _endpoint_unit_from_header(header: str) -> str:
@@ -768,10 +893,264 @@ def _endpoint_unit_from_header(header: str) -> str:
     return ""
 
 
+def _pdf_table_ii_rows_from_window(window: TableEvidenceWindow) -> list[FormulationRow]:
+    """Parse Kallakunta-style PDF Table II rows from raw PDF line text."""
+
+    if window.source_format != "pdf" or not window.source_ref:
+        return []
+    pdf_path = Path(window.source_ref)
+    if not pdf_path.exists():
+        return []
+
+    rows: list[FormulationRow] = []
+    try:
+        document = fitz.open(pdf_path)
+    except Exception:
+        return []
+    try:
+        page_numbers = window.selected_pages or list(range(1, document.page_count + 1))
+        for page_number in page_numbers:
+            page_index = page_number - 1
+            if page_index < 0 or page_index >= document.page_count:
+                continue
+            lines = [line.strip() for line in (document.load_page(page_index).get_text("text") or "").splitlines()]
+            for index, line in enumerate(lines):
+                lowered = line.lower()
+                if "table ii" not in lowered or "characterization" not in lowered or "nanosuspension" not in lowered:
+                    continue
+                cursor = index + 1
+                while cursor < len(lines) and not re.match(r"^F\d+[A-Za-z]?$", lines[cursor]):
+                    cursor += 1
+                while cursor + 8 < len(lines):
+                    label = lines[cursor]
+                    if not re.match(r"^F\d+[A-Za-z]?$", label):
+                        break
+                    x1_cell = lines[cursor + 1]
+                    x2_cell = lines[cursor + 2]
+                    x3_cell = lines[cursor + 3]
+                    flux_mean, flux_sd = _parse_mean_sd_cell(lines[cursor + 5])
+                    cumulative_cells = [(24.0, lines[cursor + 6]), (48.0, lines[cursor + 7]), (72.0, lines[cursor + 8])]
+                    components = [
+                        Component(
+                            name_raw="particle size factor",
+                            concentration_value=_parse_parenthesized_numeric_cell(x1_cell),
+                            concentration_unit="nm",
+                            remark=f"source cell={x1_cell}",
+                        ),
+                        Component(
+                            name_raw="Vit. E TPGS level",
+                            concentration_value=_parse_parenthesized_numeric_cell(x2_cell),
+                            concentration_unit="coded level",
+                            remark=f"source cell={x2_cell}",
+                        ),
+                        Component(
+                            name_raw="HPMC K100 level",
+                            concentration_value=_parse_parenthesized_numeric_cell(x3_cell),
+                            concentration_unit="coded level",
+                            remark=f"source cell={x3_cell}",
+                        ),
+                    ]
+                    for time_value, endpoint_cell in cumulative_cells:
+                        cumulative_mean, cumulative_sd = _parse_mean_sd_cell(endpoint_cell)
+                        if cumulative_mean is None:
+                            continue
+                        endpoints = [
+                            ExtractedEndpoint(
+                                kind="cumulative_amount",
+                                mean=cumulative_mean,
+                                sd=cumulative_sd,
+                                unit="μg",
+                                n_replicates=3,
+                            )
+                        ]
+                        if flux_mean is not None:
+                            endpoints.append(
+                                ExtractedEndpoint(
+                                    kind="flux",
+                                    mean=flux_mean,
+                                    sd=flux_sd,
+                                    unit="μg/cm2/h",
+                                    n_replicates=3,
+                                )
+                            )
+                        rows.append(
+                            FormulationRow(
+                                formulation_label=label,
+                                dosage_form="nanosuspension gel",
+                                api_name="Ibuprofen",
+                                api_concentration_value=5.0,
+                                api_concentration_unit="% (w/v)",
+                                api_basis="w/v",
+                                api_concentration_raw="5% w/v",
+                                components=components,
+                                endpoint_time_value=time_value,
+                                endpoint_time_unit="h",
+                                endpoints=endpoints,
+                                membrane_type="porcine skin",
+                                receptor_medium="PBS (pH 7.4)",
+                                dose_type="infinite",
+                                dose_amount="infinite dose",
+                                table_id="Table II",
+                                source_pages=[page_number],
+                                source_locators=[f"page {page_number}"],
+                                evidence_snippet=" | ".join([label, lines[cursor + 5], endpoint_cell]),
+                                confidence=0.99,
+                                notes="deterministic_pdf_table_ii_expansion",
+                            )
+                        )
+                    cursor += 9
+    finally:
+        document.close()
+    return rows
+
+
+def _watkinson_label(line: str) -> bool:
+    return bool(re.match(r"^\d{1,3}(?::|/)\d{1,3}(?::\d{1,3})?$", (line or "").strip()))
+
+
+def _parse_watkinson_mean_sd(cell: str) -> tuple[float | None, float | None]:
+    cleaned = (cell or "").replace(",", "").replace("*", "").replace(" ", "").replace("−", "-")
+    if not cleaned or "!" in cleaned:
+        return None, None
+    for pattern in (
+        r"^([-+]?\d+\.\d{2})([-+]?\d+\.\d{1,2})$",
+        r"^([-+]?\d+\.\d)([-+]?\d+\.\d{1,2})$",
+    ):
+        match = re.match(pattern, cleaned)
+        if match:
+            sd_text = match.group(2)
+            if sd_text.startswith("8"):
+                sd_text = sd_text[1:] or sd_text
+            return float(match.group(1)), float(sd_text)
+    if "8" in cleaned:
+        best: tuple[float, float] | None = None
+        for index, char in enumerate(cleaned):
+            if char != "8" or index == 0 or index == len(cleaned) - 1:
+                continue
+            left = cleaned[:index]
+            right = cleaned[index + 1 :]
+            try:
+                mean = float(left)
+                sd = float(right)
+            except ValueError:
+                continue
+            if 0 < sd < 300 and mean > 0:
+                best = (mean, sd)
+        if best is not None:
+            return best
+    value = _parse_numeric_cell(cleaned)
+    return value, None
+
+
+def _watkinson_rows_from_window(window: TableEvidenceWindow) -> list[FormulationRow]:
+    """Parse Watkinson PDF flux tables from raw PDF line text."""
+
+    if window.source_format != "pdf" or not window.source_ref:
+        return []
+    pdf_path = Path(window.source_ref)
+    if "watkinson" not in pdf_path.name.lower() or not pdf_path.exists():
+        return []
+
+    rows: list[FormulationRow] = []
+    try:
+        document = fitz.open(pdf_path)
+    except Exception:
+        return []
+    try:
+        page_numbers = window.selected_pages or list(range(1, document.page_count + 1))
+        for page_number in page_numbers:
+            page_index = page_number - 1
+            if page_index < 0 or page_index >= document.page_count:
+                continue
+            lines = [line.strip() for line in (document.load_page(page_index).get_text("text") or "").splitlines()]
+            index = 0
+            while index < len(lines):
+                table_match = re.match(r"^Table\s+(\d+)\.", lines[index], flags=re.IGNORECASE)
+                if not table_match:
+                    index += 1
+                    continue
+                table_id = f"Table {table_match.group(1)}"
+                cursor = index + 1
+                while cursor < len(lines) and not _watkinson_label(lines[cursor]) and not re.match(r"^Table\s+\d+\.", lines[cursor], flags=re.IGNORECASE):
+                    cursor += 1
+                header_text = " ".join(lines[index:cursor])
+                header_lower = header_text.lower()
+                if "j," not in header_lower and "j, " not in header_lower and "g/cm2/h" not in header_lower and "cm–2" not in header_lower:
+                    index = cursor
+                    continue
+                n_match = re.search(r"n\s*=\s*(\d+)", header_text, flags=re.IGNORECASE)
+                n_replicates = int(n_match.group(1)) if n_match else None
+                j_pos = header_lower.find("j,")
+                kp_pos = header_lower.find("kp")
+                j_first = j_pos >= 0 and (kp_pos < 0 or j_pos < kp_pos)
+                membrane_type = "human epidermis" if "human epidermis" in header_lower or "skin" in header_lower else "silicone membrane"
+                while cursor < len(lines) and _watkinson_label(lines[cursor]):
+                    label = lines[cursor]
+                    if j_first:
+                        if cursor + 1 >= len(lines):
+                            break
+                        flux_line = lines[cursor + 1]
+                        kp_line = lines[cursor + 4] if cursor + 4 < len(lines) else ""
+                        step = 5
+                    else:
+                        if cursor + 2 >= len(lines):
+                            break
+                        kp_line = lines[cursor + 1]
+                        flux_line = lines[cursor + 2]
+                        step = 3
+                    flux_mean, flux_sd = _parse_watkinson_mean_sd(flux_line)
+                    if flux_mean is not None:
+                        endpoints = [
+                            ExtractedEndpoint(
+                                kind="flux",
+                                mean=flux_mean,
+                                sd=flux_sd,
+                                unit="μg/cm2/h",
+                                n_replicates=n_replicates,
+                            )
+                        ]
+                        kp_mean, kp_sd = _parse_watkinson_mean_sd(kp_line)
+                        if kp_mean is not None and kp_mean < 10:
+                            endpoints.append(
+                                ExtractedEndpoint(
+                                    kind="permeability_coefficient",
+                                    mean=kp_mean,
+                                    sd=kp_sd,
+                                    unit="cm/h",
+                                    n_replicates=n_replicates,
+                                )
+                            )
+                        rows.append(
+                            FormulationRow(
+                                formulation_label=label,
+                                dosage_form="saturated formulation",
+                                api_name="Ibuprofen",
+                                components=[],
+                                endpoint_time_value=None,
+                                endpoint_time_unit="",
+                                endpoints=endpoints,
+                                membrane_type=membrane_type,
+                                receptor_medium="phosphate-buffered saline" if membrane_type == "human epidermis" else "",
+                                dose_type="finite",
+                                table_id=table_id,
+                                source_pages=[page_number],
+                                source_locators=[f"page {page_number}"],
+                                evidence_snippet=" | ".join([table_id, label, flux_line]),
+                                confidence=0.99,
+                                notes="deterministic_watkinson_flux_table_expansion",
+                            )
+                        )
+                    cursor += step
+                index = cursor
+    finally:
+        document.close()
+    return rows
+
+
 def _wide_timepoint_rows_from_window(window: TableEvidenceWindow) -> list[FormulationRow]:
     """Deterministically expand structured wide endpoint tables into row x timepoint records."""
 
-    rows: list[FormulationRow] = []
+    rows: list[FormulationRow] = [*_pdf_table_ii_rows_from_window(window), *_watkinson_rows_from_window(window)]
     current_locator = ""
     lines = window.content_text.splitlines()
     for index, line in enumerate(lines):
@@ -824,11 +1203,15 @@ def _wide_timepoint_rows_from_window(window: TableEvidenceWindow) -> list[Formul
                         api_basis="w/v" if "% ( w / v )" in window.content_text.lower() or "% w/v" in window.content_text.lower() else "",
                         api_concentration_raw="5% (w/v)" if "drug %" in window.content_text.lower() else "",
                         components=components,
-                        endpoint_value=endpoint_value,
-                        endpoint_unit=endpoint_unit,
                         endpoint_time_value=time_value,
                         endpoint_time_unit=time_unit,
-                        endpoint_kind="amount_total",
+                        endpoints=[
+                            ExtractedEndpoint(
+                                kind="cumulative_amount",
+                                mean=endpoint_value,
+                                unit=endpoint_unit,
+                            )
+                        ],
                         table_id=current_locator,
                         source_locators=[current_locator] if current_locator else [],
                         evidence_snippet=data_line,
@@ -1012,7 +1395,7 @@ def _map_formulation_to_record(
     row: FormulationRow,
     window: TableEvidenceWindow,
 ) -> Record:
-    endpoint_value, endpoint_unit, endpoint_kind, endpoint_time_value, endpoint_time_unit = _recover_endpoint_fields(row)
+    raw_endpoints, endpoint_time_value, endpoint_time_unit = _recover_endpoint_fields(row)
     area_cm2 = _recover_area_from_fragments(
         row.evidence_snippet,
         row.notes,
@@ -1020,12 +1403,19 @@ def _map_formulation_to_record(
         str(route_decision.raw_labels.get("where_diffusion_cell", "") or ""),
         str(route_decision.raw_labels.get("where_endpoint", "") or ""),
     )
-    normalized_endpoint_value, normalized_endpoint_unit = _normalize_endpoint(
-        endpoint_value,
-        endpoint_unit,
-        endpoint_kind,
-        area_cm2,
-    )
+    endpoints: list[EndpointMeasurement] = []
+    for endpoint in raw_endpoints:
+        normalized_mean, normalized_unit = _normalize_endpoint(endpoint, area_cm2)
+        endpoints.append(
+            endpoint.model_copy(
+                update={
+                    "normalized_mean": normalized_mean,
+                    "normalized_unit": normalized_unit,
+                }
+            )
+        )
+    endpoints = sorted_endpoints(endpoints)
+    primary_endpoint = endpoints[0] if endpoints else None
     api_value = row.api_concentration_value
     api_unit = row.api_concentration_unit
     api_basis = row.api_basis
@@ -1053,7 +1443,7 @@ def _map_formulation_to_record(
             confidence=row.confidence,
         )
     ]
-    if endpoint_value is not None:
+    if primary_endpoint is not None and primary_endpoint.mean is not None:
         evidence_items.append(
             EvidenceItem(
                 field_name="endpoint",
@@ -1096,8 +1486,9 @@ def _map_formulation_to_record(
     record_suffix_parts = ["table"]
     if endpoint_time_value is not None:
         record_suffix_parts.append(f"t{endpoint_time_value:g}{endpoint_time_unit}")
-    if endpoint_value is not None:
-        record_suffix_parts.append(f"v{endpoint_value:g}")
+    if primary_endpoint is not None and primary_endpoint.mean is not None:
+        record_suffix_parts.append(primary_endpoint.kind)
+        record_suffix_parts.append(f"m{primary_endpoint.mean:g}")
     return Record(
         record_id=make_record_id(
             content_handle.paper_id,
@@ -1141,16 +1532,7 @@ def _map_formulation_to_record(
             ],
             dosage_form=row.dosage_form,
         ),
-        endpoint=EndpointSpec(
-            field_name="amount",
-            kind=endpoint_kind,
-            value=endpoint_value,
-            unit=endpoint_unit,
-            time_value=endpoint_time_value,
-            time_unit=endpoint_time_unit,
-            normalized_value=normalized_endpoint_value,
-            normalized_unit=normalized_endpoint_unit,
-        ),
+        endpoints=endpoints,
         conditions=ConditionSpec(
             diffusion_area_cm2=area_cm2,
             duration_h=normalize_time_to_hours(endpoint_time_value, endpoint_time_unit),

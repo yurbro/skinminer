@@ -1,0 +1,12 @@
+{
+  "stage": "patch_api",
+  "completed": 74,
+  "total": 74,
+  "detail": "applied=0",
+  "input_count": 74,
+  "output_count": 74,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\patched_api_concentration.jsonl"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

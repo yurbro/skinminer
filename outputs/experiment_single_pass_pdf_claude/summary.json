@@ -1,0 +1,47 @@
+{
+  "papers": 23,
+  "status_counts": {
+    "ok": 23
+  },
+  "single_pass_records": 132,
+  "gold_tp": 25,
+  "covered_gold_tp": 0,
+  "value_anchor_total": 24,
+  "value_correct": 0,
+  "annotated_fp_matches": 5,
+  "extra_records": 124,
+  "usage": {
+    "input_tokens": 991794,
+    "output_tokens": 81526,
+    "total_tokens": 1073320
+  },
+  "estimated_actual_cost_usd": 0.19768470000000002,
+  "gold_negative_dois_with_output": [
+    "10.1007/s11095-020-02887-9",
+    "10.1007/s11095-024-03747-6",
+    "10.1007/s13346-022-01182-x",
+    "10.1016/j.ijpharm.2019.118975",
+    "10.1021/acs.molpharmaceut.0c00720",
+    "10.1038/s41598-020-74885-1",
+    "10.1038/s41598-024-57883-5",
+    "10.1039/d0ra00100g",
+    "10.1208/s12249-015-0474-y",
+    "10.1248/cpb.c21-00033",
+    "10.18433/j3160b"
+  ],
+  "provider": "anthropic",
+  "model": "claude-sonnet-4-6",
+  "pdf_status_counts": {
+    "ok": 29
+  },
+  "run_status_counts": {
+    "ok": 23
+  },
+  "actual_usage": {
+    "input_tokens": 991794,
+    "output_tokens": 81526,
+    "total_tokens": 1073320
+  },
+  "actual_cost_usd": 4.198272,
+  "raw_records": 132
+}

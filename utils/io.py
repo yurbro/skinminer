@@ -84,7 +84,8 @@ def flatten_record(record: Record | Mapping[str, Any]) -> dict[str, Any]:
 
     payload = record.model_dump(mode="json") if isinstance(record, Record) else dict(record)
     formulation = payload.get("formulation", {}) or {}
-    endpoint = payload.get("endpoint", {}) or {}
+    endpoints = payload.get("endpoints", []) or []
+    endpoint = endpoints[0] if endpoints else {}
     conditions = payload.get("conditions", {}) or {}
     provenance = payload.get("provenance", {}) or {}
     return {
@@ -106,14 +107,14 @@ def flatten_record(record: Record | Mapping[str, Any]) -> dict[str, Any]:
         "api_concentration_raw": formulation.get("api_concentration_raw", ""),
         "dosage_form": formulation.get("dosage_form", ""),
         "components_json": json.dumps(formulation.get("components", []), ensure_ascii=False),
-        "endpoint_field_name": endpoint.get("field_name", ""),
         "endpoint_kind": endpoint.get("kind", ""),
-        "endpoint_value": endpoint.get("value"),
+        "endpoint_mean": endpoint.get("mean"),
+        "endpoint_sd": endpoint.get("sd"),
         "endpoint_unit": endpoint.get("unit", ""),
-        "endpoint_time_value": endpoint.get("time_value"),
-        "endpoint_time_unit": endpoint.get("time_unit", ""),
-        "endpoint_normalized_value": endpoint.get("normalized_value"),
+        "endpoint_n_replicates": endpoint.get("n_replicates"),
+        "endpoint_normalized_mean": endpoint.get("normalized_mean"),
         "endpoint_normalized_unit": endpoint.get("normalized_unit", ""),
+        "endpoints_json": json.dumps(endpoints, ensure_ascii=False),
         "diffusion_area_cm2": conditions.get("diffusion_area_cm2"),
         "receptor_volume_ml": conditions.get("receptor_volume_ml"),
         "duration_h": conditions.get("duration_h"),

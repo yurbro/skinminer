@@ -1,0 +1,11 @@
+﻿route,status,v1_reproducibility_run_16d,v2_rescore,delta
+figure,rejected,47,47,0
+figure,unresolved,69,69,0
+figure,verified,1,1,0
+mixed,rejected,32,32,0
+mixed,unresolved,27,27,0
+mixed,verified,8,8,0
+table,rejected,20,20,0
+table,unresolved,73,49,-24
+table,verified,0,24,24
+text,unresolved,2,2,0

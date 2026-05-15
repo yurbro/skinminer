@@ -1,0 +1,13 @@
+{
+  "stage": "report",
+  "completed": null,
+  "total": null,
+  "detail": "path=outputs\\full_run_14_v2_policy\\report\\run_report.md",
+  "input_count": 75,
+  "output_count": null,
+  "output_paths": [
+    "outputs\\full_run_14_v2_policy\\report\\run_report.md",
+    "outputs\\full_run_14_v2_policy\\report\\run_report.json"
+  ],
+  "resume_signature_digest": "da0114121f9d486f7a7df646670d6c4928db53fa"
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "patch_api",
+  "completed": 248,
+  "total": 248,
+  "detail": "applied=4",
+  "input_count": 248,
+  "output_count": 248,
+  "output_paths": [
+    "outputs\\reproducibility_run_16a\\patched_api_concentration.jsonl"
+  ],
+  "resume_signature_digest": "065f35695776e8aa47ee86edcb8197798f4b4177"
+}

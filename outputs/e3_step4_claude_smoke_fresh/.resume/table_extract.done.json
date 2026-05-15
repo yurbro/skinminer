@@ -1,0 +1,13 @@
+{
+  "stage": "table_extract",
+  "completed": 1,
+  "total": 1,
+  "detail": "records=24",
+  "input_count": 1,
+  "output_count": 24,
+  "output_paths": [
+    "outputs\\e3_step4_claude_smoke_fresh\\table_records.jsonl",
+    "outputs\\e3_step4_claude_smoke_fresh\\table_raw.jsonl"
+  ],
+  "resume_signature_digest": "638fcdc11df6ff5d884f1ed0fe6864215305d5d9"
+}

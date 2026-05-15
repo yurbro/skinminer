@@ -1,0 +1,13 @@
+{
+  "stage": "text_extract",
+  "completed": 0,
+  "total": 0,
+  "detail": "records=0",
+  "input_count": 0,
+  "output_count": 0,
+  "output_paths": [
+    "outputs\\e3_step4_claude_smoke_fresh\\text_records.jsonl",
+    "outputs\\e3_step4_claude_smoke_fresh\\text_raw.jsonl"
+  ],
+  "resume_signature_digest": "638fcdc11df6ff5d884f1ed0fe6864215305d5d9"
+}

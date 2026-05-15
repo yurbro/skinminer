@@ -1,0 +1,13 @@
+{
+  "stage": "rule_filter",
+  "completed": 1769,
+  "total": 1769,
+  "detail": "pass=729 fail=1040",
+  "input_count": 1769,
+  "output_count": 1769,
+  "output_paths": [
+    "outputs\\experiment_E3_claude\\rule_pass.jsonl",
+    "outputs\\experiment_E3_claude\\rule_fail.jsonl"
+  ],
+  "resume_signature_digest": "a1a849689fb856eac1d6aefcb5dcc1d2e7844db6"
+}

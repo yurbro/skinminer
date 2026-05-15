@@ -1,0 +1,12 @@
+{
+  "stage": "llm_triage",
+  "completed": 749,
+  "total": 749,
+  "detail": "kept=552",
+  "input_count": 749,
+  "output_count": 749,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\llm_triage.jsonl"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

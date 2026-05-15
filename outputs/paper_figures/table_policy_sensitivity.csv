@@ -1,0 +1,5 @@
+﻿policy,gpt_verified,gpt_precision_pct,claude_verified,claude_precision_pct,source_verified,source_precision
+Strict (5% w/w),1,100.0,0,nan,reports/policy_sensitivity_analysis.md,reports/gold_evaluation_round2.md; outputs/claude_gold_audit/claude_per_policy_precision.csv
+Extended (+ w/v),25,100.0,24,100.0,reports/policy_sensitivity_analysis.md,reports/gold_evaluation_round2.md; outputs/claude_gold_audit/claude_per_policy_precision.csv
+Any concentration,47,53.2,38,63.1578947368421,reports/policy_sensitivity_analysis.md,reports/gold_evaluation_round2.md; outputs/claude_gold_audit/claude_per_policy_precision.csv
++ Flux/Jss endpoints,51,49.0,47,59.57446808510638,reports/policy_sensitivity_analysis.md,reports/gold_evaluation_round2.md; outputs/claude_gold_audit/claude_per_policy_precision.csv

@@ -1,0 +1,368 @@
+{
+  "run_id": "run_7d4793100498",
+  "model_name": "claude-sonnet-4-6",
+  "policy_name": "v1_strict_ibuprofen_5pct",
+  "timestamp_utc": "2026-04-17T12:22:45.945874+00:00",
+  "run_profile": "balanced_full",
+  "query_profile": "ibuprofen_dermal_oa_v1",
+  "query_profile_version": "2026-03-28.v1",
+  "query_source": "profile:ibuprofen_dermal_oa_v1",
+  "stage_models": {
+    "llm_triage": "claude-sonnet-4-6",
+    "routing": "claude-sonnet-4-6",
+    "text_extract": "claude-sonnet-4-6",
+    "table_extract": "claude-sonnet-4-6",
+    "figure_triage": "claude-sonnet-4-6",
+    "figure_vlm": "claude-sonnet-4-6",
+    "figure_map": "claude-sonnet-4-6",
+    "llm_adjudicate": "claude-sonnet-4-6"
+  },
+  "prompt_assets": {
+    "triage.abstract_relevance": "2026-03-28.v1",
+    "routing.structured_first": "2026-03-28.v1",
+    "extractors.text.structured_fields": "2026-04-11.v1",
+    "extractors.table.structured_tables": "2026-04-11.v1",
+    "extractors.figure.triage": "2026-04-06.v1",
+    "extractors.figure.vlm_digitize": "2026-04-11.v1",
+    "extractors.figure.curve_map": "2026-03-28.v1",
+    "verification.llm_adjudication": "2026-04-03.v1"
+  },
+  "module_counts": {
+    "table": 87,
+    "text": 5,
+    "figure": 1
+  },
+  "route_distribution": {
+    "unresolved": 203,
+    "mixed": 5,
+    "text": 3,
+    "figure": 7,
+    "table": 2
+  },
+  "extractor_output_counts": {
+    "table": 87,
+    "text": 5,
+    "figure": 1
+  },
+  "verification_outcome_counts": {
+    "rejected": 10,
+    "unresolved": 83
+  },
+  "scope_bucket_counts": {
+    "useful_but_out_of_scope": 10,
+    "recoverable_unresolved": 83
+  },
+  "scope_tag_counts": {
+    "useful_but_out_of_scope": 10,
+    "useful_study_type_out_of_scope": 10,
+    "recoverable_unresolved": 83,
+    "recoverable_endpoint": 6,
+    "recoverable_figure_digitization": 4,
+    "recoverable_source_context": 26,
+    "recoverable_api_basis": 49,
+    "recoverable_area": 1,
+    "recoverable_support_gap": 15,
+    "recoverable_endpoint_time": 1,
+    "recoverable_mapping": 1
+  },
+  "failure_taxonomy_counts": {
+    "not_target_study_type": 10,
+    "ambiguous_api_concentration": 53,
+    "missing_area": 3,
+    "insufficient_evidence": 16,
+    "missing_endpoint": 6,
+    "figure_digitization_failed": 4,
+    "source_context_inconsistent": 26,
+    "missing_api_concentration": 6,
+    "percent_only": 7,
+    "missing_endpoint_time": 1,
+    "ambiguous_mapping": 1
+  },
+  "failure_taxonomy_counts_by_route": {
+    "figure": {
+      "missing_endpoint": 4,
+      "figure_digitization_failed": 4,
+      "source_context_inconsistent": 26,
+      "ambiguous_api_concentration": 5,
+      "missing_api_concentration": 4,
+      "insufficient_evidence": 1,
+      "missing_area": 1,
+      "percent_only": 3,
+      "ambiguous_mapping": 1
+    },
+    "mixed": {
+      "not_target_study_type": 10,
+      "ambiguous_api_concentration": 20,
+      "missing_area": 2,
+      "insufficient_evidence": 14
+    },
+    "table": {
+      "ambiguous_api_concentration": 28,
+      "percent_only": 4
+    },
+    "text": {
+      "missing_api_concentration": 2,
+      "missing_endpoint": 2,
+      "missing_endpoint_time": 1,
+      "insufficient_evidence": 1
+    }
+  },
+  "figure_verification_failure_taxonomy_counts": {
+    "missing_endpoint": 4,
+    "figure_digitization_failed": 4,
+    "source_context_inconsistent": 26,
+    "ambiguous_api_concentration": 5,
+    "missing_api_concentration": 4,
+    "insufficient_evidence": 1,
+    "missing_area": 1,
+    "percent_only": 3,
+    "ambiguous_mapping": 1
+  },
+  "figure_stage_counts": {
+    "triage_artifacts": 7,
+    "triage_has_permeation_plot_true": 1,
+    "triage_digitize_candidates": 1,
+    "digitized_curves": 4,
+    "digitized_endpoints_ok": 4,
+    "digitized_endpoints_failed": 0,
+    "digitization_no_output": 0,
+    "mapped_curves": 1,
+    "unmapped_curves": 3,
+    "vlm_readings_total": 4,
+    "vlm_readings_readable": 4,
+    "vlm_used_as_final": 4
+  },
+  "figure_failure_counts": {
+    "triage_signals": {
+      "recommended_route:skip": 6,
+      "endpoint_curve_present:no": 5,
+      "digitizable:no": 6,
+      "ticks_readable:no": 4,
+      "why_not_digitizable:this_is_a_schematic_protocol_diagram_figure_1_showing_study_design_timelines_not": 1,
+      "why_not_digitizable:page_contains_only_a_schematic_diagram_figure_4_of_the_diffusion_cell_measuremen": 1,
+      "endpoint_curve_present:uncertain": 1,
+      "why_not_digitizable:figure_2d_is_a_bar_chart_discrete_time_points_1_h_24_h_10_days_showing_apparent_": 1,
+      "why_not_digitizable:page_3_contains_only_schematic_diagrams_figure_1_and_figure_2_illustrating_micro": 1,
+      "why_not_digitizable:this_is_a_particle_size_distribution_plot_intensity_vs_size_not_a_transdermal_pe": 1,
+      "why_not_digitizable:page_contains_only_chemical_structure_diagrams_locust_bean_gum_xanthan_tween_20_": 1
+    },
+    "digitization_failure_counts": {},
+    "mapping_failure_counts": {
+      "the_plot_shows_green_triangles_purple_circles_blue_diamonds_and_red_squares_ther": 1,
+      "endpoint_13_2_g_cm_black_color_does_not_correspond_to_any_of_the_four_visible_se": 1,
+      "endpoint_16_2_g_cm_could_correspond_to_the_purple_circle_series_ibugel_or_ibulev": 1
+    }
+  },
+  "figure_gate_counts": {
+    "routed_candidates": 12,
+    "after_gate": 8,
+    "skipped": {
+      "missing_explicit_figure_signal": 4
+    }
+  },
+  "figure_route_counts": {
+    "skip": 6,
+    "digitize": 1
+  },
+  "figure_digitization_status_counts": {
+    "ok": 4
+  },
+  "figure_mapping_status_counts": {
+    "unmapped": 3,
+    "vision_mapped": 1
+  },
+  "llm_reliability": {},
+  "llm_adjudication_summary": {
+    "row_count": 48,
+    "candidate_reason_counts": {
+      "recoverable_unresolved:ambiguous_api_concentration": 43,
+      "recoverable_unresolved:missing_area": 1,
+      "recoverable_unresolved:missing_endpoint": 4
+    },
+    "priority_bucket_counts": {
+      "high": 44,
+      "medium": 4
+    },
+    "review_focus_counts": {
+      "api_concentration_basis": 43,
+      "diffusion_area": 1,
+      "endpoint_value": 4
+    },
+    "recommended_status_counts": {
+      "rejected": 48
+    },
+    "should_keep_strict_counts": {
+      "no": 48
+    },
+    "disagreement_counts": {
+      "status_disagreement": 48,
+      "scope_bucket_disagreement": 48
+    },
+    "original_vs_recommended_counts": {
+      "unresolved->rejected": 48
+    }
+  },
+  "blockage_summary": {
+    "access_status_counts": {
+      "unresolved": 128,
+      "downloaded": 87,
+      "error": 5
+    },
+    "access_reason_counts": {
+      "seed_pdf_url_from_metadata": 2,
+      "failed_download_pdf": 10
+    },
+    "route_unresolved_reason_counts": {
+      "missing_structured_and_pdf_router_source": 133,
+      "document_appears_to_be_a_book_chapter_methods_in_molecular_biology_series_on_mic": 1,
+      "document_text_is_only_europe_pmc_navigation_ui_boilerplate_with_no_actual_paper_": 3,
+      "the_document_text_only_contains_europe_pmc_website_navigation_ui_elements_and_no": 1,
+      "document_text_is_only_navigation_ui_content_from_europe_pmc_website_no_actual_pa": 1,
+      "document_text_is_only_the_europe_pmc_navigation_landing_page_interface_no_actual": 1,
+      "document_text_is_almost_entirely_absent_only_page_1_header_metadata_visible_the_": 1,
+      "document_text_only_contains_europe_pmc_navigation_interface_content_the_actual_p": 1,
+      "document_text_not_supplied_beyond_title_title_indicates_comparison_of_regenerate": 1,
+      "only_europe_pmc_navigation_ui_pages_were_captured_no_actual_paper_content_is_ava": 1,
+      "document_text_is_almost_entirely_europe_pmc_navigation_ui_boilerplate_no_scienti": 1,
+      "document_text_is_incomplete_only_europe_pmc_navigation_header_pages_were_capture": 1,
+      "the_document_text_only_contains_europe_pmc_navigation_interface_boilerplate_with": 1,
+      "document_appears_to_be_a_europe_pmc_navigation_interface_page_with_no_substantiv": 1,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_with_no_actual_": 3,
+      "the_supplied_document_text_contains_only_europe_pmc_navigation_ui_boilerplate_ac": 1,
+      "document_text_is_only_a_europe_pmc_navigation_landing_page_with_no_article_conte": 2,
+      "document_text_is_only_the_europe_pmc_navigation_header_pages_with_no_actual_pape": 1,
+      "missing_structured_and_pdf_router_source_blocked_html_local_captcha_blocked_html": 29,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_no_actual_paper": 1,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_and_the_article": 1,
+      "the_pdf_appears_to_have_only_rendered_the_europe_pmc_navigation_header_pages_wit": 1,
+      "document_text_is_only_europe_pmc_navigation_ui_boilerplate_no_paper_content_was_": 1,
+      "only_europe_pmc_navigation_ui_pages_were_captured_the_actual_paper_content_about": 1,
+      "document_text_is_only_a_europe_pmc_navigation_ui_page_with_no_article_content_th": 1,
+      "the_document_text_only_contains_europe_pmc_navigation_ui_elements_and_no_actual_": 1,
+      "document_text_is_incomplete_only_europe_pmc_navigation_ui_pages_were_captured_no": 1,
+      "document_text_is_truncated_to_navigation_ui_elements_from_europe_pmc_website_no_": 1,
+      "document_text_is_only_europe_pmc_navigation_interface_pages_with_no_scientific_c": 1,
+      "document_text_is_essentially_just_the_europe_pmc_navigation_header_pages_with_no": 1,
+      "only_europe_pmc_navigation_header_content_was_retrieved_from_the_pdf_no_actual_p": 1,
+      "only_europe_pmc_navigation_header_pages_were_retrieved_no_full_article_content_i": 1,
+      "the_document_text_retrieved_is_only_the_europe_pmc_navigation_header_pages_and_d": 1,
+      "only_the_europe_pmc_navigation_header_pages_were_captured_in_the_pdf_extract_the": 1,
+      "document_text_is_only_the_europe_pmc_navigation_ui_pages_no_actual_paper_content": 1,
+      "document_text_only_contains_europe_pmc_navigation_ui_content_no_paper_body_was_r": 1,
+      "the_html_document_only_contains_ethos_database_metadata_and_a_notice_about_a_cyb": 1,
+      "document_content_is_essentially_a_landing_stub_page_for_the_ethos_british_librar": 1
+    },
+    "route_note_counts": {
+      "missing_structured_and_pdf_router_source": 133,
+      "document_appears_to_be_a_book_chapter_methods_in_molecular_biology_series_on_mic": 1,
+      "in_vivo_dpk_study_using_tape_stripping_in_human_volunteers_no_franz_diffusion_ce": 1,
+      "document_text_is_only_europe_pmc_navigation_ui_boilerplate_with_no_actual_paper_": 3,
+      "this_paper_investigates_rheological_viscoelastic_properties_of_drug_in_adhesive_": 1,
+      "ibu_sodium_used_as_model_drug_for_in_vitro_permeation_through_dermatomed_porcine": 1,
+      "the_document_text_only_contains_europe_pmc_website_navigation_ui_elements_and_no": 1,
+      "paper_focuses_on_soluplus_nanomicelles_for_bcs_class_ii_drugs_including_ibuprofe": 1,
+      "document_text_is_only_navigation_ui_content_from_europe_pmc_website_no_actual_pa": 1,
+      "paper_describes_design_and_proof_of_concept_testing_of_a_novel_3d_printed_franz_": 1,
+      "document_text_is_only_the_europe_pmc_navigation_landing_page_interface_no_actual": 1,
+      "study_compares_ibuprofen_permeation_across_human_skin_porcine_skin_silicone_memb": 1,
+      "document_text_is_almost_entirely_absent_only_page_1_header_metadata_visible_the_": 1,
+      "document_text_only_contains_europe_pmc_navigation_interface_content_the_actual_p": 1,
+      "only_abstract_metadata_available_from_repository_page_digital_csic_full_text_is_": 1,
+      "in_vitro_release_study_uses_pbs_ethanol_50_50_as_release_media_without_a_diffusi": 1,
+      "document_text_not_supplied_beyond_title_title_indicates_comparison_of_regenerate": 1,
+      "study_uses_franz_cell_assays_with_strat_m_synthetic_membranes_this_is_an_ivrt_st": 1,
+      "only_europe_pmc_navigation_ui_pages_were_captured_no_actual_paper_content_is_ava": 1,
+      "document_text_is_almost_entirely_europe_pmc_navigation_ui_boilerplate_no_scienti": 1,
+      "document_text_is_incomplete_only_europe_pmc_navigation_header_pages_were_capture": 1,
+      "the_document_text_only_contains_europe_pmc_navigation_interface_boilerplate_with": 1,
+      "document_appears_to_be_a_europe_pmc_navigation_interface_page_with_no_substantiv": 1,
+      "in_vitro_release_study_performed_in_dpbs_medium_at_37_degrees_c_in_petri_dishes_": 1,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_with_no_actual_": 3,
+      "ivpt_study_using_franz_diffusion_cells_with_porcine_skin_ibuprofen_salts_with_l_": 1,
+      "the_supplied_document_text_contains_only_europe_pmc_navigation_ui_boilerplate_ac": 1,
+      "document_text_is_only_a_europe_pmc_navigation_landing_page_with_no_article_conte": 2,
+      "document_text_is_only_the_europe_pmc_navigation_header_pages_with_no_actual_pape": 1,
+      "missing_structured_and_pdf_router_source_blocked_html_local_captcha_blocked_html": 29,
+      "franz_type_diffusion_cells_used_with_bovine_udder_split_skin_ibuprofen_tested_as": 1,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_no_actual_paper": 1,
+      "document_text_only_contains_europe_pmc_navigation_ui_boilerplate_and_the_article": 1,
+      "study_uses_ibuprofen_as_a_model_drug_in_nanosuspension_gel_formulations_two_skin": 1,
+      "the_pdf_appears_to_have_only_rendered_the_europe_pmc_navigation_header_pages_wit": 1,
+      "ibuprofen_ip_log_ko_w_3_94_is_one_of_four_model_drugs_studied_ivpt_using_franz_d": 1,
+      "franz_diffusion_cell_ivpt_using_excised_rat_abdominal_skin_effective_diffusion_a": 1,
+      "two_chamber_horizontal_diffusion_cell_not_franz_cell_ivrt_study_using_silicone_m": 1,
+      "document_text_is_only_europe_pmc_navigation_ui_boilerplate_no_paper_content_was_": 1,
+      "this_is_an_ivrt_study_using_a_beaker_setup_not_a_franz_diffusion_cell_with_no_me": 1,
+      "only_europe_pmc_navigation_ui_pages_were_captured_the_actual_paper_content_about": 1,
+      "document_text_is_only_a_europe_pmc_navigation_ui_page_with_no_article_content_th": 1,
+      "the_document_text_only_contains_europe_pmc_navigation_ui_elements_and_no_actual_": 1,
+      "document_text_is_incomplete_only_europe_pmc_navigation_ui_pages_were_captured_no": 1,
+      "document_text_is_truncated_to_navigation_ui_elements_from_europe_pmc_website_no_": 1,
+      "document_text_is_only_europe_pmc_navigation_interface_pages_with_no_scientific_c": 1,
+      "document_text_is_essentially_just_the_europe_pmc_navigation_header_pages_with_no": 1,
+      "only_europe_pmc_navigation_header_content_was_retrieved_from_the_pdf_no_actual_p": 1,
+      "only_europe_pmc_navigation_header_pages_were_retrieved_no_full_article_content_i": 1,
+      "the_document_text_retrieved_is_only_the_europe_pmc_navigation_header_pages_and_d": 1,
+      "only_the_europe_pmc_navigation_header_pages_were_captured_in_the_pdf_extract_the": 1,
+      "document_text_is_only_the_europe_pmc_navigation_ui_pages_no_actual_paper_content": 1,
+      "document_text_only_contains_europe_pmc_navigation_ui_content_no_paper_body_was_r": 1,
+      "the_html_document_only_contains_ethos_database_metadata_and_a_notice_about_a_cyb": 1,
+      "document_content_is_essentially_a_landing_stub_page_for_the_ethos_british_librar": 1
+    },
+    "extractor_blockages": {
+      "text": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      },
+      "table": {
+        "status_counts": {},
+        "error_type_counts": {},
+        "source_backend_counts": {}
+      }
+    },
+    "patch_status_counts": {
+      "patch_api_concentration": {
+        "skipped": 73
+      },
+      "patch_area": {
+        "skipped": 11
+      },
+      "patch_endpoint_time": {
+        "applied": 19,
+        "skipped": 1
+      },
+      "patch_endpoint_value": {
+        "applied": 47,
+        "skipped": 43
+      }
+    },
+    "patch_reason_counts": {
+      "patch_api_concentration": {
+        "no_recoverable_concentration_fragment": 73
+      },
+      "patch_area": {
+        "no_recoverable_area_fragment": 11
+      },
+      "patch_endpoint_time": {
+        "no_recoverable_endpoint_time_fragment": 1
+      },
+      "patch_endpoint_value": {
+        "recovered_endpoint_matches_existing_value": 27,
+        "no_recoverable_endpoint_fragment": 14,
+        "recovered_endpoint_unit_is_weaker_than_existing_unit": 2
+      }
+    }
+  },
+  "patch_success_counts": {
+    "patch_endpoint_value": 47,
+    "patch_endpoint_time": 19
+  },
+  "output_record_counts": {
+    "assembled": 93,
+    "final_records_evaluated": 93,
+    "actually_verified": 0,
+    "unresolved": 83,
+    "rejected": 10
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "prompt_asset_id": "extractors.table.structured_tables",
+  "prompt_version": "2026-05-10.pr-c",
+  "paper_id": "paper_de978dfa4371",
+  "doi": "10.1159/000183922",
+  "model_name": "gpt-4o-mini",
+  "source_format": "pdf",
+  "source_backend": "pdf_local",
+  "source_ref": "papers\\uploaded_external\\watkinson_2009_I.pdf",
+  "prompt_hash": "2397f4cf4254",
+  "raw_input": [
+    "You extract formulation composition tables from OA scientific articles. Use ONLY the provided structured tables or PDF page text and optional page images. Do not guess concentrations or endpoint values. Preserve explicit table locators such as 'Table 2' when they are supplied.",
+    [
+      {
+        "type": "input_text",
+        "text": "Extract formulation composition tables relevant to ibuprofen in vitro permeation or release. Also capture endpoint measurements, endpoint times, units, SD values, replicate counts, and basis when they are explicitly tabulated. Return only structured output. Preserve explicit table identifiers in table_id.\n\nSTRICT ROW COMPLETENESS RULES:\n- You MUST extract every relevant data row in the provided tables. Do not skip, summarize, or return only representative rows.\n- If a table has 8 formulation rows and one endpoint column, return 8 records. If it has 8 formulation rows and 3 endpoint time columns, return 24 records.\n- For one-row/multiple-timepoint endpoint tables, emit one independent record for each formulation x each timepoint column, set endpoint_time_value/unit for that exact column, and put that column's measurement(s) in endpoints.\n- Do not copy a final-time endpoint mean into earlier timepoint records. Every endpoint mean must match the same table cell/time column named in endpoint_time_value.\n- The formulation_label for an endpoint record MUST come from the same table row as every endpoint mean. Do not substitute labels from another table by row order.\n- The endpoints field is a list. Add one item per distinct endpoint column explicitly present for that same row/timepoint.\n- Use endpoint kind exactly as one of: flux, cumulative_amount, permeability_coefficient, partition_parameter, diffusion_parameter, lag_time, permeated_fraction, unknown.\n- If cumulative amount and flux/Jss/permeability columns coexist for the same formulation row, include BOTH as separate endpoint list items. Do not overwrite one with the other.\n- Pair mean, SD, unit, and n_replicates from the same endpoint column or immediately associated adjacent column/footnote. Never use an SD, SE, CI, or range cell as the mean.\n- If a cell is reported as mean +/- SD, put the first number in mean and the second in sd. If only mean is given, leave sd null.\n- If ENDPOINT_TABLE_HINT is set, prioritize that table for endpoint records. Use other tables only to fill composition or shared context for matching labels.\n- Keep composition-only rows separate from endpoint rows unless the same formulation label explicitly links them. Do not copy endpoint values onto unrelated composition/stability rows.\n- Extract excipient/vehicle composition into components, including non-API ingredient names, concentrations, basis, and notes when available.\n- Extract condition context when explicitly present in the table, footnote, title, or experiment context: membrane_type, membrane_source, membrane_thickness_um, receptor_medium, dose_type, and dose_amount.\n- Use dose_type only as 'finite', 'infinite', or ''. Do not guess missing condition fields.\n\nDOI: 10.1159/000183922\nTITLE: Influence of Ethanol on the Solubility, Ionization and Permeation Characteristics of Ibuprofen in Silicone and Human Skin\nSOURCE_FORMAT: pdf\nSOURCE_BACKEND: pdf_local\nSOURCE_REF: papers\\uploaded_external\\watkinson_2009_I.pdf\nLOCATOR_MODE: page\nSELECTED_LOCATORS: ['page 1', 'page 3', 'page 4', 'page 5', 'page 6']\nENDPOINT_TABLE_HINT: Table 5\nTABLE_TRUNCATED: False\nTRUNCATION_NOTES: []\nCURVE_HINTS: \n\nCONTENT:\n--- PAGE 1 ---\nFax +41 61 306 12 34 E-Mail karger@karger.ch www.karger.com Original Paper Skin Pharmacol Physiol 2009;22:15–21 DOI: 10.1159/000183922 Influence of Ethanol on the Solubility, Ionization and Permeation Characteristics of Ibuprofen in Silicone and Human Skin R.M. Watkinson a C. Herkenne b R.H. Guy b, c J. Hadgraft d G. Oliveira d M.E. Lane d a Victorian College of Pharmacy, Monash University, Parkville, Vic. , Australia; b Debio Recherche Pharmaceutique SA, Martigny , Switzerland; c Department of Pharmacy and Pharmacology, University of Bath, Bath , and d Department of Pharmaceutics, The School of Pharmacy, University of London, London , UK ability to dehydrate human skin. In general, the flux data confirm that increasing ethanol content enhances the solu- bility of ibuprofen in silicone and human skin as well as in the vehicle itself. Copyright © 2008 S. Karger AG, Basel Introduction To understand the role of formulation components in topical drug delivery, it is necessary to separate the vari- ous contributing factors to the permeation process which may include drug thermodynamic activity, the ionization state of the permeant and any vehicle effects on mem- brane properties. For ionizable permeants there is also the possibility that the ionized species will permeate, even though its partitioning into the stratum corneum may be orders of magnitude lower than that for the union- ized moiety [1] . The steady-state flux of a drug through the stratum corneum is described by Fick’s first law of diffusion (equation 1) (1) vehicle K D J C h \u0002 \u0002 Key Words Ibuprofen \u0002 Ethanol \u0002 pK a \u0002 Silicone \u0002 Skin Abstract In the context of topical and transdermal delivery, cosol- vents may be expected to enhance solubility, modify drug partitioning behaviour and alter skin barrier properties. In the present study, we have investigated systematically the influence of increasing amounts of the cosolvent ethanol on the solubility, ionization, and permeability characteristics of ibuprofen in silicone and in skin. The possibility of ibuprofen self-association was also examined. As the amount of etha- nol was raised from 0 to 100%, ibuprofen solubility was en- hanced 5,500-fold relative to its aqueous solubility. Up to 50%, the pK a of ibuprofen shifted from 4.44 to 5.68. Infrared spectroscopy confirmed the presence of ibuprofen in both monomer and dimer forms in vehicles containing 75 and 100% ethanol. In silicone membranes, the flux of ibuprofen increased 8-fold over the range of ethanol concentrations studied (0–100%) relative to aqueous solutions, with the highest flux observed for 100% ethanol. However, in skin, the flux of ibuprofen was optimal for 50: 50 and 75: 25 etha- nol-water vehicles ( 1 10-fold flux enhancement). The lower ibuprofen flux from pure ethanol may reflect the alcohol’s Received: June 5, 2008 Accepted after revision: October 9, 2008 Published online: December 17, 2008 Majella E. Lane Department of Pharmaceutics, The School of Pharmacy University of London London WC1N 1AX (UK) Tel. +44 207 753 5821, Fax +44 870 165 9275, E-Mail majella.lane@btinternet.com © 2008 S. Karger AG, Basel 1660–5527/09/0221–0015$26.00/0 Accessible online at: www.karger.com/spp Downloaded by: Stockholm University Library 130.237.165.40 - 11/14/2018 6:09:37 PM\n\n--- PAGE 3 ---\nEffect of Ethanol on Ibuprofen Permeation Skin Pharmacol Physiol 2009;22:15–21 17 ducted with membranes pretreated with ethanol for 24 h to fur- ther investigate the influence of ethanol on ibuprofen perme- ation. Flux values were calculated from the cumulative amount of drug diffusing into the receptor compartment as a function of time. The slope of this profile was determined once steady state had been reached. Values of the permeability coefficient k p , Kh and D/h 2 were calculated by fitting the data to equation 2: (2) 2 2 2 2 2 2 1 1 2 1 exp 6 v n D D Q c Kh t n t h h h d ¯ \u000e  ¬ ¡ °­  \u000e \u000e ­  ­  ¡ °  ® ¡ ° ¢ ±  \u0003 \u0003 where Q is the cumulative mass of permeant that passes through a unit area of a membrane in a time t [10] . Differences between parameters were evaluated using ANOVA with a significance of p ^ 0.05. Attenuated Total Reflectance Fourier Transform Infrared Spectroscopy The presence of ibuprofen monomer and dimer species was evaluated using multibounce attenuated total reflectance Fourier transform infrared (ATR-FTIR). A Bruker Tensor 27 instrument fitted with a Specac multiple reflection accessory with a zinc sel- enide crystal was used and data were acquired using OPUS soft- ware, version 5.5 (Bruker, Germany). Results and Discussion Solubility Studies Addition of 25% ethanol increased the solubility of ibuprofen to 343 mg/ml, a 3,800-fold enhancement rela- tive to the drug’s aqueous solubility ( table 1 ). In pure eth- anol, the solubility is 5,500-fold higher than in water. Ibu- profen has a reported pK a of 4.41 [11] , explaining the con- siderable solubility enhancement (50-fold) over the pH range 2–6 ( table 2 ). Similar solubility data have been re- ported over a comparable pH range elsewhere [12] . pK a Determination The pK a of ibuprofen in water, and in 25: 75 and 50: 50 ethanol-water mixtures, was determined by potentiom- etry. From Yasuda-Shedlovsky plots constructed for ibu- profen in ethanol the relative fraction of drug which is ionized can be determined as a function of pH. Increas- ing the ethanol content from 0 to 50% shifted the pK a of ibuprofen from 4.44 to 5.68 ( fig. 1 ). In water, approxi- mately 80% of ibuprofen is ionized at pH 5, which is close to that typically found at the skin surface. However, in 50: 50 (v/v) ethanol-water, the pK a shift reduces the per- centage of the ionized form of ibuprofen to \u0002 15% at pH 5. Therefore, a greater amount of unionized ibuprofen is available with increasing ethanol content. Log D There is a good correlation between the measured and predicted log D values as shown in figure 2 ; the results also agree well with previous measurements [1] . The log D of unionized ibuprofen is 4.0, whereas that of the ion- ized form is 0.08. At the pH of the skin surface ( \u0002 5), log D is predicted to be 3.2. With increasing amounts of eth- anol, log D increases further because of the increase in pK a and the suppression of ibuprofen ionization. ATR-FTIR Spectroscopy The possibility of self-association was investigated by ATR-FTIR as such behaviour is typical of carboxylic ac- ids in organic media [13] . The infrared reference spec- trum of ibuprofen exhibits a sharp C = O bond absor- bance peak around 1,710 cm –1 which can be used to mon- itor the presence of monomer or dimer in solution. In order to form dimers, the ibuprofen molecules will associ- ate through interactions between the hydroxyl hydrogen and the carbonyl oxygen of two adjacent molecules. This interaction will introduce an extra constraint to the vi- bration of the C = O bond, therefore decreasing its stretch- ing frequency. Consequently, the ibuprofen dimer will absorb at a lower wavenumber relative to the monomer [14] . The results obtained with saturated solutions of ibu- profen in 25, 50, 75 and 100% (v/v) ethanol in water are shown in figure 3 . No C = O absorbance peak of ibupro- fen was seen because of significant water interference in Table 1. Solubility of ibuprofen in ethanol and water vehicles (n = 3) Ethanol in vehicle (v/v), % Solubility, mg/ml 0 0.0980.06 25 34386.5 50 453821 75 489820 100 50084.1 Table 2. Aqueous solubility of ibuprofen as a function of pH (n = 3) pH Solubility, mg/ml 2.0 2.8!10–280.4!10–2 3.0 3.1!10–280.03!10–2 5.0 0.4180.05 6.0 1.3380.04 Downloaded by: Stockholm University Library 130.237.165.40 - 11/14/2018 6:09:37 PM\n\n--- PAGE 4 ---\nWatkinson /Herkenne /Guy /Hadgraft / Oliveira /Lane Skin Pharmacol Physiol 2009;22:15–21 18 vehicles with higher water content [25 and 50% (v/v) eth- anol in water] and in which ibuprofen solubility is lower. However, it was possible to detect the ibuprofen C = O absorption in 75: 25 (v/v) ethanol-water and in pure etha- nol. The C = O peak occurred at a lower frequency (arrow a), consistent with the presence of ibuprofen dimers. There was also a C = O signal at a higher frequency in pure ethanol (arrow b), indicating that some ibuprofen also exists in the monomer form. Permeation Studies in Silicone Membrane and Skin Ibuprofen fluxes and permeability coefficients through silicone membranes are presented in table 3 . Ad- dition of 25% ethanol induced a 2-fold increase in flux. Increasing the amount of ethanol to 50% again doubled the flux. While 75: 25 (v/v) ethanol-water did not cause a fur- ther significant increase in transport, the use of pure etha- nol resulted in the highest flux observed, \u0002 1.5 mg/cm 2 /h. The slope of the Yasuda-Shedlovsky plot used to calcu- late the aqueous pK a is inversely proportional to the aver- age ionic diameter of the solvated molecule [7] . From the plots constructed in this work, it appears that there is a change in the solvation structure at around 30: 70 (v/v) eth- anol-water, as there is a change in slope at this cosolvent mixture (data not shown). It is possible that the enhanced flux reflects the faster permeation of ethanol relative to water and that ibuprofen within an ethanol ‘cage’ is taken across the membrane. Because of the change in pK a with solvent polarity, and the greater amount of unionized ibu- profen available for permeation, the partitioning of ibu- profen into the membrane should be affected. Analysis of the data confirmed that the Kh parameter decreased for ethanol levels above 50%. Reduction in the silicone membrane:vehicle partition coefficient with in- creasing ethanol content for oestradiol permeation from ethanol-water systems has also been observed [15] . The dif- fusion parameter increased when ethanol was present, al- though the values for water alone and for pure ethanol were not significantly different (p ! 0.05). As ethanol may inter- act with the membrane, either to improve drug solubility, or by another mechanism, further studies were conducted in which the membrane was pretreated with ethanol. Experimental Predicted –1 0 1 2 3 4 5 pH log D 2 4 6 8 10 12 14 16 0 20 40 60 80 100 120 0 1 2 3 4 5 6 7 8 9 pH Ionized (%) 0% EtOH (pKa 4.44) 25% EtOH (pKa 5.06) 50% EtOH (pKa 5.68) Fig. 1. Modulation of ibuprofen pK a by increasing the percentage of cosolvent (ethanol) in the formulation. Fig. 2. Comparison of experimental and predicted log D values of ibuprofen. 1.0 0.8 0.6 0.4 0.2 0 1,950 1,900 1,850 1,800 1,750 1,700 1,650 1,600 1,550 Wave number cm–1 Absorbance units 100:0 25:75 50:50 75:25 a b Fig. 3. ATR-FTIR spectra of ibuprofen in 25: 75, 50: 50, 75: 25 and 100: 0 (%v/v) ethanol-water solutions. Color version available online Color version available online Color version available online Downloaded by: Stockholm University Library 130.237.165.40 - 11/14/2018 6:09:37 PM\n\n--- PAGE 5 ---\nEffect of Ethanol on Ibuprofen Permeation Skin Pharmacol Physiol 2009;22:15–21 19 Ethanol-Water Vehicles – Membrane Pretreatment Studies The results of the pretreatment studies showed that the fluxes for the permeation of ibuprofen through sili- cone membrane pretreated with ethanol are not signifi- cantly higher than for the 25: 75 and pure ethanol systems through untreated membrane ( table 4 ). The 75: 25 etha- nol-water formulation has a slightly lower flux ( \u0002 700 vs. \u0002 900 \u0002 g/cm 2 /h). As noted for the studies where the membrane was not pretreated, relatively low amounts of ethanol can significantly enhance permeation. The parti- tion parameter values for the 100% ethanol vehicle is sig- nificantly higher than for the 25: 75 and 75: 25 vehicles ( table 3 ), suggesting that the major effects of ethanol are to change the solubility properties of ibuprofen in the membrane thus enhancing flux. Permeation Studies in Skin Ibuprofen fluxes across skin are shown in table 5 ; the values were lower than those through silicone membrane ( fig. 4 ). Diffusion across skin increased with the amount of ethanol in the formulation. These effects reflect the ability of ethanol-water mixtures to modify the barrier function of the skin by a number of mechanisms which may include lipid fluidization [16, 17] , lipid disordering [18] , lipid extraction [19] , and modulation of the lipid bar- rier and keratinized protein conformation at low ethanol concentrations [20] . The lower flux values for pure ethanol in human skin versus silicone reflect a direct effect of ethanol on the skin barrier. Ethanol and methanol alter the stratum corneum to a much greater degree than other alcohols [21] and the findings of the present study are in line with earlier ob- servations [22] . In that work, ethanol flux through skin was a function of ethanol volume fraction in the donor solution and dehydration and shrinkage of the stratum corneum was seen after equilibration with pure ethanol. The decrease in oestradiol flux through human skin at ethanol-water ratios higher than 60: 40 (v/v) observed be- fore [15] has also been ascribed to ethanol dehydration effects on the stratum corneum. No major changes in the diffusion or partition param- eters were seen in the formulations containing ethanol ( table 5 ). The partition parameters were all significantly Table 3. Steady-state fluxes, thermodynamic and kinetic parameters, and permeability coefficients for the per- meation of ibuprofen from saturated formulations containing ethanol and water through silicone membranes (n = 4) EtOH-water, %v/v J, \u0002g cm–2 h–1 K \u0002 h, \u0002m D/h2, h–1 kp, cm h–1 0:100 186811 1.880.2 1,3688684 2.0980.14 25:75 42082.5* 1.380.85 1.1280.50 1.22!10–386.84!10–5 50:50 916879* 0.6080.44 3.3881.01 2.02!10–382.45!10–4 75:25 945861* 0.4780.24 4.6882.23 1.91!10–385.04!10–5 100:0 1,4958116* 5.6!10–382.0!10–3 6128288 2.90!10–383.62!10–4 * p < 0.05 significantly different from flux values from aqueous vehicle. Table 4. Steady-state fluxes, thermodynamic and kinetic parameters, and permeability coefficients for the per- meation of ibuprofen from saturated formulations containing ethanol and water through silicone membranes pretreated with ethanol (n = 4) EtOH-water, %v/v J, \u0002g cm–2 h–1 K \u0002 h, \u0002m D/h2, h–1 kp, cm h–1 25:75 449831.3 0.2680.04 39.6825.2 9.43!10–488.46!10–5 75:25 712829.0* 8.48!10–381.44!10–3 1,6568324 1.37!10–380.42!10–3 100:0 1,681880* 7.9383.35 4.9782.03 3.42!10–381.60!10–3 * p < 0.05 significantly different from flux values for 25:75 EtOH/water vehicle. Downloaded by: Stockholm University Library 130.237.165.40 - 11/14/2018 6:09:37 PM\n\n--- PAGE 6 ---\nWatkinson /Herkenne /Guy /Hadgraft / Oliveira /Lane Skin Pharmacol Physiol 2009;22:15–21 20 less than the Kh value for the aqueous ibuprofen solution. These effects are similar to those observed for oestradiol [15] and in other published work [16, 23] . Conclusions We have previously evaluated the skin penetration of topical formulations of ibuprofen and we have shown that the composition of the vehicles can have a significant im- pact on the percutaneous penetration of the drug [2, 24– 27] . A typical cream formulation may contain up to 10% of a cosolvent which can alter the pK a of a weak acid or a weak base and change thereby its solubility and partitioning be- haviour. As these changes will influence percutaneous penetration, the present study was designed to explore the modulation of ibuprofen flux across silicone membrane and skin. In the lipophilic environment of the stratum cor- neum, an ionized species is expected to permeate more slowly than a unionized moiety. From the pK a and log D measurements, increasing amounts of ethanol increased the pK a and the proportion of unionized ibuprofen, en- hancing the partitioning of the compound. The presence of ibuprofen dimers at higher ethanol concentrations may also influence partitioning behaviour. The actual effects of ethanol on partitioning and diffusion are difficult to de- convolve from conventional permeation studies as can be seen from the present work. For both skin and silicone, flux increased with increasing amounts of ethanol; how- ever, pure ethanol solutions did not enhance the skin per- meation of ibuprofen. Both silicone and skin permeation data suggested that the influence of ethanol is primarily due to enhanced solubility of ibuprofen in the membrane. The addition of the cosolvent clearly has a significant effect upon the physicochemical properties of ibuprofen in the systems studied. The vehicles used in the present study were simple binary ethanol-water systems, whereas conventional topical formulations will generally contain a far greater number of excipients. Future studies will ex- amine more complex systems and will also investigate how the partition and diffusion parameters change with the specific vehicle. Acknowledgement We thank Leo Pharmaceutical Products (Denmark) for finan- cial support. Table 5. Steady-state fluxes, thermodynamic and kinetic parameters, and permeability coefficients for the per- meation of ibuprofen from saturated formulations containing ethanol and water through human epidermis (n = 5) EtOH-water, %v/v J, \u0002g cm–2 h–1 K \u0002 h, \u0002m D/h2, h–1 kp, cm h–1 0:100 2482.7 11,8338503 0.2380.02 0.2780.03 25:75 48819* 3.8182.51 0.3680.24 1.41!10–485.76!10–5 50:50 274833* 9.8582.14 0.6180.26 5.40!10–482.62!10–4 75:25 293824* 23.3087.83 0.4380.30 6.12!10–484.68!10–5 100:0 60824* 24.182.8 0.0780.03 1.76!10–481.01!10–4 * Significantly different from flux values for aqueous vehicle; p < 0.05. 0 50 100 150 200 250 300 350 0 200 400 600 800 1,000 1,200 1,400 1,600 Flux through silicone (μg/cm2/h) Flux through skin (μg/cm2/h) Fig. 4. Steady-state ibuprofen fluxes, from saturated formulations containing ethanol and water, through silicone membranes and human skin. Downloaded by: Stockholm University Library 130.237.165.40 - 11/14/2018 6:09:37 PM"
+      }
+    ]
+  ],
+  "raw_output": {
+    "formulations": [
+      {
+        "formulation_label": "0:100",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 2482.7,
+            "sd": null,
+            "unit": "μg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.278,
+            "sd": 0.03,
+            "unit": "cm/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "diffusion_parameter",
+            "mean": 0.238,
+            "sd": 0.02,
+            "unit": "h⁻¹",
+            "n_replicates": 5
+          },
+          {
+            "kind": "cumulative_amount",
+            "mean": 11.833,
+            "sd": null,
+            "unit": "μg/cm²",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 5",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 6"
+        ],
+        "evidence_snippet": "",
+        "confidence": 0.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "25:75",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 48819.0,
+            "sd": null,
+            "unit": "μg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.000141,
+            "sd": null,
+            "unit": "cm/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "diffusion_parameter",
+            "mean": 0.368,
+            "sd": 0.24,
+            "unit": "h⁻¹",
+            "n_replicates": 5
+          },
+          {
+            "kind": "cumulative_amount",
+            "mean": 3.818,
+            "sd": 2.51,
+            "unit": "μg/cm²",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 5",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 6"
+        ],
+        "evidence_snippet": "",
+        "confidence": 0.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "50:50",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 274833.0,
+            "sd": null,
+            "unit": "μg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.00054,
+            "sd": null,
+            "unit": "cm/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "diffusion_parameter",
+            "mean": 0.618,
+            "sd": 0.26,
+            "unit": "h⁻¹",
+            "n_replicates": 5
+          },
+          {
+            "kind": "cumulative_amount",
+            "mean": 9.858,
+            "sd": 2.14,
+            "unit": "μg/cm²",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 5",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 6"
+        ],
+        "evidence_snippet": "",
+        "confidence": 0.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "75:25",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 293824.0,
+            "sd": null,
+            "unit": "μg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 6.12e-05,
+            "sd": null,
+            "unit": "cm/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "diffusion_parameter",
+            "mean": 0.438,
+            "sd": 0.3,
+            "unit": "h⁻¹",
+            "n_replicates": 5
+          },
+          {
+            "kind": "cumulative_amount",
+            "mean": 23.308,
+            "sd": 7.83,
+            "unit": "μg/cm²",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 5",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 6"
+        ],
+        "evidence_snippet": "",
+        "confidence": 0.0,
+        "notes": ""
+      },
+      {
+        "formulation_label": "100:0",
+        "dosage_form": "",
+        "api_name": "Ibuprofen",
+        "api_concentration_value": null,
+        "api_concentration_unit": "",
+        "api_basis": "",
+        "api_concentration_raw": "",
+        "components": [],
+        "endpoint_time_value": null,
+        "endpoint_time_unit": "",
+        "endpoints": [
+          {
+            "kind": "flux",
+            "mean": 60824.0,
+            "sd": null,
+            "unit": "μg/cm²/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "permeability_coefficient",
+            "mean": 0.000176,
+            "sd": null,
+            "unit": "cm/h",
+            "n_replicates": 5
+          },
+          {
+            "kind": "diffusion_parameter",
+            "mean": 0.078,
+            "sd": 0.03,
+            "unit": "h⁻¹",
+            "n_replicates": 5
+          },
+          {
+            "kind": "cumulative_amount",
+            "mean": 24.182,
+            "sd": 2.8,
+            "unit": "μg/cm²",
+            "n_replicates": 5
+          }
+        ],
+        "membrane_type": "",
+        "membrane_source": "",
+        "membrane_thickness_um": null,
+        "receptor_medium": "",
+        "dose_type": "",
+        "dose_amount": "",
+        "water_qs_or_balance": "no",
+        "table_id": "Table 5",
+        "source_pages": [
+          4
+        ],
+        "source_locators": [
+          "page 6"
+        ],
+        "evidence_snippet": "",
+        "confidence": 0.0,
+        "notes": ""
+      }
+    ],
+    "formulation_table_found": "yes",
+    "formulation_table_in_image": "no",
+    "recommended_next": "ok",
+    "notes": ""
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "stage": "routing",
+  "completed": 552,
+  "total": 552,
+  "detail": "figure=19 mixed=6 table=23 text=12 unresolved=492",
+  "input_count": 552,
+  "output_count": 552,
+  "output_paths": [
+    "outputs\\experiment_E8_relaxed_scope\\route_decisions.jsonl"
+  ],
+  "resume_signature_digest": "47a37f64af5a6e3ee2c32ef79022c7759a9129b0"
+}

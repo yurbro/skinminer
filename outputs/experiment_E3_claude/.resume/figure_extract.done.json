@@ -1,0 +1,17 @@
+{
+  "stage": "figure_extract",
+  "completed": 11,
+  "total": 11,
+  "detail": "records=2",
+  "input_count": 11,
+  "output_count": 2,
+  "output_paths": [
+    "outputs\\experiment_E3_claude\\figure_records.jsonl",
+    "outputs\\experiment_E3_claude\\figure_triage.jsonl",
+    "outputs\\experiment_E3_claude\\figure_curves.jsonl",
+    "outputs\\experiment_E3_claude\\figure_endpoints.jsonl",
+    "outputs\\experiment_E3_claude\\figure_vlm_readings.jsonl",
+    "outputs\\experiment_E3_claude\\figure_curve_map.jsonl"
+  ],
+  "resume_signature_digest": "a1a849689fb856eac1d6aefcb5dcc1d2e7844db6"
+}

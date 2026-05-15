@@ -1,0 +1,12 @@
+{
+  "stage": "patch_endpoint",
+  "completed": 32,
+  "total": 32,
+  "detail": "applied=12",
+  "input_count": 32,
+  "output_count": 32,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix3a\\patched_endpoint_value.jsonl"
+  ],
+  "resume_signature_digest": "ce832a5aaf7ef2796e367487d476c5857715ce82"
+}

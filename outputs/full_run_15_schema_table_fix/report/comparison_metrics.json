@@ -1,0 +1,762 @@
+{
+  "summaries": {
+    "full_run_13_post_fix5_v1": {
+      "run_dir": "outputs\\full_run_13_post_fix5",
+      "policy": "v1_strict_ibuprofen_5pct",
+      "assembled": 79,
+      "final_records": 79,
+      "statuses": {
+        "unresolved": 48,
+        "rejected": 27,
+        "verified": 4
+      },
+      "routes": {
+        "table": 14,
+        "figure": 50,
+        "mixed": 6,
+        "text": 9
+      },
+      "route_status": {
+        "figure": {
+          "unresolved": 25,
+          "verified": 4,
+          "rejected": 21
+        },
+        "mixed": {
+          "rejected": 2,
+          "unresolved": 4
+        },
+        "table": {
+          "unresolved": 10,
+          "rejected": 4
+        },
+        "text": {
+          "unresolved": 9
+        }
+      },
+      "table_records": 64,
+      "text_records": 11,
+      "figure_records": 9,
+      "route_decisions": null,
+      "prompt_assets": {},
+      "failure_counts": {
+        "insufficient_evidence": 54,
+        "ambiguous_api_concentration": 42,
+        "not_target_api": 16,
+        "percent_only": 6,
+        "missing_area": 14,
+        "missing_endpoint": 11,
+        "figure_digitization_failed": 8,
+        "not_target_study_type": 12,
+        "not_target_api_concentration": 10,
+        "unit_normalization_failed": 3,
+        "not_target_device": 3,
+        "missing_api_concentration": 1,
+        "missing_endpoint_time": 2
+      },
+      "new_field_fill": {
+        "table_records": {
+          "membrane_type": {
+            "filled": 0,
+            "total": 64,
+            "rate": 0.0
+          },
+          "membrane_source": {
+            "filled": 0,
+            "total": 64,
+            "rate": 0.0
+          },
+          "membrane_thickness_um": {
+            "filled": 0,
+            "total": 64,
+            "rate": 0.0
+          },
+          "receptor_medium": {
+            "filled": 0,
+            "total": 64,
+            "rate": 0.0
+          },
+          "dose_type": {
+            "filled": 0,
+            "total": 64,
+            "rate": 0.0
+          },
+          "dose_amount": {
+            "filled": 0,
+            "total": 64,
+            "rate": 0.0
+          }
+        },
+        "assembled_records": {
+          "membrane_type": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "membrane_source": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "membrane_thickness_um": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "receptor_medium": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "dose_type": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "dose_amount": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          }
+        },
+        "verified_records": {
+          "membrane_type": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "membrane_source": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "membrane_thickness_um": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "receptor_medium": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "dose_type": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          },
+          "dose_amount": {
+            "filled": 0,
+            "total": 79,
+            "rate": 0.0
+          }
+        },
+        "verified_only": {
+          "membrane_type": {
+            "filled": 0,
+            "total": 4,
+            "rate": 0.0
+          },
+          "membrane_source": {
+            "filled": 0,
+            "total": 4,
+            "rate": 0.0
+          },
+          "membrane_thickness_um": {
+            "filled": 0,
+            "total": 4,
+            "rate": 0.0
+          },
+          "receptor_medium": {
+            "filled": 0,
+            "total": 4,
+            "rate": 0.0
+          },
+          "dose_type": {
+            "filled": 0,
+            "total": 4,
+            "rate": 0.0
+          },
+          "dose_amount": {
+            "filled": 0,
+            "total": 4,
+            "rate": 0.0
+          }
+        }
+      }
+    },
+    "full_run_14_v2_policy": {
+      "run_dir": "outputs\\full_run_14_v2_policy",
+      "policy": "v2_accept_wv",
+      "assembled": 75,
+      "final_records": 75,
+      "statuses": {
+        "unresolved": 43,
+        "rejected": 22,
+        "verified": 10
+      },
+      "routes": {
+        "table": 18,
+        "figure": 29,
+        "mixed": 27,
+        "text": 1
+      },
+      "route_status": {
+        "figure": {
+          "unresolved": 12,
+          "rejected": 13,
+          "verified": 4
+        },
+        "mixed": {
+          "unresolved": 22,
+          "rejected": 5
+        },
+        "table": {
+          "unresolved": 8,
+          "rejected": 4,
+          "verified": 6
+        },
+        "text": {
+          "unresolved": 1
+        }
+      },
+      "table_records": 60,
+      "text_records": 13,
+      "figure_records": 7,
+      "route_decisions": null,
+      "prompt_assets": {},
+      "failure_counts": {
+        "insufficient_evidence": 54,
+        "ambiguous_api_concentration": 26,
+        "missing_area": 17,
+        "not_target_study_type": 9,
+        "missing_endpoint": 9,
+        "figure_digitization_failed": 5,
+        "not_target_api": 11,
+        "not_target_api_concentration": 10,
+        "not_target_device": 5,
+        "unit_normalization_failed": 1,
+        "missing_api_concentration": 1,
+        "percent_only": 2
+      },
+      "new_field_fill": {
+        "table_records": {
+          "membrane_type": {
+            "filled": 0,
+            "total": 60,
+            "rate": 0.0
+          },
+          "membrane_source": {
+            "filled": 0,
+            "total": 60,
+            "rate": 0.0
+          },
+          "membrane_thickness_um": {
+            "filled": 0,
+            "total": 60,
+            "rate": 0.0
+          },
+          "receptor_medium": {
+            "filled": 0,
+            "total": 60,
+            "rate": 0.0
+          },
+          "dose_type": {
+            "filled": 0,
+            "total": 60,
+            "rate": 0.0
+          },
+          "dose_amount": {
+            "filled": 0,
+            "total": 60,
+            "rate": 0.0
+          }
+        },
+        "assembled_records": {
+          "membrane_type": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "membrane_source": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "membrane_thickness_um": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "receptor_medium": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "dose_type": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "dose_amount": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          }
+        },
+        "verified_records": {
+          "membrane_type": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "membrane_source": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "membrane_thickness_um": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "receptor_medium": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "dose_type": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          },
+          "dose_amount": {
+            "filled": 0,
+            "total": 75,
+            "rate": 0.0
+          }
+        },
+        "verified_only": {
+          "membrane_type": {
+            "filled": 0,
+            "total": 10,
+            "rate": 0.0
+          },
+          "membrane_source": {
+            "filled": 0,
+            "total": 10,
+            "rate": 0.0
+          },
+          "membrane_thickness_um": {
+            "filled": 0,
+            "total": 10,
+            "rate": 0.0
+          },
+          "receptor_medium": {
+            "filled": 0,
+            "total": 10,
+            "rate": 0.0
+          },
+          "dose_type": {
+            "filled": 0,
+            "total": 10,
+            "rate": 0.0
+          },
+          "dose_amount": {
+            "filled": 0,
+            "total": 10,
+            "rate": 0.0
+          }
+        }
+      }
+    },
+    "full_run_15_schema_table_fix_v1": {
+      "run_dir": "outputs\\full_run_15_schema_table_fix",
+      "policy": "v1_strict_ibuprofen_5pct",
+      "assembled": 233,
+      "final_records": 233,
+      "statuses": {
+        "unresolved": 161,
+        "rejected": 62,
+        "verified": 10
+      },
+      "routes": {
+        "table": 89,
+        "mixed": 69,
+        "figure": 71,
+        "text": 4
+      },
+      "route_status": {
+        "figure": {
+          "unresolved": 49,
+          "verified": 9,
+          "rejected": 13
+        },
+        "mixed": {
+          "unresolved": 49,
+          "verified": 1,
+          "rejected": 19
+        },
+        "table": {
+          "unresolved": 60,
+          "rejected": 29
+        },
+        "text": {
+          "unresolved": 3,
+          "rejected": 1
+        }
+      },
+      "table_records": 220,
+      "text_records": 11,
+      "figure_records": 16,
+      "route_decisions": null,
+      "prompt_assets": {},
+      "failure_counts": {
+        "insufficient_evidence": 140,
+        "ambiguous_api_concentration": 102,
+        "missing_area": 44,
+        "not_target_api": 49,
+        "missing_endpoint": 20,
+        "figure_digitization_failed": 7,
+        "unit_normalization_failed": 13,
+        "not_target_api_concentration": 44,
+        "missing_api_concentration": 55,
+        "not_target_study_type": 20,
+        "not_target_device": 6,
+        "percent_only": 19
+      },
+      "new_field_fill": {
+        "table_records": {
+          "membrane_type": {
+            "filled": 192,
+            "total": 220,
+            "rate": 0.8727272727272727
+          },
+          "membrane_source": {
+            "filled": 137,
+            "total": 220,
+            "rate": 0.6227272727272727
+          },
+          "membrane_thickness_um": {
+            "filled": 118,
+            "total": 220,
+            "rate": 0.5363636363636364
+          },
+          "receptor_medium": {
+            "filled": 113,
+            "total": 220,
+            "rate": 0.5136363636363637
+          },
+          "dose_type": {
+            "filled": 149,
+            "total": 220,
+            "rate": 0.6772727272727272
+          },
+          "dose_amount": {
+            "filled": 195,
+            "total": 220,
+            "rate": 0.8863636363636364
+          }
+        },
+        "assembled_records": {
+          "membrane_type": {
+            "filled": 205,
+            "total": 233,
+            "rate": 0.8798283261802575
+          },
+          "membrane_source": {
+            "filled": 151,
+            "total": 233,
+            "rate": 0.648068669527897
+          },
+          "membrane_thickness_um": {
+            "filled": 134,
+            "total": 233,
+            "rate": 0.575107296137339
+          },
+          "receptor_medium": {
+            "filled": 124,
+            "total": 233,
+            "rate": 0.5321888412017167
+          },
+          "dose_type": {
+            "filled": 154,
+            "total": 233,
+            "rate": 0.6609442060085837
+          },
+          "dose_amount": {
+            "filled": 208,
+            "total": 233,
+            "rate": 0.8927038626609443
+          }
+        },
+        "verified_records": {
+          "membrane_type": {
+            "filled": 205,
+            "total": 233,
+            "rate": 0.8798283261802575
+          },
+          "membrane_source": {
+            "filled": 151,
+            "total": 233,
+            "rate": 0.648068669527897
+          },
+          "membrane_thickness_um": {
+            "filled": 134,
+            "total": 233,
+            "rate": 0.575107296137339
+          },
+          "receptor_medium": {
+            "filled": 124,
+            "total": 233,
+            "rate": 0.5321888412017167
+          },
+          "dose_type": {
+            "filled": 154,
+            "total": 233,
+            "rate": 0.6609442060085837
+          },
+          "dose_amount": {
+            "filled": 208,
+            "total": 233,
+            "rate": 0.8927038626609443
+          }
+        },
+        "verified_only": {
+          "membrane_type": {
+            "filled": 10,
+            "total": 10,
+            "rate": 1.0
+          },
+          "membrane_source": {
+            "filled": 10,
+            "total": 10,
+            "rate": 1.0
+          },
+          "membrane_thickness_um": {
+            "filled": 10,
+            "total": 10,
+            "rate": 1.0
+          },
+          "receptor_medium": {
+            "filled": 1,
+            "total": 10,
+            "rate": 0.1
+          },
+          "dose_type": {
+            "filled": 10,
+            "total": 10,
+            "rate": 1.0
+          },
+          "dose_amount": {
+            "filled": 10,
+            "total": 10,
+            "rate": 1.0
+          }
+        }
+      }
+    },
+    "full_run_15_schema_table_fix_v2_rescore": {
+      "run_dir": "outputs\\full_run_15_schema_table_fix",
+      "policy": "v2_accept_wv (rescore of full_run15 patched records)",
+      "assembled": 233,
+      "final_records": 233,
+      "statuses": {
+        "unresolved": 137,
+        "rejected": 62,
+        "verified": 34
+      },
+      "routes": {
+        "table": 89,
+        "mixed": 69,
+        "figure": 71,
+        "text": 4
+      },
+      "route_status": {
+        "figure": {
+          "unresolved": 49,
+          "verified": 9,
+          "rejected": 13
+        },
+        "mixed": {
+          "unresolved": 49,
+          "verified": 1,
+          "rejected": 19
+        },
+        "table": {
+          "unresolved": 36,
+          "rejected": 29,
+          "verified": 24
+        },
+        "text": {
+          "unresolved": 3,
+          "rejected": 1
+        }
+      },
+      "table_records": 220,
+      "text_records": 11,
+      "figure_records": 16,
+      "route_decisions": null,
+      "prompt_assets": {},
+      "failure_counts": {
+        "insufficient_evidence": 140,
+        "ambiguous_api_concentration": 78,
+        "missing_area": 44,
+        "not_target_api": 49,
+        "missing_endpoint": 20,
+        "figure_digitization_failed": 7,
+        "unit_normalization_failed": 13,
+        "not_target_api_concentration": 44,
+        "missing_api_concentration": 55,
+        "not_target_study_type": 20,
+        "not_target_device": 6,
+        "percent_only": 19
+      },
+      "new_field_fill": {
+        "table_records": {
+          "membrane_type": {
+            "filled": 192,
+            "total": 220,
+            "rate": 0.8727272727272727
+          },
+          "membrane_source": {
+            "filled": 137,
+            "total": 220,
+            "rate": 0.6227272727272727
+          },
+          "membrane_thickness_um": {
+            "filled": 118,
+            "total": 220,
+            "rate": 0.5363636363636364
+          },
+          "receptor_medium": {
+            "filled": 113,
+            "total": 220,
+            "rate": 0.5136363636363637
+          },
+          "dose_type": {
+            "filled": 149,
+            "total": 220,
+            "rate": 0.6772727272727272
+          },
+          "dose_amount": {
+            "filled": 195,
+            "total": 220,
+            "rate": 0.8863636363636364
+          }
+        },
+        "assembled_records": {
+          "membrane_type": {
+            "filled": 205,
+            "total": 233,
+            "rate": 0.8798283261802575
+          },
+          "membrane_source": {
+            "filled": 151,
+            "total": 233,
+            "rate": 0.648068669527897
+          },
+          "membrane_thickness_um": {
+            "filled": 134,
+            "total": 233,
+            "rate": 0.575107296137339
+          },
+          "receptor_medium": {
+            "filled": 124,
+            "total": 233,
+            "rate": 0.5321888412017167
+          },
+          "dose_type": {
+            "filled": 154,
+            "total": 233,
+            "rate": 0.6609442060085837
+          },
+          "dose_amount": {
+            "filled": 208,
+            "total": 233,
+            "rate": 0.8927038626609443
+          }
+        },
+        "verified_records": {
+          "membrane_type": {
+            "filled": 205,
+            "total": 233,
+            "rate": 0.8798283261802575
+          },
+          "membrane_source": {
+            "filled": 151,
+            "total": 233,
+            "rate": 0.648068669527897
+          },
+          "membrane_thickness_um": {
+            "filled": 134,
+            "total": 233,
+            "rate": 0.575107296137339
+          },
+          "receptor_medium": {
+            "filled": 124,
+            "total": 233,
+            "rate": 0.5321888412017167
+          },
+          "dose_type": {
+            "filled": 154,
+            "total": 233,
+            "rate": 0.6609442060085837
+          },
+          "dose_amount": {
+            "filled": 208,
+            "total": 233,
+            "rate": 0.8927038626609443
+          }
+        },
+        "verified_only": {
+          "membrane_type": {
+            "filled": 34,
+            "total": 34,
+            "rate": 1.0
+          },
+          "membrane_source": {
+            "filled": 34,
+            "total": 34,
+            "rate": 1.0
+          },
+          "membrane_thickness_um": {
+            "filled": 10,
+            "total": 34,
+            "rate": 0.29411764705882354
+          },
+          "receptor_medium": {
+            "filled": 25,
+            "total": 34,
+            "rate": 0.7352941176470589
+          },
+          "dose_type": {
+            "filled": 34,
+            "total": 34,
+            "rate": 1.0
+          },
+          "dose_amount": {
+            "filled": 34,
+            "total": 34,
+            "rate": 1.0
+          }
+        }
+      }
+    }
+  },
+  "v1_to_v2_rescore_transitions": {
+    "unresolved->unresolved": 137,
+    "rejected->rejected": 62,
+    "unresolved->verified": 24,
+    "verified->verified": 10
+  },
+  "output_files": {
+    "status_csv": "outputs\\full_run_15_schema_table_fix\\report\\run_status_comparison.csv",
+    "table_delta_csv": "outputs\\full_run_15_schema_table_fix\\report\\table_record_count_delta.csv",
+    "new_field_fill_csv": "outputs\\full_run_15_schema_table_fix\\report\\new_field_fill_rates.csv",
+    "failure_delta_csv": "outputs\\full_run_15_schema_table_fix\\report\\failure_taxonomy_delta.csv",
+    "v2_rescore_jsonl": "outputs\\full_run_15_schema_table_fix\\v2_rescore\\verified_records_v2_rescore.jsonl",
+    "v2_rescore_csv": "outputs\\full_run_15_schema_table_fix\\v2_rescore\\verified_records_v2_rescore.csv",
+    "v1_to_v2_transition_csv": "outputs\\full_run_15_schema_table_fix\\v2_rescore\\v1_to_v2_status_transitions.csv"
+  }
+}

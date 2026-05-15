@@ -1,0 +1,12 @@
+{
+  "stage": "verify_final",
+  "completed": 28,
+  "total": 28,
+  "detail": "rejected=3 unresolved=14 verified=11",
+  "input_count": 28,
+  "output_count": 28,
+  "output_paths": [
+    "outputs\\validation_observability_run_fix1\\verified_records.jsonl"
+  ],
+  "resume_signature_digest": "f5b21e95200c840434dad134ecb3dde72e48ce82"
+}

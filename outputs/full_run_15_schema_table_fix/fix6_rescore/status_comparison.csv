@@ -1,0 +1,16 @@
+scope,route,status,before,after,delta
+all,all,verified,10,1,-9
+all,all,unresolved,161,170,9
+all,all,rejected,62,62,0
+route,figure,verified,9,0,-9
+route,figure,unresolved,49,58,9
+route,figure,rejected,13,13,0
+route,mixed,verified,1,1,0
+route,mixed,unresolved,49,49,0
+route,mixed,rejected,19,19,0
+route,table,verified,0,0,0
+route,table,unresolved,60,60,0
+route,table,rejected,29,29,0
+route,text,verified,0,0,0
+route,text,unresolved,3,3,0
+route,text,rejected,1,1,0
