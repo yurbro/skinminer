@@ -4,7 +4,7 @@ SkinMiner turns dermal drug formulation literature into structured, policy-audit
 
 > **Paper:** *SkinMiner: An LLM-powered data mining framework for dermal drug formulations*  
 > **Authors:** `<TO_FILL>`  
-> **Status:** [Manuscript under review]
+> **Status:** [xxx]
 
 ## What this does
 
