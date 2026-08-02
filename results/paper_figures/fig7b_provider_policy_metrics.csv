@@ -1,0 +1,9 @@
+provider,level,verified,scope_TP,scope_FP,scope_precision,scope_value_TP,end_to_end_precision
+openai,Strict,1,1,0,100.000000,0,0.000000
+openai,Extended,25,25,0,100.000000,24,96.000000
+openai,Any-concentration,47,25,22,53.191489,24,51.063830
+openai,Flux-augmented,51,25,26,49.019608,24,47.058824
+anthropic,Strict,0,0,0,,0,
+anthropic,Extended,24,24,0,100.000000,24,100.000000
+anthropic,Any-concentration,38,24,14,63.157895,24,63.157895
+anthropic,Flux-augmented,47,28,19,59.574468,28,59.574468

@@ -1,0 +1,64 @@
+{
+  "status": "COMPLETED",
+  "source_inputs": [
+    "data/dataset.csv",
+    "data/solubility_table.csv"
+  ],
+  "parameters": {
+    "random_state": 42,
+    "ridge_alpha": 1.0,
+    "ridge_solver": "auto",
+    "ridge_tol": 0.0001,
+    "within_2x_log10_threshold": 0.301,
+    "gpr_restarts": 5,
+    "gpr_normalize_y": true,
+    "gpr_alpha": 1e-10,
+    "gpr_optimizer": "fmin_l_bfgs_b",
+    "fewshot_k_values": [
+      3,
+      5
+    ],
+    "fewshot_repeats_per_group": 80,
+    "fewshot_sd_ddof": 1
+  },
+  "input_validation": {
+    "records": 17,
+    "train_records": 5,
+    "test_records": 12,
+    "measured_solubility_records": 7,
+    "estimated_solubility_records": 10,
+    "solubility_source_counts": {
+      "PartII_PG_water_Manrique": 10,
+      "PartII_Table1": 2,
+      "PartI_Table1": 5
+    },
+    "max_abs_log10_solubility_join_difference": 0.0
+  },
+  "table4_status_counts": {
+    "EXACT": 4,
+    "ROUNDING_MATCH": 16,
+    "MISMATCH": 0
+  },
+  "fewshot_status_counts": {
+    "EXACT": 0,
+    "ROUNDING_MATCH": 3,
+    "MISMATCH": 0
+  },
+  "software": {
+    "python": "3.11.9",
+    "numpy": "1.26.4",
+    "scipy": "1.11.4",
+    "sklearn": "1.5.0",
+    "matplotlib": "3.8.2"
+  },
+  "outputs": [
+    "table4_rebuilt.csv",
+    "table4_comparison.csv",
+    "predictions_zero_shot_rebuilt.csv",
+    "fewshot_raw_runs_rebuilt.csv",
+    "fewshot_results_rebuilt.csv",
+    "fewshot_comparison.csv",
+    "fig10_demo1_rebuilt.pdf",
+    "fig10_demo1_rebuilt.png"
+  ]
+}

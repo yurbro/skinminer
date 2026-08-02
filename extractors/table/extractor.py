@@ -51,7 +51,7 @@ from utils.units import (
 TABLE_SOURCE_USER_AGENT = {"User-Agent": "SkinMiner/table-extractor"}
 LOGGER = logging.getLogger("skinminer.extractors.table")
 TABLE_EXTRACTION_PROMPT_ASSET_ID = "extractors.table.structured_tables"
-TABLE_EXTRACTION_PROMPT_VERSION = "2026-05-10.pr-c"
+TABLE_EXTRACTION_PROMPT_VERSION = "2026-05-10.change-set-c"
 
 SYSTEM_PROMPT = (
     "You extract formulation composition tables from OA scientific articles. "
@@ -678,7 +678,7 @@ def _cache_table_prompt_io(
     prompt_payload: object,
     output_payload: object,
 ) -> None:
-    cache_dir = Path("outputs/v1.5_pr_c_llm_cache")
+    cache_dir = Path("outputs/v1.5_change_set_c_llm_cache")
     prompt_text = json.dumps(prompt_payload, ensure_ascii=False, sort_keys=True, default=str)
     prompt_hash = hashlib.sha1(prompt_text.encode("utf-8")).hexdigest()[:12]
     safe_paper_id = re.sub(r"[^A-Za-z0-9_.-]+", "_", content_handle.paper_id or content_handle.doi or "paper").strip("._")

@@ -1,0 +1,4587 @@
+[
+  {
+    "R2_conv": -0.3200067139851146,
+    "direction": "xiao_to_bolla",
+    "k": 0,
+    "n_test": 8,
+    "pearson": 0.3463813373071766,
+    "rmse_logJ": 0.45738970252855266,
+    "spearman": 0.4285714285714286,
+    "subset_indices": [],
+    "subset_record_ids": [],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.375,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.8365605362519444,
+    "direction": "xiao_to_bolla",
+    "k": 1,
+    "n_test": 7,
+    "pearson": -0.33871910307380076,
+    "rmse_logJ": 0.5317691796735784,
+    "spearman": -0.1785714285714286,
+    "subset_indices": [
+      0
+    ],
+    "subset_record_ids": [
+      "F1A"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.7142857142857143,
+    "within_2x_count": 5
+  },
+  {
+    "R2_conv": -0.872291653419828,
+    "direction": "xiao_to_bolla",
+    "k": 1,
+    "n_test": 7,
+    "pearson": -0.3580365246136654,
+    "rmse_logJ": 0.5163529120275439,
+    "spearman": -0.14285714285714288,
+    "subset_indices": [
+      1
+    ],
+    "subset_record_ids": [
+      "F1B"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.7142857142857143,
+    "within_2x_count": 5
+  },
+  {
+    "R2_conv": 0.01276770246115766,
+    "direction": "xiao_to_bolla",
+    "k": 1,
+    "n_test": 7,
+    "pearson": 0.6878389144439992,
+    "rmse_logJ": 0.4226675262874964,
+    "spearman": 0.39285714285714296,
+    "subset_indices": [
+      2
+    ],
+    "subset_record_ids": [
+      "F2A"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.2857142857142857,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.08024738773025197,
+    "direction": "xiao_to_bolla",
+    "k": 1,
+    "n_test": 7,
+    "pearson": 0.37060871153209285,
+    "rmse_logJ": 0.393547536219741,
+    "spearman": 0.1785714285714286,
+    "subset_indices": [
+      3
+    ],
+    "subset_record_ids": [
+      "F2B"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.42857142857142855,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.996905533620432,
+    "direction": "xiao_to_bolla",
+    "k": 1,
+    "n_test": 7,
+    "pearson": 0.3553446614619421,
+    "rmse_logJ": 0.5332920104947182,
+    "spearman": 0.4642857142857144,
+    "subset_indices": [
+      4
+    ],
+    "subset_record_ids": [
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.2857142857142857,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.2572982344796457,
+    "direction": "xiao_to_bolla",
+    "k": 1,
+    "n_test": 7,
+    "pearson": -0.688379128620038,
+    "rmse_logJ": 0.4747166317054185,
+    "spearman": -0.3214285714285715,
+    "subset_indices": [
+      5
+    ],
+    "subset_record_ids": [
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.2857142857142857,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.24764506150654397,
+    "direction": "xiao_to_bolla",
+    "k": 1,
+    "n_test": 7,
+    "pearson": 0.8862049154597704,
+    "rmse_logJ": 0.47517805634391813,
+    "spearman": 0.9285714285714288,
+    "subset_indices": [
+      6
+    ],
+    "subset_record_ids": [
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.2857142857142857,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -2.142645431769293,
+    "direction": "xiao_to_bolla",
+    "k": 1,
+    "n_test": 7,
+    "pearson": 0.35970656005274637,
+    "rmse_logJ": 0.5425546769476771,
+    "spearman": 0.39285714285714296,
+    "subset_indices": [
+      7
+    ],
+    "subset_record_ids": [
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.42857142857142855,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -2.1358667162370666,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": -0.4342153368956334,
+    "rmse_logJ": 0.6180625334565686,
+    "spearman": -0.08571428571428573,
+    "subset_indices": [
+      0,
+      1
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.35752244280644674,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": -0.1920710700854604,
+    "rmse_logJ": 0.49363924969875717,
+    "spearman": -0.2571428571428572,
+    "subset_indices": [
+      0,
+      2
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.7023967227273549,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.051924636691623796,
+    "rmse_logJ": 0.5177712922393233,
+    "spearman": 0.2,
+    "subset_indices": [
+      0,
+      3
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6666666666666666,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": 0.2614286503183596,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.8927721720565989,
+    "rmse_logJ": 0.3260128655418218,
+    "spearman": 0.7142857142857143,
+    "subset_indices": [
+      0,
+      4
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.17387684843986206,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": -0.10875387571258932,
+    "rmse_logJ": 0.4523126225957517,
+    "spearman": 0.08571428571428573,
+    "subset_indices": [
+      0,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.6177988002079573,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": -0.3249783428176193,
+    "rmse_logJ": 0.5388604646553055,
+    "spearman": -0.2571428571428572,
+    "subset_indices": [
+      0,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.6666666666666666,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": 0.3942976679657334,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.8342407555385255,
+    "rmse_logJ": 0.23528149237067375,
+    "spearman": 0.7714285714285715,
+    "subset_indices": [
+      0,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.8333333333333334,
+    "within_2x_count": 5
+  },
+  {
+    "R2_conv": -0.307285520097099,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": -0.12120777336362124,
+    "rmse_logJ": 0.4656571279733666,
+    "spearman": 0.028571428571428574,
+    "subset_indices": [
+      1,
+      2
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6666666666666666,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": -0.7546631012931819,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.10724779190329976,
+    "rmse_logJ": 0.49998650915562376,
+    "spearman": 0.3142857142857143,
+    "subset_indices": [
+      1,
+      3
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6666666666666666,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": 0.3523170916792502,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.8464840920532418,
+    "rmse_logJ": 0.29269213373585734,
+    "spearman": 0.7142857142857143,
+    "subset_indices": [
+      1,
+      4
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6666666666666666,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": -0.10413386433958993,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.055527808340180854,
+    "rmse_logJ": 0.4203527092794579,
+    "spearman": 0.08571428571428573,
+    "subset_indices": [
+      1,
+      5
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6666666666666666,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": -0.6681449655378735,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": -0.336451694050685,
+    "rmse_logJ": 0.5259735347761337,
+    "spearman": -0.2571428571428572,
+    "subset_indices": [
+      1,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.6666666666666666,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": 0.3615520207178954,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.7421269138315354,
+    "rmse_logJ": 0.2271767730317984,
+    "spearman": 0.48571428571428577,
+    "subset_indices": [
+      1,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.8333333333333334,
+    "within_2x_count": 5
+  },
+  {
+    "R2_conv": 0.149750717719505,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.5184852144927083,
+    "rmse_logJ": 0.4086918704984263,
+    "spearman": 0.2571428571428572,
+    "subset_indices": [
+      2,
+      3
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.3795735606889594,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.7026794103303097,
+    "rmse_logJ": 0.4758567284125196,
+    "spearman": 0.2571428571428572,
+    "subset_indices": [
+      2,
+      4
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.12747019905212076,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": -0.6970421207108198,
+    "rmse_logJ": 0.485492977566977,
+    "spearman": -0.3714285714285715,
+    "subset_indices": [
+      2,
+      5
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.16666666666666666,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.0300259816141194,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.794183785048141,
+    "rmse_logJ": 0.45226635400155235,
+    "spearman": 0.48571428571428577,
+    "subset_indices": [
+      2,
+      6
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.16666666666666666,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.9370396707287778,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.39026696624542545,
+    "rmse_logJ": 0.4523466240626367,
+    "spearman": 0.2571428571428572,
+    "subset_indices": [
+      2,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.09643204076668188,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.7089234200899491,
+    "rmse_logJ": 0.37736606331861117,
+    "spearman": 0.14285714285714288,
+    "subset_indices": [
+      3,
+      4
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.10135827404284692,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.42700281198474016,
+    "rmse_logJ": 0.41562331806962005,
+    "spearman": 0.08571428571428573,
+    "subset_indices": [
+      3,
+      5
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.10362675719617875,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.41163817013574877,
+    "rmse_logJ": 0.41962461476461216,
+    "spearman": 0.08571428571428573,
+    "subset_indices": [
+      3,
+      6
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.1730381569916879,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.19984899363874353,
+    "rmse_logJ": 0.34817234081784093,
+    "spearman": 0.14285714285714288,
+    "subset_indices": [
+      3,
+      7
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.6666666666666666,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": -0.1753710712742973,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.376569060766672,
+    "rmse_logJ": 0.44154883920829946,
+    "spearman": 0.6571428571428573,
+    "subset_indices": [
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.9128921117473703,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.8319726892971293,
+    "rmse_logJ": 0.5604543223190979,
+    "spearman": 0.942857142857143,
+    "subset_indices": [
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -6.181716004295756,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": -0.2315885982623892,
+    "rmse_logJ": 0.5443080713818741,
+    "spearman": -0.08571428571428573,
+    "subset_indices": [
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.22070898258922278,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": -0.7143788392185718,
+    "rmse_logJ": 0.5051820433236078,
+    "spearman": -0.4285714285714286,
+    "subset_indices": [
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.16666666666666666,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.07021264344029898,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.24728987841155264,
+    "rmse_logJ": 0.3419799364554554,
+    "spearman": 0.08571428571428573,
+    "subset_indices": [
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -2.0994820395498976,
+    "direction": "xiao_to_bolla",
+    "k": 2,
+    "n_test": 6,
+    "pearson": 0.7335422673223501,
+    "rmse_logJ": 0.5724498046439358,
+    "spearman": 0.7142857142857143,
+    "subset_indices": [
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.3333333333333333,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -1.2959885017620167,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.3723712997386548,
+    "rmse_logJ": 0.5728111717374984,
+    "spearman": -0.09999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      2
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A"
+    ],
+    "test_record_ids": [
+      "F2B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -2.5735613803167126,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.05614667234868087,
+    "rmse_logJ": 0.6041060995501187,
+    "spearman": 0.09999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      3
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.5368858945989115,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.9170272617769826,
+    "rmse_logJ": 0.23455741462510024,
+    "spearman": 0.49999999999999994,
+    "subset_indices": [
+      0,
+      1,
+      4
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.5855382340526605,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.4458367633047332,
+    "rmse_logJ": 0.45462725710591406,
+    "spearman": -0.6,
+    "subset_indices": [
+      0,
+      1,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -1.8979698622248113,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.3870102507093557,
+    "rmse_logJ": 0.6433138750010954,
+    "spearman": -0.09999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.34359874548682845,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.8300986619549362,
+    "rmse_logJ": 0.20603500399707592,
+    "spearman": 0.6,
+    "subset_indices": [
+      0,
+      1,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.8,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": -0.3440687672052858,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.13556423117380054,
+    "rmse_logJ": 0.5018097998592058,
+    "spearman": 0.3,
+    "subset_indices": [
+      0,
+      2,
+      3
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.4253728669518696,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.9599714540024177,
+    "rmse_logJ": 0.31455413652832076,
+    "spearman": 0.8999999999999998,
+    "subset_indices": [
+      0,
+      2,
+      4
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.12718460723578762,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.02681263559715092,
+    "rmse_logJ": 0.48472992608986426,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      0,
+      2,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.21112876719036477,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.0345488755402243,
+    "rmse_logJ": 0.5104749903017102,
+    "spearman": -0.09999999999999999,
+    "subset_indices": [
+      0,
+      2,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.3151001403153031,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.8904005026144496,
+    "rmse_logJ": 0.2718241197352915,
+    "spearman": 0.8999999999999998,
+    "subset_indices": [
+      0,
+      2,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.8,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": 0.7193028290038654,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.9125254307942398,
+    "rmse_logJ": 0.20904889897798307,
+    "spearman": 0.6,
+    "subset_indices": [
+      0,
+      3,
+      4
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.8,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": -0.008691685600446197,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.5461545023809018,
+    "rmse_logJ": 0.42269038279014437,
+    "spearman": 0.6,
+    "subset_indices": [
+      0,
+      3,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.5785750834065537,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.34530310609997894,
+    "rmse_logJ": 0.5437257912257809,
+    "spearman": 0.49999999999999994,
+    "subset_indices": [
+      0,
+      3,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.34562252336083554,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.7415495032526427,
+    "rmse_logJ": 0.2525781966231938,
+    "spearman": 0.3,
+    "subset_indices": [
+      0,
+      3,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.41407530152738037,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.8937472249517788,
+    "rmse_logJ": 0.31611226179155344,
+    "spearman": 0.8999999999999998,
+    "subset_indices": [
+      0,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.31844312836386224,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.9433645452839846,
+    "rmse_logJ": 0.342610620913308,
+    "spearman": 0.8999999999999998,
+    "subset_indices": [
+      0,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -1.4861113301506643,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.5203971985586592,
+    "rmse_logJ": 0.3131604580631021,
+    "spearman": 0.49999999999999994,
+    "subset_indices": [
+      0,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.08590777301807728,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.12910794250284882,
+    "rmse_logJ": 0.47571957140985316,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      0,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.41247283667299695,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.9079002997820163,
+    "rmse_logJ": 0.2530420234002805,
+    "spearman": 0.8999999999999998,
+    "subset_indices": [
+      0,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.36437438738774275,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.8383166082906214,
+    "rmse_logJ": 0.2619509885087269,
+    "spearman": 0.8999999999999998,
+    "subset_indices": [
+      0,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.8,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": -0.3205568824689944,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.26443835258261117,
+    "rmse_logJ": 0.4721072956756203,
+    "spearman": 0.3,
+    "subset_indices": [
+      1,
+      2,
+      3
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.4865854410907189,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.9113990321266112,
+    "rmse_logJ": 0.2852402414671622,
+    "spearman": 0.7,
+    "subset_indices": [
+      1,
+      2,
+      4
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.05012331038921647,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.20341587115693646,
+    "rmse_logJ": 0.4478177894137501,
+    "spearman": 0.49999999999999994,
+    "subset_indices": [
+      1,
+      2,
+      5
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.2065850935933382,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.05107360709384379,
+    "rmse_logJ": 0.4894583349715713,
+    "spearman": -0.09999999999999999,
+    "subset_indices": [
+      1,
+      2,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.30332182450824086,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.8073719285349568,
+    "rmse_logJ": 0.2582330342215067,
+    "spearman": 0.7,
+    "subset_indices": [
+      1,
+      2,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.8,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": 0.7159967514488486,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.8783883960760878,
+    "rmse_logJ": 0.19939901840382768,
+    "spearman": 0.49999999999999994,
+    "subset_indices": [
+      1,
+      3,
+      4
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.8,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": 0.00820390687232253,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.6601599636274382,
+    "rmse_logJ": 0.39544574315993447,
+    "spearman": 0.7,
+    "subset_indices": [
+      1,
+      3,
+      5
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.6649072414237196,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.34294178554021276,
+    "rmse_logJ": 0.5299719267642332,
+    "spearman": 0.49999999999999994,
+    "subset_indices": [
+      1,
+      3,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.25027932686334853,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.6344463741157426,
+    "rmse_logJ": 0.24998146779276478,
+    "spearman": 0.3,
+    "subset_indices": [
+      1,
+      3,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.4598681820566859,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.8530122295681903,
+    "rmse_logJ": 0.29022331180347044,
+    "spearman": 0.8999999999999998,
+    "subset_indices": [
+      1,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.3415921940645875,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.957629404458225,
+    "rmse_logJ": 0.32304312574522165,
+    "spearman": 0.8999999999999998,
+    "subset_indices": [
+      1,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -1.8624956104045043,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.18470323001297712,
+    "rmse_logJ": 0.293833630779905,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      1,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.08302171530160374,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.19475345546519438,
+    "rmse_logJ": 0.454710517129469,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      1,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.3299932434152585,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.7778885751693612,
+    "rmse_logJ": 0.25352459185690085,
+    "spearman": 0.3,
+    "subset_indices": [
+      1,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.35080156093186654,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.8207990703241792,
+    "rmse_logJ": 0.24935755603766505,
+    "spearman": 0.8999999999999998,
+    "subset_indices": [
+      1,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.8,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": 0.10826693172486812,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.7782269535160311,
+    "rmse_logJ": 0.4094975273145308,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      2,
+      3,
+      4
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.07264980412614686,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.36426645349623243,
+    "rmse_logJ": 0.4622594711427473,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      2,
+      3,
+      5
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.1605283431916522,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.538299092444997,
+    "rmse_logJ": 0.44482777357567854,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      2,
+      3,
+      6
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.2532602479128534,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.3301038716885012,
+    "rmse_logJ": 0.3897717330350318,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      2,
+      3,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.05889986637212119,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.714105363975181,
+    "rmse_logJ": 0.43042230135203924,
+    "spearman": 0.3,
+    "subset_indices": [
+      2,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.39391303054789306,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.9598894857566627,
+    "rmse_logJ": 0.5195771026732477,
+    "spearman": 0.7,
+    "subset_indices": [
+      2,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -6.402021504569578,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.26929634457795987,
+    "rmse_logJ": 0.5175969593812395,
+    "spearman": -0.3,
+    "subset_indices": [
+      2,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.09788761862395812,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.7225401381848404,
+    "rmse_logJ": 0.524725522749894,
+    "spearman": -0.6,
+    "subset_indices": [
+      2,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.0,
+    "within_2x_count": 0
+  },
+  {
+    "R2_conv": -0.15940356815816203,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.2950101596938874,
+    "rmse_logJ": 0.3832211731801251,
+    "spearman": 0.09999999999999999,
+    "subset_indices": [
+      2,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -1.0408194851158696,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.817014340124142,
+    "rmse_logJ": 0.4964584662753251,
+    "spearman": 0.7,
+    "subset_indices": [
+      2,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.4053147599445135,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.7439777768152323,
+    "rmse_logJ": 0.33422764234154234,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      3,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.08830419281496693,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.828667418457447,
+    "rmse_logJ": 0.41411703272246697,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      3,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -2.521449800628776,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.4180309926623226,
+    "rmse_logJ": 0.4116113514680924,
+    "spearman": -0.49999999999999994,
+    "subset_indices": [
+      3,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.09561703808772648,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.41342438827025507,
+    "rmse_logJ": 0.4564717679302695,
+    "spearman": 0.09999999999999999,
+    "subset_indices": [
+      3,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.03449543504720132,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.09544598854990659,
+    "rmse_logJ": 0.3578139604645154,
+    "spearman": 0.09999999999999999,
+    "subset_indices": [
+      3,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.19330127614331793,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.38663158222417165,
+    "rmse_logJ": 0.3804749058650342,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      3,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.6,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.2098283548401143,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.8051450313435936,
+    "rmse_logJ": 0.48812010199031053,
+    "spearman": 0.9999999999999999,
+    "subset_indices": [
+      4,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F6"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -2.2447049427272647,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": -0.6784164264442067,
+    "rmse_logJ": 0.39181888245418406,
+    "spearman": -0.6,
+    "subset_indices": [
+      4,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F5"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -8.677413342522689,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.32841947254209947,
+    "rmse_logJ": 0.5934424109391373,
+    "spearman": -0.09999999999999999,
+    "subset_indices": [
+      4,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F4"
+    ],
+    "within_2x": 0.2,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.07170461374807524,
+    "direction": "xiao_to_bolla",
+    "k": 3,
+    "n_test": 5,
+    "pearson": 0.5081649230231038,
+    "rmse_logJ": 0.3686084949367532,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      5,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3"
+    ],
+    "within_2x": 0.4,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -2.0317682494036733,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.051123523225422546,
+    "rmse_logJ": 0.5900655677734743,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B"
+    ],
+    "test_record_ids": [
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.6236170686958318,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9648850670207617,
+    "rmse_logJ": 0.23581140800532552,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F2B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.6347786191211096,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.4103384187159236,
+    "rmse_logJ": 0.5019347626623349,
+    "spearman": -0.6000000000000001,
+    "subset_indices": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F2B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -1.1509212166526566,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.2170003892928994,
+    "rmse_logJ": 0.60884584364553,
+    "spearman": -0.19999999999999998,
+    "subset_indices": [
+      0,
+      1,
+      2,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F2B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.4860454245871907,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9165863469048627,
+    "rmse_logJ": 0.20383259777049648,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      2,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F2B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.8740766593586995,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9406027499807446,
+    "rmse_logJ": 0.11650768833338715,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 1.0,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": -1.199129368936982,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.31854295728005744,
+    "rmse_logJ": 0.4473605839388946,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -2.702971854451409,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.4618237981032362,
+    "rmse_logJ": 0.6514864444845202,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      3,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.2884727986252691,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.6348980169362854,
+    "rmse_logJ": 0.2549310182813932,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      0,
+      1,
+      3,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.5316705075235377,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9175707342025947,
+    "rmse_logJ": 0.25358675332291414,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.5547451712453164,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9688405804069514,
+    "rmse_logJ": 0.25643268911710587,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -1.5171943154255656,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.025468895381305007,
+    "rmse_logJ": 0.2027773705265724,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      0,
+      1,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 1.0,
+    "within_2x_count": 4
+  },
+  {
+    "R2_conv": -0.5807171103865292,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.06390464403529411,
+    "rmse_logJ": 0.4932686827697613,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      0,
+      1,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.14973467209859848,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9126971149111741,
+    "rmse_logJ": 0.25201389762239307,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.37407113167457884,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.8074420763875915,
+    "rmse_logJ": 0.22494197203372618,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      1,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F1B",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.6921197178564125,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9631427508107068,
+    "rmse_logJ": 0.2447677625988141,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.055493916165813006,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.4010141439905337,
+    "rmse_logJ": 0.4779230206062064,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      0,
+      2,
+      3,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.23266291170919406,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.6238350837060761,
+    "rmse_logJ": 0.5336638721420379,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      0,
+      2,
+      3,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.42250469360734777,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9255716137687319,
+    "rmse_logJ": 0.26470270720838684,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      2,
+      3,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.5079144957072028,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9698461762602937,
+    "rmse_logJ": 0.323719986888711,
+    "spearman": 1.0,
+    "subset_indices": [
+      0,
+      2,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.4527143162700964,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9881974067424043,
+    "rmse_logJ": 0.3425157373256508,
+    "spearman": 1.0,
+    "subset_indices": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -2.0118793742645567,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.6416093022503319,
+    "rmse_logJ": 0.33598186766388943,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      2,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.024991978637473267,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.4131906176137423,
+    "rmse_logJ": 0.5154418016449352,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      0,
+      2,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.45563555600197414,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9884335485143736,
+    "rmse_logJ": 0.2705259349075229,
+    "spearman": 1.0,
+    "subset_indices": [
+      0,
+      2,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.2895786447311828,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9245236564968475,
+    "rmse_logJ": 0.30577307309112667,
+    "spearman": 1.0,
+    "subset_indices": [
+      0,
+      2,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2A",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.7700799161410596,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9425328295255769,
+    "rmse_logJ": 0.20779375353565024,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      3,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.7087048213412217,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9258148935538999,
+    "rmse_logJ": 0.23807810085994663,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      3,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.30582840812726997,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.41858077417102985,
+    "rmse_logJ": 0.2424713012974377,
+    "spearman": 0.19999999999999998,
+    "subset_indices": [
+      0,
+      3,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.010631985083594753,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.7650116679670241,
+    "rmse_logJ": 0.4625606570380642,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      3,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.2637758063375665,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.7869780802728751,
+    "rmse_logJ": 0.2957683185407667,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      0,
+      3,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.34078382348196845,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.7190822306321927,
+    "rmse_logJ": 0.2828638424356501,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      0,
+      3,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.4231407438706237,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9305103313658523,
+    "rmse_logJ": 0.3505201441075185,
+    "spearman": 1.0,
+    "subset_indices": [
+      0,
+      4,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.04148961202800128,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.8353335342087358,
+    "rmse_logJ": 0.22446623733574636,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      4,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F5"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -2.1966045284516746,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.6476978680904287,
+    "rmse_logJ": 0.3471112546177471,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      0,
+      4,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F4"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.4103017986238935,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.8925845047063787,
+    "rmse_logJ": 0.28165103118400425,
+    "spearman": 1.0,
+    "subset_indices": [
+      0,
+      5,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1A",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.7036044054551551,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9210478417643497,
+    "rmse_logJ": 0.2276342496393632,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F3"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.023683866609724324,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.5804821210918701,
+    "rmse_logJ": 0.44189005199375647,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      1,
+      2,
+      3,
+      5
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -0.26117457271879085,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.6101335714510954,
+    "rmse_logJ": 0.5106446493150478,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      1,
+      2,
+      3,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.37396865486533526,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.8417079871717935,
+    "rmse_logJ": 0.25514550957973636,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      1,
+      2,
+      3,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F2B",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.5526198016933932,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.925263462201715,
+    "rmse_logJ": 0.2952807083655058,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.4764947248850492,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9931864561612301,
+    "rmse_logJ": 0.32167795957876855,
+    "spearman": 1.0,
+    "subset_indices": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -2.594140995737226,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.2730705748342336,
+    "rmse_logJ": 0.3156443768902175,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      1,
+      2,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.015368483457735227,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.5204486058731264,
+    "rmse_logJ": 0.49015692642158143,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      1,
+      2,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.39930664676926353,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.8708229705640151,
+    "rmse_logJ": 0.26713315566346474,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      1,
+      2,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.28157951325885433,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.928014624316044,
+    "rmse_logJ": 0.2903345334011926,
+    "spearman": 1.0,
+    "subset_indices": [
+      1,
+      2,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2A",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.7641647522643762,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9026455353453653,
+    "rmse_logJ": 0.19824331156267835,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": 0.7184139780164245,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.921010312940203,
+    "rmse_logJ": 0.22185746292699388,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      1,
+      3,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.6435552419938193,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.026491171699907348,
+    "rmse_logJ": 0.22997461324001398,
+    "spearman": -0.39999999999999997,
+    "subset_indices": [
+      1,
+      3,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -0.02423586016206669,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.7361299332262647,
+    "rmse_logJ": 0.44182704308725174,
+    "spearman": 1.0,
+    "subset_indices": [
+      1,
+      3,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.13740447391552912,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.6525445682725923,
+    "rmse_logJ": 0.2938357672658649,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      1,
+      3,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.2883837709174223,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.6490225515698366,
+    "rmse_logJ": 0.27206278782371573,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      1,
+      3,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.4393340651439791,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9575595902032512,
+    "rmse_logJ": 0.33056808619766326,
+    "spearman": 1.0,
+    "subset_indices": [
+      1,
+      4,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.38871297820916006,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.18220506093708408,
+    "rmse_logJ": 0.22739053862735417,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      1,
+      4,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F5"
+    ],
+    "within_2x": 0.75,
+    "within_2x_count": 3
+  },
+  {
+    "R2_conv": -2.9209181034342415,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.5496898280811423,
+    "rmse_logJ": 0.3308391571717691,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      1,
+      4,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F4"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.37753722374487264,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.8288823646049476,
+    "rmse_logJ": 0.2720045637788496,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      1,
+      5,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F1B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F2A",
+      "F2B",
+      "F3"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.3763495859383452,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.7947052797404374,
+    "rmse_logJ": 0.3819712123746889,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F4"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F5",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.10269853143310759,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9989812704042322,
+    "rmse_logJ": 0.4573693729386365,
+    "spearman": 1.0,
+    "subset_indices": [
+      2,
+      3,
+      4,
+      6
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F4",
+      "F6"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -3.6666950026898855,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.30836591477144704,
+    "rmse_logJ": 0.45814763068933606,
+    "spearman": -0.19999999999999998,
+    "subset_indices": [
+      2,
+      3,
+      4,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F3",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F4",
+      "F5"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.07606468993922177,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.37521679847888,
+    "rmse_logJ": 0.5154145103024623,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F6"
+    ],
+    "within_2x": 0.0,
+    "within_2x_count": 0
+  },
+  {
+    "R2_conv": -0.04497673785924117,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.22980872372540462,
+    "rmse_logJ": 0.3978757172363943,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      2,
+      3,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F5"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -0.2833666778946471,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9483263813566363,
+    "rmse_logJ": 0.43351408512914863,
+    "spearman": 1.0,
+    "subset_indices": [
+      2,
+      3,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F2B",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F3",
+      "F4"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.024378130171140322,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.9912517096435395,
+    "rmse_logJ": 0.485988933537173,
+    "spearman": 0.7999999999999999,
+    "subset_indices": [
+      2,
+      4,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F6"
+    ],
+    "within_2x": 0.0,
+    "within_2x_count": 0
+  },
+  {
+    "R2_conv": -3.846789971077376,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.9380161797703184,
+    "rmse_logJ": 0.4341340890878034,
+    "spearman": -0.7999999999999999,
+    "subset_indices": [
+      2,
+      4,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F5"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -15.290648534484951,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.7153895992220258,
+    "rmse_logJ": 0.5792121497048882,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      2,
+      4,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F4"
+    ],
+    "within_2x": 0.0,
+    "within_2x_count": 0
+  },
+  {
+    "R2_conv": -0.18236290545098188,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.7566059184527901,
+    "rmse_logJ": 0.421329943804918,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      2,
+      5,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F2A",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2B",
+      "F3"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": 0.3962327073574363,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.8536727586146672,
+    "rmse_logJ": 0.37587826822877507,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F6"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -1.358617340183112,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.8778929464061699,
+    "rmse_logJ": 0.3702653677039705,
+    "spearman": -0.6000000000000001,
+    "subset_indices": [
+      3,
+      4,
+      5,
+      7
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F3",
+      "F4",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F5"
+    ],
+    "within_2x": 0.5,
+    "within_2x_count": 2
+  },
+  {
+    "R2_conv": -3.6912101870533753,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.09450785097267728,
+    "rmse_logJ": 0.46057641507281366,
+    "spearman": -0.19999999999999998,
+    "subset_indices": [
+      3,
+      4,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F4"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": 0.0032111457154967438,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": 0.2484275966632996,
+    "rmse_logJ": 0.3887349701721962,
+    "spearman": 0.39999999999999997,
+    "subset_indices": [
+      3,
+      5,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F2B",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F3"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  },
+  {
+    "R2_conv": -3.7967170907442274,
+    "direction": "xiao_to_bolla",
+    "k": 4,
+    "n_test": 4,
+    "pearson": -0.5382141473666093,
+    "rmse_logJ": 0.4334282206204409,
+    "spearman": -0.6000000000000001,
+    "subset_indices": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "subset_record_ids": [
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "test_record_ids": [
+      "F1A",
+      "F1B",
+      "F2A",
+      "F2B"
+    ],
+    "within_2x": 0.25,
+    "within_2x_count": 1
+  }
+]

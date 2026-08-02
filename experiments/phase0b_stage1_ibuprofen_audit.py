@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import copy
 import json
 import math
@@ -13,29 +14,36 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# Source field decisions:
-# - GPT policy provenance comes from these existing rescore JSONL files:
-#   outputs/full_run_16_post_all_fixes/v2_rescore/verified_records.jsonl
-#   outputs/full_run_16_post_all_fixes/v3_rescore/verified_records.jsonl
-#   outputs/full_run_16_post_all_fixes/v4_rescore/verified_records.jsonl
-# - Claude cross-reference provenance comes from:
-#   outputs/experiment_E3_claude_v2/v2_rescore/verified_records.jsonl
-# - Unresolved/rejected fallback records are also read from the latest v4
-#   policy files plus patched_area/patched_* and assembled_records JSONL files
-#   in both source runs. No extractors, PDFs, APIs, or LLMs are called.
+# Source field decisions: GPT and Claude policy inputs are supplied as explicit
+# external run directories. Detailed JSONL remains outside the public tree.
+# No extractors, PDFs, APIs, or LLMs are called.
 # - Core extracted fields are read from formulation.*, endpoint.*,
 #   conditions.*, route, evidence_items, verification_status, and scope_bucket.
 
-GPT_RUN = ROOT / "outputs" / "full_run_16_post_all_fixes"
-CLAUDE_RUN = ROOT / "outputs" / "experiment_E3_claude_v2"
-OUTPUT_DIR = ROOT / "outputs" / "phase0b_stage1"
-REPORT_PATH = ROOT / "reports" / "phase0b_stage1_ibuprofen_audit.md"
+GPT_RUN: Path
+CLAUDE_RUN: Path
+OUTPUT_DIR = ROOT / "results" / "experiments" / "stage1-ibuprofen-audit"
+REPORT_PATH = OUTPUT_DIR / "stage1_ibuprofen_audit.md"
 
 ALL_RECORDS_PATH = OUTPUT_DIR / "all_ibuprofen_records.jsonl"
 PAPER_SUMMARY_PATH = OUTPUT_DIR / "paper_level_summary.csv"
 PAIR_COMPAT_PATH = OUTPUT_DIR / "paper_pair_compatibility.csv"
 FACTOR_MATRIX_PATH = OUTPUT_DIR / "factor_coverage_matrix.csv"
 GO_NOGO_PATH = OUTPUT_DIR / "go_nogo_decision.md"
+
+
+def configure_paths(gpt_run: Path, claude_run: Path, output_dir: Path, report_path: Path | None) -> None:
+    global GPT_RUN, CLAUDE_RUN, OUTPUT_DIR, REPORT_PATH
+    global ALL_RECORDS_PATH, PAPER_SUMMARY_PATH, PAIR_COMPAT_PATH, FACTOR_MATRIX_PATH, GO_NOGO_PATH
+    GPT_RUN = gpt_run.resolve()
+    CLAUDE_RUN = claude_run.resolve()
+    OUTPUT_DIR = output_dir.resolve()
+    REPORT_PATH = report_path.resolve() if report_path else OUTPUT_DIR / "stage1_ibuprofen_audit.md"
+    ALL_RECORDS_PATH = OUTPUT_DIR / "all_ibuprofen_records.jsonl"
+    PAPER_SUMMARY_PATH = OUTPUT_DIR / "paper_level_summary.csv"
+    PAIR_COMPAT_PATH = OUTPUT_DIR / "paper_pair_compatibility.csv"
+    FACTOR_MATRIX_PATH = OUTPUT_DIR / "factor_coverage_matrix.csv"
+    GO_NOGO_PATH = OUTPUT_DIR / "go_nogo_decision.md"
 
 API_RE = re.compile(r"\b(ibuprofen sodium|ibuprofen lysine|ibuprofen)\b", re.I)
 IBUPROFEN_MENTION_RE = re.compile(r"ibuprofen", re.I)
@@ -1402,6 +1410,13 @@ def write_outputs(
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--gpt-run", type=Path, required=True, help="External detailed GPT run directory")
+    parser.add_argument("--claude-run", type=Path, required=True, help="External detailed Claude run directory")
+    parser.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
+    parser.add_argument("--report-path", type=Path, default=None)
+    args = parser.parse_args()
+    configure_paths(args.gpt_run, args.claude_run, args.output_dir, args.report_path)
     records, near_miss_names, excluded_mentions = collect_union_pool()
     summary_df, factor_df, paper_info = build_paper_summary(records)
     pair_df = build_pair_compatibility(summary_df, paper_info)
@@ -1423,12 +1438,12 @@ def main() -> None:
         "recommendation": rec,
         "recommendation_reason": rec_reason,
         "outputs": {
-            "all_records": str(ALL_RECORDS_PATH.relative_to(ROOT)),
-            "paper_summary": str(PAPER_SUMMARY_PATH.relative_to(ROOT)),
-            "pair_compatibility": str(PAIR_COMPAT_PATH.relative_to(ROOT)),
-            "factor_matrix": str(FACTOR_MATRIX_PATH.relative_to(ROOT)),
-            "go_nogo": str(GO_NOGO_PATH.relative_to(ROOT)),
-            "report": str(REPORT_PATH.relative_to(ROOT)),
+            "all_records": str(ALL_RECORDS_PATH),
+            "paper_summary": str(PAPER_SUMMARY_PATH),
+            "pair_compatibility": str(PAIR_COMPAT_PATH),
+            "factor_matrix": str(FACTOR_MATRIX_PATH),
+            "go_nogo": str(GO_NOGO_PATH),
+            "report": str(REPORT_PATH),
         },
     }
     print(json.dumps(payload, ensure_ascii=False, indent=2))

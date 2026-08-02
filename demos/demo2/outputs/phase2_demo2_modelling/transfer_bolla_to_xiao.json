@@ -1,0 +1,369 @@
+{
+  "direction": "Bolla_to_Xiao_zero_shot",
+  "feature_set": [
+    "log10_vehicle_solubility",
+    "ethanol_fraction",
+    "drug_state_solubilized"
+  ],
+  "metrics": {
+    "R2_conv": -5.680228092491267,
+    "R2_gen_train_mean_baseline": 0.39576455730491344,
+    "mean_residual_log10": -0.11503531937070348,
+    "median_abs_residual_log10": 0.13802638673278322,
+    "n": 29,
+    "pearson_r": -0.1943913328258792,
+    "rmse_logJ": 0.15483696523905138,
+    "spearman_rho": -0.22572698650822315,
+    "within_2x": 1.0,
+    "within_2x_count": 29
+  },
+  "model": "StandardScaler(train only) + Ridge(alpha=1.0)",
+  "model_parameters": {
+    "ridge_alpha": 1.0,
+    "ridge_coefficients_scaled_feature_space": {
+      "drug_state_solubilized": 0.11089153540507742,
+      "ethanol_fraction": 0.05155891316855752,
+      "log10_vehicle_solubility": 0.21224433895338485
+    },
+    "ridge_intercept": 0.8392112562266894,
+    "scaler_mean": {
+      "drug_state_solubilized": 0.375,
+      "ethanol_fraction": 0.05,
+      "log10_vehicle_solubility": 0.3571124397271757
+    },
+    "scaler_scale": {
+      "drug_state_solubilized": 0.4841229182759271,
+      "ethanol_fraction": 0.1,
+      "log10_vehicle_solubility": 0.7797156159140385
+    }
+  },
+  "n_test": 29,
+  "n_train": 8,
+  "predictions": [
+    {
+      "actual_J": 10.08,
+      "actual_log10_J": 1.0034605321095065,
+      "dataset": "Xiao",
+      "formulation_label": "BBD1",
+      "predicted_J": 10.865763787399748,
+      "predicted_log10_J": 1.0360602596021837,
+      "record_id": "BBD1",
+      "residual_log10_pred_minus_actual": 0.032599727492677255,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.38,
+      "actual_log10_J": 1.0561422620590524,
+      "dataset": "Xiao",
+      "formulation_label": "BBD2",
+      "predicted_J": 7.388214295086441,
+      "predicted_log10_J": 0.8685394836582716,
+      "record_id": "BBD2",
+      "residual_log10_pred_minus_actual": -0.18760277840078077,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.5,
+      "actual_log10_J": 0.9777236052888477,
+      "dataset": "Xiao",
+      "formulation_label": "BBD3",
+      "predicted_J": 11.493935346455517,
+      "predicted_log10_J": 1.0604687498921128,
+      "record_id": "BBD3",
+      "residual_log10_pred_minus_actual": 0.0827451446032651,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.18,
+      "actual_log10_J": 0.9628426812012424,
+      "dataset": "Xiao",
+      "formulation_label": "BBD4",
+      "predicted_J": 8.014033478529115,
+      "predicted_log10_J": 0.9038511523604802,
+      "record_id": "BBD4",
+      "residual_log10_pred_minus_actual": -0.0589915288407622,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.89,
+      "actual_log10_J": 1.037027879755775,
+      "dataset": "Xiao",
+      "formulation_label": "BBD5",
+      "predicted_J": 8.014033478529115,
+      "predicted_log10_J": 0.9038511523604802,
+      "record_id": "BBD5",
+      "residual_log10_pred_minus_actual": -0.13317672739529485,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.39,
+      "actual_log10_J": 1.0166155475571774,
+      "dataset": "Xiao",
+      "formulation_label": "BBD6",
+      "predicted_J": 8.014033478529115,
+      "predicted_log10_J": 0.9038511523604802,
+      "record_id": "BBD6",
+      "residual_log10_pred_minus_actual": -0.11276439519669723,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.62,
+      "actual_log10_J": 1.0261245167454502,
+      "dataset": "Xiao",
+      "formulation_label": "BBD7",
+      "predicted_J": 7.46124261599026,
+      "predicted_log10_J": 0.8728111621009341,
+      "record_id": "BBD7",
+      "residual_log10_pred_minus_actual": -0.15331335464451612,
+      "within_2x": true
+    },
+    {
+      "actual_J": 8.6,
+      "actual_log10_J": 0.9344984512435677,
+      "dataset": "Xiao",
+      "formulation_label": "BBD8",
+      "predicted_J": 8.607779682347388,
+      "predicted_log10_J": 0.9348911426200261,
+      "record_id": "BBD8",
+      "residual_log10_pred_minus_actual": 0.00039269137645847607,
+      "within_2x": true
+    },
+    {
+      "actual_J": 8.86,
+      "actual_log10_J": 0.9474337218870508,
+      "dataset": "Xiao",
+      "formulation_label": "BBD9",
+      "predicted_J": 9.221095816762466,
+      "predicted_log10_J": 0.9647825348165429,
+      "record_id": "BBD9",
+      "residual_log10_pred_minus_actual": 0.017348812929492086,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.44,
+      "actual_log10_J": 1.0584260244570054,
+      "dataset": "Xiao",
+      "formulation_label": "BBD10",
+      "predicted_J": 6.8716513373518655,
+      "predicted_log10_J": 0.8370611155924533,
+      "record_id": "BBD10",
+      "residual_log10_pred_minus_actual": -0.22136490886455207,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.93,
+      "actual_log10_J": 0.9969492484953811,
+      "dataset": "Xiao",
+      "formulation_label": "BBD11",
+      "predicted_J": 6.569170270693059,
+      "predicted_log10_J": 0.8175105187811497,
+      "record_id": "BBD11",
+      "residual_log10_pred_minus_actual": -0.17943872971423147,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.28,
+      "actual_log10_J": 0.967547976218862,
+      "dataset": "Xiao",
+      "formulation_label": "BBD12",
+      "predicted_J": 5.587706095353229,
+      "predicted_log10_J": 0.7472335548288475,
+      "record_id": "BBD12",
+      "residual_log10_pred_minus_actual": -0.22031442139001456,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.48,
+      "actual_log10_J": 1.0203612826477078,
+      "dataset": "Xiao",
+      "formulation_label": "BBD13",
+      "predicted_J": 8.592475390571279,
+      "predicted_log10_J": 0.934118296962373,
+      "record_id": "BBD13",
+      "residual_log10_pred_minus_actual": -0.08624298568533473,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.11,
+      "actual_log10_J": 0.9595183769729982,
+      "dataset": "Xiao",
+      "formulation_label": "BBD14",
+      "predicted_J": 10.106060446932583,
+      "predicted_log10_J": 1.0045818915363656,
+      "record_id": "BBD14",
+      "residual_log10_pred_minus_actual": 0.045063514563367324,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.67,
+      "actual_log10_J": 1.02816441942447,
+      "dataset": "Xiao",
+      "formulation_label": "BBD15",
+      "predicted_J": 6.121336878941643,
+      "predicted_log10_J": 0.78684628092698,
+      "record_id": "BBD15",
+      "residual_log10_pred_minus_actual": -0.24131813849748995,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.36,
+      "actual_log10_J": 1.055378331375,
+      "dataset": "Xiao",
+      "formulation_label": "LHS1",
+      "predicted_J": 10.201325283101784,
+      "predicted_log10_J": 1.0086565958550475,
+      "record_id": "LHS1",
+      "residual_log10_pred_minus_actual": -0.04672173551995251,
+      "within_2x": true
+    },
+    {
+      "actual_J": 13.52,
+      "actual_log10_J": 1.1309766916056172,
+      "dataset": "Xiao",
+      "formulation_label": "LHS2",
+      "predicted_J": 8.68397768799357,
+      "predicted_log10_J": 0.9387186989378729,
+      "record_id": "LHS2",
+      "residual_log10_pred_minus_actual": -0.19225799266774435,
+      "within_2x": true
+    },
+    {
+      "actual_J": 13.17,
+      "actual_log10_J": 1.119585774961784,
+      "dataset": "Xiao",
+      "formulation_label": "LHS3",
+      "predicted_J": 9.417322395145542,
+      "predicted_log10_J": 0.9739274384282031,
+      "record_id": "LHS3",
+      "residual_log10_pred_minus_actual": -0.14565833653358085,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.49,
+      "actual_log10_J": 1.0207754881935578,
+      "dataset": "Xiao",
+      "formulation_label": "LHS4",
+      "predicted_J": 9.06578723989378,
+      "predicted_log10_J": 0.9574055226176236,
+      "record_id": "LHS4",
+      "residual_log10_pred_minus_actual": -0.06336996557593422,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.65,
+      "actual_log10_J": 1.0663259253620379,
+      "dataset": "Xiao",
+      "formulation_label": "LHS5",
+      "predicted_J": 7.187497452908307,
+      "predicted_log10_J": 0.8565777037932607,
+      "record_id": "LHS5",
+      "residual_log10_pred_minus_actual": -0.20974822156877715,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.52,
+      "actual_log10_J": 1.0614524790871933,
+      "dataset": "Xiao",
+      "formulation_label": "LHS6",
+      "predicted_J": 6.869339736218893,
+      "predicted_log10_J": 0.8369149957644866,
+      "record_id": "LHS6",
+      "residual_log10_pred_minus_actual": -0.22453748332270673,
+      "within_2x": true
+    },
+    {
+      "actual_J": 13.36,
+      "actual_log10_J": 1.1258064581395268,
+      "dataset": "Xiao",
+      "formulation_label": "LHS7",
+      "predicted_J": 7.446632630090127,
+      "predicted_log10_J": 0.8719599290199337,
+      "record_id": "LHS7",
+      "residual_log10_pred_minus_actual": -0.25384652911959316,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.45,
+      "actual_log10_J": 1.0588054866759067,
+      "dataset": "Xiao",
+      "formulation_label": "LHS8",
+      "predicted_J": 8.672294027209707,
+      "predicted_log10_J": 0.9381339938518293,
+      "record_id": "LHS8",
+      "residual_log10_pred_minus_actual": -0.12067149282407741,
+      "within_2x": true
+    },
+    {
+      "actual_J": 12.5,
+      "actual_log10_J": 1.0969100130080565,
+      "dataset": "Xiao",
+      "formulation_label": "LHS9",
+      "predicted_J": 7.850577204625859,
+      "predicted_log10_J": 0.8949015889195651,
+      "record_id": "LHS9",
+      "residual_log10_pred_minus_actual": -0.2020084240884914,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.41,
+      "actual_log10_J": 1.0572856444182146,
+      "dataset": "Xiao",
+      "formulation_label": "LHS10",
+      "predicted_J": 8.0647379808894,
+      "predicted_log10_J": 0.9065902619540676,
+      "record_id": "LHS10",
+      "residual_log10_pred_minus_actual": -0.15069538246414704,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.12,
+      "actual_log10_J": 1.0051805125037803,
+      "dataset": "Xiao",
+      "formulation_label": "RUN1",
+      "predicted_J": 8.29571074071,
+      "predicted_log10_J": 0.9188536004321395,
+      "record_id": "RUN1",
+      "residual_log10_pred_minus_actual": -0.08632691207164078,
+      "within_2x": true
+    },
+    {
+      "actual_J": 8.02,
+      "actual_log10_J": 0.9041743682841635,
+      "dataset": "Xiao",
+      "formulation_label": "RUN2",
+      "predicted_J": 11.020486198627149,
+      "predicted_log10_J": 1.0422007550169468,
+      "record_id": "RUN2",
+      "residual_log10_pred_minus_actual": 0.13802638673278322,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.0,
+      "actual_log10_J": 1.0,
+      "dataset": "Xiao",
+      "formulation_label": "RUN3",
+      "predicted_J": 7.2799830567404475,
+      "predicted_log10_J": 0.8621303685475575,
+      "record_id": "RUN3",
+      "residual_log10_pred_minus_actual": -0.13786963145244246,
+      "within_2x": true
+    },
+    {
+      "actual_J": 14.15,
+      "actual_log10_J": 1.150756439860309,
+      "dataset": "Xiao",
+      "formulation_label": "RUN4",
+      "predicted_J": 8.448818415966008,
+      "predicted_log10_J": 0.9267959762506275,
+      "record_id": "RUN4",
+      "residual_log10_pred_minus_actual": -0.22396046360968147,
+      "within_2x": true
+    }
+  ],
+  "test_dataset": [
+    "Xiao"
+  ],
+  "train_dataset": [
+    "Bolla"
+  ]
+}

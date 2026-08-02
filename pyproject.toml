@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skinminer"
+version = "0.1.0"
+description = "An LLM-powered data mining framework for dermal drug formulations"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+authors = [{ name = "<TO_FILL>" }]
+license = { text = "Apache-2.0" }
+keywords = ["dermal drug delivery", "data mining", "LLM", "systematic extraction"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+  "anthropic>=0.120,<1",
+  "matplotlib>=3.8,<4",
+  "numpy>=1.26,<3",
+  "openai>=2.0,<3",
+  "opencv-python>=4.10,<6",
+  "openpyxl>=3.1,<4",
+  "pandas>=2.2,<3",
+  "Pillow>=10.2,<12",
+  "pydantic>=2.9,<3",
+  "PyMuPDF>=1.24,<2",
+  "requests>=2.31,<3",
+  "scikit-learn>=1.5,<2",
+  "scipy>=1.11,<2",
+]
+
+[project.urls]
+Repository = "https://github.com/yurbro/skinminer"
+Issues = "https://github.com/yurbro/skinminer/issues"
+
+[tool.setuptools]
+py-modules = ["run_pipeline"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "access*",
+  "assembly*",
+  "configs*",
+  "corpus*",
+  "detection*",
+  "evaluation*",
+  "extractors*",
+  "patchers*",
+  "policies*",
+  "reports*",
+  "schemas*",
+  "triage*",
+  "utils*",
+  "verification*",
+]
+exclude = ["evaluation.tests*"]

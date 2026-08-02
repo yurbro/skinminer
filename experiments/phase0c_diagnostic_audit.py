@@ -13,6 +13,7 @@ artifacts whose flattened and canonical component fields differ slightly.
 """
 
 import csv
+import argparse
 import hashlib
 import json
 import math
@@ -28,15 +29,35 @@ import requests
 
 
 ROOT = Path(__file__).resolve().parents[1]
-FULL_RUN_DIR = ROOT / "outputs" / "full_run_16_post_all_fixes"
-PHASE0A_TRACK_B = ROOT / "outputs" / "phase0a" / "track_b_ibuprofen_gel" / "deduplicated_papers.jsonl"
-PHASE0B_DIR = ROOT / "outputs" / "phase0b_stage1"
-OUT_DIR = ROOT / "outputs" / "phase0c"
+FULL_RUN_DIR: Path
+PHASE0A_TRACK_B: Path
+PHASE0B_DIR: Path
+OUT_DIR = ROOT / "results" / "experiments" / "diagnostic-audit"
 CACHE_DIR = OUT_DIR / "api_cache"
-REPORT_PATH = ROOT / "reports" / "phase0c_diagnostic_audit.md"
+REPORT_PATH = OUT_DIR / "diagnostic_audit.md"
 
-NCBI_EMAIL = os.environ.get("NCBI_EMAIL", "skinminer-codex@example.com")
+try:
+    NCBI_EMAIL = os.environ["NCBI_EMAIL"]
+except KeyError as exc:
+    raise RuntimeError("Set NCBI_EMAIL before running this script.") from exc
 USER_AGENT = f"skinminer-phase0c-diagnostic/1.0 (mailto:{NCBI_EMAIL})"
+
+
+def configure_paths(
+    full_run_dir: Path,
+    literature_input: Path,
+    stage1_dir: Path,
+    out_dir: Path,
+    cache_dir: Path | None,
+    report_path: Path | None,
+) -> None:
+    global FULL_RUN_DIR, PHASE0A_TRACK_B, PHASE0B_DIR, OUT_DIR, CACHE_DIR, REPORT_PATH
+    FULL_RUN_DIR = full_run_dir.resolve()
+    PHASE0A_TRACK_B = literature_input.resolve()
+    PHASE0B_DIR = stage1_dir.resolve()
+    OUT_DIR = out_dir.resolve()
+    CACHE_DIR = cache_dir.resolve() if cache_dir else OUT_DIR / "api_cache"
+    REPORT_PATH = report_path.resolve() if report_path else OUT_DIR / "diagnostic_audit.md"
 
 EPMC_SEARCH_URL = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 CROSSREF_WORKS_URL = "https://api.crossref.org/works"
@@ -903,6 +924,22 @@ def build_report(
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--full-run-dir", type=Path, required=True)
+    parser.add_argument("--literature-input", type=Path, required=True)
+    parser.add_argument("--stage1-dir", type=Path, required=True)
+    parser.add_argument("--output-dir", type=Path, default=OUT_DIR)
+    parser.add_argument("--cache-dir", type=Path, default=None)
+    parser.add_argument("--report-path", type=Path, default=None)
+    args = parser.parse_args()
+    configure_paths(
+        args.full_run_dir,
+        args.literature_input,
+        args.stage1_dir,
+        args.output_dir,
+        args.cache_dir,
+        args.report_path,
+    )
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
 

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import os
@@ -16,9 +17,12 @@ import requests
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_ROOT = ROOT / "outputs" / "phase0a"
-REPORT_PATH = ROOT / "reports" / "phase0a_literature_density_scouting.md"
-NCBI_EMAIL = os.environ.get("NCBI_EMAIL", "skinminer-codex@example.com")
+OUTPUT_ROOT = ROOT / "results" / "experiments" / "literature-density-scouting"
+REPORT_PATH = OUTPUT_ROOT / "literature_density_scouting.md"
+try:
+    NCBI_EMAIL = os.environ["NCBI_EMAIL"]
+except KeyError as exc:
+    raise RuntimeError("Set NCBI_EMAIL before running this script.") from exc
 USER_AGENT = f"skinminer-phase0a-scouting/1.0 (mailto:{NCBI_EMAIL})"
 
 PUBMED_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
@@ -1283,6 +1287,17 @@ def collect_track(track_key: str, config: dict[str, Any]) -> dict[str, Any]:
 
 
 def main() -> int:
+    global OUTPUT_ROOT, REPORT_PATH
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
+    parser.add_argument("--report-path", type=Path, default=None)
+    args = parser.parse_args()
+    OUTPUT_ROOT = args.output_root.resolve()
+    REPORT_PATH = (
+        args.report_path.resolve()
+        if args.report_path
+        else OUTPUT_ROOT / "literature_density_scouting.md"
+    )
     OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
 

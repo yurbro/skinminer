@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 import math
 import re
@@ -12,10 +13,10 @@ from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CLAUDE_DIR = ROOT / "outputs" / "experiment_E3_claude_v2"
-GPT_DIR = ROOT / "outputs" / "full_run_16_post_all_fixes"
-ROUND2_ANNOTATION = ROOT / "outputs" / "gold_audit_set" / "round2" / "gold_set_round2_annotation.csv"
-OUTPUT_DIR = ROOT / "outputs" / "claude_gold_audit"
+CLAUDE_DIR: Path
+GPT_DIR: Path
+ROUND2_ANNOTATION = ROOT / "evaluation" / "gold" / "gold_set_round2_annotation.csv"
+OUTPUT_DIR: Path
 POLICIES = ["v2", "v3", "v4"]
 TIME_TOLERANCE_H = 0.5
 VALUE_REL_TOLERANCE = 0.05
@@ -284,6 +285,19 @@ def write_annotation_packet(records: list[dict[str, Any]]) -> None:
 
 
 def main() -> None:
+    global CLAUDE_DIR, GPT_DIR, ROUND2_ANNOTATION, OUTPUT_DIR
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--claude-run", type=Path, required=True)
+    parser.add_argument("--gpt-run", type=Path, required=True)
+    parser.add_argument("--gold-csv", type=Path, default=ROUND2_ANNOTATION)
+    parser.add_argument("--output-dir", type=Path, required=True, help="Private workspace output directory")
+    args = parser.parse_args()
+    CLAUDE_DIR = args.claude_run.resolve()
+    GPT_DIR = args.gpt_run.resolve()
+    ROUND2_ANNOTATION = args.gold_csv.resolve()
+    OUTPUT_DIR = args.output_dir.resolve()
+    if OUTPUT_DIR == ROOT or ROOT in OUTPUT_DIR.parents:
+        raise ValueError("Provider-specific annotation output must be outside the public release tree.")
     ensure_output_dir()
     claude_by_id = load_verified_union(CLAUDE_DIR)
     gpt_by_id = load_verified_union(GPT_DIR)
@@ -369,8 +383,8 @@ def main() -> None:
             "",
             "## Outputs",
             "",
-            "- `outputs/claude_gold_audit/overlap_analysis.csv`",
-            "- `outputs/claude_gold_audit/claude_annotation_packet.xlsx`",
+            f"- `{OUTPUT_DIR / 'overlap_analysis.csv'}`",
+            f"- `{OUTPUT_DIR / 'claude_annotation_packet.xlsx'}`",
             "",
             "Phase 3/4 are intentionally not run until `claude_annotation_packet_FILLED.xlsx` is available.",
         ]

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import math
@@ -17,9 +18,12 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORTS_DIR = ROOT / "reports"
-OUTPUT_DIR = ROOT / "outputs" / "paper_figures"
-DEMO_DIR = ROOT / "outputs" / "demonstration"
+DATA_ROOT = ROOT
+REPORTS_DIR = ROOT / "docs" / "reports"
+RESULTS_DIR = ROOT / "results"
+OUTPUT_DIR = RESULTS_DIR / "paper_figures"
+DEMO_DIR = ROOT / "demos"
+FIG7B_DATA = OUTPUT_DIR / "fig7b_provider_policy_metrics.csv"
 
 MM_TO_IN = 1.0 / 25.4
 SINGLE_COL_IN = 89 * MM_TO_IN
@@ -56,12 +60,12 @@ POLICY_SHORT_LABELS = {
 EXPERIMENT_DISPLAY = {
     "Baseline v1": "Baseline\n(strict policy)",
     "Baseline v2": "Baseline\n(extended policy)",
-    "E2": "GPT-5.4\nupgrade",
-    "E3 v2": "Claude Sonnet\n(extended)",
-    "E4": "CV-only\n(no VLM)",
-    "E6": "Patching\nablation",
-    "E7": "Promotion\nablation",
-    "E8": "Relaxed\nscope",
+    "gpt-5.4-upgrade": "GPT-5.4\nupgrade",
+    "claude-extended": "Claude Sonnet\n(extended)",
+    "cv-only": "CV-only\n(no VLM)",
+    "no-patching": "Patching\nablation",
+    "no-promotion": "Promotion\nablation",
+    "relaxed-scope": "Relaxed\nscope",
 }
 SINGLE_PASS_DISPLAY = {
     "Pipeline": "Modular\npipeline",
@@ -70,7 +74,7 @@ SINGLE_PASS_DISPLAY = {
     "SP-3": "Single-pass\n(PDF,\nGPT-5.4-mini)",
     "SP-4": "Single-pass\n(PDF,\nClaude Sonnet)",
 }
-REPRO_RUN_LABELS = ["Run 1", "Run 2", "Run 3", "Run 4", "Run 5"]
+REPRO_RUN_LABELS = ["Repeat 1", "Repeat 2", "Repeat 3", "Repeat 4", "Repeat 5"]
 TOKEN_PRICE_USD_PER_MILLION = {
     ("openai", "gpt-4o-mini"): (0.15, 0.60),
     ("openai", "gpt-5.4-mini"): (0.75, 4.50),
@@ -203,12 +207,13 @@ def parse_baseline_metrics() -> tuple[int, int, int, int]:
 
 
 def parse_gpt_run_counts() -> tuple[int, dict[str, int], dict[str, int], dict[str, int]]:
-    route_decisions = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "route_decisions.csv")
-    assembled = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "assembled_records.csv")
-    v2_rescore = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "v2_rescore" / "verified_records.csv")
-    table_records = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "table_records.csv")
-    figure_records = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "figure_records.csv")
-    text_records = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "text_records.csv")
+    record_root = DATA_ROOT / "gpt-extended-baseline"
+    route_decisions = pd.read_csv(record_root / "route_decisions.csv")
+    assembled = pd.read_csv(record_root / "assembled_records.csv")
+    v2_rescore = pd.read_csv(record_root / "v2_rescore" / "verified_records.csv")
+    table_records = pd.read_csv(record_root / "table_records.csv")
+    figure_records = pd.read_csv(record_root / "figure_records.csv")
+    text_records = pd.read_csv(record_root / "text_records.csv")
 
     llm_retained = len(route_decisions)
     assembled_route_counts = {key: int(value) for key, value in assembled["route"].value_counts().to_dict().items()}
@@ -226,13 +231,13 @@ def parse_gpt_run_counts() -> tuple[int, dict[str, int], dict[str, int], dict[st
 def parse_policy_verified() -> tuple[dict[str, int], dict[str, int]]:
     text = read_text(REPORTS_DIR / "policy_sensitivity_analysis.md")
     gpt_block = require_match(
-        r"## GPT Baseline \(full_run_16\)(.*?)## Claude Baseline",
+        r"## GPT Baseline \(gpt-extended-baseline\)(.*?)## Claude Baseline",
         text,
         "GPT policy table",
         flags=re.S,
     ).group(1)
     claude_block = require_match(
-        r"## Claude Baseline \(E3_claude_v2\)(.*?)## Cross-Policy Progression",
+        r"## Claude Baseline \(claude-extended-baseline\)(.*?)## Cross-Policy Progression",
         text,
         "Claude policy table",
         flags=re.S,
@@ -344,14 +349,21 @@ def parse_gold_metrics() -> tuple[dict[str, float], int, float, int, int, int, i
 
 
 def parse_claude_policy_precision() -> dict[str, float]:
-    path = ROOT / "outputs" / "claude_gold_audit" / "claude_per_policy_precision.csv"
+    path = FIG7B_DATA
     precision = {"v1": math.nan}
     if not path.exists():
         precision.update({"v2": math.nan, "v3": math.nan, "v4": math.nan})
         return precision
     frame = pd.read_csv(path)
+    frame = frame[frame["provider"].astype(str).str.lower() == "anthropic"]
+    level_map = {
+        "strict": "v1",
+        "extended": "v2",
+        "any-concentration": "v3",
+        "flux-augmented": "v4",
+    }
     for _, row in frame.iterrows():
-        precision[str(row["policy"])] = float(row["precision_pct"])
+        precision[level_map[str(row["level"]).lower()]] = float(row["scope_precision"])
     for policy in ["v2", "v3", "v4"]:
         precision.setdefault(policy, math.nan)
     return precision
@@ -360,7 +372,7 @@ def parse_claude_policy_precision() -> dict[str, float]:
 def parse_single_pass_metrics() -> tuple[list[dict[str, object]], float]:
     report_text = read_text(REPORTS_DIR / "single_pass_architecture_comparison.md")
     pipeline_cmp_text = read_text(
-        ROOT / "outputs" / "experiment_single_pass" / "single_pass_vs_pipeline_comparison.md"
+        RESULTS_DIR / "runs" / "single-pass-text-gpt-4o-mini" / "single_pass_vs_pipeline_comparison.md"
     )
     rows: list[dict[str, object]] = [
         {
@@ -446,11 +458,11 @@ def parse_experiment_verified() -> dict[str, int]:
     text = read_text(REPORTS_DIR / "experiment_summary_all.md")
     result: dict[str, int] = {}
     patterns = {
-        "E2": r"\| E2 .*?\| .*?\| (\d+) \|",
-        "E4": r"\| E4 .*?\| .*?\| (\d+) \|",
-        "E8": r"\| E8 .*?\| .*?\| (\d+) \|",
-        "E6": r"\| E6 .*?\| .*?\| (\d+) \|",
-        "E7": r"\| E7 .*?\| .*?\| (\d+) \|",
+        "gpt-5.4-upgrade": r"\| GPT-5.4 upgrade .*?\| .*?\| (\d+) \|",
+        "cv-only": r"\| CV-only .*?\| .*?\| (\d+) \|",
+        "relaxed-scope": r"\| Relaxed scope .*?\| .*?\| (\d+) \|",
+        "no-patching": r"\| No patching .*?\| .*?\| (\d+) \|",
+        "no-promotion": r"\| No promotion .*?\| .*?\| (\d+) \|",
     }
     for key, pattern in patterns.items():
         result[key] = int(require_match(pattern, text, f"{key} verified").group(1))
@@ -463,7 +475,7 @@ def parse_demo_metrics() -> list[dict[str, str]]:
 
 
 def parse_value_accuracy_rows() -> list[dict[str, object]]:
-    gold = pd.read_csv(ROOT / "outputs" / "gold_audit_set" / "round2" / "gold_set_round2_annotation.csv")
+    gold = pd.read_csv(ROOT / "evaluation" / "gold" / "gold_set_round2_annotation.csv")
     subset = gold[(gold["gold_keep_record"] == "yes") & (gold["gold_endpoint_value_correct"].isin(["yes", "near"]))].copy()
     rows: list[dict[str, object]] = []
     for _, row in subset.iterrows():
@@ -492,9 +504,10 @@ def parse_value_accuracy_rows() -> list[dict[str, object]]:
 
 
 def parse_dataflow_counts(rule_pass_rows: int) -> dict[str, int]:
-    route_decisions = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "route_decisions.csv")
-    assembled = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "assembled_records.csv")
-    v2_rescore = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "v2_rescore" / "verified_records.csv")
+    record_root = DATA_ROOT / "gpt-extended-baseline"
+    route_decisions = pd.read_csv(record_root / "route_decisions.csv")
+    assembled = pd.read_csv(record_root / "assembled_records.csv")
+    v2_rescore = pd.read_csv(record_root / "v2_rescore" / "verified_records.csv")
 
     llm_retained = len(route_decisions)
     routed_papers = int((route_decisions["route"] != "unresolved").sum())
@@ -519,7 +532,7 @@ def parse_dataflow_counts(rule_pass_rows: int) -> dict[str, int]:
 
 
 def parse_failure_heatmap_rows() -> list[dict[str, object]]:
-    verified_records = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "v2_rescore" / "verified_records.csv")
+    verified_records = pd.read_csv(DATA_ROOT / "gpt-extended-baseline" / "v2_rescore" / "verified_records.csv")
     subset = verified_records[verified_records["verification_status"] != "verified"].copy()
     route_order = ["table", "figure", "mixed", "text"]
     route_totals = {route: int((subset["route"] == route).sum()) for route in route_order}
@@ -562,17 +575,17 @@ def parse_failure_heatmap_rows() -> list[dict[str, object]]:
 
 def parse_waterfall_rows() -> list[dict[str, object]]:
     sequence = [
-        ("Baseline", "validation_observability_run", "starting point"),
-        ("Fix 1", "validation_observability_run_fix1", "tiered search"),
-        ("Fix 2", "validation_observability_run_fix2", "calibration gate"),
-        ("Fix 3a", "validation_observability_run_fix3a", "subplot contract"),
-        ("Fix 4", "validation_observability_run_fix4", "mapping gate"),
-        ("Fix 5", "validation_observability_run_fix5", "VLM grounding"),
+        ("Baseline", "validation-baseline", "starting point"),
+        ("Fix 1", "validation-tiered-search", "tiered search"),
+        ("Fix 2", "validation-calibration-gate", "calibration gate"),
+        ("Fix 3a", "validation-subplot-contract", "subplot contract"),
+        ("Fix 4", "validation-mapping-gate", "mapping gate"),
+        ("Fix 5", "validation-vlm-grounding", "VLM grounding"),
     ]
     rows: list[dict[str, object]] = []
     previous: int | None = None
     for step, dirname, detail in sequence:
-        report_path = ROOT / "outputs" / dirname / "report" / "run_report.md"
+        report_path = DATA_ROOT / dirname / "run_report.md"
         text = read_text(report_path)
         verified = int(require_match(r"Actually verified: `(\d+)`", text, f"{step} verified").group(1))
         rows.append(
@@ -647,7 +660,7 @@ def parse_resource_rows() -> list[dict[str, object]]:
     modular_specs = [
         {
             "method": "Modular pipeline (GPT)",
-            "run_dir": ROOT / "outputs" / "full_run_16_post_all_fixes",
+            "run_dir": DATA_ROOT / "gpt-extended-baseline",
             "provider": "openai",
             "model": "gpt-4o-mini",
             "scope": "Full corpus",
@@ -655,15 +668,15 @@ def parse_resource_rows() -> list[dict[str, object]]:
         },
         {
             "method": "Modular pipeline (GPT-5.4)",
-            "run_dir": ROOT / "outputs" / "experiment_E2_gpt54",
+            "run_dir": DATA_ROOT / "gpt-5-4-mini-baseline",
             "provider": "openai",
             "model": "gpt-5.4-mini + gpt-5.4 VLM",
-            "scope": "Full corpus (historical E2)",
+            "scope": "Full corpus (historical GPT-5.4 configuration)",
             "verified_count": 4,
         },
         {
             "method": "Modular pipeline (Claude)",
-            "run_dir": ROOT / "outputs" / "experiment_E3_claude_v2",
+            "run_dir": DATA_ROOT / "claude-extended-baseline",
             "provider": "anthropic",
             "model": "claude-sonnet-4-6",
             "scope": "Full corpus",
@@ -705,10 +718,10 @@ def parse_resource_rows() -> list[dict[str, object]]:
         )
 
     single_pass_specs = [
-        ("SP-1 text", ROOT / "outputs" / "experiment_single_pass", "openai", "gpt-4o-mini"),
-        ("SP-2 PDF", ROOT / "outputs" / "experiment_single_pass_pdf_4omini", "openai", "gpt-4o-mini"),
-        ("SP-3 PDF", ROOT / "outputs" / "experiment_single_pass_pdf_gpt54", "openai", "gpt-5.4-mini"),
-        ("SP-4 PDF", ROOT / "outputs" / "experiment_single_pass_pdf_claude", "anthropic", "claude-sonnet-4-6"),
+        ("SP-1 text", RESULTS_DIR / "runs" / "single-pass-text-gpt-4o-mini", "openai", "gpt-4o-mini"),
+        ("SP-2 PDF", RESULTS_DIR / "runs" / "single-pass-pdf-gpt-4o-mini", "openai", "gpt-4o-mini"),
+        ("SP-3 PDF", RESULTS_DIR / "runs" / "single-pass-pdf-gpt-5-4-mini", "openai", "gpt-5.4-mini"),
+        ("SP-4 PDF", RESULTS_DIR / "runs" / "single-pass-pdf-claude-sonnet-4-6", "anthropic", "claude-sonnet-4-6"),
     ]
     for method, run_dir, provider, model in single_pass_specs:
         summary = json.loads(read_text(run_dir / "summary.json"))
@@ -768,7 +781,7 @@ def load_metrics() -> PaperMetrics:
     experiment_verified = parse_experiment_verified()
     experiment_verified["Baseline v1"] = gpt_policy_verified["v1"]
     experiment_verified["Baseline v2"] = gpt_policy_verified["v2"]
-    experiment_verified["E3 v2"] = claude_policy_verified["v2"]
+    experiment_verified["claude-extended"] = claude_policy_verified["v2"]
     dataflow_counts = parse_dataflow_counts(rule_pass_rows)
 
     return PaperMetrics(
@@ -815,9 +828,18 @@ def ensure_output_dir() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def save_figure(fig: plt.Figure, stem: str) -> None:
-    fig.savefig(OUTPUT_DIR / f"{stem}.pdf")
-    fig.savefig(OUTPUT_DIR / f"{stem}.png")
+def save_figure(
+    fig: plt.Figure,
+    stem: str,
+    formats: tuple[str, ...] = ("pdf", "png"),
+    bbox_inches: str | None = None,
+    pad_inches: float = 0.1,
+) -> None:
+    save_kwargs = {}
+    if bbox_inches is not None:
+        save_kwargs = {"bbox_inches": bbox_inches, "pad_inches": pad_inches}
+    for fmt in formats:
+        fig.savefig(OUTPUT_DIR / f"{stem}.{fmt}", **save_kwargs)
     plt.close(fig)
 
 
@@ -883,7 +905,7 @@ def build_table_single_pass(metrics: PaperMetrics) -> None:
                 "value_correct_pct": row["value_pct"],
                 "cost_usd": row["cost_usd"],
                 "source": (
-                    "outputs/experiment_single_pass/single_pass_vs_pipeline_comparison.md"
+                    "results/runs/single-pass-text-gpt-4o-mini/single_pass_vs_pipeline_comparison.md"
                     if row["method"] == "Pipeline"
                     else "reports/single_pass_architecture_comparison.md"
                 ),
@@ -947,7 +969,7 @@ def build_table_policy_sensitivity(metrics: PaperMetrics) -> None:
                 "claude_verified": metrics.claude_policy_verified[policy],
                 "claude_precision_pct": metrics.claude_policy_precision[policy],
                 "source_verified": "reports/policy_sensitivity_analysis.md",
-                "source_precision": "reports/gold_evaluation_round2.md; outputs/claude_gold_audit/claude_per_policy_precision.csv",
+                "source_precision": "docs/reports/gold_evaluation_round2.md; results/paper_figures/fig7b_provider_policy_metrics.csv",
             }
         )
     write_csv(
@@ -1274,12 +1296,12 @@ def plot_experiment_comparison(metrics: PaperMetrics) -> None:
     experiments = [
         ("Baseline strict", metrics.experiment_verified["Baseline v1"], COLORS["input_gray"]),
         ("Baseline extended", metrics.experiment_verified["Baseline v2"], COLORS["output_blue"]),
-        ("GPT-5.4", metrics.experiment_verified["E2"], COLORS["llm_blue"]),
-        ("Claude", metrics.experiment_verified["E3 v2"], COLORS["purple"]),
-        ("CV-only", metrics.experiment_verified["E4"], COLORS["extract_green"]),
-        ("No patching", metrics.experiment_verified["E6"], COLORS["verify_orange"]),
-        ("No promotion", metrics.experiment_verified["E7"], COLORS["teal"]),
-        ("Relaxed scope", metrics.experiment_verified["E8"], COLORS["red"]),
+        ("GPT-5.4", metrics.experiment_verified["gpt-5.4-upgrade"], COLORS["llm_blue"]),
+        ("Claude", metrics.experiment_verified["claude-extended"], COLORS["purple"]),
+        ("CV-only", metrics.experiment_verified["cv-only"], COLORS["extract_green"]),
+        ("No patching", metrics.experiment_verified["no-patching"], COLORS["verify_orange"]),
+        ("No promotion", metrics.experiment_verified["no-promotion"], COLORS["teal"]),
+        ("Relaxed scope", metrics.experiment_verified["relaxed-scope"], COLORS["red"]),
     ]
     fig, ax = plt.subplots(figsize=(SINGLE_COL_IN, 2.8))
     x = list(range(len(experiments)))
@@ -1332,7 +1354,13 @@ def plot_single_pass_comparison(metrics: PaperMetrics) -> None:
     save_figure(fig, "figC_single_pass_comparison")
 
 
-def plot_policy_sensitivity(metrics: PaperMetrics) -> None:
+def plot_policy_sensitivity(
+    metrics: PaperMetrics,
+    stem: str = "figD_policy_sensitivity",
+    formats: tuple[str, ...] = ("pdf", "png"),
+    show_title: bool = True,
+    legend_inside: bool = False,
+) -> None:
     policies = ["v1", "v2", "v3", "v4"]
     x = list(range(len(policies)))
     width = 0.34
@@ -1356,8 +1384,20 @@ def plot_policy_sensitivity(metrics: PaperMetrics) -> None:
         ax_top.text(xpos + width / 2, claude + 1.0, str(claude), ha="center", va="bottom", fontsize=6.9)
     ax_top.set_ylabel("Verified records")
     ax_top.set_ylim(0, 60)
-    ax_top.set_title("Policy Sensitivity", loc="left")
-    ax_top.legend(loc="upper center", bbox_to_anchor=(0.5, 1.18), ncol=2)
+    if show_title:
+        ax_top.set_title("Policy Sensitivity", loc="left")
+    if legend_inside:
+        ax_top.legend(
+            loc="upper left",
+            bbox_to_anchor=(0.08, 0.98),
+            ncol=2,
+            frameon=False,
+            borderaxespad=0.0,
+            handlelength=1.4,
+            columnspacing=1.3,
+        )
+    else:
+        ax_top.legend(loc="upper center", bbox_to_anchor=(0.5, 1.18), ncol=2)
 
     ax_bottom.plot(
         x,
@@ -1393,10 +1433,16 @@ def plot_policy_sensitivity(metrics: PaperMetrics) -> None:
     ax_bottom.set_ylim(0, 110)
     ax_bottom.set_xticks(x)
     ax_bottom.set_xticklabels([POLICY_SHORT_LABELS[policy] for policy in policies])
-    save_figure(fig, "figD_policy_sensitivity")
+    save_figure(fig, stem, formats)
 
 
-def plot_reproducibility(metrics: PaperMetrics) -> None:
+def plot_reproducibility(
+    metrics: PaperMetrics,
+    stem: str = "figE_reproducibility",
+    formats: tuple[str, ...] = ("pdf", "png"),
+    show_title: bool = True,
+    show_mean: bool = True,
+) -> None:
     totals = metrics.reproducibility_runs_v2
     stable = [metrics.stable_v2_core for _ in totals]
     variable = [total - metrics.stable_v2_core for total in totals]
@@ -1409,23 +1455,25 @@ def plot_reproducibility(metrics: PaperMetrics) -> None:
     ax.axhline(metrics.stable_v2_core, color=COLORS["dark_gray"], linestyle="--", linewidth=0.8)
     for xpos, total in zip(x, totals):
         ax.text(xpos, total + 0.4, str(total), ha="center", va="bottom", fontsize=7)
-    ax.text(
-        0.98,
-        0.93,
-        f"Mean {metrics.reproducibility_v2_mean:.2f} ± {metrics.reproducibility_v2_sd:.2f}",
-        transform=ax.transAxes,
-        ha="right",
-        va="top",
-        fontsize=7,
-        color=COLORS["dark_gray"],
-    )
+    if show_mean:
+        ax.text(
+            0.98,
+            0.93,
+            f"Mean {metrics.reproducibility_v2_mean:.2f} ± {metrics.reproducibility_v2_sd:.2f}",
+            transform=ax.transAxes,
+            ha="right",
+            va="top",
+            fontsize=7,
+            color=COLORS["dark_gray"],
+        )
     ax.set_xticks(x)
     ax.set_xticklabels(REPRO_RUN_LABELS)
-    ax.set_ylabel("Verified records\n(extended policy)")
+    ax.set_ylabel("Verified records\n(extended)")
     ax.set_ylim(0, 36)
-    ax.set_title("Reproducibility Across 5 Runs", loc="left")
+    if show_title:
+        ax.set_title("Reproducibility Across 5 Runs", loc="left")
     ax.legend(loc="upper left", frameon=False)
-    save_figure(fig, "figE_reproducibility")
+    save_figure(fig, stem, formats)
 
 
 def compute_accuracy_metrics(rows: list[dict[str, object]]) -> tuple[float, float, float]:
@@ -1440,7 +1488,17 @@ def compute_accuracy_metrics(rows: list[dict[str, object]]) -> tuple[float, floa
     return r2, rmse, mae
 
 
-def plot_value_accuracy(metrics: PaperMetrics) -> tuple[float, float, float]:
+def plot_value_accuracy(
+    metrics: PaperMetrics,
+    stem: str = "figF_value_accuracy",
+    formats: tuple[str, ...] = ("pdf", "png"),
+    show_title: bool = True,
+    show_near_annotation: bool = True,
+    r2_decimals: int = 3,
+    left_margin: float | None = None,
+    bbox_inches: str | None = None,
+    pad_inches: float = 0.1,
+) -> tuple[float, float, float]:
     rows = metrics.value_accuracy_rows
     r2, rmse, mae = compute_accuracy_metrics(rows)
     gold = [float(row["gold_value_ug_cm2"]) for row in rows]
@@ -1465,7 +1523,7 @@ def plot_value_accuracy(metrics: PaperMetrics) -> tuple[float, float, float]:
     )
     ax.plot([0, max_axis], [0, max_axis], linestyle="--", linewidth=0.8, color=COLORS["dark_gray"])
     near_points = [row for row in rows if row["is_near"]]
-    if near_points:
+    if show_near_annotation and near_points:
         near_row = near_points[0]
         ax.annotate(
             "Figure 11 gel",
@@ -1478,7 +1536,7 @@ def plot_value_accuracy(metrics: PaperMetrics) -> tuple[float, float, float]:
     ax.text(
         0.04,
         0.96,
-        f"R² = {r2:.3f}\nRMSE = {rmse:.1f} μg/cm²\nMAE = {mae:.1f} μg/cm²",
+        f"R² = {r2:.{r2_decimals}f}\nRMSE = {rmse:.1f} μg/cm²\nMAE = {mae:.1f} μg/cm²",
         transform=ax.transAxes,
         ha="left",
         va="top",
@@ -1490,8 +1548,11 @@ def plot_value_accuracy(metrics: PaperMetrics) -> tuple[float, float, float]:
     ax.set_ylim(0, max_axis)
     ax.set_xlabel("Gold standard value (normalized, μg/cm²)")
     ax.set_ylabel("SkinMiner extracted value (normalized, μg/cm²)")
-    ax.set_title("Extraction Value Accuracy", loc="left")
-    save_figure(fig, "figF_value_accuracy")
+    if show_title:
+        ax.set_title("Extraction Value Accuracy", loc="left")
+    if left_margin is not None:
+        fig.subplots_adjust(left=left_margin)
+    save_figure(fig, stem, formats, bbox_inches=bbox_inches, pad_inches=pad_inches)
     return r2, rmse, mae
 
 
@@ -1647,6 +1708,21 @@ def plot_fix_waterfall(metrics: PaperMetrics) -> None:
 
 
 def main() -> None:
+    global DATA_ROOT, REPORTS_DIR, RESULTS_DIR, OUTPUT_DIR, DEMO_DIR, FIG7B_DATA
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--data-root", type=Path, default=ROOT)
+    parser.add_argument("--reports-dir", type=Path, default=ROOT / "docs" / "reports")
+    parser.add_argument("--results-dir", type=Path, default=ROOT / "results")
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "results" / "paper_figures")
+    parser.add_argument("--demo-dir", type=Path, default=ROOT / "demos")
+    parser.add_argument("--fig7b-data", type=Path, default=None)
+    args = parser.parse_args()
+    DATA_ROOT = args.data_root.resolve()
+    REPORTS_DIR = args.reports_dir.resolve()
+    RESULTS_DIR = args.results_dir.resolve()
+    OUTPUT_DIR = args.output_dir.resolve()
+    DEMO_DIR = args.demo_dir.resolve()
+    FIG7B_DATA = args.fig7b_data.resolve() if args.fig7b_data else RESULTS_DIR / "paper_figures" / "fig7b_provider_policy_metrics.csv"
     configure_style()
     ensure_output_dir()
     metrics = load_metrics()

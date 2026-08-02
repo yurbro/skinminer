@@ -1,0 +1,62 @@
+{
+  "description": "Interpretable 0-1 protocol-distance descriptor, not a calibrated physical metric.",
+  "dimensions": [
+    {
+      "bolla": "Strat-M",
+      "dimension": "membrane",
+      "rule": "0 because membrane is identical.",
+      "score": 0.0,
+      "xiao": "Strat-M"
+    },
+    {
+      "bolla": "PermeGear flow-through cell",
+      "dimension": "diffusion_cell",
+      "rule": "1 because diffusion-cell class differs.",
+      "score": 1.0,
+      "xiao": "Franz static cell"
+    },
+    {
+      "bolla": "10% v/v ethanol",
+      "dimension": "receptor_medium",
+      "rule": "High score for different sink chemistry and ethanol cosolvent.",
+      "score": 0.85,
+      "xiao": "PBS pH 7.4"
+    },
+    {
+      "bolla": "approximately 10 mg finite",
+      "dimension": "dose_mode",
+      "rule": "Both are finite dose, but donor mass differs by about 30x; assigned moderate distance.",
+      "score": 0.5,
+      "xiao": "approximately 300 mg finite"
+    },
+    {
+      "bolla": "0.785 cm2",
+      "dimension": "EDA",
+      "rule": "abs(log10(area ratio)); 10x difference would score 1.",
+      "score": 0.40832640067523623,
+      "xiao": "2.01 cm2"
+    },
+    {
+      "bolla": "24 h",
+      "dimension": "duration",
+      "rule": "abs(log10(duration ratio)); 10x difference would score 1.",
+      "score": 0.09691001300805642,
+      "xiao": "30 h"
+    },
+    {
+      "bolla": "categorical semisolid creams/gels with mostly non-overlapping excipients",
+      "dimension": "composition_paradigm",
+      "rule": "1 because raw composition spaces have essentially no direct overlap.",
+      "score": 1.0,
+      "xiao": "continuous P407/EtOH/PG/MCT hydrogel design"
+    },
+    {
+      "bolla": "ibuprofen free acid 3-5% w/w",
+      "dimension": "API",
+      "rule": "Low score because API and basis match; concentration range differs modestly.",
+      "score": 0.1,
+      "xiao": "ibuprofen free acid 5% w/w"
+    }
+  ],
+  "scalar_mean": 0.4944045517104116
+}

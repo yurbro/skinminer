@@ -1,0 +1,204 @@
+{
+  "feature_sanity_against_step2g": {
+    "max_absolute_difference": 4.808375919651553e-13,
+    "n_values_compared": 148,
+    "reference_files": [
+      "transfer_4feature_xiao_to_bolla.csv",
+      "transfer_4feature_bolla_to_xiao.csv"
+    ],
+    "status": "PASS"
+  },
+  "metadata": {
+    "features": [
+      "log10_vehicle_solubility",
+      "ethanol_fraction",
+      "pg_fraction",
+      "water_fraction"
+    ],
+    "n_bolla": 8,
+    "n_records": 37,
+    "n_xiao": 29,
+    "pca_solver": "full",
+    "random_state": 42,
+    "standardisation_scope": "StandardScaler fit on all 37 rows for visualisation only."
+  },
+  "pc1_pc2_bounding_boxes": {
+    "bolla": {
+      "pc1_max": 3.69808498069564,
+      "pc1_min": -4.5389463723802965,
+      "pc2_max": 3.446557809485915,
+      "pc2_min": -1.567489162753552
+    },
+    "overlap": {
+      "bolla_bbox_area": 41.30086211613196,
+      "has_positive_area_overlap": true,
+      "intersection_area": 6.555110243956023,
+      "intersection_bbox": {
+        "pc1_max": 2.1893971627075084,
+        "pc1_min": -1.3002509384225787,
+        "pc2_max": 1.025623457518232,
+        "pc2_min": -0.8528210314356021
+      },
+      "percent_of_bolla_bbox_intersected": 15.871606325127104,
+      "percent_of_xiao_bbox_intersected": 100.0,
+      "xiao_bbox_area": 6.555110243956023
+    },
+    "point_coverage": {
+      "bolla_records_inside_xiao_bbox": 0,
+      "n_bolla_records": 8,
+      "n_xiao_records": 29,
+      "xiao_records_inside_bolla_bbox": 29
+    },
+    "xiao": {
+      "pc1_max": 2.1893971627075084,
+      "pc1_min": -1.3002509384225787,
+      "pc2_max": 1.025623457518232,
+      "pc2_min": -0.8528210314356021
+    }
+  },
+  "pc1_pc2_centroids": {
+    "bolla": {
+      "PC1": -1.939469202821578,
+      "PC2": -0.3802602889472586
+    },
+    "delta_in_pooled_sd_units": {
+      "PC1": -1.8105667336398623,
+      "PC2": -0.5607084474267938
+    },
+    "euclidean_distance_in_pooled_sd_units": 1.8954012398379099,
+    "pooled_sd": {
+      "PC1": 1.3666964844937,
+      "PC2": 0.8652619400120901
+    },
+    "raw_delta_bolla_minus_xiao": {
+      "PC1": -2.474495189806841,
+      "PC2": -0.48515967900167467
+    },
+    "xiao": {
+      "PC1": 0.5350259869852629,
+      "PC2": 0.10489939005441608
+    }
+  },
+  "pca": {
+    "component_weights": {
+      "ethanol_fraction": {
+        "PC1": 0.36071489439901294,
+        "PC2": 0.9131185634696247
+      },
+      "log10_vehicle_solubility": {
+        "PC1": 0.5668398104765742,
+        "PC2": -0.07388314279922346
+      },
+      "pg_fraction": {
+        "PC1": 0.4828529518192035,
+        "PC2": -0.32920726123345645
+      },
+      "water_fraction": {
+        "PC1": -0.5616319267430161,
+        "PC2": 0.22886316743514223
+      }
+    },
+    "correlation_loadings": {
+      "ethanol_fraction": {
+        "PC1": 0.6124153688282767,
+        "PC2": 0.8006746703723968
+      },
+      "log10_vehicle_solubility": {
+        "PC1": 0.9623706062316443,
+        "PC2": -0.0647849724816298
+      },
+      "pg_fraction": {
+        "PC1": 0.8197792028268096,
+        "PC2": -0.2886677874237146
+      },
+      "water_fraction": {
+        "PC1": -0.9535287533250278,
+        "PC2": 0.20068033711879618
+      }
+    },
+    "explained_variance_ratio": {
+      "PC1": 0.7011400846671922,
+      "PC2": 0.18702455099293175,
+      "PC3": 0.10126947081709321,
+      "PC4": 0.010565893522782773
+    }
+  },
+  "standard_scaler": {
+    "ethanol_fraction": {
+      "mean": 0.13151081081081079,
+      "scale": 0.07052122081919082
+    },
+    "log10_vehicle_solubility": {
+      "mean": 0.6658123408770369,
+      "scale": 0.4443919433305494
+    },
+    "pg_fraction": {
+      "mean": 0.12935675675675679,
+      "scale": 0.05909357462917898
+    },
+    "water_fraction": {
+      "mean": 0.37380810810810805,
+      "scale": 0.1201533735585557
+    }
+  },
+  "standardised_4d_hyperrectangle_coverage": {
+    "bolla_records_inside_xiao_hyperrectangle": 0,
+    "n_bolla_records": 8,
+    "n_xiao_records": 29,
+    "xiao_records_inside_bolla_hyperrectangle": 18
+  },
+  "standardised_feature_range_overlap": [
+    {
+      "bolla_max_standardised": 3.4283025737986574,
+      "bolla_min_standardised": -2.6455435730033674,
+      "bolla_records_inside_xiao_range": 5,
+      "feature": "log10_vehicle_solubility",
+      "n_bolla_records": 8,
+      "overlap_max_standardised": 1.2051653292521003,
+      "overlap_min_standardised": -0.9580427705795564,
+      "overlap_width_standardised": 2.1632080998316567,
+      "ranges_overlap": true,
+      "xiao_max_standardised": 1.2051653292521003,
+      "xiao_min_standardised": -0.9580427705795564
+    },
+    {
+      "bolla_max_standardised": 2.389198417610753,
+      "bolla_min_standardised": -1.8648402464272564,
+      "bolla_records_inside_xiao_range": 1,
+      "feature": "ethanol_fraction",
+      "n_bolla_records": 8,
+      "overlap_max_standardised": 0.9711855295980835,
+      "overlap_min_standardised": -0.44682735841458654,
+      "overlap_width_standardised": 1.4180128880126701,
+      "ranges_overlap": true,
+      "xiao_max_standardised": 0.9711855295980835,
+      "xiao_min_standardised": -0.44682735841458654
+    },
+    {
+      "bolla_max_standardised": 0.34933143531733607,
+      "bolla_min_standardised": -2.1890156005706167,
+      "bolla_records_inside_xiao_range": 3,
+      "feature": "pg_fraction",
+      "n_bolla_records": 8,
+      "overlap_max_standardised": 0.34933143531733607,
+      "overlap_min_standardised": -0.49678424331198134,
+      "overlap_width_standardised": 0.8461156786293174,
+      "ranges_overlap": true,
+      "xiao_max_standardised": 1.195447113946654,
+      "xiao_min_standardised": -0.49678424331198134
+    },
+    {
+      "bolla_max_standardised": 2.3319519343777966,
+      "bolla_min_standardised": -3.1110912414451346,
+      "bolla_records_inside_xiao_range": 1,
+      "feature": "water_fraction",
+      "n_bolla_records": 8,
+      "overlap_max_standardised": 0.634121952928442,
+      "overlap_min_standardised": -1.0304172445709254,
+      "overlap_width_standardised": 1.6645391974993675,
+      "ranges_overlap": true,
+      "xiao_max_standardised": 0.634121952928442,
+      "xiao_min_standardised": -1.0304172445709254
+    }
+  ]
+}

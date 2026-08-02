@@ -1,5 +1,14 @@
 # Evaluation Fixtures And Gold Labels
 
+## Round-2 cumulative-policy scoring
+
+The release adapter reads `gold/gold_set_round2_annotation.csv` with cumulative
+first-acceptance semantics: `v2` includes rows first accepted at `v1` or `v2`.
+Use `python -m evaluation.score_run --gold-csv evaluation/gold/gold_set_round2_annotation.csv
+--gold-format round2 --provider gpt --policy-level v2`. Claude metrics require
+the sanitized provider aggregate via `--provider-metrics-csv`; the adapter does
+not infer the Claude curve from incomplete main-CSV membership.
+
 This directory stores reproducible evaluation assets for later benchmarking rounds.
 
 Current scope:

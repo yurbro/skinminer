@@ -9,6 +9,8 @@ from pathlib import Path
 
 from evaluation.gold_audit import load_gold_audit_csv, score_gold_audit_rows
 from evaluation.models import GoldLabelEntry, GoldRecordLabel
+from evaluation.provider_policy_audit import load_provider_policy_score
+from evaluation.round2_gold import cumulative_levels, load_round2_gold_csv, score_round2_gold, sha256_file
 from schemas.models import Record
 from utils.io import ensure_parent, load_jsonl, load_records_jsonl
 
@@ -213,9 +215,54 @@ def main() -> None:
     parser.add_argument("--gold-jsonl", type=Path, default=None)
     parser.add_argument("--predicted-jsonl", type=Path, default=None)
     parser.add_argument("--gold-csv", type=Path, default=None)
+    parser.add_argument("--gold-format", choices=("round2",), default=None)
+    parser.add_argument("--provider", choices=("gpt", "claude"), default=None)
+    parser.add_argument("--policy-level", choices=("v1", "v2", "v3", "v4"), default=None)
+    parser.add_argument("--provider-metrics-csv", type=Path, default=None)
     parser.add_argument("--output-json", type=Path, default=None)
     parser.add_argument("--output-md", type=Path, default=None)
     args = parser.parse_args()
+
+    if args.gold_format == "round2":
+        if args.gold_csv is None or args.provider is None or args.policy_level is None:
+            raise SystemExit("Round-2 mode requires --gold-csv, --provider and --policy-level.")
+        if args.provider == "gpt":
+            policy_score = score_round2_gold(
+                load_round2_gold_csv(args.gold_csv), provider="gpt", policy_level=args.policy_level
+            )
+            metric_source = str(args.gold_csv)
+        else:
+            if args.provider_metrics_csv is None:
+                raise SystemExit(
+                    "--provider-metrics-csv is required for Claude; the main CSV cannot reconstruct its curve"
+                )
+            policy_score = load_provider_policy_score(
+                args.provider_metrics_csv, provider="claude", policy_level=args.policy_level
+            )
+            metric_source = str(args.provider_metrics_csv)
+        levels = list(cumulative_levels(args.policy_level))
+        summary = {
+            "mode": "round2",
+            "gold_format": "round2",
+            "gold_csv": str(args.gold_csv),
+            "gold_sha256": sha256_file(args.gold_csv),
+            "provider": args.provider,
+            "policy_level": args.policy_level,
+            "first_level_filter": f"policy_level IN ({','.join(levels)})",
+            "cumulative_levels": levels,
+            "metric_source": metric_source,
+            **policy_score.as_dict(),
+        }
+        if args.output_json:
+            ensure_parent(args.output_json).write_text(
+                json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+        sys.stdout.buffer.write(
+            (json.dumps(summary, ensure_ascii=False, indent=2) + "\n").encode(
+                "utf-8", errors="backslashreplace"
+            )
+        )
+        return
 
     if args.gold_csv:
         rows = load_gold_audit_csv(args.gold_csv)

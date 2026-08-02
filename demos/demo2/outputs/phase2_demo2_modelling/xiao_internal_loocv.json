@@ -1,0 +1,531 @@
+{
+  "duplicate_groups": [
+    {
+      "J_values": [
+        9.18,
+        10.89,
+        10.39
+      ],
+      "composition": {
+        "api_pct_ww": 5.0,
+        "ethanol": 15.0,
+        "mct_xiao": 5.0,
+        "pg": 15.0,
+        "poloxamer407": 25.0,
+        "water_xiao": 35.0
+      },
+      "record_ids": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ]
+    }
+  ],
+  "duplicate_policy": "Identical Xiao composition rows are held out as one fold, preventing identical composition with different J in train and test.",
+  "feature_set": [
+    "log10_vehicle_solubility",
+    "ethanol_fraction",
+    "drug_state_solubilized"
+  ],
+  "fold_details": [
+    {
+      "duplicate_guarded": false,
+      "fold_id": 1,
+      "test_record_ids": [
+        "BBD1"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 2,
+      "test_record_ids": [
+        "BBD2"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 3,
+      "test_record_ids": [
+        "BBD3"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": true,
+      "fold_id": 4,
+      "test_record_ids": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "test_size": 3
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 5,
+      "test_record_ids": [
+        "BBD7"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 6,
+      "test_record_ids": [
+        "BBD8"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 7,
+      "test_record_ids": [
+        "BBD9"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 8,
+      "test_record_ids": [
+        "BBD10"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 9,
+      "test_record_ids": [
+        "BBD11"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 10,
+      "test_record_ids": [
+        "BBD12"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 11,
+      "test_record_ids": [
+        "BBD13"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 12,
+      "test_record_ids": [
+        "BBD14"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 13,
+      "test_record_ids": [
+        "BBD15"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 14,
+      "test_record_ids": [
+        "LHS1"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 15,
+      "test_record_ids": [
+        "LHS2"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 16,
+      "test_record_ids": [
+        "LHS3"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 17,
+      "test_record_ids": [
+        "LHS4"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 18,
+      "test_record_ids": [
+        "LHS5"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 19,
+      "test_record_ids": [
+        "LHS6"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 20,
+      "test_record_ids": [
+        "LHS7"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 21,
+      "test_record_ids": [
+        "LHS8"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 22,
+      "test_record_ids": [
+        "LHS9"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 23,
+      "test_record_ids": [
+        "LHS10"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 24,
+      "test_record_ids": [
+        "RUN1"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 25,
+      "test_record_ids": [
+        "RUN2"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 26,
+      "test_record_ids": [
+        "RUN3"
+      ],
+      "test_size": 1
+    },
+    {
+      "duplicate_guarded": false,
+      "fold_id": 27,
+      "test_record_ids": [
+        "RUN4"
+      ],
+      "test_size": 1
+    }
+  ],
+  "metrics": {
+    "R2_conv": -0.23191211899062636,
+    "R2_cv": -0.23191211899062636,
+    "R2_gen_train_mean_baseline": -0.23191211899062636,
+    "RMSE_cv": 0.06649191924718466,
+    "mean_residual_log10": 0.0012746952362673314,
+    "median_abs_residual_log10": 0.03975687468436284,
+    "n": 29,
+    "pearson_r": -0.3352761940868576,
+    "rmse_logJ": 0.06649191924718466,
+    "spearman_rho": -0.21685562022624058,
+    "within_2x": 1.0,
+    "within_2x_count": 29
+  },
+  "model": "StandardScaler(train only) + Ridge(alpha=1.0)",
+  "n_folds": 27,
+  "n_records": 29,
+  "name": "Xiao internal leakage-guarded LOOCV",
+  "predictions": [
+    {
+      "actual_J": 10.08,
+      "actual_log10_J": 1.0034605321095065,
+      "predicted_J": 10.254602571790649,
+      "predicted_log10_J": 1.010918833478359,
+      "record_id": "BBD1",
+      "residual_log10_pred_minus_actual": 0.007458301368852505,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.38,
+      "actual_log10_J": 1.0561422620590524,
+      "predicted_J": 10.793732898083235,
+      "predicted_log10_J": 1.0331716668027706,
+      "record_id": "BBD2",
+      "residual_log10_pred_minus_actual": -0.022970595256281756,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.5,
+      "actual_log10_J": 0.9777236052888477,
+      "predicted_J": 10.315315839474957,
+      "predicted_log10_J": 1.013482529957371,
+      "record_id": "BBD3",
+      "residual_log10_pred_minus_actual": 0.03575892466852337,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.18,
+      "actual_log10_J": 0.9628426812012424,
+      "predicted_J": 10.80930356195334,
+      "predicted_log10_J": 1.0337977134774463,
+      "record_id": "BBD4",
+      "residual_log10_pred_minus_actual": 0.07095503227620392,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.89,
+      "actual_log10_J": 1.037027879755775,
+      "predicted_J": 10.80930356195334,
+      "predicted_log10_J": 1.0337977134774463,
+      "record_id": "BBD5",
+      "residual_log10_pred_minus_actual": -0.0032301662783287277,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.39,
+      "actual_log10_J": 1.0166155475571774,
+      "predicted_J": 10.80930356195334,
+      "predicted_log10_J": 1.0337977134774463,
+      "record_id": "BBD6",
+      "residual_log10_pred_minus_actual": 0.017182165920268888,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.62,
+      "actual_log10_J": 1.0261245167454502,
+      "predicted_J": 11.056665835282178,
+      "predicted_log10_J": 1.043624184143892,
+      "record_id": "BBD7",
+      "residual_log10_pred_minus_actual": 0.017499667398441776,
+      "within_2x": true
+    },
+    {
+      "actual_J": 8.6,
+      "actual_log10_J": 0.9344984512435677,
+      "predicted_J": 10.778089183066495,
+      "predicted_log10_J": 1.0325417728351982,
+      "record_id": "BBD8",
+      "residual_log10_pred_minus_actual": 0.09804332159163054,
+      "within_2x": true
+    },
+    {
+      "actual_J": 8.86,
+      "actual_log10_J": 0.9474337218870508,
+      "predicted_J": 10.586682097012535,
+      "predicted_log10_J": 1.024759872030596,
+      "record_id": "BBD9",
+      "residual_log10_pred_minus_actual": 0.07732615014354516,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.44,
+      "actual_log10_J": 1.0584260244570054,
+      "predicted_J": 11.046083497939847,
+      "predicted_log10_J": 1.0432083217554358,
+      "record_id": "BBD10",
+      "residual_log10_pred_minus_actual": -0.015217702701569635,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.93,
+      "actual_log10_J": 0.9969492484953811,
+      "predicted_J": 11.143349492032756,
+      "predicted_log10_J": 1.0470157516332028,
+      "record_id": "BBD11",
+      "residual_log10_pred_minus_actual": 0.05006650313782168,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.28,
+      "actual_log10_J": 0.967547976218862,
+      "predicted_J": 11.94343399454272,
+      "predicted_log10_J": 1.0771292137665893,
+      "record_id": "BBD12",
+      "residual_log10_pred_minus_actual": 0.1095812375477273,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.48,
+      "actual_log10_J": 1.0203612826477078,
+      "predicted_J": 10.666909378193205,
+      "predicted_log10_J": 1.0280386055137543,
+      "record_id": "BBD13",
+      "residual_log10_pred_minus_actual": 0.007677322866046499,
+      "within_2x": true
+    },
+    {
+      "actual_J": 9.11,
+      "actual_log10_J": 0.9595183769729982,
+      "predicted_J": 10.765431928343828,
+      "predicted_log10_J": 1.0320314591788415,
+      "record_id": "BBD14",
+      "residual_log10_pred_minus_actual": 0.0725130822058433,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.67,
+      "actual_log10_J": 1.02816441942447,
+      "predicted_J": 11.315147040414882,
+      "predicted_log10_J": 1.0536602019872454,
+      "record_id": "BBD15",
+      "residual_log10_pred_minus_actual": 0.025495782562775515,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.36,
+      "actual_log10_J": 1.055378331375,
+      "predicted_J": 10.297426909938494,
+      "predicted_log10_J": 1.012728718062488,
+      "record_id": "LHS1",
+      "residual_log10_pred_minus_actual": -0.04264961331251205,
+      "within_2x": true
+    },
+    {
+      "actual_J": 13.52,
+      "actual_log10_J": 1.1309766916056172,
+      "predicted_J": 10.115668602027153,
+      "predicted_log10_J": 1.0049945930459894,
+      "record_id": "LHS2",
+      "residual_log10_pred_minus_actual": -0.12598209855962783,
+      "within_2x": true
+    },
+    {
+      "actual_J": 13.17,
+      "actual_log10_J": 1.119585774961784,
+      "predicted_J": 10.288786413089944,
+      "predicted_log10_J": 1.0123641517127955,
+      "record_id": "LHS3",
+      "residual_log10_pred_minus_actual": -0.10722162324898843,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.49,
+      "actual_log10_J": 1.0207754881935578,
+      "predicted_J": 10.498859421003978,
+      "predicted_log10_J": 1.0211421205870783,
+      "record_id": "LHS4",
+      "residual_log10_pred_minus_actual": 0.00036663239352052734,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.65,
+      "actual_log10_J": 1.0663259253620379,
+      "predicted_J": 10.883967227362966,
+      "predicted_log10_J": 1.0367872254086343,
+      "record_id": "LHS5",
+      "residual_log10_pred_minus_actual": -0.029538699953403524,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.52,
+      "actual_log10_J": 1.0614524790871933,
+      "predicted_J": 11.034189179818267,
+      "predicted_log10_J": 1.0427404256111037,
+      "record_id": "LHS6",
+      "residual_log10_pred_minus_actual": -0.01871205347608962,
+      "within_2x": true
+    },
+    {
+      "actual_J": 13.36,
+      "actual_log10_J": 1.1258064581395268,
+      "predicted_J": 10.760414118011045,
+      "predicted_log10_J": 1.0318289856153362,
+      "record_id": "LHS7",
+      "residual_log10_pred_minus_actual": -0.09397747252419064,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.45,
+      "actual_log10_J": 1.0588054866759067,
+      "predicted_J": 10.448371646921379,
+      "predicted_log10_J": 1.0190486119915438,
+      "record_id": "LHS8",
+      "residual_log10_pred_minus_actual": -0.03975687468436284,
+      "within_2x": true
+    },
+    {
+      "actual_J": 12.5,
+      "actual_log10_J": 1.0969100130080565,
+      "predicted_J": 10.67212617661606,
+      "predicted_log10_J": 1.0282509512692655,
+      "record_id": "LHS9",
+      "residual_log10_pred_minus_actual": -0.068659061738791,
+      "within_2x": true
+    },
+    {
+      "actual_J": 11.41,
+      "actual_log10_J": 1.0572856444182146,
+      "predicted_J": 10.763440532970172,
+      "predicted_log10_J": 1.0319511157213672,
+      "record_id": "LHS10",
+      "residual_log10_pred_minus_actual": -0.02533452869684738,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.12,
+      "actual_log10_J": 1.0051805125037803,
+      "predicted_J": 10.59273046249967,
+      "predicted_log10_J": 1.025007921575844,
+      "record_id": "RUN1",
+      "residual_log10_pred_minus_actual": 0.019827409072063817,
+      "within_2x": true
+    },
+    {
+      "actual_J": 8.02,
+      "actual_log10_J": 0.9041743682841635,
+      "predicted_J": 10.644012589381365,
+      "predicted_log10_J": 1.0271053795486131,
+      "record_id": "RUN2",
+      "residual_log10_pred_minus_actual": 0.12293101126444961,
+      "within_2x": true
+    },
+    {
+      "actual_J": 10.0,
+      "actual_log10_J": 1.0,
+      "predicted_J": 11.021016828544829,
+      "predicted_log10_J": 1.0422216655369727,
+      "record_id": "RUN3",
+      "residual_log10_pred_minus_actual": 0.04222166553697271,
+      "within_2x": true
+    },
+    {
+      "actual_J": 14.15,
+      "actual_log10_J": 1.150756439860309,
+      "predicted_J": 10.140722120350976,
+      "predicted_log10_J": 1.0060688821883679,
+      "record_id": "RUN4",
+      "residual_log10_pred_minus_actual": -0.14468755767194108,
+      "within_2x": true
+    }
+  ]
+}

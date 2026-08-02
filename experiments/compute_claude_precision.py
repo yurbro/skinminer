@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-AUDIT_DIR = ROOT / "outputs" / "claude_gold_audit"
+AUDIT_DIR: Path
 POLICIES = ["v2", "v3", "v4"]
 
 
@@ -24,6 +25,18 @@ def normalize_label(value: object) -> str:
 
 
 def main() -> None:
+    global AUDIT_DIR
+    parser = argparse.ArgumentParser(
+        description="Recompute Claude precision from a private provider-specific audit."
+    )
+    parser.add_argument(
+        "--audit-dir",
+        type=Path,
+        required=True,
+        help="Private audit directory; it must not be inside the public release tree.",
+    )
+    args = parser.parse_args()
+    AUDIT_DIR = args.audit_dir.resolve()
     overlap = pd.read_csv(AUDIT_DIR / "overlap_analysis.csv")
     packet_path = annotation_workbook()
     new_annotations = pd.read_excel(packet_path, sheet_name="Records to Annotate")
@@ -96,8 +109,8 @@ def main() -> None:
     report_lines = [
         "# Claude Per-Policy Precision",
         "",
-        f"- Annotation workbook: `{packet_path.relative_to(ROOT)}`",
-        f"- Combined labels: `outputs/claude_gold_audit/claude_precision_combined_labels.csv`",
+        f"- Annotation workbook: `{packet_path}`",
+        f"- Combined labels: `{AUDIT_DIR / 'claude_precision_combined_labels.csv'}`",
         "",
         summary.to_markdown(index=False, floatfmt=".1f"),
         "",

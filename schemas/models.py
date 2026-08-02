@@ -74,7 +74,7 @@ class EndpointMeasurement(BaseModel):
 
 
 class EndpointSpec(BaseModel):
-    """Deprecated construction shim for out-of-scope extractors during PR-C migration."""
+    """Deprecated construction shim for out-of-scope extractors during change-set C migration."""
 
     model_config = ConfigDict(extra="forbid")
 
@@ -265,7 +265,7 @@ class Record(BaseModel):
         super().__init__(**data)
 
     def primary_endpoint(self) -> EndpointMeasurement | None:
-        """Return this record's endpoint selected by PR-C priority order."""
+        """Return this record's endpoint selected by change-set C priority order."""
 
         return primary_endpoint(self.endpoints)
 

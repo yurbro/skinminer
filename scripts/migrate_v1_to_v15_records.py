@@ -1,4 +1,4 @@
-"""Migrate v1 single-endpoint JSONL artifacts to the PR-C v1.5 endpoint-list schema."""
+"""Migrate v1 single-endpoint JSONL artifacts to the change-set C v1.5 endpoint-list schema."""
 
 from __future__ import annotations
 
@@ -142,9 +142,9 @@ def migrate_directory(input_dir: Path, output_dir: Path, *, validate_records: bo
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Migrate SkinMiner v1 JSONL outputs to PR-C v1.5 endpoint-list records.")
-    parser.add_argument("--input-dir", type=Path, default=Path("outputs/full_run_16_post_all_fixes"))
-    parser.add_argument("--output-dir", type=Path, default=Path("outputs/full_run_16_post_all_fixes_v15_migrated"))
+    parser = argparse.ArgumentParser(description="Migrate SkinMiner v1 JSONL outputs to change-set C v1.5 endpoint-list records.")
+    parser.add_argument("--input-dir", type=Path, default=Path("outputs/gpt-extended-baseline"))
+    parser.add_argument("--output-dir", type=Path, default=Path("outputs/gpt-extended-baseline-migrated"))
     parser.add_argument("--no-validate-records", action="store_true")
     args = parser.parse_args()
 

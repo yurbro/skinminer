@@ -1,0 +1,138 @@
+{
+  "direction": "Xiao_to_Bolla_zero_shot",
+  "feature_set": [
+    "log10_vehicle_solubility",
+    "ethanol_fraction",
+    "drug_state_solubilized"
+  ],
+  "metrics": {
+    "R2_conv": -0.4131420273264017,
+    "R2_gen_train_mean_baseline": -0.151043704499364,
+    "mean_residual_log10": 0.22153100349319804,
+    "median_abs_residual_log10": 0.4377893780753771,
+    "n": 8,
+    "pearson_r": -0.5770561061380937,
+    "rmse_logJ": 0.4732506499699975,
+    "spearman_rho": -0.5476190476190477,
+    "within_2x": 0.375,
+    "within_2x_count": 3
+  },
+  "model": "StandardScaler(train only) + Ridge(alpha=1.0)",
+  "model_parameters": {
+    "ridge_alpha": 1.0,
+    "ridge_coefficients_scaled_feature_space": {
+      "drug_state_solubilized": 0.0,
+      "ethanol_fraction": -0.006970779302428957,
+      "log10_vehicle_solubility": -0.006312927816828956
+    },
+    "ridge_intercept": 1.0291810392944567,
+    "scaler_mean": {
+      "drug_state_solubilized": 0.0,
+      "ethanol_fraction": 0.15399655172413795,
+      "log10_vehicle_solubility": 0.7509709342976882
+    },
+    "scaler_scale": {
+      "drug_state_solubilized": 1.0,
+      "ethanol_fraction": 0.035328619664794975,
+      "log10_vehicle_solubility": 0.22518890259172614
+    }
+  },
+  "n_test": 8,
+  "n_train": 29,
+  "predictions": [
+    {
+      "actual_J": 2.7,
+      "actual_log10_J": 0.43136376415898736,
+      "dataset": "Bolla",
+      "formulation_label": "F1A",
+      "predicted_J": 11.759243911196993,
+      "predicted_log10_J": 1.0703793986320191,
+      "record_id": "F1A",
+      "residual_log10_pred_minus_actual": 0.6390156344730318,
+      "within_2x": false
+    },
+    {
+      "actual_J": 2.25,
+      "actual_log10_J": 0.3521825181113625,
+      "dataset": "Bolla",
+      "formulation_label": "F1B",
+      "predicted_J": 11.810137659951502,
+      "predicted_log10_J": 1.0722549598157913,
+      "record_id": "F1B",
+      "residual_log10_pred_minus_actual": 0.7200724417044289,
+      "within_2x": false
+    },
+    {
+      "actual_J": 7.44,
+      "actual_log10_J": 0.8715729355458788,
+      "dataset": "Bolla",
+      "formulation_label": "F2A",
+      "predicted_J": 12.44018197047044,
+      "predicted_log10_J": 1.0948267331034476,
+      "record_id": "F2A",
+      "residual_log10_pred_minus_actual": 0.2232537975575688,
+      "within_2x": true
+    },
+    {
+      "actual_J": 3.63,
+      "actual_log10_J": 0.5599066250361125,
+      "dataset": "Bolla",
+      "formulation_label": "F2B",
+      "predicted_J": 12.442628302935002,
+      "predicted_log10_J": 1.0949121276936895,
+      "record_id": "F2B",
+      "residual_log10_pred_minus_actual": 0.535005502657577,
+      "within_2x": false
+    },
+    {
+      "actual_J": 21.19,
+      "actual_log10_J": 1.3261309567107946,
+      "dataset": "Bolla",
+      "formulation_label": "F3",
+      "predicted_J": 11.739099931642581,
+      "predicted_log10_J": 1.0696347996623576,
+      "record_id": "F3",
+      "residual_log10_pred_minus_actual": -0.256496157048437,
+      "within_2x": true
+    },
+    {
+      "actual_J": 5.39,
+      "actual_log10_J": 0.7315887651867387,
+      "dataset": "Bolla",
+      "formulation_label": "F4",
+      "predicted_J": 11.807610503351308,
+      "predicted_log10_J": 1.072162018679916,
+      "record_id": "F4",
+      "residual_log10_pred_minus_actual": 0.34057325349317724,
+      "within_2x": false
+    },
+    {
+      "actual_J": 7.41,
+      "actual_log10_J": 0.8698182079793282,
+      "dataset": "Bolla",
+      "formulation_label": "F5",
+      "predicted_J": 10.286211149543114,
+      "predicted_log10_J": 1.0122554350288424,
+      "record_id": "F5",
+      "residual_log10_pred_minus_actual": 0.14243722704951423,
+      "within_2x": true
+    },
+    {
+      "actual_J": 37.25,
+      "actual_log10_J": 1.5711262770843117,
+      "dataset": "Bolla",
+      "formulation_label": "F6",
+      "predicted_J": 9.988783613753164,
+      "predicted_log10_J": 0.999512605143035,
+      "record_id": "F6",
+      "residual_log10_pred_minus_actual": -0.5716136719412768,
+      "within_2x": false
+    }
+  ],
+  "test_dataset": [
+    "Bolla"
+  ],
+  "train_dataset": [
+    "Xiao"
+  ]
+}

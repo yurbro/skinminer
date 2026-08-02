@@ -1,0 +1,19 @@
+SkinMiner Data License
+
+The repository-created datasets, annotations, aggregate result tables, and documentation data are licensed under the Creative Commons Attribution 4.0 International License, CC BY 4.0.
+
+License text and terms:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+You may share and adapt the covered material for any purpose, including commercial use, provided that you give appropriate credit, link to the license, and indicate whether changes were made. You may not apply legal terms or technological measures that restrict others from exercising the rights granted by the license.
+
+Suggested attribution:
+
+SkinMiner: An LLM-powered data mining framework for dermal drug formulations, <TO_FILL>, https://github.com/yurbro/skinminer, CC BY 4.0.
+
+Scope and third-party material
+
+This license covers material created by the SkinMiner project. It does not relicense third-party source-paper text, figures, publisher files, or bibliographic content that carries separate terms. The processed gold CSV records source-level provenance and action in the source_license, source_license_url, source_license_source, source_license_checked_at, and verbatim_action fields.
+
+Source-derived quotations are retained only where the recorded source terms permit redistribution. Other quotations are replaced by locators. Bibliographic titles, identifiers, and factual values remain available as metadata or facts, subject to applicable law and database rights.
+

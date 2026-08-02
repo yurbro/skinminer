@@ -1,0 +1,62 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments and local configuration
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Source papers and remote caches
+/papers/
+cache/
+**/cache/
+source_cache/
+**/source_cache/
+
+# Generated pipeline outputs and resumable state
+/outputs/
+.resume/
+**/.resume/
+*.log
+
+# Generated image artifacts outside the curated results bundle
+page_images/
+crops/
+masks/
+overlays/
+mapping_zooms/
+
+# Demo 2 intermediate figures regenerated during reproduction
+/demos/demo2/outputs/phase2_demo2_modelling/figure_feature_space.pdf
+/demos/demo2/outputs/phase2_demo2_modelling/figure_feature_space.png
+
+# Release preparation workspace
+_release_prep/
+
+# Notebooks and IDEs
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.code-workspace
+
+# Operating systems and OneDrive conflicts
+.DS_Store
+Thumbs.db
+Desktop.ini
+*conflicted copy*
+*Conflicted copy*

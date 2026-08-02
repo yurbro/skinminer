@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import ast
 import csv
 import json
@@ -11,7 +12,11 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = ROOT / "outputs" / "human_annotation"
+OUTPUT_DIR: Path
+ASSEMBLED_INPUT: Path
+VERIFIED_INPUT: Path
+CONTENT_ACCESS_INPUT: Path
+GOLD_INPUT = ROOT / "evaluation" / "gold" / "gold_set_round2_annotation.csv"
 
 SELECTED_PAPERS = [
     {
@@ -99,10 +104,10 @@ def parse_literal(value: object, default: object) -> object:
 
 
 def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    assembled = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "assembled_records.csv")
-    v2 = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "v2_rescore" / "verified_records.csv")
-    content_access = pd.read_csv(ROOT / "outputs" / "full_run_16_post_all_fixes" / "content_access.csv")
-    gold = pd.read_csv(ROOT / "outputs" / "gold_audit_set" / "round2" / "gold_set_round2_annotation.csv")
+    assembled = pd.read_csv(ASSEMBLED_INPUT)
+    v2 = pd.read_csv(VERIFIED_INPUT)
+    content_access = pd.read_csv(CONTENT_ACCESS_INPUT)
+    gold = pd.read_csv(GOLD_INPUT)
     return assembled, v2, content_access, gold
 
 
@@ -199,7 +204,7 @@ def write_paper_selection(rows: list[dict[str, object]]) -> None:
     lines.extend(
         [
             "",
-            "Difficulty distribution is deliberate: 2 table-easy, 2 mixed-medium, 2 figure-hard. All six papers are drawn from `full_run_16_post_all_fixes` assembled records and all six have downloadable OA full text.",
+            "Difficulty distribution is deliberate: 2 table-easy, 2 mixed-medium, 2 figure-hard. All six papers are drawn from `gpt-extended-baseline` assembled records and all six have downloadable OA full text.",
             "",
             "## Paper Access Links",
             "",
@@ -392,7 +397,7 @@ def write_evaluation_framework() -> None:
 
 ## Notes
 
-- Compare against `outputs/human_annotation/skinminer_reference.csv`, which contains all assembled records for the selected six papers under the extended-policy rescore.
+- Compare against the generated `skinminer_reference.csv`, which contains all assembled records for the selected six papers under the extended-policy rescore.
 - Do not expose the SkinMiner reference file to annotators before manual extraction is complete.
 - For difficult figure papers, record whether manual endpoint reading required ruler/zoom support or approximate visual interpolation.
 """
@@ -400,6 +405,21 @@ def write_evaluation_framework() -> None:
 
 
 def main() -> None:
+    global OUTPUT_DIR, ASSEMBLED_INPUT, VERIFIED_INPUT, CONTENT_ACCESS_INPUT, GOLD_INPUT
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--assembled-csv", type=Path, required=True)
+    parser.add_argument("--verified-csv", type=Path, required=True)
+    parser.add_argument("--content-access-csv", type=Path, required=True)
+    parser.add_argument("--gold-csv", type=Path, default=GOLD_INPUT)
+    parser.add_argument("--output-dir", type=Path, required=True, help="Private annotation workspace")
+    args = parser.parse_args()
+    ASSEMBLED_INPUT = args.assembled_csv.resolve()
+    VERIFIED_INPUT = args.verified_csv.resolve()
+    CONTENT_ACCESS_INPUT = args.content_access_csv.resolve()
+    GOLD_INPUT = args.gold_csv.resolve()
+    OUTPUT_DIR = args.output_dir.resolve()
+    if OUTPUT_DIR == ROOT or ROOT in OUTPUT_DIR.parents:
+        raise ValueError("Human-annotation output must be outside the public release tree.")
     ensure_output_dir()
     assembled, v2, content_access, gold = load_inputs()
     rows = build_selected_paper_rows(assembled, v2, content_access, gold)

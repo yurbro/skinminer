@@ -23,6 +23,7 @@ import fitz
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
+PDF_DIR: Path
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 if str(Path(__file__).resolve().parent) not in sys.path:
@@ -106,7 +107,7 @@ def _pdf_candidates_for_doi(doi: str, content_access_pdf: str) -> list[Path]:
 
     doi_key = _doi_key(doi)
     candidates: list[Path] = []
-    pdf_dir = ROOT / "papers" / "pdf"
+    pdf_dir = PDF_DIR
     if pdf_dir.exists():
         for path in sorted(pdf_dir.glob("*.pdf")):
             if doi_key and doi_key in _doi_key(path.name):
@@ -747,8 +748,13 @@ def patch_pdf_evaluation_wording(output_dir: Path, *, provider: str, model: str)
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--annotation", default="outputs/gold_audit_set/round2/gold_set_round2_annotation.csv")
-    parser.add_argument("--content-access", default="outputs/full_run_16_post_all_fixes/content_access.jsonl")
+    parser.add_argument("--annotation", default="evaluation/gold/gold_set_round2_annotation.csv")
+    parser.add_argument(
+        "--content-access",
+        required=True,
+        help="External content-access JSONL; source cache is not bundled.",
+    )
+    parser.add_argument("--pdf-dir", type=Path, required=True, help="External source-PDF directory")
     parser.add_argument("--output-dir", required=True)
     parser.add_argument("--provider", choices=["openai", "anthropic"], required=True)
     parser.add_argument("--model", required=True)
@@ -762,7 +768,9 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    global PDF_DIR
     args = parse_args()
+    PDF_DIR = args.pdf_dir.resolve()
     annotation_path = Path(args.annotation)
     content_access_path = Path(args.content_access)
     output_dir = Path(args.output_dir)

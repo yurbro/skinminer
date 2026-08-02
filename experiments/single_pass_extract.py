@@ -941,9 +941,13 @@ def evaluate_results(annotation_path: Path, results_path: Path, output_dir: Path
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--annotation", default="outputs/gold_audit_set/round2/gold_set_round2_annotation.csv")
-    parser.add_argument("--content-access", default="outputs/full_run_16_post_all_fixes/content_access.jsonl")
-    parser.add_argument("--output-dir", default="outputs/experiment_single_pass")
+    parser.add_argument("--annotation", default="evaluation/gold/gold_set_round2_annotation.csv")
+    parser.add_argument(
+        "--content-access",
+        required=True,
+        help="External content-access JSONL; source cache is not bundled in this release.",
+    )
+    parser.add_argument("--output-dir", required=True)
     parser.add_argument("--provider", default="openai")
     parser.add_argument("--model", default="gpt-4o-mini")
     parser.add_argument("--max-retries", type=int, default=4)

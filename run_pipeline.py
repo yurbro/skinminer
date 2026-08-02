@@ -528,7 +528,7 @@ def main() -> None:
         type=str,
         choices=["router", "routing"],
         default=None,
-        help="Stop after the router stage; intended for PR-B entry-point validation.",
+        help="Stop after the router stage; intended for change-set B entry-point validation.",
     )
     parser.add_argument("--with-llm-adjudication", action="store_true")
     parser.add_argument("--llm-adjudication-model", type=str, default=None)

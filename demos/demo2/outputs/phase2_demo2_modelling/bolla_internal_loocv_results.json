@@ -1,0 +1,577 @@
+{
+  "metadata": {
+    "R2_conv_definition": "sklearn r2_score over all eight concatenated held-out predictions",
+    "analysis": "Bolla-internal leave-one-out cross-validation",
+    "features": [
+      "log10_vehicle_solubility",
+      "ethanol_fraction",
+      "pg_fraction",
+      "water_fraction"
+    ],
+    "n_folds": 8,
+    "n_records": 8,
+    "random_state": 42,
+    "target": "log10(J)",
+    "within_2x_definition": "abs(predicted log10 J - actual log10 J) <= log10(2)"
+  },
+  "models": {
+    "gpr": {
+      "aggregate_metrics": {
+        "R2_conv": -0.5641852144883417,
+        "n": 8,
+        "pearson_r": -0.4464437594681451,
+        "rmse_logJ": 0.4979003149277348,
+        "spearman_rho": -0.7619047619047621,
+        "within_2x_count": 1,
+        "within_2x_fraction": 0.125
+      },
+      "features": [
+        "log10_vehicle_solubility",
+        "ethanol_fraction",
+        "pg_fraction",
+        "water_fraction"
+      ],
+      "model": "StandardScaler(train fold only) + GPR(ConstantKernel*RBF + WhiteKernel, normalize_y=True, n_restarts_optimizer=10, random_state=42)",
+      "predictions": [
+        {
+          "abs_residual": 0.46600766457310594,
+          "fold_model_info": {
+            "convergence_warnings": [],
+            "feature_scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.35594809745139394,
+              "pg_fraction": 0.04285714285714286,
+              "water_fraction": 0.48871428571428577
+            },
+            "feature_scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.833544549739013,
+              "pg_fraction": 0.06776309271789384,
+              "water_fraction": 0.21179418195551095
+            },
+            "features": [
+              "log10_vehicle_solubility",
+              "ethanol_fraction",
+              "pg_fraction",
+              "water_fraction"
+            ],
+            "kernel_initial": "1**2 * RBF(length_scale=1) + WhiteKernel(noise_level=1)",
+            "kernel_optimized": "0.96**2 * RBF(length_scale=0.0607) + WhiteKernel(noise_level=0.135)",
+            "log_marginal_likelihood": -9.860429319169544,
+            "model": "GaussianProcessRegressor(ConstantKernel*RBF + WhiteKernel, normalize_y=True, n_restarts_optimizer=10)"
+          },
+          "logJ_actual": 0.43136376415898736,
+          "logJ_pred": 0.8973714287320933,
+          "predictive_sigma_logJ": 0.4034893540769968,
+          "record_id": "F1A",
+          "residual_pred_minus_actual": 0.46600766457310594,
+          "within_2x": false
+        },
+        {
+          "abs_residual": 0.5565408954298021,
+          "fold_model_info": {
+            "convergence_warnings": [],
+            "feature_scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.3655057085941175,
+              "pg_fraction": 0.04285714285714286,
+              "water_fraction": 0.48157142857142865
+            },
+            "feature_scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.8332129297153958,
+              "pg_fraction": 0.06776309271789384,
+              "water_fraction": 0.2111572583528732
+            },
+            "features": [
+              "log10_vehicle_solubility",
+              "ethanol_fraction",
+              "pg_fraction",
+              "water_fraction"
+            ],
+            "kernel_initial": "1**2 * RBF(length_scale=1) + WhiteKernel(noise_level=1)",
+            "kernel_optimized": "0.935**2 * RBF(length_scale=0.0598) + WhiteKernel(noise_level=0.173)",
+            "log_marginal_likelihood": -9.863565586423169,
+            "model": "GaussianProcessRegressor(ConstantKernel*RBF + WhiteKernel, normalize_y=True, n_restarts_optimizer=10)"
+          },
+          "logJ_actual": 0.3521825181113625,
+          "logJ_pred": 0.9087234135411646,
+          "predictive_sigma_logJ": 0.3862324320196966,
+          "record_id": "F1B",
+          "residual_pred_minus_actual": 0.5565408954298021,
+          "within_2x": false
+        },
+        {
+          "abs_residual": 0.3075625915429776,
+          "fold_model_info": {
+            "convergence_warnings": [
+              "The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value."
+            ],
+            "feature_scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.480528472848187,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4651428571428572
+            },
+            "feature_scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.7569380582930699,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.20216289653320135
+            },
+            "features": [
+              "log10_vehicle_solubility",
+              "ethanol_fraction",
+              "pg_fraction",
+              "water_fraction"
+            ],
+            "kernel_initial": "1**2 * RBF(length_scale=1) + WhiteKernel(noise_level=1)",
+            "kernel_optimized": "1**2 * RBF(length_scale=0.286) + WhiteKernel(noise_level=1e-05)",
+            "log_marginal_likelihood": -9.509858376304429,
+            "model": "GaussianProcessRegressor(ConstantKernel*RBF + WhiteKernel, normalize_y=True, n_restarts_optimizer=10)"
+          },
+          "logJ_actual": 0.8715729355458788,
+          "logJ_pred": 0.5640103440029012,
+          "predictive_sigma_logJ": 0.07335891393685195,
+          "record_id": "F2A",
+          "residual_pred_minus_actual": -0.3075625915429776,
+          "within_2x": false
+        },
+        {
+          "abs_residual": 0.3117950151660833,
+          "fold_model_info": {
+            "convergence_warnings": [
+              "The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value."
+            ],
+            "feature_scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.4809636323589972,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4637142857142858
+            },
+            "feature_scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.7563692343111921,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.20085439949355943
+            },
+            "features": [
+              "log10_vehicle_solubility",
+              "ethanol_fraction",
+              "pg_fraction",
+              "water_fraction"
+            ],
+            "kernel_initial": "1**2 * RBF(length_scale=1) + WhiteKernel(noise_level=1)",
+            "kernel_optimized": "0.984**2 * RBF(length_scale=0.276) + WhiteKernel(noise_level=1e-05)",
+            "log_marginal_likelihood": -9.440285967479943,
+            "model": "GaussianProcessRegressor(ConstantKernel*RBF + WhiteKernel, normalize_y=True, n_restarts_optimizer=10)"
+          },
+          "logJ_actual": 0.5599066250361125,
+          "logJ_pred": 0.8717016402021959,
+          "predictive_sigma_logJ": 0.072591935689756,
+          "record_id": "F2B",
+          "residual_pred_minus_actual": 0.3117950151660833,
+          "within_2x": false
+        },
+        {
+          "abs_residual": 0.5931200938799751,
+          "fold_model_info": {
+            "convergence_warnings": [],
+            "feature_scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.352153719816119,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4928571428571429
+            },
+            "feature_scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.83343305113119,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.21127938752239114
+            },
+            "features": [
+              "log10_vehicle_solubility",
+              "ethanol_fraction",
+              "pg_fraction",
+              "water_fraction"
+            ],
+            "kernel_initial": "1**2 * RBF(length_scale=1) + WhiteKernel(noise_level=1)",
+            "kernel_optimized": "1.03**2 * RBF(length_scale=1.52) + WhiteKernel(noise_level=0.173)",
+            "log_marginal_likelihood": -8.983867901954886,
+            "model": "GaussianProcessRegressor(ConstantKernel*RBF + WhiteKernel, normalize_y=True, n_restarts_optimizer=10)"
+          },
+          "logJ_actual": 1.3261309567107946,
+          "logJ_pred": 0.7330108628308195,
+          "predictive_sigma_logJ": 0.2254165103515617,
+          "record_id": "F3",
+          "residual_pred_minus_actual": -0.5931200938799751,
+          "within_2x": false
+        },
+        {
+          "abs_residual": 0.4602409423831527,
+          "fold_model_info": {
+            "convergence_warnings": [],
+            "feature_scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.36503209288723115,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4837142857142857
+            },
+            "feature_scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.833250019318146,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.21155121925280163
+            },
+            "features": [
+              "log10_vehicle_solubility",
+              "ethanol_fraction",
+              "pg_fraction",
+              "water_fraction"
+            ],
+            "kernel_initial": "1**2 * RBF(length_scale=1) + WhiteKernel(noise_level=1)",
+            "kernel_optimized": "0.951**2 * RBF(length_scale=0.697) + WhiteKernel(noise_level=0.162)",
+            "log_marginal_likelihood": -9.024446583556408,
+            "model": "GaussianProcessRegressor(ConstantKernel*RBF + WhiteKernel, normalize_y=True, n_restarts_optimizer=10)"
+          },
+          "logJ_actual": 0.7315887651867387,
+          "logJ_pred": 1.1918297075698914,
+          "predictive_sigma_logJ": 0.2763117809372741,
+          "record_id": "F4",
+          "residual_pred_minus_actual": 0.4602409423831527,
+          "within_2x": false
+        },
+        {
+          "abs_residual": 0.03497937343158741,
+          "fold_model_info": {
+            "convergence_warnings": [],
+            "feature_scaler_mean": {
+              "ethanol_fraction": 0.014285714285714287,
+              "log10_vehicle_solubility": 0.361399631883523,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4671428571428572
+            },
+            "feature_scaler_scale": {
+              "ethanol_fraction": 0.03499271061118826,
+              "log10_vehicle_solubility": 0.833462849688222,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.20384618050413025
+            },
+            "features": [
+              "log10_vehicle_solubility",
+              "ethanol_fraction",
+              "pg_fraction",
+              "water_fraction"
+            ],
+            "kernel_initial": "1**2 * RBF(length_scale=1) + WhiteKernel(noise_level=1)",
+            "kernel_optimized": "0.931**2 * RBF(length_scale=0.331) + WhiteKernel(noise_level=0.247)",
+            "log_marginal_likelihood": -9.53553751120054,
+            "model": "GaussianProcessRegressor(ConstantKernel*RBF + WhiteKernel, normalize_y=True, n_restarts_optimizer=10)"
+          },
+          "logJ_actual": 0.8698182079793282,
+          "logJ_pred": 0.8348388345477408,
+          "predictive_sigma_logJ": 0.44899194796125386,
+          "record_id": "F5",
+          "residual_pred_minus_actual": -0.03497937343158741,
+          "within_2x": true
+        },
+        {
+          "abs_residual": 0.8364743095515685,
+          "fold_model_info": {
+            "convergence_warnings": [],
+            "feature_scaler_mean": {
+              "ethanol_fraction": 0.04285714285714286,
+              "log10_vehicle_solubility": 0.09536816197783707,
+              "pg_fraction": 0.04285714285714286,
+              "water_fraction": 0.5571428571428572
+            },
+            "feature_scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.3830493786274973,
+              "pg_fraction": 0.06776309271789385,
+              "water_fraction": 0.07789448645705398
+            },
+            "features": [
+              "log10_vehicle_solubility",
+              "ethanol_fraction",
+              "pg_fraction",
+              "water_fraction"
+            ],
+            "kernel_initial": "1**2 * RBF(length_scale=1) + WhiteKernel(noise_level=1)",
+            "kernel_optimized": "0.705**2 * RBF(length_scale=0.695) + WhiteKernel(noise_level=0.521)",
+            "log_marginal_likelihood": -9.785169460198626,
+            "model": "GaussianProcessRegressor(ConstantKernel*RBF + WhiteKernel, normalize_y=True, n_restarts_optimizer=10)"
+          },
+          "logJ_actual": 1.5711262770843117,
+          "logJ_pred": 0.7346519675327432,
+          "predictive_sigma_logJ": 0.3087165862038603,
+          "record_id": "F6",
+          "residual_pred_minus_actual": -0.8364743095515685,
+          "within_2x": false
+        }
+      ],
+      "target": "log10(J)"
+    },
+    "ridge": {
+      "aggregate_metrics": {
+        "R2_conv": -0.10095816734186425,
+        "n": 8,
+        "pearson_r": 0.5410166986669408,
+        "rmse_logJ": 0.41771851130501936,
+        "spearman_rho": 0.5714285714285715,
+        "within_2x_count": 5,
+        "within_2x_fraction": 0.625
+      },
+      "features": [
+        "log10_vehicle_solubility",
+        "ethanol_fraction",
+        "pg_fraction",
+        "water_fraction"
+      ],
+      "model": "StandardScaler(train fold only) + Ridge(alpha=1.0)",
+      "predictions": [
+        {
+          "abs_residual": 0.16195885315531133,
+          "fold_model_info": {
+            "ridge_coefficients_scaled_feature_space": {
+              "ethanol_fraction": 0.019927784164397364,
+              "log10_vehicle_solubility": 0.1352065618751642,
+              "pg_fraction": -0.1939088960201674,
+              "water_fraction": -0.2568472216017876
+            },
+            "ridge_intercept": 0.8974751836649324,
+            "scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.35594809745139394,
+              "pg_fraction": 0.04285714285714286,
+              "water_fraction": 0.48871428571428577
+            },
+            "scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.833544549739013,
+              "pg_fraction": 0.06776309271789384,
+              "water_fraction": 0.21179418195551095
+            }
+          },
+          "logJ_actual": 0.43136376415898736,
+          "logJ_pred": 0.5933226173142987,
+          "predictive_sigma_logJ": null,
+          "record_id": "F1A",
+          "residual_pred_minus_actual": 0.16195885315531133,
+          "within_2x": true
+        },
+        {
+          "abs_residual": 0.1849457855904313,
+          "fold_model_info": {
+            "ridge_coefficients_scaled_feature_space": {
+              "ethanol_fraction": 0.018097582421030167,
+              "log10_vehicle_solubility": 0.14280194266691806,
+              "pg_fraction": -0.1873519089207666,
+              "water_fraction": -0.24072585133927976
+            },
+            "ridge_intercept": 0.9087867902431644,
+            "scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.3655057085941175,
+              "pg_fraction": 0.04285714285714286,
+              "water_fraction": 0.48157142857142865
+            },
+            "scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.8332129297153958,
+              "pg_fraction": 0.06776309271789384,
+              "water_fraction": 0.2111572583528732
+            }
+          },
+          "logJ_actual": 0.3521825181113625,
+          "logJ_pred": 0.5371283037017938,
+          "predictive_sigma_logJ": null,
+          "record_id": "F1B",
+          "residual_pred_minus_actual": 0.1849457855904313,
+          "within_2x": true
+        },
+        {
+          "abs_residual": 0.29086064178116633,
+          "fold_model_info": {
+            "ridge_coefficients_scaled_feature_space": {
+              "ethanol_fraction": 0.03132418030134948,
+              "log10_vehicle_solubility": 0.1724389440988176,
+              "pg_fraction": -0.22807010401840774,
+              "water_fraction": -0.23670282650060812
+            },
+            "ridge_intercept": 0.8345881591810907,
+            "scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.480528472848187,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4651428571428572
+            },
+            "scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.7569380582930699,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.20216289653320135
+            }
+          },
+          "logJ_actual": 0.8715729355458788,
+          "logJ_pred": 0.5807122937647125,
+          "predictive_sigma_logJ": null,
+          "record_id": "F2A",
+          "residual_pred_minus_actual": -0.29086064178116633,
+          "within_2x": true
+        },
+        {
+          "abs_residual": 0.12670888666116076,
+          "fold_model_info": {
+            "ridge_coefficients_scaled_feature_space": {
+              "ethanol_fraction": 0.019511001191232787,
+              "log10_vehicle_solubility": 0.11483490450424988,
+              "pg_fraction": -0.2468321119126954,
+              "water_fraction": -0.25882956181656025
+            },
+            "ridge_intercept": 0.8791119178253429,
+            "scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.4809636323589972,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4637142857142858
+            },
+            "scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.7563692343111921,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.20085439949355943
+            }
+          },
+          "logJ_actual": 0.5599066250361125,
+          "logJ_pred": 0.6866155116972733,
+          "predictive_sigma_logJ": null,
+          "record_id": "F2B",
+          "residual_pred_minus_actual": 0.12670888666116076,
+          "within_2x": true
+        },
+        {
+          "abs_residual": 0.38067937896342974,
+          "fold_model_info": {
+            "ridge_coefficients_scaled_feature_space": {
+              "ethanol_fraction": 0.060962985054012965,
+              "log10_vehicle_solubility": 0.11306547281571726,
+              "pg_fraction": -0.17761251754451496,
+              "water_fraction": -0.24543605423280035
+            },
+            "ridge_intercept": 0.7696512990146742,
+            "scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.352153719816119,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4928571428571429
+            },
+            "scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.83343305113119,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.21127938752239114
+            }
+          },
+          "logJ_actual": 1.3261309567107946,
+          "logJ_pred": 0.9454515777473649,
+          "predictive_sigma_logJ": null,
+          "record_id": "F3",
+          "residual_pred_minus_actual": -0.38067937896342974,
+          "within_2x": false
+        },
+        {
+          "abs_residual": 0.3251483380754002,
+          "fold_model_info": {
+            "ridge_coefficients_scaled_feature_space": {
+              "ethanol_fraction": -0.009582169852939717,
+              "log10_vehicle_solubility": 0.18441194877973766,
+              "pg_fraction": -0.28488025418634155,
+              "water_fraction": -0.24976360650858045
+            },
+            "ridge_intercept": 0.8545858978038252,
+            "scaler_mean": {
+              "ethanol_fraction": 0.05714285714285715,
+              "log10_vehicle_solubility": 0.36503209288723115,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4837142857142857
+            },
+            "scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.833250019318146,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.21155121925280163
+            }
+          },
+          "logJ_actual": 0.7315887651867387,
+          "logJ_pred": 1.0567371032621389,
+          "predictive_sigma_logJ": null,
+          "record_id": "F4",
+          "residual_pred_minus_actual": 0.3251483380754002,
+          "within_2x": false
+        },
+        {
+          "abs_residual": 0.9772674767903033,
+          "fold_model_info": {
+            "ridge_coefficients_scaled_feature_space": {
+              "ethanol_fraction": 0.11816593051463158,
+              "log10_vehicle_solubility": 0.10780458828661696,
+              "pg_fraction": -0.23906670382465628,
+              "water_fraction": -0.19423122023528536
+            },
+            "ridge_intercept": 0.8348388345477408,
+            "scaler_mean": {
+              "ethanol_fraction": 0.014285714285714287,
+              "log10_vehicle_solubility": 0.361399631883523,
+              "pg_fraction": 0.06428571428571428,
+              "water_fraction": 0.4671428571428572
+            },
+            "scaler_scale": {
+              "ethanol_fraction": 0.03499271061118826,
+              "log10_vehicle_solubility": 0.833462849688222,
+              "pg_fraction": 0.07423074889580902,
+              "water_fraction": 0.20384618050413025
+            }
+          },
+          "logJ_actual": 0.8698182079793282,
+          "logJ_pred": 1.8470856847696315,
+          "predictive_sigma_logJ": null,
+          "record_id": "F5",
+          "residual_pred_minus_actual": 0.9772674767903033,
+          "within_2x": false
+        },
+        {
+          "abs_residual": 0.1706734201991662,
+          "fold_model_info": {
+            "ridge_coefficients_scaled_feature_space": {
+              "ethanol_fraction": 0.0459989805273634,
+              "log10_vehicle_solubility": -0.006563564312369605,
+              "pg_fraction": -0.23221213397005944,
+              "water_fraction": -0.14593457554817862
+            },
+            "ridge_intercept": 0.7346519675327432,
+            "scaler_mean": {
+              "ethanol_fraction": 0.04285714285714286,
+              "log10_vehicle_solubility": 0.09536816197783707,
+              "pg_fraction": 0.04285714285714286,
+              "water_fraction": 0.5571428571428572
+            },
+            "scaler_scale": {
+              "ethanol_fraction": 0.10497813183356476,
+              "log10_vehicle_solubility": 0.3830493786274973,
+              "pg_fraction": 0.06776309271789385,
+              "water_fraction": 0.07789448645705398
+            }
+          },
+          "logJ_actual": 1.5711262770843117,
+          "logJ_pred": 1.4004528568851455,
+          "predictive_sigma_logJ": null,
+          "record_id": "F6",
+          "residual_pred_minus_actual": -0.1706734201991662,
+          "within_2x": true
+        }
+      ],
+      "target": "log10(J)"
+    }
+  }
+}

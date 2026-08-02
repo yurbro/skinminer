@@ -1,0 +1,11 @@
+paper,doi,source_table,expected_records,expected_j_min,expected_j_max,paper_source
+Part I (2009),10.1159/000183922,Table 3,5,186,1495,Table 3.5.1
+Part I (2009),10.1159/000183922,Table 4,3,449,1681,Table 3.5.1
+Part I (2009),10.1159/000183922,Table 5,5,24,293,Table 3.5.1
+Part II (2009),10.1159/000231528,Table 2,10,186,443,Table 3.5.1
+Part II (2009),10.1159/000231528,Table 3,2,526,641,Table 3.5.1
+Part II (2009),10.1159/000231528,Table 4,2,376,558,Table 3.5.1
+Part II (2009),10.1159/000231528,Table 5,4,24,134,Table 3.5.1
+Part II (2009),10.1159/000231528,Table 6,2,78,204,Table 3.5.1
+Part III (2011),10.1159/000315139,Table 3,11,312,675,Table 3.5.1
+Part III (2011),10.1159/000315139,Table 4,3,65,94,Table 3.5.1

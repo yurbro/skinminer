@@ -1,0 +1,1316 @@
+{
+  "aggregate_metrics": {
+    "R2_conv": -0.2100779470506824,
+    "n": 29,
+    "pearson_r": -0.13979395486547702,
+    "rmse_logJ": 0.06590003998103972,
+    "spearman_rho": -0.06949236920886347,
+    "within_2x_count": 29,
+    "within_2x_fraction": 1.0
+  },
+  "fold_details": [
+    {
+      "center_group_in_test": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "center_group_in_train": [],
+      "fold_id": 1,
+      "fold_type": "group",
+      "leakage_guard_pass": true,
+      "n_test_records": 3,
+      "n_train_records": 26,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.01583649634757855,
+        "log10_vehicle_solubility": -0.006699579458171572,
+        "pg_fraction": -0.01726959055877904,
+        "water_fraction": -0.016399625954378463
+      },
+      "ridge_intercept": 1.031914001193271,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15445769230769232,
+        "log10_vehicle_solubility": 0.7544611984949187,
+        "pg_fraction": 0.14946923076923077,
+        "water_fraction": 0.3415730769230769
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03728362367949978,
+        "log10_vehicle_solubility": 0.23757828548061896,
+        "pg_fraction": 0.03533676195638376,
+        "water_fraction": 0.05816391002154242
+      },
+      "test_record_ids": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 2,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.015261581909432236,
+        "log10_vehicle_solubility": -0.004480583161649474,
+        "pg_fraction": -0.01872369804184811,
+        "water_fraction": -0.016669514479401272
+      },
+      "ridge_intercept": 1.0300996288367763,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15235357142857145,
+        "log10_vehicle_solubility": 0.7380874187296388,
+        "pg_fraction": 0.14950714285714287,
+        "water_fraction": 0.34574642857142857
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03484830885569687,
+        "log10_vehicle_solubility": 0.21842058178048096,
+        "pg_fraction": 0.034051630216601424,
+        "water_fraction": 0.053217474856498415
+      },
+      "test_record_ids": [
+        "BBD1"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 3,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.015666291121095275,
+        "log10_vehicle_solubility": -0.005765687453297303,
+        "pg_fraction": -0.01684809343108322,
+        "water_fraction": -0.016267437414018034
+      },
+      "ridge_intercept": 1.0282181384814353,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15413928571428573,
+        "log10_vehicle_solubility": 0.75668423311515,
+        "pg_fraction": 0.15129285714285715,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03594573627890592,
+        "log10_vehicle_solubility": 0.22710020487825677,
+        "pg_fraction": 0.032692495082111396,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "BBD2"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 4,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.013837552096173465,
+        "log10_vehicle_solubility": -0.0059376864454545935,
+        "pg_fraction": -0.015311010348081813,
+        "water_fraction": -0.01611397959967468
+      },
+      "ridge_intercept": 1.031018804794657,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15235357142857145,
+        "log10_vehicle_solubility": 0.7348849639662492,
+        "pg_fraction": 0.1477214285714286,
+        "water_fraction": 0.34574642857142857
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03484830885569687,
+        "log10_vehicle_solubility": 0.21217238267522645,
+        "pg_fraction": 0.03263860944541928,
+        "water_fraction": 0.053217474856498415
+      },
+      "test_record_ids": [
+        "BBD3"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 5,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.015186123505997903,
+        "log10_vehicle_solubility": -0.005314093772964817,
+        "pg_fraction": -0.016847345063956704,
+        "water_fraction": -0.015918172669728378
+      },
+      "ridge_intercept": 1.029290200814064,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15592500000000004,
+        "log10_vehicle_solubility": 0.7527414492981599,
+        "pg_fraction": 0.1477214285714286,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03442148026409423,
+        "log10_vehicle_solubility": 0.22897643502346893,
+        "pg_fraction": 0.03263860944541928,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "BBD7"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 6,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.01113227004549797,
+        "log10_vehicle_solubility": -0.00630312869311549,
+        "pg_fraction": -0.022211419710305994,
+        "water_fraction": -0.017576222206007956
+      },
+      "ridge_intercept": 1.032562560296274,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15235357142857145,
+        "log10_vehicle_solubility": 0.751361059038359,
+        "pg_fraction": 0.15129285714285715,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.034848308855696876,
+        "log10_vehicle_solubility": 0.22916522653232455,
+        "pg_fraction": 0.032692495082111396,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "BBD8"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 7,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.010563574386602654,
+        "log10_vehicle_solubility": -0.006851300665882477,
+        "pg_fraction": -0.014784100988037646,
+        "water_fraction": -0.01368953508546637
+      },
+      "ridge_intercept": 1.0321005863447212,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15235357142857145,
+        "log10_vehicle_solubility": 0.7474392338788746,
+        "pg_fraction": 0.14950714285714287,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.034848308855696876,
+        "log10_vehicle_solubility": 0.228384326183076,
+        "pg_fraction": 0.034051630216601424,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "BBD9"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 8,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.014840354215944833,
+        "log10_vehicle_solubility": -0.005381795173971852,
+        "pg_fraction": -0.017332382640581415,
+        "water_fraction": -0.01578647042011629
+      },
+      "ridge_intercept": 1.0281365755386513,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15592500000000004,
+        "log10_vehicle_solubility": 0.7574319445058754,
+        "pg_fraction": 0.14950714285714287,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03442148026409423,
+        "log10_vehicle_solubility": 0.22651825498025152,
+        "pg_fraction": 0.034051630216601424,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "BBD10"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 9,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.01561521455523593,
+        "log10_vehicle_solubility": -0.0036122557049799013,
+        "pg_fraction": -0.01794066233445093,
+        "water_fraction": -0.011254070683070506
+      },
+      "ridge_intercept": 1.030332174680138,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15413928571428573,
+        "log10_vehicle_solubility": 0.7633793604950271,
+        "pg_fraction": 0.15129285714285715,
+        "water_fraction": 0.33860357142857145
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03594573627890592,
+        "log10_vehicle_solubility": 0.21921681640227222,
+        "pg_fraction": 0.032692495082111396,
+        "water_fraction": 0.052156628685300646
+      },
+      "test_record_ids": [
+        "BBD11"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 10,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.018954602531874493,
+        "log10_vehicle_solubility": -0.008584105540857258,
+        "pg_fraction": -0.020388730431324203,
+        "water_fraction": -0.01424353564069223
+      },
+      "ridge_intercept": 1.031382220118585,
+      "scaler_mean": {
+        "ethanol_fraction": 0.155925,
+        "log10_vehicle_solubility": 0.7692175443702699,
+        "pg_fraction": 0.15129285714285715,
+        "water_fraction": 0.33860357142857145
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03442148026409423,
+        "log10_vehicle_solubility": 0.2070407935132896,
+        "pg_fraction": 0.032692495082111396,
+        "water_fraction": 0.052156628685300646
+      },
+      "test_record_ids": [
+        "BBD12"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 11,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.016526711432388617,
+        "log10_vehicle_solubility": -0.005273849887239061,
+        "pg_fraction": -0.018802420267794575,
+        "water_fraction": -0.01732313873255492
+      },
+      "ridge_intercept": 1.029496030603269,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15413928571428573,
+        "log10_vehicle_solubility": 0.7480801293566393,
+        "pg_fraction": 0.1477214285714286,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03594573627890592,
+        "log10_vehicle_solubility": 0.2286455093166893,
+        "pg_fraction": 0.03263860944541928,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "BBD13"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 12,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.01898012771198282,
+        "log10_vehicle_solubility": -0.001668680062279848,
+        "pg_fraction": -0.01660002931508775,
+        "water_fraction": -0.017191077443469423
+      },
+      "ridge_intercept": 1.0316689915202228,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15413928571428573,
+        "log10_vehicle_solubility": 0.7388351301203642,
+        "pg_fraction": 0.1477214285714286,
+        "water_fraction": 0.34574642857142857
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03594573627890592,
+        "log10_vehicle_solubility": 0.21965896345429767,
+        "pg_fraction": 0.03263860944541928,
+        "water_fraction": 0.053217474856498415
+      },
+      "test_record_ids": [
+        "BBD14"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 13,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.014794827165799496,
+        "log10_vehicle_solubility": -0.006196827573357189,
+        "pg_fraction": -0.01704280342104531,
+        "water_fraction": -0.015277685974749952
+      },
+      "ridge_intercept": 1.0292173471469561,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15592500000000004,
+        "log10_vehicle_solubility": 0.7640202559727918,
+        "pg_fraction": 0.14950714285714287,
+        "water_fraction": 0.33860357142857145
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03442148026409423,
+        "log10_vehicle_solubility": 0.21813494833351996,
+        "pg_fraction": 0.034051630216601424,
+        "water_fraction": 0.05215662868530064
+      },
+      "test_record_ids": [
+        "BBD15"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 14,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.013871304336721742,
+        "log10_vehicle_solubility": -0.00842486933736988,
+        "pg_fraction": -0.01575831783223567,
+        "water_fraction": -0.014963165668806058
+      },
+      "ridge_intercept": 1.0282454217201515,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15356785714285714,
+        "log10_vehicle_solubility": 0.7393828640243427,
+        "pg_fraction": 0.1486857142857143,
+        "water_fraction": 0.34574642857142857
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03587976004828417,
+        "log10_vehicle_solubility": 0.220515071971412,
+        "pg_fraction": 0.033751092196991135,
+        "water_fraction": 0.053217474856498415
+      },
+      "test_record_ids": [
+        "LHS1"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 15,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.019958704029900767,
+        "log10_vehicle_solubility": -0.004670134454990761,
+        "pg_fraction": -0.012534696461034181,
+        "water_fraction": -0.015182967009244548
+      },
+      "ridge_intercept": 1.0255454802833437,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15235357142857145,
+        "log10_vehicle_solubility": 0.7508588741094007,
+        "pg_fraction": 0.15107857142857142,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03484830885569687,
+        "log10_vehicle_solubility": 0.22917406181025082,
+        "pg_fraction": 0.033006821341989914,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "LHS2"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 16,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.0075854055759067675,
+        "log10_vehicle_solubility": -0.012942651920769424,
+        "pg_fraction": -0.010191971789799586,
+        "water_fraction": -0.010362409824623983
+      },
+      "ridge_intercept": 1.0259522987349092,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15435357142857145,
+        "log10_vehicle_solubility": 0.7424511912983649,
+        "pg_fraction": 0.14914999999999998,
+        "water_fraction": 0.34574642857142857
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03590251167241305,
+        "log10_vehicle_solubility": 0.22453534281096113,
+        "pg_fraction": 0.03399209466920214,
+        "water_fraction": 0.053217474856498415
+      },
+      "test_record_ids": [
+        "LHS3"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 17,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.017294910522735945,
+        "log10_vehicle_solubility": -0.005117562066544973,
+        "pg_fraction": -0.0192653084946944,
+        "water_fraction": -0.01753316763534522
+      },
+      "ridge_intercept": 1.0294812375480602,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15310357142857142,
+        "log10_vehicle_solubility": 0.7469865381038462,
+        "pg_fraction": 0.1484,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03563091035827156,
+        "log10_vehicle_solubility": 0.22816820066749283,
+        "pg_fraction": 0.033509327059790386,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "LHS4"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 18,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.015209558688754276,
+        "log10_vehicle_solubility": -0.005205211554703166,
+        "pg_fraction": -0.016610262991923416,
+        "water_fraction": -0.015336584593665254
+      },
+      "ridge_intercept": 1.0278544362206146,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15481785714285715,
+        "log10_vehicle_solubility": 0.7569683634436254,
+        "pg_fraction": 0.15061428571428573,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.0356808777675845,
+        "log10_vehicle_solubility": 0.2268876577499121,
+        "pg_fraction": 0.033541879092579545,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "LHS5"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 19,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.014742659144406459,
+        "log10_vehicle_solubility": -0.005233703140634045,
+        "pg_fraction": -0.017289251282776356,
+        "water_fraction": -0.01559695329931717
+      },
+      "ridge_intercept": 1.0280284878732875,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15588928571428573,
+        "log10_vehicle_solubility": 0.7575187623706692,
+        "pg_fraction": 0.14957857142857142,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03447892046791275,
+        "log10_vehicle_solubility": 0.22644594774906132,
+        "pg_fraction": 0.034050491470575796,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "LHS6"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 20,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.01264518997158983,
+        "log10_vehicle_solubility": -0.004027703949871729,
+        "pg_fraction": -0.019142670247796843,
+        "water_fraction": -0.015013543363511118
+      },
+      "ridge_intercept": 1.0257301314785612,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15535357142857142,
+        "log10_vehicle_solubility": 0.753935478466712,
+        "pg_fraction": 0.14886428571428573,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.035203454397695295,
+        "log10_vehicle_solubility": 0.22861812621033387,
+        "pg_fraction": 0.03386584050427842,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "LHS7"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 21,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.016920831434827283,
+        "log10_vehicle_solubility": -0.005501746793048736,
+        "pg_fraction": -0.017061482951782364,
+        "water_fraction": -0.01653948774109882
+      },
+      "ridge_intercept": 1.0281230233165477,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15281785714285714,
+        "log10_vehicle_solubility": 0.7500561833448908,
+        "pg_fraction": 0.1501857142857143,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03538921399009499,
+        "log10_vehicle_solubility": 0.22912190742884705,
+        "pg_fraction": 0.033864865002427705,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "LHS8"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 22,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.015450373945371475,
+        "log10_vehicle_solubility": -0.004816730241579548,
+        "pg_fraction": -0.015567880842384106,
+        "water_fraction": -0.014609110304075294
+      },
+      "ridge_intercept": 1.026762147376114,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15396071428571428,
+        "log10_vehicle_solubility": 0.7535636920940265,
+        "pg_fraction": 0.15032857142857142,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.035953435552965235,
+        "log10_vehicle_solubility": 0.22874913196987898,
+        "pg_fraction": 0.0337750738303397,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "LHS9"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 23,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.015679242592625337,
+        "log10_vehicle_solubility": -0.005278181556711278,
+        "pg_fraction": -0.020279702691396284,
+        "water_fraction": -0.0179190438681032
+      },
+      "ridge_intercept": 1.0281773033971795,
+      "scaler_mean": {
+        "ethanol_fraction": 0.1548892857142857,
+        "log10_vehicle_solubility": 0.7502712979999568,
+        "pg_fraction": 0.14786428571428573,
+        "water_fraction": 0.342175
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03563108934710282,
+        "log10_vehicle_solubility": 0.2291438839161387,
+        "pg_fraction": 0.03285762810200694,
+        "water_fraction": 0.05609014826279974
+      },
+      "test_record_ids": [
+        "LHS10"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 24,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.014280484345937492,
+        "log10_vehicle_solubility": -0.005465039422519242,
+        "pg_fraction": -0.017314281640025044,
+        "water_fraction": -0.015167861621271634
+      },
+      "ridge_intercept": 1.0300382009655522,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15237142857142857,
+        "log10_vehicle_solubility": 0.7534314012568678,
+        "pg_fraction": 0.1510821428571429,
+        "water_fraction": 0.341
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03487258293869736,
+        "log10_vehicle_solubility": 0.2287915027741145,
+        "pg_fraction": 0.033001937752322415,
+        "water_fraction": 0.055566877338418585
+      },
+      "test_record_ids": [
+        "RUN1"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 25,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.010960853869188885,
+        "log10_vehicle_solubility": -0.005396623233062611,
+        "pg_fraction": -0.012242109353037984,
+        "water_fraction": -0.01712369119058412
+      },
+      "ridge_intercept": 1.03364556325911,
+      "scaler_mean": {
+        "ethanol_fraction": 0.1525642857142857,
+        "log10_vehicle_solubility": 0.7368826556091622,
+        "pg_fraction": 0.14797500000000002,
+        "water_fraction": 0.3453607142857143
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.035116898804317176,
+        "log10_vehicle_solubility": 0.21625264501951202,
+        "pg_fraction": 0.033014040573671084,
+        "water_fraction": 0.05386693485727926
+      },
+      "test_record_ids": [
+        "RUN2"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 26,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.016230707742567314,
+        "log10_vehicle_solubility": -0.006534570556791527,
+        "pg_fraction": -0.016792143470482756,
+        "water_fraction": -0.016342682454727354
+      },
+      "ridge_intercept": 1.0302232192692586,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15521428571428572,
+        "log10_vehicle_solubility": 0.7554889629592878,
+        "pg_fraction": 0.1492571428571429,
+        "water_fraction": 0.3417285714285714
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.035350860913801505,
+        "log10_vehicle_solubility": 0.22787968287469784,
+        "pg_fraction": 0.03402138433157497,
+        "water_fraction": 0.05597623128960858
+      },
+      "test_record_ids": [
+        "RUN3"
+      ]
+    },
+    {
+      "center_group_in_test": [],
+      "center_group_in_train": [
+        "BBD4",
+        "BBD5",
+        "BBD6"
+      ],
+      "fold_id": 27,
+      "fold_type": "single",
+      "leakage_guard_pass": true,
+      "n_test_records": 1,
+      "n_train_records": 28,
+      "ridge_coefficients_scaled_feature_space": {
+        "ethanol_fraction": -0.023018828678336198,
+        "log10_vehicle_solubility": -0.005960814649390649,
+        "pg_fraction": -0.01686686192489215,
+        "water_fraction": -0.02196903255963734
+      },
+      "ridge_intercept": 1.024839060702819,
+      "scaler_mean": {
+        "ethanol_fraction": 0.15255357142857146,
+        "log10_vehicle_solubility": 0.7520443441996283,
+        "pg_fraction": 0.15052857142857143,
+        "water_fraction": 0.3412928571428571
+      },
+      "scaler_scale": {
+        "ethanol_fraction": 0.03510417641151281,
+        "log10_vehicle_solubility": 0.22910194394196426,
+        "pg_fraction": 0.03361940189345238,
+        "water_fraction": 0.05576497190743249
+      },
+      "test_record_ids": [
+        "RUN4"
+      ]
+    }
+  ],
+  "leakage_guard": {
+    "group_fold_test_record_ids": [
+      "BBD4",
+      "BBD5",
+      "BBD6"
+    ],
+    "n_violations": 0,
+    "no_fold_splits_center_triplet": true,
+    "status": "PASS"
+  },
+  "metadata": {
+    "R2_conv_definition": "sklearn r2_score over all 29 pooled held-out predictions using the mean of the 29 actual log10(J) values as the baseline",
+    "analysis": "Xiao-internal grouped LOOCV under the Demo 2 main-line 4-feature bridge",
+    "center_group_policy": "BBD4/BBD5/BBD6 are held out together and never split between train and test.",
+    "center_group_record_ids": [
+      "BBD4",
+      "BBD5",
+      "BBD6"
+    ],
+    "features": [
+      "log10_vehicle_solubility",
+      "ethanol_fraction",
+      "pg_fraction",
+      "water_fraction"
+    ],
+    "fold_train_record_counts": [
+      26,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28,
+      28
+    ],
+    "mean_train_records_per_fold": 27.925925925925927,
+    "model": "StandardScaler(train fold only) + Ridge(alpha=1.0)",
+    "n_folds": 27,
+    "n_records": 29,
+    "prediction_weighted_mean_train_records": 27.79310344827586,
+    "prompt_arithmetic_correction": "With all 29 records retained, the 26 single-record folds train on 28 records and the center-group fold trains on 26 records. Therefore the mean is 27.926 records per fold, not 27.6; no center records were discarded.",
+    "random_state": 42,
+    "target": "log10(J)",
+    "within_2x_definition": "abs(predicted log10 J - actual log10 J) <= log10(2)"
+  },
+  "predictions": [
+    {
+      "abs_residual": 0.027828368114198643,
+      "fold_id": 2,
+      "fold_type": "single",
+      "logJ_actual": 1.0034605321095065,
+      "logJ_pred": 1.0312889002237051,
+      "record_id": "BBD1",
+      "residual_pred_minus_actual": 0.027828368114198643,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.0022507538101896873,
+      "fold_id": 3,
+      "fold_type": "single",
+      "logJ_actual": 1.0561422620590524,
+      "logJ_pred": 1.058393015869242,
+      "record_id": "BBD2",
+      "residual_pred_minus_actual": 0.0022507538101896873,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.025788141225741357,
+      "fold_id": 4,
+      "fold_type": "single",
+      "logJ_actual": 0.9777236052888477,
+      "logJ_pred": 1.003511746514589,
+      "record_id": "BBD3",
+      "residual_pred_minus_actual": 0.025788141225741357,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.06928077500192453,
+      "fold_id": 1,
+      "fold_type": "group",
+      "logJ_actual": 0.9628426812012424,
+      "logJ_pred": 1.032123456203167,
+      "record_id": "BBD4",
+      "residual_pred_minus_actual": 0.06928077500192453,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.004904423552608117,
+      "fold_id": 1,
+      "fold_type": "group",
+      "logJ_actual": 1.037027879755775,
+      "logJ_pred": 1.032123456203167,
+      "record_id": "BBD5",
+      "residual_pred_minus_actual": -0.004904423552608117,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.015507908645989499,
+      "fold_id": 1,
+      "fold_type": "group",
+      "logJ_actual": 1.0166155475571774,
+      "logJ_pred": 1.032123456203167,
+      "record_id": "BBD6",
+      "residual_pred_minus_actual": 0.015507908645989499,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.00017539477210992693,
+      "fold_id": 5,
+      "fold_type": "single",
+      "logJ_actual": 1.0261245167454502,
+      "logJ_pred": 1.0259491219733403,
+      "record_id": "BBD7",
+      "residual_pred_minus_actual": -0.00017539477210992693,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.11555123443056603,
+      "fold_id": 6,
+      "fold_type": "single",
+      "logJ_actual": 0.9344984512435677,
+      "logJ_pred": 1.0500496856741337,
+      "record_id": "BBD8",
+      "residual_pred_minus_actual": 0.11555123443056603,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.0650275409197314,
+      "fold_id": 7,
+      "fold_type": "single",
+      "logJ_actual": 0.9474337218870508,
+      "logJ_pred": 1.0124612628067822,
+      "record_id": "BBD9",
+      "residual_pred_minus_actual": 0.0650275409197314,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.004179677676748872,
+      "fold_id": 8,
+      "fold_type": "single",
+      "logJ_actual": 1.0584260244570054,
+      "logJ_pred": 1.0542463467802565,
+      "record_id": "BBD10",
+      "residual_pred_minus_actual": -0.004179677676748872,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.0452220683716954,
+      "fold_id": 9,
+      "fold_type": "single",
+      "logJ_actual": 0.9969492484953811,
+      "logJ_pred": 1.0421713168670765,
+      "record_id": "BBD11",
+      "residual_pred_minus_actual": 0.0452220683716954,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.11813659645579933,
+      "fold_id": 10,
+      "fold_type": "single",
+      "logJ_actual": 0.967547976218862,
+      "logJ_pred": 1.0856845726746613,
+      "record_id": "BBD12",
+      "residual_pred_minus_actual": 0.11813659645579933,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.023429107869653576,
+      "fold_id": 11,
+      "fold_type": "single",
+      "logJ_actual": 1.0203612826477078,
+      "logJ_pred": 0.9969321747780542,
+      "record_id": "BBD13",
+      "residual_pred_minus_actual": -0.023429107869653576,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.07600314319084656,
+      "fold_id": 12,
+      "fold_type": "single",
+      "logJ_actual": 0.9595183769729982,
+      "logJ_pred": 1.0355215201638448,
+      "record_id": "BBD14",
+      "residual_pred_minus_actual": 0.07600314319084656,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.002963955487568448,
+      "fold_id": 13,
+      "fold_type": "single",
+      "logJ_actual": 1.02816441942447,
+      "logJ_pred": 1.0311283749120383,
+      "record_id": "BBD15",
+      "residual_pred_minus_actual": 0.002963955487568448,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.029209578286230498,
+      "fold_id": 14,
+      "fold_type": "single",
+      "logJ_actual": 1.055378331375,
+      "logJ_pred": 1.0261687530887695,
+      "record_id": "LHS1",
+      "residual_pred_minus_actual": -0.029209578286230498,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.1177850828958602,
+      "fold_id": 15,
+      "fold_type": "single",
+      "logJ_actual": 1.1309766916056172,
+      "logJ_pred": 1.013191608709757,
+      "record_id": "LHS2",
+      "residual_pred_minus_actual": -0.1177850828958602,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.09029736007935418,
+      "fold_id": 16,
+      "fold_type": "single",
+      "logJ_actual": 1.119585774961784,
+      "logJ_pred": 1.0292884148824297,
+      "record_id": "LHS3",
+      "residual_pred_minus_actual": -0.09029736007935418,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.027644262312065626,
+      "fold_id": 17,
+      "fold_type": "single",
+      "logJ_actual": 1.0207754881935578,
+      "logJ_pred": 0.9931312258814922,
+      "record_id": "LHS4",
+      "residual_pred_minus_actual": -0.027644262312065626,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.010812443805312766,
+      "fold_id": 18,
+      "fold_type": "single",
+      "logJ_actual": 1.0663259253620379,
+      "logJ_pred": 1.055513481556725,
+      "record_id": "LHS5",
+      "residual_pred_minus_actual": -0.010812443805312766,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.0069398005980656485,
+      "fold_id": 19,
+      "fold_type": "single",
+      "logJ_actual": 1.0614524790871933,
+      "logJ_pred": 1.0545126784891277,
+      "record_id": "LHS6",
+      "residual_pred_minus_actual": -0.0069398005980656485,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.09733675244756923,
+      "fold_id": 20,
+      "fold_type": "single",
+      "logJ_actual": 1.1258064581395268,
+      "logJ_pred": 1.0284697056919576,
+      "record_id": "LHS7",
+      "residual_pred_minus_actual": -0.09733675244756923,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.04030455939484545,
+      "fold_id": 21,
+      "fold_type": "single",
+      "logJ_actual": 1.0588054866759067,
+      "logJ_pred": 1.0185009272810612,
+      "record_id": "LHS8",
+      "residual_pred_minus_actual": -0.04030455939484545,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.06029650592573499,
+      "fold_id": 22,
+      "fold_type": "single",
+      "logJ_actual": 1.0969100130080565,
+      "logJ_pred": 1.0366135070823215,
+      "record_id": "LHS9",
+      "residual_pred_minus_actual": -0.06029650592573499,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.050392441754558925,
+      "fold_id": 23,
+      "fold_type": "single",
+      "logJ_actual": 1.0572856444182146,
+      "logJ_pred": 1.0068932026636557,
+      "record_id": "LHS10",
+      "residual_pred_minus_actual": -0.050392441754558925,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.01952999744945627,
+      "fold_id": 24,
+      "fold_type": "single",
+      "logJ_actual": 1.0051805125037803,
+      "logJ_pred": 1.0247105099532365,
+      "record_id": "RUN1",
+      "residual_pred_minus_actual": 0.01952999744945627,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.11653320322619154,
+      "fold_id": 25,
+      "fold_type": "single",
+      "logJ_actual": 0.9041743682841635,
+      "logJ_pred": 1.020707571510355,
+      "record_id": "RUN2",
+      "residual_pred_minus_actual": 0.11653320322619154,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.04030821863830947,
+      "fold_id": 26,
+      "fold_type": "single",
+      "logJ_actual": 1.0,
+      "logJ_pred": 1.0403082186383095,
+      "record_id": "RUN3",
+      "residual_pred_minus_actual": 0.04030821863830947,
+      "within_2x": true
+    },
+    {
+      "abs_residual": 0.1510945671136833,
+      "fold_id": 27,
+      "fold_type": "single",
+      "logJ_actual": 1.150756439860309,
+      "logJ_pred": 0.9996618727466257,
+      "record_id": "RUN4",
+      "residual_pred_minus_actual": -0.1510945671136833,
+      "within_2x": true
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+k,feature_set,metric,paper_value,rebuilt_value,difference_rebuilt_minus_paper,display_decimals,status
+5,composition_plus_solubility,mean_rmse,0.114,0.11408847080600018,8.847080600017654e-05,3,ROUNDING_MATCH
+5,composition_plus_solubility,sd_spearman,0.186,0.18578936356266446,-0.00021063643733554294,3,ROUNDING_MATCH
+5,composition_only,sd_spearman,0.311,0.3111031815178106,0.00010318151781057994,3,ROUNDING_MATCH

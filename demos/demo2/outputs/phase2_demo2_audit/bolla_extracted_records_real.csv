@@ -1,0 +1,9 @@
+formulation_label,api_name,api_basis,api_pct_ww,dosage_form,drug_state,J_value,J_sd,J_unit,endpoint_kind,Q24_value,Q24_sd,lag_h,membrane,device,receptor_medium,eda_cm2,source_locator
+F1A,ibuprofen,w/w,3,cream,,2.7,0.1,µg/cm2/h,flux,59.1,4.1,1.62,Strat-M®,flow-through diffusion cell,10% v/v ethanol,0.785,Table 7
+F1B,ibuprofen,w/w,3,cream,,2.25,0.08,µg/cm2/h,flux,43.4,1.84,4.92,Strat-M®,flow-through diffusion cell,10% v/v ethanol,0.785,Table 7
+F2A,ibuprofen,w/w,3,cream,,7.44,0.41,µg/cm2/h,flux,163.2,9.36,,Strat-M®,flow-through diffusion cell,10% v/v ethanol,0.785,Table 7
+F2B,ibuprofen,w/w,3,cream,,3.63,0.22,µg/cm2/h,flux,77.5,5.4,,Strat-M®,flow-through diffusion cell,10% v/v ethanol,0.785,Table 7
+F3,ibuprofen,w/w,5,cream,,21.19,0.94,µg/cm2/h,flux,320.8,17.53,1.05,Strat-M®,flow-through diffusion cell,10% v/v ethanol,0.785,Table 7
+F4,ibuprofen,w/w,5,cream,,5.39,1.37,µg/cm2/h,flux,82,31.9,5.17,Strat-M®,flow-through diffusion cell,10% v/v ethanol,0.785,Table 7
+F5,ibuprofen,w/w,3,emulgel,,7.41,0.45,µg/cm2/h,flux,178.5,34.5,1.74,Strat-M®,flow-through diffusion cell,10% v/v ethanol,0.785,Table 7
+F6,ibuprofen,w/w,3,gel,,37.25,5.1,µg/cm2/h,flux,739.6,36.1,2.37,Strat-M®,flow-through diffusion cell,10% v/v ethanol,0.785,Table 7

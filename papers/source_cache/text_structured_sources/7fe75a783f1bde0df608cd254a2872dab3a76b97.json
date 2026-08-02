@@ -1,7 +1,0 @@
-{
-  "url": "http://hdl.handle.net/10261/201207",
-  "namespace": "text_structured_sources",
-  "last_error_type": "ConnectionError",
-  "last_error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))",
-  "failed_at_utc": "2026-04-16T21:48:09.857774+00:00"
-}

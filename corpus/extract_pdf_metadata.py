@@ -106,7 +106,7 @@ def metadata_cache_path(pdf_path: Path) -> Path:
 
 
 def read_pdf_input_csv(path: Path) -> list[PdfInputRow]:
-    """Read the PR-B user PDF CSV format."""
+    """Read the change-set B user PDF CSV format."""
 
     csv_path = Path(path)
     rows: list[PdfInputRow] = []
