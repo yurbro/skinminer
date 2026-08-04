@@ -1,24 +1,127 @@
+<div align="center">
+
 # SkinMiner
 
-SkinMiner turns dermal drug formulation literature into structured, policy-audited records with traceable evidence.
+### Evidence-aware literature mining for dermal drug formulation data
 
-> **Paper:** *SkinMiner: An LLM-powered data mining framework for dermal drug formulations*  
-> **Authors:** `<TO_FILL>`  
-> **Status:** [xxx]
+Turn measurements scattered across scientific text, tables, and figures into structured, policy-verified records with field-level provenance.
 
-## What this does
+[![Python 3.11–3.12](https://img.shields.io/badge/Python-3.11%E2%80%933.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![License: Apache-2.0](https://img.shields.io/badge/Code-Apache--2.0-4C1)](LICENSE)
+[![Data: CC BY 4.0](https://img.shields.io/badge/Gold%20data-CC%20BY%204.0-lightgrey)](LICENSE-DATA)
+[![Status: research software](https://img.shields.io/badge/Status-Research%20software-6f42c1)](#project-status-and-scope)
 
-SkinMiner discovers candidate papers, resolves permitted full text, routes evidence to text, table, or figure extractors, and assembles typed formulation records. It verifies each record against explicit scientific acceptance policies. It preserves evidence locators and failure reasons for audit. The repository also provides a processed gold set, aggregate paper results, and two reproducible modelling demos.
+[Quick start](#quick-start) · [Architecture](docs/architecture.md) · [Acceptance policies](docs/policies.md) · [Reproducibility](docs/reproducibility.md) · [Issues](https://github.com/yurbro/skinminer/issues)
 
-## Pipeline overview
+</div>
 
-```text
-corpus → triage → access → routing → extractors → assembly → verification → patchers → reports
+> **Project status:** SkinMiner is active research software (`v0.1.0`) accompanying a manuscript in preparation. The results below are repository validation benchmarks and have not yet undergone peer review.
+
+## Why SkinMiner?
+
+Quantitative skin-permeation measurements—such as steady-state flux, permeability coefficients, cumulative amount permeated, and lag time—are essential for data-driven dermal formulation design. Yet the values, formulation compositions, and experimental conditions needed to interpret them are often split across prose, tables, and figures.
+
+A single end-to-end LLM call can produce plausible structured output, but it does not reliably answer the questions that matter most for quantitative reuse:
+
+- Does this record actually match the research scope?
+- Is the numerical value attached to the correct formulation and endpoint?
+- Where, exactly, did each field come from?
+- Can the extraction and acceptance decisions be audited or reproduced?
+
+SkinMiner addresses these questions with a modular, multimodal pipeline that separates discovery, routing, extraction, assembly, and scientific verification. It retains a record only when the record is supported by located evidence and satisfies an explicit acceptance policy.
+
+## What makes it different
+
+| Capability | SkinMiner approach |
+|---|---|
+| **Multimodal extraction** | Routes each study to text, table, figure, or mixed extractors instead of forcing every document through one prompt. |
+| **One research specification** | Uses a versioned target definition to align literature retrieval with record-level acceptance. |
+| **Evidence-grounded verification** | Separates extraction from the decision to verify, hold unresolved, or reject a record. |
+| **Field-level provenance** | Preserves locators for source passages, table cells, and figure panels, plus reasons for failures and repairs. |
+| **Typed, resumable execution** | Exchanges Pydantic records between stages and writes manifests and intermediate artifacts that support inspection and restart. |
+| **Provider-neutral LLM layer** | Runs the same structured workflow with OpenAI or Anthropic models and supports stage-specific model selection. |
+| **Decision-ready outputs** | Produces schema-aligned data for downstream modelling while retaining the metadata needed to judge whether datasets should be combined. |
+
+## How it works
+
+```mermaid
+flowchart LR
+    A[Discover and triage] --> B[Resolve full text]
+    B --> C[Route evidence]
+    C --> D[Extract and assemble]
+    D --> E[Verify and report]
 ```
 
-See [docs/architecture.md](docs/architecture.md) for stage contracts and data flow.
+1. **Discover and triage** candidate studies from Europe PMC or a user-supplied document list.
+2. **Resolve permitted content** with provenance, preferring structured XML or HTML before PDF where available.
+3. **Route evidence** to text, table, figure, mixed, or unresolved paths.
+4. **Extract and assemble** formulation, protocol, barrier, endpoint, and evidence fields into a shared schema.
+5. **Verify and report** each candidate against cumulative scientific acceptance policies, preserving verified, unresolved, and rejected outcomes.
 
-## Installation
+The detailed stage contracts are documented in [docs/architecture.md](docs/architecture.md). The current policy ladder is documented in [docs/policies.md](docs/policies.md).
+
+## Output record
+
+A canonical SkinMiner record can include:
+
+- paper identity and DOI
+- active substance and formulation composition
+- IVPT/IVRT study type, diffusion device, membrane or skin barrier, and receptor conditions
+- dose, diffusion area, endpoint type, value, unit, and time
+- modality route and field-level evidence locators
+- verification status, policy level, failure reasons, and deterministic repair history
+
+This structure lets downstream users inspect both the extracted number and the basis for accepting it.
+
+## Current validation snapshot
+
+The bundled ibuprofen evaluation uses a manually annotated, 130-record gold standard containing 25 in-scope records. At the recommended Extended acceptance level, the current GPT configuration produced the following results:
+
+| Evaluation question | Repository result |
+|---|---:|
+| Are retained records in scope? | **25/25 verified records; 100% scope precision** |
+| Do retained values match the source? | **24/25; 96% end-to-end value accuracy** |
+| Were sampled exclusions handled correctly? | **12/12 sampled rejections correct; 0/44 unresolved rows should have been retained** |
+| Is there a stable result across repeated runs? | **24-record stable core across five runs; 13% CV in verified count** |
+| What happens without modular verification? | Strongest single-pass baseline covered **24/25** gold records but emitted **288** raw records requiring further review |
+
+These figures describe the released evaluation configuration, not performance on every drug, endpoint, or literature domain. Recompute the policy metrics with:
+
+```bash
+python -m evaluation.score_run \
+  --gold-format round2 \
+  --provider gpt \
+  --policy-level v2 \
+  --gold-csv evaluation/gold/gold_set_round2_annotation.csv
+```
+
+## Demonstrations
+
+SkinMiner includes two reproducible demonstrations showing how verified literature records can be used after extraction.
+
+### Demo 1 — literature-driven transfer modelling
+
+Rebuilds the Watkinson formulation tables and evaluates whether records extracted from related cosolvent studies can support flux ranking and prediction. The reconstruction matches all 20 reported Table 4 cells at displayed precision and reproduces the reported few-shot analyses.
+
+```bash
+python demos/demo1/rebuild_demo1.py
+```
+
+### Demo 2 — should literature data be pooled with in-house experiments?
+
+Tests Xiao-to-Bolla transfer and a mixing-ratio sweep before committing to pooled modelling. For the released pair, protocol mismatch and multivariate feature-space separation explain why literature augmentation does not reduce the required in-house experiments—a useful negative result that the extracted metadata makes diagnosable.
+
+```bash
+python demos/demo2/outputs/phase2_demo2_modelling/run_demo2_4feature.py
+python demos/demo2/outputs/phase2_demo2_modelling/run_demo2_ratio_sweep.py
+python demos/demo2/outputs/phase2_demo2_modelling/run_demo2_mechanism.py
+```
+
+See [docs/paper_mapping.md](docs/paper_mapping.md) for the full number-to-file trace and [docs/reproducibility.md](docs/reproducibility.md) for assumptions and version sensitivity.
+
+## Quick start
+
+### 1. Install
 
 SkinMiner supports Python 3.11 and 3.12. Python 3.11 matches the validated reconstruction environment.
 
@@ -28,15 +131,13 @@ cd skinminer
 python -m venv .venv
 ```
 
-Activate the environment before installing or running SkinMiner. On POSIX shells:
+Activate the environment:
 
 ```bash
+# POSIX
 source .venv/bin/activate
-```
 
-On Windows PowerShell:
-
-```powershell
+# Windows PowerShell
 .venv\Scripts\Activate.ps1
 ```
 
@@ -47,125 +148,90 @@ python -m pip install --upgrade pip
 python -m pip install -e .
 ```
 
-`pyproject.toml` defines the minimal imported dependencies with compatible version ranges. `requirements-lock.txt` pins the direct dependencies used for verification. Use the lock file when reproducing manuscript results:
+Use the pinned environment when reproducing the released results:
 
 ```bash
 python -m pip install -r requirements-lock.txt
 ```
 
-Copy the environment template and fill the required values:
+### 2. Configure optional services
 
 ```bash
 cp .env.example .env
 ```
 
-Set `OPENAI_API_KEY` for OpenAI extraction and `UNPAYWALL_EMAIL` for Unpaywall access. Set `ANTHROPIC_API_KEY` only when selecting the Anthropic provider. The repository does not commit `.env`. Load its values into your shell before running API-dependent commands.
+Set `OPENAI_API_KEY` for OpenAI-backed stages and `UNPAYWALL_EMAIL` for Unpaywall access. Set `ANTHROPIC_API_KEY` only when selecting the Anthropic provider. Do not commit `.env`.
 
-## Quick start
-
-Validate the bundled synthetic fixture offline:
+### 3. Run an offline smoke test
 
 ```bash
-python -B -m evaluation.validate_gold_labels --gold-jsonl evaluation/fixtures/gold_labels.small.jsonl
+python -B -m evaluation.validate_gold_labels \
+  --gold-jsonl evaluation/fixtures/gold_labels.small.jsonl
 ```
 
-Expected output: `Validated gold-label entries: 1`. This command does not use the network or consume model tokens.
+Expected output: `Validated gold-label entries: 1`. This command does not access the network or consume model tokens.
 
-## Reproducing the paper
-
-### Evaluation metrics
+### 4. Explore the pipeline
 
 ```bash
-python -m evaluation.score_run \
-  --gold-format round2 \
-  --provider gpt \
-  --policy-level v2 \
-  --gold-csv evaluation/gold/gold_set_round2_annotation.csv
+python run_pipeline.py --list-run-profiles
+python run_pipeline.py --list-query-profiles
+python run_pipeline.py --help
 ```
 
-Expected key values: 25 verified, 25 scope true positives, 0 scope false positives, 100% scope precision, 24 scope-and-value true positives, and 96% end-to-end precision. The same audit reports 12/12 correct rejections and 0/44 unresolved rows marked for retention.
+Named run profiles include `budget_lean`, `text_table_baseline`, `balanced_full`, and `figure_deep`, allowing users to trade off cost, coverage, and figure processing explicitly.
 
-### Demo 1
+## Repository guide
 
-```bash
-python demos/demo1/rebuild_demo1.py
-```
+| Path | Purpose |
+|---|---|
+| `run_pipeline.py` | Main orchestration entry point |
+| `corpus/`, `triage/`, `access/` | Literature discovery, screening, and permitted content resolution |
+| `detection/`, `extractors/` | Modality routing and text/table/figure extraction |
+| `assembly/`, `schemas/` | Canonical record construction and typed contracts |
+| `policies/`, `verification/`, `patchers/` | Scientific scope checks, evidence adjudication, and auditable deterministic repairs |
+| `evaluation/` | Gold-standard loaders, scoring, validation fixtures, and regression checks |
+| `demos/` | Reproducible downstream modelling demonstrations |
+| `results/`, `reports/` | Curated aggregate results and run-report builders |
+| `docs/` | Architecture, policy, provenance, failure, and reproducibility documentation |
 
-Expected key values: all 20 Table 4 cells match at displayed precision. The script reports 4 EXACT and 16 ROUNDING_MATCH cells. At k=5, it reproduces RMSE 0.114 and Spearman SD values 0.186 with solubility and 0.311 without solubility.
+## Responsible release boundary
 
-### Demo 2
+The public repository includes source code, a frozen bibliographic snapshot, a processed 130-record gold CSV, aggregate reports, figure inputs, and reproducible demonstrations. It excludes:
 
-```bash
-python demos/demo2/outputs/phase2_demo2_modelling/run_demo2_4feature.py
-python demos/demo2/outputs/phase2_demo2_modelling/run_demo2_figure.py
-python demos/demo2/outputs/phase2_demo2_modelling/run_demo2_ratio_sweep.py
-python demos/demo2/outputs/phase2_demo2_modelling/run_demo2_ratio_lines_redraw.py
-python demos/demo2/outputs/phase2_demo2_modelling/run_demo2_mechanism.py
-python demos/demo2/outputs/phase2_demo2_modelling/run_demo2_feature_space_figure.py
-```
+- source-paper PDFs whose redistribution rights vary by publisher
+- source-derived page images, crops, masks, overlays, and mapping zooms
+- record-level run archives containing extensive source-derived text
+- raw third-party audit packages containing source-derived text or contact information
 
-Expected key values: Xiao to Bolla transfer gives Spearman 0.43, conventional R² -0.32, and 3/8 predictions within twofold. The protocol audit flags 5/8 dimensions. PC1 and PC2 explain 88.8% of feature-space variance, and 0/8 literature points lie inside the in-house four-dimensional hyperrectangle.
+Aggregate artifacts required to inspect the reported metrics remain public. Requests for restricted research artifacts remain subject to copyright, privacy, and research-governance review.
 
-The full number-to-file trace appears in [docs/paper_mapping.md](docs/paper_mapping.md). Reproducibility assumptions and version sensitivity appear in [docs/reproducibility.md](docs/reproducibility.md).
+## Project status and scope
 
-## Repository layout
-
-```text
-access/          Resolve permitted article content and source provenance.
-assembly/        Merge extracted fragments into canonical records.
-configs/         Define run and query profiles.
-corpus/          Build and freeze bibliographic corpora.
-data/frozen/     Store the released bibliographic corpus snapshot.
-demos/demo1/     Rebuild Watkinson Table 3, Table 4, few-shot results, and Fig. 10.
-demos/demo2/     Reproduce cross-protocol transfer, ratio sweep, and feature-space analyses.
-detection/       Route evidence to text, table, figure, or mixed extraction.
-docs/            Document architecture, policies, failures, provenance, and reproduction.
-evaluation/      Load the gold set, score cumulative policies, and run regression tests.
-experiments/     Provide retained paper-analysis and audit scripts.
-extractors/      Extract structured records from text, tables, and figures.
-patchers/        Apply narrow deterministic record corrections.
-policies/        Implement the four acceptance levels.
-reports/         Build aggregate run reports.
-results/         Store curated aggregate run reports and paper-figure inputs.
-schemas/         Define shared Pydantic data contracts.
-triage/          Filter and prioritize candidate papers.
-utils/           Provide I/O, model-client, manifest, resume, and unit helpers.
-verification/    Verify scope and adjudicate ambiguous records.
-```
-
-## What is not in this repository
-
-The public repository excludes:
-
-- source-paper PDFs because redistribution rights vary by publisher
-- figure page images, crops, masks, overlays, and mapping zooms because they reproduce source material
-- record-level run JSONL because it contains extensive source-derived text and creates a large archive
-- the raw Claude audit package because it contains source-derived text and third-party contact information
-
-The aggregate files needed for manuscript figures and metrics remain public. Restricted record-level research artifacts are intended for a controlled Zenodo or OSF archive. Request metadata or access instructions through the repository issue tracker. Access remains subject to copyright, privacy, and research-governance review.
+SkinMiner is currently validated on an ibuprofen dermal-permeation use case. The architecture is designed to generalise, but performance has not yet been established across other active substances, additional endpoint families, supplementary materials, or all publisher formats. Contributions, bug reports, and reproducibility feedback are welcome through the [issue tracker](https://github.com/yurbro/skinminer/issues).
 
 ## Licensing
 
-SkinMiner source code is licensed under the [Apache License 2.0](LICENSE). The [NOTICE](NOTICE) file records project attribution, funding, and the separate terms that apply to the released gold-standard data.
+- Source code: [Apache License 2.0](LICENSE)
+- Gold-standard data under `evaluation/`: [CC BY 4.0](LICENSE-DATA)
+- Third-party bibliographic metadata and source-derived material: original source terms apply
 
-The gold-standard data under `evaluation/` is released under CC BY 4.0 as described in [LICENSE-DATA](LICENSE-DATA). Apache-2.0 does not apply to that data. Third-party bibliographic metadata and source-derived text retain their source terms. The processed gold CSV records provenance in `source_license`, `source_license_url`, `source_license_source`, `source_license_checked_at`, and `verbatim_action`.
-
-The gold-data release keeps bibliographic titles and factual concentration strings. It keeps annotator-authored notes. It keeps source quotations when the recorded source license permits redistribution. It replaces non-permitted quotations with a DOI, page, and figure or table locator.
+The processed gold release records source licensing and provenance fields, and replaces non-permitted quotations with bibliographic and page/table/figure locators.
 
 ## Citation
 
+Until the accompanying manuscript is submitted and its bibliographic details are fixed, cite the software repository:
+
 ```bibtex
-@article{skinminer2026,
-  author = {<TO_FILL>},
-  title = {SkinMiner: An LLM-powered data mining framework for dermal drug formulations},
-  year = {2026},
-  note = {Manuscript under review},
-  url = {https://github.com/yurbro/skinminer}
+@software{skinminer2026,
+  author  = {Zhang, Yu and Wang, Xilu and Tsaoulidis, Dimitrios and Chen, Tao},
+  title   = {SkinMiner: An LLM-powered data mining framework for dermal drug formulations},
+  year    = {2026},
+  version = {0.1.0},
+  url     = {https://github.com/yurbro/skinminer}
 }
 ```
 
-GitHub citation metadata is available in [CITATION.cff](CITATION.cff).
-
 ## Acknowledgements
 
-This work was jointly funded by the China Scholarship Council and the University of Surrey, Grant No. 202306440060.
+This work was jointly funded by the China Scholarship Council and the University of Surrey (Grant No. 202306440060).
