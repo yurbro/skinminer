@@ -11,6 +11,8 @@ Turn measurements scattered across scientific text, tables, and figures into str
 [![Data: CC BY 4.0](https://img.shields.io/badge/Gold%20data-CC%20BY%204.0-lightgrey)](LICENSE-DATA)
 [![Status: research software](https://img.shields.io/badge/Status-Research%20software-6f42c1)](#project-status-and-scope)
 
+🌐 **Language:** **English** · [简体中文](README.zh-CN.md)
+
 [Quick start](#quick-start) · [Architecture](docs/architecture.md) · [Acceptance policies](docs/policies.md) · [Reproducibility](docs/reproducibility.md) · [Issues](https://github.com/yurbro/skinminer/issues)
 
 </div>
