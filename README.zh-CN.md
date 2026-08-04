@@ -11,7 +11,9 @@
 [![Data: CC BY 4.0](https://img.shields.io/badge/Gold%20data-CC%20BY%204.0-lightgrey)](LICENSE-DATA)
 [![Status: research software](https://img.shields.io/badge/Status-Research%20software-6f42c1)](#项目状态与适用范围)
 
-[English](README.md) · [快速开始](#快速开始) · [系统架构](docs/architecture.md) · [接受策略](docs/policies.md) · [复现说明](docs/reproducibility.md) · [问题反馈](https://github.com/yurbro/skinminer/issues)
+🌐 **语言：** [English](README.md) · **简体中文**
+
+[快速开始](#快速开始) · [系统架构](docs/architecture.md) · [接受策略](docs/policies.md) · [复现说明](docs/reproducibility.md) · [问题反馈](https://github.com/yurbro/skinminer/issues)
 
 </div>
 
