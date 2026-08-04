@@ -1,6 +1,10 @@
 <div align="center">
 
-# SkinMiner
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/skinminer-logo-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/skinminer-logo-light.png">
+  <img alt="SkinMiner" src="assets/skinminer-logo-light.png" width="760">
+</picture>
 
 ### 面向皮肤药物制剂数据的证据感知文献挖掘
 
