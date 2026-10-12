@@ -2,8 +2,20 @@
 
 This document maps the manuscript, published repository labels, archived run directories, source files, and reproducible commands. It is the canonical naming reference for the other repository documents.
 
-Paper title: *SkinMiner: An LLM-powered data mining framework for dermal drug formulations*  
-Status: Manuscript under review
+Paper title: *SkinMiner: LLM-powered data mining to accelerate formulation design for skin products*  
+Status as of 2026-10-12: Submitted to *International Journal of Pharmaceutics* on 12 October 2026  
+Corresponding author: Tao Chen
+
+Submission is confirmed by the author-verification email reported by the author on 12 October 2026. A submission acknowledgement or assigned manuscript number does not establish editorial handling, external peer review, or acceptance; none of those later stages has been independently confirmed as of that date. Update each stage only when supported by a dated journal-system record or editorial communication.
+
+## Historical title mapping
+
+| Title | Role |
+|---|---|
+| *SkinMiner: LLM-powered data mining to accelerate formulation design for skin products* | Formal submission title, 12 October 2026; use for current manuscript references |
+| *SkinMiner: An LLM-powered data mining framework for dermal drug formulations* | Earlier repository/manuscript working title; retained here for provenance |
+
+The earlier `Manuscript under review` label was not supported by independent evidence of journal peer review. The title and status correction does not change run labels, archived paths, figure/table mappings, or reported experimental results below.
 
 ## Run labels
 
