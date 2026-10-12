@@ -11,7 +11,7 @@ authors:
     given-names: "<TO_FILL>"
 preferred-citation:
   type: article
-  title: "SkinMiner: An LLM-powered data mining framework for dermal drug formulations"
+  title: "SkinMiner: LLM-powered data mining to accelerate formulation design for skin products"
   authors:
     - family-names: "<TO_FILL>"
       given-names: "<TO_FILL>"

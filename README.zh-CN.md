@@ -21,7 +21,7 @@
 
 </div>
 
-> **项目状态：** SkinMiner 是正在持续开发的研究软件（`v0.1.0`），配套论文目前处于准备阶段。下文结果均为本仓库的验证基准，尚未经同行评审。
+> **项目状态：** SkinMiner 是正在持续开发的研究软件（`v0.1.0`）。配套论文 *SkinMiner: LLM-powered data mining to accelerate formulation design for skin products* 已于 2026 年 10 月 12 日投稿至 *International Journal of Pharmaceutics*，通讯作者为 Tao Chen。截至该日，尚未独立确认编辑处理、外部同行评审或正式接收状态。下文结果仍为本仓库的验证基准。
 
 ## 为什么需要 SkinMiner？
 
@@ -226,12 +226,12 @@ SkinMiner 目前已在布洛芬皮肤渗透案例上完成验证。其架构具�
 
 ## 引用
 
-在配套论文完成投稿并确定书目信息前，请按软件仓库引用：
+配套论文已投稿，尚无正式发表的文章引用信息。引用软件时，请按仓库引用：
 
 ~~~bibtex
 @software{skinminer2026,
   author  = {Zhang, Yu and Wang, Xilu and Tsaoulidis, Dimitrios and Chen, Tao},
-  title   = {SkinMiner: An LLM-powered data mining framework for dermal drug formulations},
+  title   = {SkinMiner: LLM-powered data mining to accelerate formulation design for skin products},
   year    = {2026},
   version = {0.1.0},
   url     = {https://github.com/yurbro/skinminer}

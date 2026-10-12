@@ -21,7 +21,7 @@ Turn measurements scattered across scientific text, tables, and figures into str
 
 </div>
 
-> **Project status:** SkinMiner is active research software (`v0.1.0`) accompanying a manuscript in preparation. The results below are repository validation benchmarks and have not yet undergone peer review.
+> **Project status:** SkinMiner is active research software (`v0.1.0`). The accompanying manuscript, *SkinMiner: LLM-powered data mining to accelerate formulation design for skin products*, was submitted to *International Journal of Pharmaceutics* on 12 October 2026; the corresponding author is Tao Chen. As of that date, editorial handling, external peer review, and acceptance have not been independently confirmed. The results below remain repository validation benchmarks.
 
 ## Why SkinMiner?
 
@@ -226,12 +226,12 @@ The processed gold release records source licensing and provenance fields, and r
 
 ## Citation
 
-Until the accompanying manuscript is submitted and its bibliographic details are fixed, cite the software repository:
+The accompanying manuscript has been submitted; a published article citation is not yet available. For the software, cite the repository:
 
 ```bibtex
 @software{skinminer2026,
   author  = {Zhang, Yu and Wang, Xilu and Tsaoulidis, Dimitrios and Chen, Tao},
-  title   = {SkinMiner: An LLM-powered data mining framework for dermal drug formulations},
+  title   = {SkinMiner: LLM-powered data mining to accelerate formulation design for skin products},
   year    = {2026},
   version = {0.1.0},
   url     = {https://github.com/yurbro/skinminer}
